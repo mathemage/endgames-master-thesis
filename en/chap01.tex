@@ -27,8 +27,8 @@ An \emph{extensive-form game} consists of
       \item Set $Z \subseteq H$ is the set of \emph{terminal histories}, i.e. histories that are not prefixes of any other histories.
     \end{itemize}
   \item the set of available actions $A(h) = \braces{a: (h, a) \in H}$ for every node $h \in H \setminus Z$,
-  \item a~function $p$ assigning an~\emph{acting player} to \todo.
-    It forms the set $P \cup c$, where \todo
+  \item a~function $p$ assigning an~\emph{acting player} to each $h \in H \setminus Z$.
+    The acting players are taken from the set $P \cup c$, where $c$ is the \textbf{c}hance player (e.~g. a~dice, the card dealer, the nature etc.).
   \item a~function $f_c$ determining the probability measure on $A(h)$ for every node $h$ where $p(h) = c$.
     That is, the nodes of the chance player.
   \item \emph{information partition}. \emph{information set}
