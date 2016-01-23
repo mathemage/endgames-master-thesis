@@ -18,21 +18,21 @@ The field of Game Theory deals with interactions or conflicts between $2$ or mor
 An \emph{extensive-form game} consists of
 
 \begin{itemize}
-  \item a finite set of \emph{players} $P$
-  \item a finite set $H$ of all possible \emph{histories}
+  \item a finite set of \emph{players} $P$,
+  \item a finite set $H$ of all possible \emph{histories},
     \begin{itemize}
       \item Each history consists of individual \emph{actions}.
       \item $h \sqsubseteq h'$ denotes that history~$h$ is a~prefix of $h'$.
       \item $\emptyset \in H$ and $h' \in H \land h \sqsubseteq h' \implies h \in H$
       \item Set $Z \subseteq H$ is the set of \emph{terminal histories}, i.e. histories that are not prefixes of any other histories.
     \end{itemize}
-  \item the set of available actions $A(h) = \braces{a: (h, a) \in H}$ for every node $h \in H \setminus Z$
+  \item the set of available actions $A(h) = \braces{a: (h, a) \in H}$ for every node $h \in H \setminus Z$,
   \item a~function $p$ assigning an~\emph{acting player} to \todo.
     It forms the set $P \cup c$, where \todo
   \item a~function $f_c$ determining the probability measure on $A(h)$ for every node $h$ where $p(h) = c$.
     That is, the nodes of the chance player.
   \item \emph{information partition}. \emph{information set}
-  \item \emph{utility function}
+  \item \emph{utility function},
 \end{itemize}
 
 There are further notions related to any extensive-form game:
