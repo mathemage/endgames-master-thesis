@@ -30,7 +30,10 @@ An \emph{extensive-form game} consists of
   \item a~function $p$ assigning an~\emph{acting player} to each $h \in H \setminus Z$.
     The acting players are taken from the set $P \cup c$, where $c$ is the \textbf{c}hance player (e.~g. a~dice, the card dealer, the nature etc.).
   \item a~function $f_c$ determining the probability measure over actions $A(h)$ for nodes $h$ with $p(h) = c$, the nodes of the chance player.
-  \item \emph{information partition}. \emph{information set}
+  \item The partition $\I_i$ of nodes $\braces{h \in H: p(h) = i}$ is called the \emph{information partition} of player~$i$.
+    Its element $I \in \I_i$ is an \emph{information set} of player~$i$.
+    An information set represents grouping of histories that are indistinguishable from $i$'s point of view.
+    In the game of poker, for example, this might be because of hidden cards of opponents.
   \item \emph{utility function},
 \end{itemize}
 
