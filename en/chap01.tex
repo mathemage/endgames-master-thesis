@@ -40,8 +40,13 @@ An \emph{extensive-form game} consists of
 There are further notions related to any extensive-form game:
 
 \begin{itemize}
-  \item \emph{strategy}
-  \item \emph{strategy profile}. $\Sigma$
+  \item \emph{strategy}~$\sigma_i$ of (non-chance) player~$i$ determines a~probability distribution over $A(I)$ at every $I \in \I_i$.
+    Thus $\pi ^\sigma (I, a)$ is the probability of action $a$ at the information set~$I$.
+  \item a~\emph{strategy profile} is a~vector of all (non-chance) players' strategies denoted by $\sigma = (\sigma_1, \sigma_2, \ldots, \sigma_ {\abs{P}})$.
+    The set of all such possible strategy profiles is denoted by $\Sigma$.
+  \item We use the Greek letter $\pi$ to evaluate the probability corresponding to a~profile~$\sigma$:
+    \[\pi ^\sigma(h) = \prod _{i \in P \cup c} \pi _i ^\sigma (h)\]
+    
   \item \emph{counterfactual value}
   \item \emph{counterfactual best response}
   \item \emph{counterfactual best response value}
