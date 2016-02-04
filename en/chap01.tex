@@ -50,7 +50,12 @@ There are further notions related to any extensive-form game:
   \item \todo $\pi _{-i} (h)$
   \item \todo $\sigma | _{I \goto a}$
   \item \todo $u_i (\sigma)$
-  \item \emph{counterfactual value}
+  \item The \emph{counterfactual value} $v _p ^\sigma (I)$ is the expected utility provided that the information set $I$ is reached and all players play according to strategy $\sigma$ with exception of player~$p$, who plays to reach $I$:
+    \[ v _p ^\sigma (I) = \sum\limits _{h \in I, h' \in Z}
+      \frac
+      {\pi _{-i} ^\sigma(h) \pi ^\sigma(h,h') u_i(h')}
+      {\pi _{-i} ^\sigma (I)} \]
+
   \item \emph{counterfactual best response}
   \item \emph{counterfactual best response value}
 \end{itemize}
