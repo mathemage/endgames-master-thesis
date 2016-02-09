@@ -52,7 +52,9 @@ There are further notions related to any extensive-form game:
     
   \item $\sigma | _{I \goto a}$ denotes the strategy identical to $\sigma$ with the only one exception:
     the action~$a$ is always played at the information set~$I$.
-  \item \todo $u_i (\sigma)$
+  \item The \emph{expected utility}~$u_i (\sigma)$ for player~$i$, given the strategic profile $\sigma$, is defined as:
+    \[ u_i (\sigma) = \sum _{z \in Z} \pi ^\sigma (z) u_i(z)\]
+
   \item The \emph{counterfactual value} $v _p ^\sigma (I)$ is the expected utility provided that the information set $I$ is reached and all players play according to strategy $\sigma$ with exception of player~$p$, who plays to reach $I$:
     \[ v _p ^\sigma (I) = \sum\limits _{h \in I, h' \in Z}
       \frac
