@@ -40,10 +40,12 @@ An \emph{extensive-form game} consists of
 There are further notions related to any extensive-form game:
 
 \begin{itemize}
-  \item \emph{strategy}~$\sigma_i$ of (non-chance) player~$i$ determines a~probability distribution over $A(I)$ at every $I \in \I_i$.
+  \item \emph{Strategy}~$\sigma_i$ of (non-chance) player~$i$ determines a~probability distribution over $A(I)$ at every $I \in \I_i$.
     Thus $\pi ^\sigma (I, a)$ is the probability of action $a$ at the information set~$I$.
-  \item a~\emph{strategy profile} is a~vector of all (non-chance) players' strategies denoted by $\sigma = (\sigma_1, \sigma_2, \ldots, \sigma_ {\abs{P}})$.
+    $\Sigma_i$ denotes the set of all possible strategies for player~$i$.
+  \item A~\emph{strategy profile} is a~vector of all (non-chance) players' strategies denoted by $\sigma = (\sigma_1, \sigma_2, \ldots, \sigma_ {\abs{P}})$.
     The set of all such possible strategy profiles is denoted by $\Sigma$.
+    Hence, it is the Cartesian product $\Sigma = \prod\limits _{i \in P} \Sigma_i$.
   \item We use the Greek letter $\pi$ to evaluate the probability corresponding to a~profile~$\sigma$:
     \[\pi ^\sigma(h) = \prod _{i \in P \cup \braces{c}} \pi _i ^\sigma (h)\]
     
@@ -54,6 +56,9 @@ There are further notions related to any extensive-form game:
     the action~$a$ is always played at the information set~$I$.
   \item The \emph{expected utility}~$u_i (\sigma)$ for player~$i$, given the strategic profile $\sigma$, is defined as:
     \[ u_i (\sigma) = \sum _{z \in Z} \pi ^\sigma (z) u_i(z)\]
+
+  \item A~\emph{Nash equilibrium} (in the context of extensive-form games) is a~strategy profile $\sigma$ such that any player~$i \in P$ has no incentive to deviate:
+    \[ u_i (\sigma) \geq \max _{\sigma'_i \in \Sigma_i} u_i ((\sigma'_i, \sigma_{-i})) \]
 
   \item The \emph{counterfactual value} $v _p ^\sigma (I)$ is the expected utility provided that the information set $I$ is reached and all players play according to strategy $\sigma$ with exception of player~$p$, who plays to reach $I$:
     \[ v _p ^\sigma (I) = \sum\limits _{h \in I, h' \in Z}
