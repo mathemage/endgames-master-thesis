@@ -57,7 +57,7 @@ There are further notions related to any extensive-form game:
   \item Given the strategic profile $\sigma$, the \emph{expected utility}~$u_i (\sigma)$ for player~$i$ is defined as:
     \[ u_i (\sigma) = \sum _{z \in Z} \pi ^\sigma (z) u_i(z)\]
 
-  \item A~\emph{best response} $BR _i (\sigma)$ of player $i$ for given $\sigma _{-p}$ is such a~strategy $\sigma _i \in \Sigma _i$ that maximizes player's expected utility against others:
+  \item A~\emph{best response} $BR _i (\sigma _{-i})$ (or briefly $BR _i (\sigma)$) of player $i$ for given $\sigma _{-p}$ is such a~strategy $\sigma _i \in \Sigma _i$ that maximizes player's expected utility against others:
     \[ u_i (\sigma) = \max _{\sigma'_i \in \Sigma_i} u_i ((\sigma'_i, \sigma_{-i})) \]
 
   \item A~\emph{Nash equilibrium} (in the context of extensive-form games) is a~strategy profile $\sigma$ such that no player~$i \in P$ has any incentive to deviate from his strategy.
@@ -70,16 +70,19 @@ There are further notions related to any extensive-form game:
       {\pi _{-i} ^\sigma(h) \pi ^\sigma(h,h') u_i(h')}
       {\pi _{-i} ^\sigma (I)} \]
 
-  \item A~\emph{counterfactual best response} $CBR _i (\sigma)$ of player~$i$ is a~strategy maximizing the counterfactual value at each information set $I \in \I _i$:
+  \item A~\emph{counterfactual best response} $CBR _i (\sigma _{-i})$ (or briefly $CBR _i (\sigma)$) of player~$i$ is a~strategy maximizing the counterfactual value at each information set $I \in \I _i$:
     \[ \pi ^\sigma (I, a) \geq 0
       \; \Longleftrightarrow \;
       v _i ^\sigma (I, a) = \max _{a' \in A(I)} v _i ^\sigma (I, a') \]
 
     Note that $CBR _i (\sigma)$ is always a best response $BR _i (\sigma)$, but the reverse implication does not need to hold:
     a~best response $\sigma$ can select an~arbitrary action in an~unreachable information set $I$ (the one where $\pi ^\sigma (I) = 0$).
-    Such best responses are not in general counterfactual best responses.
+    Such best responses are in general not counterfactual best responses.
 
-  \item \emph{counterfactual best response value}
+  \item For the sake of notation's simplicity, we will define \emph{counterfactual best response value} as the counterfactual value for the strategy, where player $i$ plays according $CBR _i (\sigma _{-i})$ rather than the original $\sigma$.
+    Formally, it is
+    \[ CBV _i ^\sigma (I) = v _i ^{(\sigma _{-i}, CBR _i (\sigma _{-i} ))} (I) \]
+
 \end{itemize}
 
 There may be various properties, which an~extensive-form game can have.
