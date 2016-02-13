@@ -57,8 +57,12 @@ There are further notions related to any extensive-form game:
   \item The \emph{expected utility}~$u_i (\sigma)$ for player~$i$, given the strategic profile $\sigma$, is defined as:
     \[ u_i (\sigma) = \sum _{z \in Z} \pi ^\sigma (z) u_i(z)\]
 
-  \item A~\emph{Nash equilibrium} (in the context of extensive-form games) is a~strategy profile $\sigma$ such that any player~$i \in P$ has no incentive to deviate:
-    \[ u_i (\sigma) \geq \max _{\sigma'_i \in \Sigma_i} u_i ((\sigma'_i, \sigma_{-i})) \]
+  \item A~\emph{best response} $BR _i (\sigma)$ of player $i$ for given $\sigma _{-p}$ is such a~strategy $\sigma _i \in \Sigma _i$ that maximizes player's expected utility against others:
+    \[ u_i (\sigma) = \max _{\sigma'_i \in \Sigma_i} u_i ((\sigma'_i, \sigma_{-i})) \]
+
+  \item A~\emph{Nash equilibrium} (in the context of extensive-form games) is a~strategy profile $\sigma$ such that no player~$i \in P$ has any incentive to deviate from his strategy.
+    In other words, all players are playing best responses against each other:
+    \[ \forall i \in P\colon u_i (\sigma) = \max _{\sigma'_i \in \Sigma_i} u_i ((\sigma'_i, \sigma_{-i})) \]
 
   \item The \emph{counterfactual value} $v _i ^\sigma (I)$ is the expected utility provided that the information set $I$ is reached and all players play according to strategy $\sigma$ with exception of player~$i$, who plays to reach $I$:
     \[ v _i ^\sigma (I) = \sum\limits _{h \in I, \; h' \in Z}
