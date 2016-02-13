@@ -60,8 +60,8 @@ There are further notions related to any extensive-form game:
   \item A~\emph{Nash equilibrium} (in the context of extensive-form games) is a~strategy profile $\sigma$ such that any player~$i \in P$ has no incentive to deviate:
     \[ u_i (\sigma) \geq \max _{\sigma'_i \in \Sigma_i} u_i ((\sigma'_i, \sigma_{-i})) \]
 
-  \item The \emph{counterfactual value} $v _p ^\sigma (I)$ is the expected utility provided that the information set $I$ is reached and all players play according to strategy $\sigma$ with exception of player~$p$, who plays to reach $I$:
-    \[ v _p ^\sigma (I) = \sum\limits _{h \in I, h' \in Z}
+  \item The \emph{counterfactual value} $v _i ^\sigma (I)$ is the expected utility provided that the information set $I$ is reached and all players play according to strategy $\sigma$ with exception of player~$i$, who plays to reach $I$:
+    \[ v _i ^\sigma (I) = \sum\limits _{h \in I, \; h' \in Z}
       \frac
       {\pi _{-i} ^\sigma(h) \pi ^\sigma(h,h') u_i(h')}
       {\pi _{-i} ^\sigma (I)} \]
