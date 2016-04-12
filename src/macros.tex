@@ -88,7 +88,13 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % The following section was added by Karel Ha.
-\renewcommand\thechapter{\Roman{chapter}}
+
+% http://tex.stackexchange.com/questions/211414/chapter-0-roman-numerals
+\newcommand{\ZeroRoman}[1]{% 0 + \Roman
+  \ifcase\value{#1}\relax 0\else% Chapter 0
+  \Roman{#1}\fi}% All other chapters
+\renewcommand{\thechapter}{\ZeroRoman{chapter}}
+
 % mezera v Table of Contents před číslem kapitoly
 \renewcommand*\cftchapnumwidth{2.2em}
 \renewcommand*\cftsecnumwidth{2.6em}
