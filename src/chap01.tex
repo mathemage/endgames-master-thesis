@@ -12,5 +12,23 @@ In these domains, online endgame solving has~significant importance, as it subst
 \section{Go Endgames}
 \todo
 
+\subsection{Why Focus on Go Endgames?}
+
+In~his dissertation (\cite{Muller1995computer}), Martin Müller mentions the following advantages of~Go endgames for research:
+\begin{itemize}
+  \item The complexity of~the game often decreases towards the end.
+    This allows the study of~Go in a~controlled, simplified context.
+  \item An~exact solution is possible for some classes of~endgame positions.
+  \item The exact solution of~parts of~a~Go board facilitates the analysis of the rest.
+    Reaching the ultimate goal of~winning the game is easier when complete information about part of~the game is at~hand.
+    Such information is useful as~additional input for the heuristics that deal with the rest of~the board.
+
+    Human experts use similar reasoning: they observe the score continually from the early midgame, and base their strategic decisions on~such an~analysis [Takagawa 85].
+  \item Some methods developed for partitioning, searching and scoring during endgame carry over to the midgame and opening.
+    As programs improve, fewer game-deciding blunders will occur, so the importance of~endgame-type calculation is bound to~increase.
+  \item On~a~more philosophical note, the endgame relates to the full game of~Go similarly as Go relates to~real world AI problems.
+    It provides a~simplified, more controlled sub-domain that allows the use of~stronger theoretical models than the larger, more general problem.
+\end{itemize}
+
 \subsection{AlphaGo}
 \todo
