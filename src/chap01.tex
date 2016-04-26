@@ -55,5 +55,18 @@ According to~(\cite{Muller1995computer}), there are very strong reasons to~parti
   If each local game is simple enough to~analyze completely (such as in Figure~\ref{fig:late-Go-endgame}), combinatorial game theory can compute an~optimal move for the full board position.
 \end{quotation}
 
+\subsection{Playing Computer Go as a~Sum of~Local Games}
+
+This is the general procedure for playing Go as a~sum of~local games used in~(\cite{Muller1995computer}):
+\begin{enumerate}
+  \item Board partition: find safe blocks, safe territories, and local areas.
+  \item Generate local game trees in each area.
+  \item Evaluate local terminal positions.
+  \item Transform local game trees into mathematical games (and simplify games).
+  \item Find an optimal move in the sum game and play it.
+\end{enumerate}
+M{\"u}ller proposes heuristic algorithms for playing the entire game, and exact algorithms for late endgame positions.
+Thus, solving endgames in 1995---at the infancy of Computer Go---already played a~vital role.
+
 \subsection{AlphaGo}
 \todo
