@@ -102,15 +102,23 @@ The following benefits and problems of~the sum game model for computer Go are li
 
 \subsection{A~Sum Game Model for the Entire Game of~Go}
 
-The two obstacles of~heuristic board partition (in the sum game model) are (a) the impossibility of a~perfect, precise split and (b) the dependencies between the resulting subgames:
-\begin{quotation}
-When applying a~local game model to the opening or~midgame, the biggest obstacle is the fact that the board cannot be partitioned into independent subgames.
-Few areas are completely surrounded, and surrounding stones are not yet invulnerable.
-We develop heuristics for board partition that split the imperfectly surrounded areas of~the opening and midgame.
+Citing~(\cite{Muller1995computer}), there are several obstacles of~heuristic board partition (in the sum game model).
 
-An~unavoidable side effect of~heuristic partition are dependencies between the resulting local games.
-Simple strategies for dealing with dependencies are pretending the games are independent, or re-searching a~bigger merged game.~(\cite{Muller1995computer})
-\end{quotation}
+\begin{itemize}[(a)]
+  \item the impossibility of a~perfect, precise split:
+    \begin{quotation}
+      When applying a~local game model to the opening or~midgame, the biggest obstacle is the fact that the board cannot be partitioned into independent subgames.
+      Few areas are completely surrounded, and surrounding stones are not yet invulnerable.
+      We develop heuristics for board partition that split the imperfectly surrounded areas of~the opening and midgame.
+    \end{quotation}
+
+  \item the dependencies between the resulting subgames: 
+    \begin{quotation}
+      An~unavoidable side effect of~heuristic partition are dependencies between the resulting local games.
+      Simple strategies for dealing with dependencies are pretending the games are independent, or re-searching a~bigger merged game.
+    \end{quotation}
+\end{itemize}
+
 
 \subsection{AlphaGo}
 \label{ssec:AlphaGo}
