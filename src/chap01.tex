@@ -123,9 +123,17 @@ Citing~(\cite{Muller1995computer}), there are several obstacles of~heuristic boa
       Even after heuristic partition, areas remain that are too big for an~exhaustive search by a~computer Go program, which must produce a~move in a~few seconds or minutes.
       In such big areas we use selective search.
       Tree growth is controlled by limiting the number of~moves generated, and by stopping the search before reaching a~terminal position.
+
+      There are two levels of~search control:
+      for the whole sum game, search time must be distributed between local games.
+      For each local game, we must decide which nodes to expand and which expert modules to use for search and evaluation.
+      A~post-processing stage handles detected dependencies between games.
     \end{quotation}
 \end{itemize}
 
+Hence, the sum game model makes the best sense during the endgame part.
+This general principle is as well applicable in poker:
+we wait until the late stage of~the game, when it has greater impact to refine and re-solve the reached endgames.
 
 \subsection{AlphaGo}
 \label{ssec:AlphaGo}
