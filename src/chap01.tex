@@ -117,6 +117,7 @@ Citing~(\cite{Muller1995computer}), there are several obstacles of~heuristic boa
       An~unavoidable side effect of~heuristic partition are dependencies between the resulting local games.
       Simple strategies for dealing with dependencies are pretending the games are independent, or re-searching a~bigger merged game.
     \end{quotation}
+    See Section~\ref{ssec:dependencies-of-subgames} for more details.
 
   \item the difficulty (or almost infeasibility) of~exhaustive search in still quite large subgames:
     \begin{quotation}
@@ -134,6 +135,26 @@ Citing~(\cite{Muller1995computer}), there are several obstacles of~heuristic boa
 Hence, the sum game model makes the best sense during the endgame part.
 This general principle is as well applicable in poker:
 we wait until the late stage of~the game, when it has greater impact to refine and re-solve the reached endgames.
+
+\subsection{Dependencies Between Local Games}
+\label{ssec:dependencies-of-subgames}
+
+(\cite{Muller1995computer}) warns against the dangers of~subgame dependencies:
+
+\begin{quotation}
+  Dependencies between games occur when the areas of~local games overlap during area expansion, and when constraints of~one local game are related to~another game.
+  The effect of~such dependencies differs widely:
+  often it is so small that independence is a~useful approximation.
+  In cases when a~move works as a~\emph{double threat} however, dependency analysis is crucial.
+\end{quotation}
+
+Strategies for dealing with dependencies are:
+\begin{itemize}
+  \item Ignore the dependency, treat games as independent
+  \item Prove that the dependency does not affect the value of~the sum, or play of~the sum game
+  \item Merge mutually dependent local games, then re-search the combined game, possibly using previously generated information on single games
+  \item Analyze the interaction between local games, then use a~specialized theory to compute the joint game value
+\end{itemize}
 
 \subsection{AlphaGo}
 \label{ssec:AlphaGo}
