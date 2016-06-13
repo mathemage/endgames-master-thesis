@@ -197,8 +197,10 @@ In greater details, there are several points and aspects worth mentioning:
   \item move generation
     \begin{quotation}
       We generate all legal moves for both colors, except in a~terminal position or if moves can be pruned.
-      Examples of~\emph{pruning rules} are restricting the number of~\emph{dame} moves generated to at most one, and pruning moves dominated by other moves.
-      \emph{Termination rules} decide when a~position can be evaluated statically, without further expanding the tree.
+      Examples of~\emph{pruning rules} are restricting the number of~\emph{dame} moves generated to at most one, and pruning moves dominated by other moves.%
+      \footnote{Compare with \emph{policy networks} of~AlphaGo in Subsection~\ref{ssec:AlphaGo}}
+      \emph{Termination rules} decide when a~position can be evaluated statically, without further expanding the tree.%
+      \footnote{Compare with \emph{value network} of~AlphaGo in Subsection~\ref{ssec:AlphaGo}}
     \end{quotation}
 \end{enumerate}
 
