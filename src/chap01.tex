@@ -156,6 +156,28 @@ Strategies for dealing with dependencies are:
   \item Analyze the interaction between local games, then use a~specialized theory to compute the joint game value
 \end{itemize}
 
+\subsection{Local Search and Evaluation in the Endgame}
+
+Here is an overview of treating endgames in~(\cite{Muller1995computer}):
+\begin{quotation}
+  Following board partition, the algorithm for converting a Go endgame into a combinatorial game consists of generation of local game trees, scoring of local terminal positions, and evaluation of local games as mathematical games.
+  Finally, a move in the resulting sum game must be selected, and identified with a move in the Go position.
+
+  Safe territories and dame points are games that can be evaluated statically.
+  Other local games are analyzed by local game tree search.
+  Terminal positions are evaluated, and the values backed up in the tree, resulting in a mathematical game evaluation of each node.
+
+  The result of search and analysis is a complete description of possible endgame plays that makes perfect play possible.
+  We save the results of local analysis in a database of local positions.
+  During play, each full board position corresponds one-to- one to a set of local positions, one from each local game.
+  Positions and their values are retrieved from the database.
+
+  The value of a full board position is the sum of local position values.
+  A sum game evaluation algorithm selects a sufficiently good or optimal move.
+  We also consider an algorithm with lower memory requirements, which stores only a subset of the positions of a local game in the database.
+  In this case, if play reaches a position not stored in the database, we must re-search the corresponding local game.
+\end{quotation}
+
 \subsection{AlphaGo}
 \label{ssec:AlphaGo}
 \todo
