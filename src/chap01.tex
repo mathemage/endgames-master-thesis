@@ -160,6 +160,18 @@ Strategies for dealing with dependencies are:
 
 Here is an overview of treating endgames in~(\cite{Muller1995computer}):
 \begin{quotation}
+  An~endgame area consists of~unsettled stones, and of~empty points not yet surrounded by~either color.
+  Safe stones, usually of~both colors, surround the area.
+  During endgame play, unsettled stones either become safe or are captured.
+  Empty points will become occupied, safe territory or dame.
+  A~rare case are ``untouchable'' empty points in seki.
+
+  \begin{figure}[H]
+    \centering
+    \includegraphics[width=.7\textwidth]{../img/Go_search_tree.png}
+    \caption{Local game tree with evaluation of terminal nodes}
+  \end{figure}
+
   Following board partition, the algorithm for converting a Go endgame into a combinatorial game consists of generation of local game trees, scoring of local terminal positions, and evaluation of local games as mathematical games.
   Finally, a move in the resulting sum game must be selected, and identified with a move in the Go position.
 
