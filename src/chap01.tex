@@ -130,7 +130,7 @@ Citing~(\cite{Muller1995computer}), there are several obstacles of~heuristic boa
       For each local game, we must decide which nodes to expand and which expert modules to use for search and evaluation.
       A~post-processing stage handles detected dependencies between games.
     \end{quotation}
-\end{itemize}
+\end{enumerate}
 
 Hence, the sum game model makes the best sense during the endgame part.
 This general principle is as well applicable in poker:
@@ -201,6 +201,22 @@ In greater details, there are several points and aspects worth mentioning:
       \footnote{Compare with \emph{policy networks} of~AlphaGo in Subsection~\ref{ssec:AlphaGo}}
       \emph{Termination rules} decide when a~position can be evaluated statically, without further expanding the tree.%
       \footnote{Compare with \emph{value network} of~AlphaGo in Subsection~\ref{ssec:AlphaGo}}
+    \end{quotation}
+
+  \item terminal positions
+    \begin{quotation}
+      \noindent
+      We recognize the following terminal positions:
+      \begin{itemize}
+        \item[$\diamondsuit$] No legal moves
+        \item[$\diamondsuit$] No good move (all points are territory, or dame)
+        \item[$\diamondsuit$] Value of position known from transposition table, pattern, or local position database
+      \end{itemize}
+      The first two types of~terminal positions evaluate to a~number, or number-plus-star (odd
+      number of~dame).
+      If the value of a~position is known from another source, it is terminal in the sense that there is no need to continue search.
+      The value itself can be any mathematical game value.
+      Non-terminal positions may have a~constant value as well, if the outcome is the same no matter who plays first, but this has to be proven using search.
     \end{quotation}
 \end{enumerate}
 
