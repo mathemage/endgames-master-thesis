@@ -164,7 +164,7 @@ Here is an overview of treating endgames in~(\cite{Muller1995computer}):
   Safe stones, usually of~both colors, surround the area.
   During endgame play, unsettled stones either become safe or are captured.
   Empty points will become occupied, safe territory or dame.
-  A~rare case are ``untouchable'' empty points in seki.
+  A~rare case are ``untouchable'' empty points in \emph{seki}.
 
   \begin{figure}[H]
     \centering
@@ -188,6 +188,10 @@ Here is an overview of treating endgames in~(\cite{Muller1995computer}):
   A sum game evaluation algorithm selects a sufficiently good or optimal move.
   We also consider an algorithm with lower memory requirements, which stores only a subset of the positions of a local game in the database.
   In this case, if play reaches a position not stored in the database, we must re-search the corresponding local game.
+
+  We generate all legal moves for both colors, except in a~terminal position or if moves can be pruned.
+  Examples of~\emph{pruning rules} are restricting the number of~\emph{dame} moves generated to at most one, and pruning moves dominated by other moves.
+  \emph{Termination rules} decide when a~position can be evaluated statically, without further expanding the tree.
 \end{quotation}
 
 \subsection{AlphaGo}
