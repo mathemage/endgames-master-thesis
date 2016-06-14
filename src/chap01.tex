@@ -240,6 +240,18 @@ In greater details, there are several points and aspects worth mentioning:
       they might endanger their ``immortal'' stones, which violates our initial assumptions on board partition and generates new unstable positions where optimal play might be very complicated.
     \end{quotation}
 
+  \item saving results of~local search
+    \begin{quotation}
+      Positions encountered during local search are stored in \emph{a~database of~local games}.
+      An~important question is what to store:
+      There is a~tradeoff between recomputation time and required storage.
+      For building a~permanent database, it makes sense to store only ``difficult'' moves in the database, and recalculate the rest if needed.
+      It is efficient to store which moves are locally good or bad, but omit refutations:
+      the trees proving that bad moves are inferior.
+      Such a~database is sufficient for playing against a~good opponent.
+      Only in the unlikely case of~locally bad opponent play, we must recalculate one subtree to find a~refutation.
+    \end{quotation}
+
 \end{enumerate}
 
 \subsection{AlphaGo}
