@@ -207,11 +207,11 @@ In greater details, there are several points and aspects worth mentioning:
     \begin{quotation}
       \noindent
       We recognize the following terminal positions:
-      \begin{itemize}
-        \item[$\diamondsuit$] No legal moves
-        \item[$\diamondsuit$] No good move (all points are territory, or dame)
-        \item[$\diamondsuit$] Value of position known from transposition table, pattern, or local position database
-      \end{itemize}
+      \begin{enumerate}[$\diamondsuit$]
+        \item No legal moves
+        \item No good move (all points are territory, or dame)
+        \item Value of position known from transposition table, pattern, or local position database
+      \end{enumerate}
       The first two types of~terminal positions evaluate to a~number, or number-plus-star (odd
       number of~dame).
       If the value of a~position is known from another source, it is terminal in the sense that there is no need to continue search.
@@ -237,7 +237,7 @@ In greater details, there are several points and aspects worth mentioning:
         \item Use heuristic play in the big areas
       \end{enumerate}
       Even if an original position has been solved, suicidal opponents can cause problems later:
-      they might endanger their ‘immortal’ stones, which violates our initial assumptions on board partition and generates new unstable positions where optimal play might be very complicated.
+      they might endanger their ``immortal'' stones, which violates our initial assumptions on board partition and generates new unstable positions where optimal play might be very complicated.
     \end{quotation}
 
 \end{enumerate}
