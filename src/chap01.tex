@@ -250,9 +250,25 @@ In greater details, there are several points and aspects worth mentioning:
       the trees proving that bad moves are inferior.
       Such a~database is sufficient for playing against a~good opponent.
       Only in the unlikely case of~locally bad opponent play, we must recalculate one subtree to find a~refutation.
+      The Table~\ref{tab:db-loc-games} lists some possibilities.
     \end{quotation}
-
 \end{enumerate}
+\begin{table}[!htbp]
+  \centering
+  \begin{tabular}{ |p{.45\textwidth}|p{.45\textwidth}| } 
+    \hline
+    \textbf{Type of database} & \textbf{Content} \\
+    \hline
+    Full                            & All positions encountered during exhaustive search \\
+    Color-complete (Black or White) & All positions reachable by non-dominated moves of~color and arbitrary opponent moves (pruned bad moves of~color) \\
+    Optimal                         & At least one position corresponding to each non-dominated option of each reachable position, guarantees optimal play from each position in~database \\
+    Ko-complete (Ko-optimal)        & Complete (optimal) + possible Ko threats and answers \\
+    Sufficiently good               & Guarantees optimal score from a~starting position, might fail to exploit some opponent mistakes \\
+    \hline
+  \end{tabular}
+  \caption{Possible database variants of~local games}
+  \label{tab:db-loc-games}
+\end{table}
 
 \subsection{AlphaGo}
 \label{ssec:AlphaGo}
