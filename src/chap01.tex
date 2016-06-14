@@ -227,6 +227,19 @@ In greater details, there are several points and aspects worth mentioning:
       Both kinds of~scoring are straightforward in the endgame because safe and dead stones, territories and neutral points are known exactly.%
       \footnote{See Subsection~\ref{ssec:rules-Go}.}
     \end{quotation}
+
+  \item exact play on a~subset of~the board
+    \begin{quotation}
+      When board partition indicates that big areas remain, or search cannot solve all small areas, the user interface offers three options:
+      \begin{enumerate}[$\diamondsuit$]
+        \item Stop playing
+        \item Ignore the unsolvable big areas
+        \item Use heuristic play in the big areas
+      \end{enumerate}
+      Even if an original position has been solved, suicidal opponents can cause problems later:
+      they might endanger their ‘immortal’ stones, which violates our initial assumptions on board partition and generates new unstable positions where optimal play might be very complicated.
+    \end{quotation}
+
 \end{enumerate}
 
 \subsection{AlphaGo}
