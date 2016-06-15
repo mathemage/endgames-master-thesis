@@ -331,8 +331,31 @@ In greater details, there are several points and aspects worth mentioning:
       In contrast to selective search, we may only eliminate moves that are provably worse-or-equal than others.
       If a~move achieves all points of~the local area, or if any other move would give the opponent an~answer which achieves the maximum score, the move is optimal, and we can prune all other moves.
     \end{quotation}
-
 \end{enumerate}
+
+\subsection{Using Combinatorial Game Theory to Solve Late Endgames by Computer}
+
+These are some objectives that can be accomplished by the approach of~(\cite{Muller1995computer}):
+\begin{itemize}
+  \item Perfect computer play in late endgame
+  \item Find the game-theoretic value of a position long before the end
+  \item Evaluate the opponent’s endgame moves
+  \item Find moves that are good enough even with a reduced local game database
+\end{itemize}
+On the other hand, the work also remarks that strict analysis of~endgames is not possible with this method if one of the following limits is reached:
+\begin{itemize}
+  \item \textbf{Partition:}
+    too few blocks can be proven safe independent of~endgame play.
+    Therefore some areas become too big for complete search.
+  \item \textbf{Summation:}
+    no move with dominating incentive exists, and both summing and partial search take too long.
+  \item \textbf{Ko:}
+    Standard combinatorial game theory exploits the independence of~local games.
+    In the case of~Ko, the independence is broken (a~locally bad move may be globally best if it serves as a~Ko threat).
+    Generalizations of~the theory to handle Kos are a topic of [at that time] current research.
+  \item \textbf{Added complexity in ‘obvious’ situations:}
+    In cases where the focus of~play is obvious (i.e. only one local situation is relevant), combinatorial game theory introduces additional complexity by investigating moves for both players in this and each other position.
+\end{itemize}
 
 \clearpage
 
