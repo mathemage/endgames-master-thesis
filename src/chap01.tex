@@ -325,6 +325,13 @@ In greater details, there are several points and aspects worth mentioning:
       \end{table}
     \end{quotation}
 
+  \item pruning moves
+    \begin{quotation}
+      The width of~the search tree can be further reduced by pruning moves.
+      In contrast to selective search, we may only eliminate moves that are provably worse-or-equal than others.
+      If a~move achieves all points of~the local area, or if any other move would give the opponent an~answer which achieves the maximum score, the move is optimal, and we can prune all other moves.
+    \end{quotation}
+
 \end{enumerate}
 
 \clearpage
