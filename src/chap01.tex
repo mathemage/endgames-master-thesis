@@ -284,9 +284,11 @@ In greater details, there are several points and aspects worth mentioning:
     \end{quotation}
 \end{enumerate}
 
+\clearpage
+
 \subsection{Speeding up Local Search}
 
-(\cite{Muller1995computer}) considers various improvements to computational efficiency of~the model:
+(\cite{Muller1995computer}) considers various improvements to computational efficiency:
 \begin{quotation}
   Ignoring illegal moves and captures, the number of possible plays in an $n$ point area is approximately $2n$ ($n$ for each player), and play generates a $n-1$ point area.
   A~rough estimate for the size of~the game tree is therefore $2n\cdot2(n-1)\cdot \ldots \cdot2 = 2^n n!$
@@ -294,6 +296,14 @@ In greater details, there are several points and aspects worth mentioning:
   Due to this combinatorial explosion, even fairly small endgames become prohibitively expensive to compute using this approach.
   In the following, we look at a~number of~techniques for reducing the size of the search tree.
 \end{quotation}
+
+\begin{enumerate}[(a)]
+  \item transposition table (see also Table~\todo)
+    \begin{quotation}
+      A~transposition table detects identical board positions, reducing the size of~the search space from $\aprox 2^n n!$ to $3^n$ states.
+    \end{quotation}
+
+\end{enumerate}
 
 \clearpage
 
