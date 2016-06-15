@@ -298,9 +298,31 @@ In greater details, there are several points and aspects worth mentioning:
 \end{quotation}
 
 \begin{enumerate}[(a)]
-  \item transposition table (see also Table~\todo)
+  \item transposition table (see also Table~\ref{tab:reduction-transp-tab})
     \begin{quotation}
       A~transposition table detects identical board positions, reducing the size of~the search space from $\approx 2^n n!$ to $3^n$ states.
+
+      \begin{table}[!htbp]
+        \centering
+        \begin{tabular}{ |rrr| }
+          \hline
+          \textbf{$n$} & \textbf{$2^nn!$} & \textbf{$3^n$} \\
+          \hline
+          1	&	2	&	3 \\ 
+          2	&	8	&	9 \\ 
+          3	&	48	&	27 \\ 
+          4	&	384	&	81 \\ 
+          5	&	3840	&	243 \\ 
+          6	&	46080	&	729 \\ 
+          7	&	645120	&	2187 \\ 
+          8	&	10321920	&	6561 \\ 
+          9	&	185794560	&	19683 \\ 
+          10	&	3715891200	&	59049 \\ 
+          \hline
+        \end{tabular}
+        \caption{Reduction of search space by transposition table}
+        \label{tab:reduction-transp-tab}
+      \end{table}
     \end{quotation}
 
 \end{enumerate}
