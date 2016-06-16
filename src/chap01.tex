@@ -357,6 +357,33 @@ On the other hand, the work also remarks that strict analysis of~endgames is not
     In cases where the focus of~play is obvious (i.e. only one local situation is relevant), combinatorial game theory introduces additional complexity by investigating moves for both players in this and each other position.
 \end{itemize}
 
+\subsection{Time and Memory Management}
+
+One reason why endgames are exhaustively studied is due to their computational benefits.
+As the game progresses, more exact analysis can be done, and thus, time and memory resources may be better utilized.
+In particular, (\cite{Muller1995computer}) uses following ``adaptive'' resource adjustments:
+
+\begin{enumerate}[(a)]
+  \item memory management of objects and local trees
+    \begin{quotation}
+      In a~program with limited memory, we need to decide which local game nodes and other calculated results to keep, and which to dispose during the course of play.
+      Which items are obsolete, and which can probably be reused later?
+      Only heuristic rules for memory management are possible, because the future actions of~the user are unpredictable.
+
+      During the course of a~game there is a~gradual shift of~relevance.
+      Starting a~new game leads to radical change, just about all computed results are useless in the new game.
+      Some flexibility for users undoing moves should be provided.
+
+      As a~solution we define a~\emph{forced substate}, a subset of all points on the current board.
+      The substate consists mainly of~safe-looking stones.
+      We delete all objects that do not match the forced substate.
+      For supporting undo’s, we exclude all points affected by the last two moves from the points of~the forced substate.
+      Some items are exempt from automatic disposal:
+      user inputs, and objects explicitly calculated on a~user’s demand.
+    \end{quotation}
+
+\end{enumerate}
+
 \clearpage
 
 \subsection{AlphaGo}
