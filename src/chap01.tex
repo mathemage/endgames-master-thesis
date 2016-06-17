@@ -10,11 +10,29 @@ In these domains, online endgame solving has~significant importance, as it subst
 \todo
 
 \section{Go Endgames}
-\todo
+
+This section is based on the work of Martin~\Mueller{} (\cite{Muller1995computer}) submitted as a~doctoral thesis at ETH \Zurich.
+Since the focus of~our survey are imperfect-information games rather than Go, this section uses quoted excerpts taken from the mentioned thesis, which are verbatim and with no further modifications.
+
+\Mueller{} summarizes his personal view on computer Go in 1995 as follows:
+\begin{quotation}
+  Go is a~complex game.
+  The board size, the number of~possible moves and average length of a~game are greater than in chess or most other games.
+  Still, human intellect seems to handle Go well.
+  The game has a~lot of~logical, geometrical and combinatorial structure which human players can recognize and exploit.
+  In comparison, today’s Go programs comprehend only the most basic concepts of~Go.
+
+  Combinatorial game theory captures an~essential part of~what Go is about.
+  I think that in one form or another, it will become a~key component of~all successful future Go programs.%
+  \footnote{\todo}
+  To make progress, I~feel it is necessary both to encode more Go-specific knowledge and to push forward the application of~theories such as combinatorial game theory to Go.
+  After more than 5 years of~working on the subject, the depth of~the game still astounds me:
+  it has remained as much of a~mystery as ever.
+\end{quotation}
 
 \subsection{Why Focus on Go Endgames?}
 
-Martin~\Mueller (in~his dissertation~\cite{Muller1995computer}) mentions the following advantages of~Go endgames for research:
+In his dissertation, Martin~\Mueller{} mentions the following advantages of~Go endgames for research:
 \begin{itemize}
   \item The complexity of~the game often decreases towards the end.
     This allows the study of~Go in a~controlled, simplified context.
@@ -65,12 +83,12 @@ This is the general procedure for playing Go as a~sum of~local games used in~(\c
   \item Transform local game trees into mathematical games (and simplify games).
   \item Find an optimal move in the sum game and play it.
 \end{enumerate}
-\Mueller proposes heuristic algorithms for playing the entire game, and exact algorithms for late endgame positions.
+\Mueller{} proposes heuristic algorithms for playing the entire game, and exact algorithms for late endgame positions.
 Thus, the task of~solving endgames in 1995---at the age of Computer Go's infancy---already played a~vital role.
 
 \subsection{A~Combinatorial Game Theory Framework for Approximate Play of~Sum Games}
 
-\Mueller also suggests to replace the ``standard model'' of~computer Go by a~sum game model.
+\Mueller{} also suggests to replace the ``standard model'' of~computer Go by a~sum game model.
 The following benefits and problems of~the sum game model for computer Go are listed in~(\cite{Muller1995computer}):
 
 \medskip
