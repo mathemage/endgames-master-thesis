@@ -95,6 +95,24 @@
   \Roman{#1}\fi}% All other chapters
 \renewcommand{\thechapter}{\ZeroRoman{chapter}}
 
+% http://tex.stackexchange.com/questions/94464/note-environment-with-mdframed
+\global\mdfdefinestyle{exampledefault}{%
+  linecolor=lightgray,linewidth=1pt,%
+  leftmargin=1cm,rightmargin=1cm,
+}
+\newenvironment{mymdframed}[1]{%
+  \mdfsetup{%
+    frametitle={\colorbox{white}{\,#1\,}},
+    frametitleaboveskip=-\ht\strutbox,
+    frametitlealignment=\raggedright
+  }%
+  \begin{mdframed}[style=exampledefault]
+  }
+  {%
+  \end{mdframed}
+}
+
+
 % mezera v Table of Contents před číslem kapitoly
 \renewcommand*\cftchapnumwidth{2.2em}
 \renewcommand*\cftsecnumwidth{2.6em}

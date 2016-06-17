@@ -27,7 +27,7 @@ Since the focus of~our survey are imperfect-information games rather than Go, th
   \footnote{
     In fact, this prognosis is misaligned:
     AlphaGo, the most successful Go program designed so far, uses no Go-specific knowledge.
-    To compare \Mueller's prediction with the current trends, consult Section~\ref{sec:AlphaGo}.
+    To compare \Mueller's prediction with current trends, consult the Note on page~\pageref{note:CGTvsAlphaGo} or Section~\ref{sec:AlphaGo}.
   }
   To make progress, I~feel it is necessary both to encode more Go-specific knowledge and to push forward the application of~theories such as combinatorial game theory to Go.
   After more than 5 years of~working on the subject, the depth of~the game still astounds me:
@@ -443,12 +443,15 @@ As we will see later, the situation in the case of~Poker is slightly more delica
 the imperfect-information property prevents us from using an~immediate divide-and-conquer approach.
 Instead, we will \emph{augment} the information by saturating it with additional game states (see Section~\todo).
 
-It is also interesting to compare the method of~(\cite{Muller1995computer}) with the modern approach of~\emph{AlphaGo}:
-the ad-hoc Go-specific knowledge is replaced with general-learning neural networks and the probabilistic \emph{Monte Carlo Tree Search} algorithm.
-Such a~combination has the capability to surpass professional human players at the highest ranks.
-On top of that, this solution can be adapted to other games without substantial modifications.
-As long as there is an~abundance of~available data, the system can always be trained with no need to imbue it with any game-specific knowledge.
-See Section~\ref{sec:AlphaGo} for more details.
+\begin{mymdframed}{Note}
+  \label{note:CGTvsAlphaGo}
+  It is also interesting to compare the method of~(\cite{Muller1995computer}) with the modern approach of~\emph{AlphaGo}:
+  the ad-hoc Go-specific knowledge is replaced with general-learning neural networks and the probabilistic \emph{Monte Carlo Tree Search} algorithm.
+  Such a~combination has the capability to surpass professional human players at the highest ranks.
+  On top of that, this solution can be adapted to other games without substantial modifications.
+  As long as there is an~abundance of~available data, the system can always be trained with no need to imbue it with any game-specific knowledge.
+  See Section~\ref{sec:AlphaGo} for more details.
+\end{mymdframed}
 
 \clearpage
 
