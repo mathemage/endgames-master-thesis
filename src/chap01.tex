@@ -412,6 +412,16 @@ As we will see later, the situation in the case of~Poker is slightly more delica
 the imperfect-information property prevents us from using an~immediate divide-and-conquer approach.
 Instead, we will \emph{augment} the information by saturating it with additional game states (see Section~\todo).
 
+Another contributions of~(\cite{Muller1995computer}) are the ones aiding computer Go endgames specifically:
+\begin{itemize}
+  \item We have implemented a~\emph{late endgame player}, a~niche where program play surpasses human play in both speed and exactness.
+    We did this by applying concepts from combinatorial game theory to Go.
+    The program plays a~wide variety of`late endgame positions perfectly.
+
+  \item We have developed algorithms for board partition and dependency analysis.
+    The central idea of~board partition has been used both in a~program following a~traditional model, and in a~program based on the sum game approach.
+\end{itemize}
+
 \clearpage
 
 \subsection{AlphaGo}
