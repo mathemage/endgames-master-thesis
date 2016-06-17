@@ -412,6 +412,13 @@ As we will see later, the situation in the case of~Poker is slightly more delica
 the imperfect-information property prevents us from using an~immediate divide-and-conquer approach.
 Instead, we will \emph{augment} the information by saturating it with additional game states (see Section~\todo).
 
+It is also interesting to compare the technique of~(\cite{Muller1995computer}) with the modern approach of~\emph{AlphaGo}:
+the ad-hoc Go-specific knowledge is replaced with general-learning neural networks and the probabilistic \emph{Monte Carlo Tree Search} algorithm.
+Such a~combination has the capability to surpass professional human players at the highest ranks.
+On top of that, this solution can be adapted to other games without substantial modifications.
+As long as there is an~abundance of~available data, the system can always be trained with no need to imbue it with any game-specific knowledge.
+See Subsection~\ref{ssec:AlphaGo} for more details.
+
 Another contributions of~(\cite{Muller1995computer}) are the ones aiding computer Go endgames specifically:
 \begin{itemize}
   \item We have implemented a~\emph{late endgame player}, a~niche where program play surpasses human play in both speed and exactness.
