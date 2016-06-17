@@ -9,7 +9,7 @@ In these domains, online endgame solving has~significant importance, as it subst
 \section{Chess Endgames}
 \todo
 
-\section{Go Endgames}
+\section{Go Endgames Using Ad-Hoc Mathematics}
 
 This section is based on the work of Martin~\Mueller{} (\cite{Muller1995computer}) submitted as a~doctoral thesis at ETH \Zurich.
 Since the focus of~our survey are imperfect-information games rather than Go, this section uses quoted excerpts taken from the mentioned thesis, which are verbatim and with no further modifications.
@@ -115,7 +115,7 @@ The following benefits and problems of~the sum game model for computer Go are li
     missing crucial moves leads to wrong evaluation.
   \item Non-constant local games may be overlooked completely, such as insecure ``territories'' which can be destroyed from the inside.
   \item In this model there is no concept of~long-range full board plans.
-    This is probably not a~big issue until programs reach amateur Dan or even professional level \textit{(for an~update on the current situation, see Subsection~\ref{ssec:AlphaGo})}.
+    This is probably not a~big issue until programs reach amateur Dan or even professional level \textit{(for an~update on the current situation, see Section~\ref{sec:AlphaGo})}.
 \end{itemize}
 
 \subsection{A~Sum Game Model for the Entire Game of~Go}
@@ -216,9 +216,9 @@ In greater details, there are several points and aspects worth mentioning:
     \begin{quotation}
       We generate all legal moves for both colors, except in a~terminal position or if moves can be pruned.
       Examples of~\emph{pruning rules} are restricting the number of~\emph{dame} moves generated to at most one, and pruning moves dominated by other moves.%
-      \footnote{Compare with \emph{policy networks} of~AlphaGo in Subsection~\ref{ssec:AlphaGo}.}
+      \footnote{Compare with \emph{policy networks} of~AlphaGo in Section~\ref{sec:AlphaGo}.}
       \emph{Termination rules} decide when a~position can be evaluated statically, without further expanding the tree.%
-      \footnote{Compare with \emph{value network} of~AlphaGo in Subsection~\ref{ssec:AlphaGo}.}
+      \footnote{Compare with \emph{value network} of~AlphaGo in Section~\ref{sec:AlphaGo}.}
     \end{quotation}
 
   \item terminal positions
@@ -444,10 +444,10 @@ the ad-hoc Go-specific knowledge is replaced with general-learning neural networ
 Such a~combination has the capability to surpass professional human players at the highest ranks.
 On top of that, this solution can be adapted to other games without substantial modifications.
 As long as there is an~abundance of~available data, the system can always be trained with no need to imbue it with any game-specific knowledge.
-See Subsection~\ref{ssec:AlphaGo} for more details.
+See Section~\ref{sec:AlphaGo} for more details.
 
 \clearpage
 
-\subsection{AlphaGo}
-\label{ssec:AlphaGo}
+\section{Go Endgames Using Artificial Intelligence}
+\label{sec:AlphaGo}
 \todo
