@@ -405,21 +405,7 @@ The doctoral thesis (\cite{Muller1995computer}) highlights following contributio
 
   \item The application of a~sophisticated mathematical theory to computer Go provides an~example of~algorithms for a~nontrivial decomposition of a~complex problem.
 \end{itemize}
-Hence, the work employs a~method of~applying an~elaborate mathematical theory (of~combinatorial game theory) to deal with the endgame phase.
-In particular, CGT is used to ``connect'' individual relevant subgames, which may be solved independently.
-
-As we will see later, the situation in the case of~Poker is slightly more delicate:
-the imperfect-information property prevents us from using an~immediate divide-and-conquer approach.
-Instead, we will \emph{augment} the information by saturating it with additional game states (see Section~\todo).
-
-It is also interesting to compare the technique of~(\cite{Muller1995computer}) with the modern approach of~\emph{AlphaGo}:
-the ad-hoc Go-specific knowledge is replaced with general-learning neural networks and the probabilistic \emph{Monte Carlo Tree Search} algorithm.
-Such a~combination has the capability to surpass professional human players at the highest ranks.
-On top of that, this solution can be adapted to other games without substantial modifications.
-As long as there is an~abundance of~available data, the system can always be trained with no need to imbue it with any game-specific knowledge.
-See Subsection~\ref{ssec:AlphaGo} for more details.
-
-Another contributions of~(\cite{Muller1995computer}) are the ones aiding computer Go endgames specifically:
+Another contributions are the ones aiding computer Go endgames specifically:
 \begin{itemize}
   \item We have implemented a~\emph{late endgame player}, a~niche where program play surpasses human play in both speed and exactness.
     We did this by applying concepts from combinatorial game theory to Go.
@@ -428,6 +414,19 @@ Another contributions of~(\cite{Muller1995computer}) are the ones aiding compute
   \item We have developed algorithms for board partition and dependency analysis.
     The central idea of~board partition has been used both in a~program following a~traditional model, and in a~program based on the sum game approach.
 \end{itemize}
+Hence, the work employs a~technique of~applying an~elaborate mathematical theory (of~combinatorial game theory) to deal with the endgame phase.
+In particular, CGT is used to ``connect'' individual relevant subgames, which may be solved independently.
+
+As we will see later, the situation in the case of~Poker is slightly more delicate:
+the imperfect-information property prevents us from using an~immediate divide-and-conquer approach.
+Instead, we will \emph{augment} the information by saturating it with additional game states (see Section~\todo).
+
+It is also interesting to compare the method of~(\cite{Muller1995computer}) with the modern approach of~\emph{AlphaGo}:
+the ad-hoc Go-specific knowledge is replaced with general-learning neural networks and the probabilistic \emph{Monte Carlo Tree Search} algorithm.
+Such a~combination has the capability to surpass professional human players at the highest ranks.
+On top of that, this solution can be adapted to other games without substantial modifications.
+As long as there is an~abundance of~available data, the system can always be trained with no need to imbue it with any game-specific knowledge.
+See Subsection~\ref{ssec:AlphaGo} for more details.
 
 \clearpage
 
