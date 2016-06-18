@@ -64,7 +64,7 @@ According to~(\cite{Muller1995computer}), there are very strong reasons to~parti
   \begin{figure}[H]
     \centering
     \includegraphics[width=.4\textwidth]{../img/late_endgame_Go_position_suited_for_exact_analysis.png}
-    \caption{Late endgame position suited for exact analysis}
+    \caption{Late endgame position suited for exact analysis (\cite{Muller1995computer})}
     \label{fig:late-Go-endgame}
   \end{figure}
 
@@ -212,7 +212,7 @@ In greater details, there are several points and aspects worth mentioning:
       \begin{figure}[H]
         \centering
         \includegraphics[width=.7\textwidth]{../img/Go_search_tree.png}
-        \caption{Local game tree with evaluation of terminal nodes}
+        \caption{Local game tree with evaluation of terminal nodes (\cite{Muller1995computer})}
       \end{figure}
     \end{quotation}
 
@@ -416,6 +416,17 @@ In particular, (\cite{Muller1995computer}) uses following ``adaptive'' resource 
     }
 
 \end{enumerate}
+
+\subsection{Pattern Learning}
+
+Pattern recognition is one of~the key components of~AlphaGo.
+Arguably, the program's success might be partially attributed to learning Go patterns from human expert plays (see Section~\ref{sec:AlphaGo}).
+For comparison, (\cite{Muller1995computer}) suggested pattern matching as a~promising mean for improvement:
+
+\begin{quotation}
+  Research on pattern learning in computer Go has unfortunately been restricted to \emph{ab-initio} learning of~the most basic patterns from zero knowledge.
+  Interactive or automatic tuning and expansion of a~state-of-the-art pattern base is another fascinating research topic.
+\end{quotation}
 
 \subsection{Contributions of~Combinatorial Game Theory to Go Endgames}
 
