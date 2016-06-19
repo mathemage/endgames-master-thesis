@@ -306,8 +306,6 @@ In greater details, there are several points and aspects worth mentioning:
     \end{quotation}
 \end{enumerate}
 
-\clearpage
-
 \subsection{Speeding up Local Search}
 
 (\cite{Muller1995computer}) considers various improvements to computational efficiency:
@@ -464,8 +462,6 @@ Instead, we will \emph{augment} the information by saturating it with additional
   See Section~\ref{sec:AlphaGo} for more details.
 }
 
-\clearpage
-
 \section{Go Endgames Using Artificial Intelligence}
 \label{sec:AlphaGo}
 
@@ -475,5 +471,20 @@ These deep neural networks are trained by a novel combination of supervised lear
 
 Furthermore, a~new search algorithm is introduced: it combines Monte Carlo simulation with value and policy networks.
 Using this search algorithm, the computer program AlphaGo developed by~Google DeepMind achieved a~99.8~\% winning rate against other Go programs.~(\cite{Silver2016mastering})
+
+\subsection{Game-Tree Search}
+\emph{Monte Carlo tree search} (MCTS) is a~Monte Carlo heuristic of~the classical tree search.
+However, instead of traversing the entire game tree, the MCTS selects the~most promising moves, expanding the search tree based on~random sampling.
+
+In~each iteration, the game is played-out to~the very end by~choosing moves at~random.
+The final outcome of~each playout is then used to~weight the nodes in~the game tree accordingly.
+Thus, better nodes are more likely to be chosen in future playouts.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=.7\textwidth]{../img/MCTS.png}
+  \caption{The scheme of~MCTS}
+  \label{fig:MCTS}
+\end{figure}
 
 \todo
