@@ -63,19 +63,35 @@ There are only 2 basic rules of Go:
 \begin{description}
   \item [The rule of liberty]
     Every stone remaining on the board must have at least one open point (an~intersection, called a~\emph{liberty}) directly next to it (up, down, left, or right), or must be part of a~connected group that has at least one such liberty next to it.
+    \begin{figure}[H]
+      \centering
+      \includegraphics[width=.5\textwidth]{../img/Go_rule_of_liberty.png}
+      \caption{The rule of liberty}
+      \label{fig:Go-rule-liberty}
+    \end{figure}
 
     Stones or groups of stones which lose their last liberty are removed from the board.
 
   \item [The ``ko'' rule]
     The stones on the board must never repeat a~previous position of~stones.
     This is to prevent unending cycles.
+    \begin{figure}[H]
+      \centering
+      \includegraphics[width=.5\textwidth]{../img/Go_ko_rule.png}
+      \caption{The ``ko'' rule}
+      \label{fig:Go-Ko-rule}
+    \end{figure}
+
 \end{description}
 
-There are several scoring rules to determine the winner of a~game.
+There are several \textbf{scoring rules} to determine the winner of a~game.
 In the match of~AlphaGo against Lee Sedol,%
 \footnote{See Section~\ref{sec:AlphaGo}.}
 the \emph{area scoring} was used:
 a~player's score is the number of player's stones on the board, plus the number of~empty intersections surrounded by that player's stones.
+
+\textbf{Handicap} system is used to even up differences in ranks:
+Black can place 1 or more stones in advance as a~compensation for White's greater strength.
 
 \section{Algorithmic Game Theory}
 
