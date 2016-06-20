@@ -87,8 +87,15 @@ There are only 2 basic rules of Go:
 There are several \textbf{scoring rules} to determine the winner of a~game.
 In the match of~AlphaGo against Lee Sedol,%
 \footnote{See Section~\ref{sec:AlphaGo}.}
-the \emph{area scoring} was used:
-a~player's score is the number of player's stones on the board, plus the number of~empty intersections surrounded by that player's stones.
+the \emph{area scoring} was used.
+Under area scoring system, player's score is:
+\begin{itemize}
+  \item the number of stones that the player has on the board
+  \item plus the number of~empty intersections surrounded by that player's stones
+  \item plus \emph{komi(dashi)} points%
+    \footnote{a~compensation for the first move advantage of~the Black player}
+    for the White player
+\end{itemize}
 
 \textbf{Handicap} system is used to even up differences in ranks:
 Black can place 1 or more stones in advance as a~compensation for White's greater strength.
