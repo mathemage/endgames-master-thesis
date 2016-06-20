@@ -499,6 +499,7 @@ For more details, also consult my presentations on AlphaGo given at:
 \end{itemize}
 
 \subsection{Game-Tree Search}
+
 \emph{Monte Carlo tree search} (MCTS) is a~Monte Carlo heuristic of~the classical tree search.
 However, instead of traversing the entire game tree, the MCTS selects the~most promising moves, expanding the search tree based on~random sampling.
 
@@ -514,6 +515,7 @@ Thus, better nodes are more likely to be chosen in future playouts.
 \end{figure}
 
 \subsection{Neural networks}
+
 Inspired by biological neural networks, an~artificial neural network (ANN) is a~network of~interconnected nodes that make up a~model.
 ANNs can be defined as~statistical learning models that are used to approximate functions which depend on a~large number of~inputs.
 Neural networks are typically used when the volume of~inputs is far too large for~standard machine learning approaches.
@@ -534,4 +536,38 @@ Neural networks are typically used when the volume of~inputs is far too large fo
     It can model complex non-linear relationships, e.g. in~speech, in~images, in~videos or in~board positions of~Go.
 \end{description}
 
+\subsection{Pipeline of Neural Networks}
+
+AlphaGo employs two kinds of deep convolutional neural networks:
+\emph{policy network} (for move selection) and \emph{value network} (for board evaluation).
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=.5\textwidth]{../img/policy_and_value_network.png}
+  \caption{Comparison between policy and value network (\cite{Silver2016mastering})}
+  \label{fig:policy_vs_value_nets}
+\end{figure}
+
+In the following Figure~\ref{fig:neural_nets_pipeline}, we can view the whole training process of~AlphaGo's neural networks.
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=.7\textwidth]{../img/neural_nets_pipeline.png}
+  \caption{Training the neural networks of~AlphaGo: the pipeline and the architecture (\cite{Silver2016mastering})}
+  \label{fig:neural_nets_pipeline}
+\end{figure}
+
+\begin{description}
+  \item [Rollout policy] $p_\pi$ is a~CNN rapidly sampling actions during a~\emph{rollout} (a~fast-forward simulation from a~position to the end of~the game).
+    It predicts expert human moves much faster but less accurately than $p_\sigma$ (see below).
+    %The output is a~probability distribution over all moves.
+
+  \item [Policy network] is a~CNN selecting moves.
+    It addresses the problem of the game-tree breadth.
+    \begin{description}
+      \item [SL policy network] $p_\sigma$ is trained by \underline{s}upervised \underline{l}earning to predict expert human moves.
+        \item [RL policy network] $p_\rho$ is trained by \underline{r}einforcement \underline{l}earning to win in the~games of~self-play.
+    \end{description}
+
+  \item [Value network] $v_\theta$ is a~CNN evaluating board positions, so as to address the problem of the game-tree depth.
+    It is trained by regression to predict the outcome in~positions of~the self-played games.
+\end{description}
 \todo
