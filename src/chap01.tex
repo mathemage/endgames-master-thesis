@@ -513,4 +513,25 @@ Thus, better nodes are more likely to be chosen in future playouts.
   \label{fig:MCTS}
 \end{figure}
 
+\subsection{Neural networks}
+Inspired by biological neural networks, an~artificial neural network (ANN) is a~network of~interconnected nodes that make up a~model.
+ANNs can be defined as~statistical learning models that are used to approximate functions which depend on a~large number of~inputs.
+Neural networks are typically used when the volume of~inputs is far too large for~standard machine learning approaches.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[height=.2\textheight]{../img/colored_neural_network.png}
+  \caption{A~shallow neural network with 3 layers (input, hidden and output)}
+  \label{fig:shallow-neural-network}
+\end{figure}
+
+\begin{description}
+  \item [Convolutional neural network] (CNN) is a~neural network suitable for high-dimensional inputs (e.g. a~large number of~pixels in an~image).
+    CNNs are frequently used in~computer vision (for identifying objects in an~image, for face detection in~photos etc.).
+
+    They are invariant to expectable transformations of~input, such as translations of~objects in~a~picture or changes in~illumination.
+  \item [Deep neural network] (DNN) is a~neural network with many hidden layers.
+    It can model complex non-linear relationships, e.g. in~speech, in~images, in~videos or in~board positions of~Go.
+\end{description}
+
 \todo
