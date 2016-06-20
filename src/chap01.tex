@@ -470,7 +470,7 @@ As of~today, over 20 years have passed since \Mueller's work.
 \emph{DeepMind}, a~London-based AI start-up recently acquired by Google, has developed the strongest computer Go program so far:
 \emph{AlphaGo}.
 
-This section is based on~the article \emph{``Mastering the game of Go with deep neural networks and tree search''}~(\cite{Silver2016mastering}), which documents the internals of~AlphaGo:
+This section is based on~the article ``Mastering the game of Go with deep neural networks and tree search''~(\cite{Silver2016mastering}), which documents the internals of~AlphaGo:
 
 \begin{quotation}
   The game of Go has long been viewed as the most challenging of classic games for artificial intelligence owing to its enormous search space and the difficulty of evaluating board positions and moves.
@@ -570,4 +570,13 @@ In the following Figure~\ref{fig:neural_nets_pipeline}, we can view the whole tr
   \item [Value network] $v_\theta$ is a~CNN evaluating board positions, so as to address the problem of the game-tree depth.
     It is trained by regression to predict the outcome in~positions of~the self-played games.
 \end{description}
+
+\subsection{Playing Strength}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=.7\textwidth]{../img/results_of_tournament.png}
+  \caption{Tournament with Other Go Programs and European Go champion Fan Hui (\cite{Silver2016mastering})}
+\end{figure}
+
 \todo
