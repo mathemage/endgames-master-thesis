@@ -57,7 +57,25 @@ There will be other kinds of representation for extensive form games (see Subsec
 \subsection{Rules of Go}
 \label{ssec:rules-Go}
 
-Scoring \dots \todo
+\emph{Black} and \emph{White} place pieces (\emph{stones}) on the unoccupied intersections (\emph{points}) of a~\emph{board} with a~$19\times19$ grid of~lines.
+Players take turns, Black moves first.
+There are only 2 basic rules of Go:
+\begin{description}
+  \item [The rule of liberty]
+    Every stone remaining on the board must have at least one open point (an~intersection, called a~\emph{liberty}) directly next to it (up, down, left, or right), or must be part of a~connected group that has at least one such liberty next to it.
+
+    Stones or groups of stones which lose their last liberty are removed from the board.
+
+  \item [The ``ko'' rule]
+    The stones on the board must never repeat a~previous position of~stones.
+    This is to prevent unending cycles.
+\end{description}
+
+There are several scoring rules to determine the winner of a~game.
+In the match of~AlphaGo against Lee Sedol,%
+\footnote{See Section~\ref{sec:AlphaGo}.}
+the \emph{area scoring} was used:
+a~player's score is the number of player's stones on the board, plus the number of~empty intersections surrounded by that player's stones.
 
 \section{Algorithmic Game Theory}
 
@@ -73,14 +91,14 @@ The examples and figures are taken from \emph{Algorithmic Game Theory} (\cite{AG
 \newcommand{\widthratio}{0.3}
 \begin{itemize}
   \item \emph{Prisoner's dilemma} \todo
-    \begin{figure}
+    \begin{figure}[H]
       \centering
       \includegraphics[width=\widthratio\paperwidth]{../img/prisoner.png}
       \caption{Prisoner's dilemma}
       \label{fig:prisoner}
     \end{figure}
 
-    \begin{figure}
+    \begin{figure}[H]
       \centering
       \includegraphics[width=\widthratio\paperwidth]{../img/isp.png}
       \caption{ISP routing game}
@@ -92,7 +110,7 @@ The examples and figures are taken from \emph{Algorithmic Game Theory} (\cite{AG
 
   \item An~example of a~coordination game is the \emph{Battle of sexes}.
 
-    \begin{figure}
+    \begin{figure}[H]
       \centering
       \includegraphics[width=\widthratio\paperwidth]{../img/battle-of-sexes.png}
       \caption{Battle of sexes}
@@ -101,7 +119,7 @@ The examples and figures are taken from \emph{Algorithmic Game Theory} (\cite{AG
 
   \item Another coordination game is the \emph{Routing congestion game}, taken from the world of networking
 
-    \begin{figure}
+    \begin{figure}[H]
       \centering
       \includegraphics[width=0.65\paperwidth]{../img/routing-congestion-game.png}
       \caption{Routing congestion game}
@@ -110,7 +128,7 @@ The examples and figures are taken from \emph{Algorithmic Game Theory} (\cite{AG
 
   \item \emph{Matching pennies} can be considered as a $2$-choice reduction of Rock-paper-scissors.
 
-    \begin{figure}
+    \begin{figure}[H]
       \centering
       \includegraphics[width=\widthratio\paperwidth]{../img/matching-pennies.png}
       \caption{Matching pennies}
@@ -119,7 +137,7 @@ The examples and figures are taken from \emph{Algorithmic Game Theory} (\cite{AG
 
   \item \emph{Pricing game} is an~example of a~game without a~(mixed) Nash equilibrium.
 
-    \begin{figure}
+    \begin{figure}[H]
       \centering
       \includegraphics[width=\widthratio\paperwidth]{../img/pricing-game.png}
       \caption{Pricing game}
@@ -128,7 +146,7 @@ The examples and figures are taken from \emph{Algorithmic Game Theory} (\cite{AG
 
   \item \emph{Traffic light}
 
-    \begin{figure}
+    \begin{figure}[H]
       \centering
       \includegraphics[width=\widthratio\paperwidth]{../img/traffic-light.png}
       \caption{Traffic light}
