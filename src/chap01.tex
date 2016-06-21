@@ -584,10 +584,26 @@ In the following Figure~\ref{fig:neural_nets_pipeline}, we can view the whole tr
 
 \subsection{Playing Strength}
 
+In order to assess the playing strength of~AlphaGo, DeepMind has organized an~internal tournament between different other Go programs,%
+\footnote{\emph{CrazyStone} and \emph{Zen} are the strongest commercial programs, whereas \emph{Pachi} and \emph{Fuego} are strongest among the open-source ones.}
+as well as a~duel of~AlphaGo against the European Go Champion Fan Hui.
+Figure~\ref{fig:Go-tournament} displays the outcome of the tournament:
+
+\begin{quotation}
+  Each program used approximately 5 s computation time per move.
+  To provide a~greater challenge to AlphaGo, some programs (pale upper bars) were given four handicap stones (that is, free moves at~the start of~every game) against all opponents.
+  Programs were evaluated on an Elo scale: a~230 point gap corresponds to a~79\% probability of winning, which roughly corresponds to one amateur dan rank advantage on KGS;
+  an~approximate correspondence to human ranks is also shown, horizontal lines show KGS ranks achieved online by that program.
+  Games against the human European champion Fan Hui were also included;
+  these games used longer time controls.
+  95\% confidence intervals are shown.~(\cite{Silver2016mastering})
+\end{quotation}
+
 \begin{figure}[H]
   \centering
   \includegraphics[width=.7\textwidth]{../img/results_of_tournament.png}
-  \captionWithCite{Tournament with Other Go Programs and European Go champion Fan Hui}{Silver2016mastering}
+  \captionWithCite{Tournament with other Go programs and European Go champion Fan Hui}{Silver2016mastering}
+  \label{fig:Go-tournament}
 \end{figure}
 
 \todo
