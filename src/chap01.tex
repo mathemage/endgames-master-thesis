@@ -512,7 +512,21 @@ For more details, also consult my presentations on AlphaGo given at:
 
 \subsection{Game-Tree Search}
 
-\todo
+Optimal value~$v^*(s)$ determines the~outcome of~the game from every board position $s$ under perfect play by~all players.
+This value can be computed by~recursively traversing the~search tree containing approximately $b^d$ possible sequences of moves, where $b$ is the breadth of~game (number of legal moves per position) and $d$ is its depth (game length).
+
+In~the case of~chess, that is $b \approx 35$ and $d \approx 80$, whereas Go has $b \approx 250$ and $d \approx 150$.
+This amounts to a~terrifying overnumerousness: there are more Go positions than atoms in the observable Universe.
+Furthermore, ``that makes Go a~googol [$10^{100}$] times more complex than chess'',%
+\footnote{\href{https://deepmind.com/alpha-go.html}{https://deepmind.com/alpha-go.html}}
+and therefore, exhaustive search is deemed intractable.
+
+How to handle the size~of the game tree? For the$\dots$
+\begin{itemize}
+  \item $\dots$breadth: we train a~neural network to~select moves.
+  \item $\dots$depth: we train a~neural network to~evaluate the current position.
+  \item $\dots$tree traverse: we use Monte Carlo tree search method.
+\end{itemize}
 
 \emph{Monte Carlo tree search} (MCTS) is a~Monte Carlo heuristic of~the classical tree search.
 However, instead of traversing the entire game tree, the MCTS selects the~most promising moves, expanding the search tree based on~random sampling.
@@ -523,7 +537,7 @@ Thus, better nodes are more likely to be chosen in future playouts.
 
 \begin{figure}[H]
   \centering
-  \includegraphics[width=.7\textwidth]{../img/MCTS.png}
+  \includegraphics[width=.6\textwidth]{../img/MCTS.png}
   \caption{The scheme of~MCTS}
   \label{fig:MCTS}
 \end{figure}
