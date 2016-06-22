@@ -586,7 +586,7 @@ The output is a~probability distribution over all moves.
 
 \textbf{Policy network} is a~CNN selecting moves.
 It addresses the problem of the game-tree breadth.
-Namely,
+There are two flavors of~these networks:
 \begin{itemize}
   \item \textbf{SL policy network} $p_\sigma$ is trained by \underline{s}upervised \underline{l}earning to predict expert human moves.
   \item \textbf{RL policy network} $p_\rho$ is trained by \underline{r}einforcement \underline{l}earning to win in the~games of~self-play.
@@ -599,12 +599,29 @@ It is trained by regression to predict the outcome in~positions of~the self-play
 
 Finally, the neural networks are combined with MCTS into the main algorithm.
 
-During the play, AlphaGo simulates up to 100 possible continuations per each move by selecting the most promising moves and following them.
+During the play, AlphaGo simulates up to 100 possible continuations per each move by selecting the most promising actions and following them.
 This way, it descends the game-tree down to a~depth given by a~parameter.
-At that point, leaf nodes are evaluated in two ways, one of~which is using the dedicated value network $v_\theta$.
-Once every simulation of a~round is finished, all new values are backpropagated to the root, thus updating necessary variables on the way up.
+At that point, leaf nodes are evaluated in two ways:
+\begin{enumerate}[(1)]
+  \item using the dedicated value network $v_\theta$,
+  \item simulating the self-play until the terminal positions, using the fast rollout policy $p_\pi$.
+\end{enumerate}
+The two are mixed into the final value of~the leaf node.
 
-For more details, consult (\cite{Silver2016mastering}) or my above-mentioned presentations.
+Once every simulation of a~single round is finished, all new values are backpropagated to the root, thus updating necessary variables on the way up.
+
+For more details, consult (\cite{Silver2016mastering}) or the before-mentioned presentations.
+
+\note{
+  Main algorithm demonstrates the connection to \emph{our theme of~endgames}:
+  the simulations may be viewed as ``solving endgames''.
+  In particular, the $p_\pi$ rollouts somehow remind of~exhaustive search for the game value during the late stage of~the play.
+  In this sense, the approaches of~AlphaGo and endgame computation bear a~striking similarity.
+
+  On the other hand, AlphaGo performs the same simulation algorithm during the whole game:
+  from an~empty board until the final move.
+  Therefore, it would be imprecise to talk about ``endgame'' here.
+}
 
 \subsection{Playing Strength}
 
@@ -625,8 +642,8 @@ Figure~\ref{fig:Go-tournament} displays the outcome of the tournament:
 
 \begin{figure}[H]
   \centering
-  \includegraphics[width=.7\textwidth]{../img/results_of_tournament.png}
-  \captionWithCite{Tournament with other Go programs and European Go champion Fan Hui}{Silver2016mastering}
+  \includegraphics[width=.5\textwidth]{../img/results_of_tournament.png}
+  \captionWithCite{Tournament with other programs and Fan Hui}{Silver2016mastering}
   \label{fig:Go-tournament}
 \end{figure}
 
