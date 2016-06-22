@@ -595,6 +595,17 @@ Namely,
 \textbf{Value network} $v_\theta$ is a~CNN evaluating board positions, so as to address the problem of the game-tree depth.
 It is trained by regression to predict the outcome in~positions of~the self-played games.
 
+\subsection{Main Algorithm}
+
+Finally, the neural networks are combined with MCTS into the main algorithm.
+
+During the play, AlphaGo simulates up to 100 possible continuations per each move by selecting the most promising moves and following them.
+This way, it descends the game-tree down to a~depth given by a~parameter.
+At that point, leaf nodes are evaluated in two ways, one of~which is using the dedicated value network $v_\theta$.
+Once every simulation of a~round is finished, all new values are backpropagated to the root, thus updating necessary variables on the way up.
+
+For more details, consult (\cite{Silver2016mastering}) or my above-mentioned presentations.
+
 \subsection{Playing Strength}
 
 In order to assess the playing strength of~AlphaGo, DeepMind has organized an~internal tournament between different other Go programs,%
