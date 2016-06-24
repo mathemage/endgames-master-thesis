@@ -62,7 +62,7 @@ Upon reaching arbitrary position from an~endgame tablebase, the~database provide
 
 Tablebases are designed for a~given set of~pieces, e.g. king and queen versus king (KQK).
 Once the pieces are specified, there are 3 basic steps to create the~corresponding endgame tablebase:
-\begin{enumerate}[(1)]
+\begin{enumerate}[1]
   \item \textbf{Generation}:
     Computer generates all legal positions for the given pieces.
     For each position, the tablebase evaluates the situation separately for White-to-move and Black-to-move.
@@ -82,6 +82,39 @@ Once the pieces are specified, there are 3 basic steps to create the~correspondi
     Pawns would break the front-back and diagonal symmetries, because they care about direction in their moves~(\cite{Muller2006EGTB}).
 
   \item \textbf{Evaluation}:
+    The generated positions are evaluated using the tool of~\emph{backward induction}%
+    \footnote{\emph{backward reasoning} applied in~general game theory, in order to solve easier subgames}
+    , in chess also called \emph{retrograde (endgame) analysis}.
+    Each position is evaluated as a~win or a~loss in a~certain number of~moves.
+    At~the end of~the retrograde analysis, positions which are not designated as wins or losses are necessarily draws.
+
+    Invented by Richard E. Bellman in 1965~(\cite{Bellman1965application}), the retrograde analysis faithfully follows the approach of~\emph{dynamic programming}:
+    \begin{enumerate}[(a)]
+      \item checkmated positions are determined in~the beginning
+      \item a~position is winning in $n+1$ moves if the player can reach a~position winning in $n$ moves (more precisely, where the opponent loses in at most $n$ moves)
+    \end{enumerate}
+
+    Alternatively, (\cite{Krabbe2014StillersMonster}) describes retrograde analysis as follows:
+    \begin{quotation}
+      The idea is that a~database is made with all possible positions with a~given material [note: as in the preceding step].
+
+      Then a~sub-database is made of~all positions where Black is mated.
+      Then one where White can give mate.
+      
+      Then one where Black cannot stop White giving mate next move.
+
+      Then one where White can always reach a~position where Black cannot stop him from giving mate next move.
+
+      And so on, always a~ply%
+      \footnote{In standard chess terminology, one move consists of a~turn by each player.
+        Therefore a~\emph{ply} in chess is a~half-move.
+        Thus, after 20 moves in a~chess game, 40 plies have been completed---20 by White and 20 by Black.}
+      further away from mate until all positions that are thus connected to mate have been found.
+
+      Then all of~these positions are linked back to mate by the shortest path through the database.
+      That means that, apart from ``equi-optimal'' moves, all the moves in such a~path are perfect:
+      White's move always leads to the quickest mate, Black's move always leads to the slowest mate.
+    \end{quotation}
 
   \item \textbf{Verification}:
 
