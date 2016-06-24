@@ -36,3 +36,6 @@
 *._log
 *.project.vim
 *.synctex.gz
+*-blx.bib
+*.run.xml
+*.bcf
