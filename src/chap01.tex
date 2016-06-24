@@ -135,7 +135,14 @@ instead of~$48 \times 47 = 2,256$ permutations for the pawns' locations, only si
     \\
     \emph{Generalized chess}%
     \footnote{chess played with an~arbitrarily large number of~pieces on an~arbitrarily large chessboard}
-    has been proven to be EXPTIME-complete (\cite{Fraenkel1981computing}).
+    has been proven to be EXPTIME-complete (\cite{Fraenkel1981computing}):
+    it takes exponential time to determine the winner of~any position in the worst case.
+    The result, however, gives no lower bound on~the amount of~work required to solve regular $8\times 8$ chess.
+
+    Conversely, there has been progress from the other side:
+    as of~2012, all 7 and fewer piece (2 kings and up to 5 other pieces) endgames have been solved.%
+    \footnote{\emph{Lomonosov tablebases}: \href{http://tb7.chessok.com/}{http://tb7.chessok.com/}}
+    Evidently, focusing on endgame significantly decreases the complexity; tablebases thus provide ``powerful arsenal'' to play perfect chess endings.
 \end{itemize}
 
 \todo
