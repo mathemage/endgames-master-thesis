@@ -56,16 +56,18 @@ the complexity~of the board is often manageable by~computers, making it feasible
 
 \subsection{Endgame Tablebase}
 
-An~\emph{endgame tablebase} is a~database of~pre-calculated, exhaustively analysed chess endgames stored as tables of~positions together with optimal consequent moves.
+An~\emph{endgame tablebase} is a~database of~pre-calculated, exhaustively analysed chess endgames stored as tables of~positions together with the best consequent moves.
 Such positions are calculated by \emph{retrograde analysis} (see below).
 Upon reaching arbitrary position from an~endgame tablebase, the~database provides an~optimal strategy to play perfect chess.
 
-Tablebases are designed for given set of~pieces, e.g. king and queen versus king (KQK).
+Tablebases are designed for a~given set of~pieces, e.g. king and queen versus king (KQK).
 Once the pieces are specified, there are 3 basic steps to create the~corresponding endgame tablebase:
 \begin{enumerate}[(1)]
   \item \textbf{Generation}:
     Computer generates all legal positions for the given pieces.
-    In~the case of~KQK, this amounts to $\approx 40000$ positions.
+    For each position, the tablebase evaluates the situation separately for White-to-move and Black-to-move.
+
+    In~the case of~KQK, the number of~positions amounts to $\approx 40000$.
     Such number is due to the symmetry argument of~(\cite{Levy2009computers}):
 
     \begin{quotation}
@@ -75,6 +77,9 @@ Once the pieces are specified, there are 3 basic steps to create the~correspondi
       The product $10 \times 60 \times 62 = 37200$.
       Several hundred of~these positions are illegal, impossible, or symmetrical reflections of~each other, so the actual number is somewhat smaller.
     \end{quotation}
+
+    Adding one new piece into a~\emph{pawnless} endgame multiplies the count of~positions by $\approx 60$ (the approximate quantity of~unoccupied positions).
+    Pawns would break the front-back and diagonal symmetries, because they care about direction in their moves~(\cite{Muller2006EGTB}).
 
   \item \textbf{Evaluation}:
 
