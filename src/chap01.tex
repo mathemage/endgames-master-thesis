@@ -123,9 +123,11 @@ Once the pieces are specified, there are 3 basic steps to create the~correspondi
       This is a~necessary and sufficient condition for tablebase accuracy.
       Since the verification program was developed independently of~the generation program (I don't even have the source code for the generation program) the likelihood of~errors is pretty small.
     \end{quotation}
-
 \end{enumerate}
-\todo
+
+Additionally, the computation of~tablebases can be simplified if \textbf{a priori information} is provided.
+For instance, a~position KRP(a2)KBP(a3) with pawns blocking each other (see diagram \todo) reduces number of~possibilities for the pawns:
+instead of~$48 \times 47 = 2,256$ permutations for the pawns' locations, only single one needs to be considered.~(\cite{Herik1987sixmenendgame})
 
 \subsection{Applications}
 \todo
