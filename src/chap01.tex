@@ -126,7 +126,7 @@ Once the pieces are specified, there are 3 basic steps to create the~correspondi
   \item \textbf{Verification}:
     (\cite{Bourzutschky2006sevenman}) pinpoints the importance of~the (seemingly optional) step of~verification:
     \begin{quotation} \noindent
-      The verification run checks the self-consistency of~the tablebase by~performing a~[one-ply] search for each position (both Black and White to move) and verifying that the score of~the best move is indeed what is stored in the table.
+      The verification run checks the self-consistency of~the tablebase by performing a~[one-ply] search for each position (both Black and White to move) and verifying that the score of~the best move is indeed what is stored in the table.
       This is a~necessary and sufficient condition for tablebase accuracy.
       Since the verification program was developed independently of~the generation program (I don't even have the source code for the generation program) the likelihood of~errors is pretty small.
     \end{quotation}
@@ -159,12 +159,35 @@ instead of~$48 \times 47 = 2,256$ permutations for the pawns' locations, only si
     \footnote{\emph{Lomonosov tablebases}: \href{http://tb7.chessok.com/}{http://tb7.chessok.com/}}
     Evidently, focusing on endgame significantly decreases the complexity; tablebases thus provide ``powerful arsenal'' to play perfect chess endings.
 
-  \item \textbf{The Longest Checkmates}
-    The researches behind the Lomonosov tablebases discovered following endgames, proved to be the longest 7-man checkmates.
+  \item \textbf{Effects on chess theory}
+    \\
+    Tablebases have enabled significant breakthroughs in~chess endgame theory.
+    They caused major changes in the view on~many endgame piece combinations, which were considered to result in a~completely different way.
+    Some dazzling examples:
+    \begin{itemize}
+      \item In the position in Figure~\ref{fig:119-moves-to-pawn} the White pawn's first move is at move 119 against optimal defense by Black:
+        \begin{figure}[H]
+          \centering
+          \newgame
+          \fenboard{8/2q5/8/6R1/8/7k/2P3R1/K7 b - - 0 0}
+          \showboard
+          \captionWithCite{119 moves to pawn's first move}{Wikipedia2016endgame}
+          \label{fig:119-moves-to-pawn}
+        \end{figure}
+
+      \item \todo
+
+      \item \todo
+
+    \end{itemize}
+
+  \item \textbf{The longest checkmates}
+    \\
+    The researchers behind the Lomonosov tablebases discovered following endgames, proved to be the longest 7-man checkmates.
     \begin{description}
       \item [pawnless:]
         An~endgame \rookB Rook, \bishopB Bishop and \knightB Knight against \queen Queen and \knight Knight (Figure~\ref{fig:longest-pawnless-chess}) can be mated after stunning number of~545 moves!
-        (\cite{Lomonosov2014eightlongest}) comments on the endgame as follows:
+        The authors (\cite{Lomonosov2014eightlongest}) comment on the endgame as follows:
         \begin{quotation}
           \noindent
           A~human player has no chance to solve this problem.
@@ -195,7 +218,7 @@ instead of~$48 \times 47 = 2,256$ permutations for the pawns' locations, only si
         \end{figure}
 
       \item [with pawns:]
-        An~ending position of~\rookB Rook, \bishopB Bishop and \knightB Knight versus \queen Queen and \pawn Pawn (see Figure~\ref{fig:longest-7-man-checkmate}) is the absolute winner of~the longest 7-man checkmates:
+        The~ending position of~\rookB Rook, \bishopB Bishop and \knightB Knight versus \queen Queen and \pawn Pawn in Figure~\ref{fig:longest-7-man-checkmate} is the absolute winner of~the longest 7-man checkmates:
         \begin{quotation}
           \noindent
           A~simple idea one has when he sees the position above is whether it is possible to take a~7-man position with a~pawn, to promote the pawn in several moves and get mate in 545, thus finding an~even longer mate.
@@ -230,28 +253,27 @@ instead of~$48 \times 47 = 2,256$ permutations for the pawns' locations, only si
           \label{fig:longest-7-man-checkmate-pawn-promotion}
         \end{figure}
     \end{description}
+    (\cite{Lomonosov2014eightlongest}) shows another 6 monstrously huge endgames, each with over 500 forced moves to checkmate.
+    Astonishingly, the authors note on the surprising gap in~number of~moves between these ``hateful eight'' positions and the next (9\textsuperscript{th}) longest 7-piece endgame:
+    \begin{quotation} \noindent
+      First, we should note that the closest competitors to the KRBN-KQN ending (and its derivates) fall far behind.
+      KBNP-KBP and KNNP-KRB, ranking 9\textsuperscript{th} and 10\textsuperscript{th}, only give us $346$ until mates.
+      After this, endings follow with minimal gaps.
+    \end{quotation}
+    Furthermore, they provide the following prognosis on~the longest 8-man endgames:
+    \begin{quotation} \noindent
+      Many show interest in what is to expect from 8-man endings.
+      First, take note that the longest 6-man mate took 262 moves (KRN-KNN).
+      Moving to 7-man endings doubled this value.
+      Second, 8-man tablebases include much more endings with both sides having relatively equal strength.
+
+      All this gives us a~strong hope to discover a~mate in more than 1000 moves in one of~8-man endgames.
+      Unfortunately the size of~7-man tablebases will be 100 times larger than size of~7-man tablebases.
+      To fully compute them, one will need about 10 PB (10000 TB) of~disk space and 50 TB of~RAM.
+      Only top 10 supercomputers can solve 8-man problem in 2014.
+      So don't hold your breath expecting new breakthroughs too soon---the first 1000-move mate is unlikely to be found until 2020 when a~part of a~TOP100 supercomputer may be allowed to be used for solving this task.
+    \end{quotation}
 \end{itemize}
-
-(\cite{Lomonosov2014eightlongest}) shows another 6 monstrously huge endgames, each with over 500 forced moves to checkmate.
-Astonishingly, the authors note on the surprising gap in~number of~moves between these ``hateful eight'' positions and the next (9\textsuperscript{th}) longest 7-piece endgame:
-\begin{quotation} \noindent
-  First, we should note that the closest competitors to the KRBN-KQN ending (and its derivates) fall far behind.
-  KBNP-KBP and KNNP-KRB, ranking 9\textsuperscript{th} and 10\textsuperscript{th}, only give us $346$ until mates.
-  After this, endings follow with minimal gaps.
-\end{quotation}
-Furthermore, they provide the following prognosis on~the longest 8-man endgames:
-\begin{quotation} \noindent
-  Many show interest in what is to expect from 8-man endings.
-  First, take note that the longest 6-man mate took 262 moves (KRN-KNN).
-  Moving to 7-man endings doubled this value.
-  Second, 8-man tablebases include much more endings with both sides having relatively equal strength.
-
-  All this gives us a~strong hope to discover a~mate in more than 1000 moves in one of~8-man endgames.
-  Unfortunately the size of~7-man tablebases will be 100 times larger than size of~7-man tablebases.
-  To fully compute them, one will need about 10 PB (10000 TB) of~disk space and 50 TB of~RAM.
-  Only top 10 supercomputers can solve 8-man problem in 2014.
-  So don't hold your breath expecting new breakthroughs too soon---the first 1000-move mate is unlikely to be found until 2020 when a~part of a~TOP100 supercomputer may be allowed to be used for solving this task.
-\end{quotation}
 
 \todo
 
