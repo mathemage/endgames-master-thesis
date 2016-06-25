@@ -129,7 +129,7 @@ Additionally, the computation of~tablebases can be simplified if \textbf{a prior
 For instance, a~position KRP(a2)KBP(a3) with pawns blocking each other (see diagram \todo) reduces number of~possibilities for the pawns:
 instead of~$48 \times 47 = 2,256$ permutations for the pawns' locations, only single one needs to be considered.~(\cite{Herik1987sixmenendgame})
 
-\subsection{Applications}
+\subsection{Some Applications}
 \begin{itemize}
   \item \textbf{Complexity of~solving chess}
     \\
@@ -143,6 +143,25 @@ instead of~$48 \times 47 = 2,256$ permutations for the pawns' locations, only si
     as of~2012, all 7 and fewer piece (2 kings and up to 5 other pieces) endgames have been solved.%
     \footnote{\emph{Lomonosov tablebases}: \href{http://tb7.chessok.com/}{http://tb7.chessok.com/}}
     Evidently, focusing on endgame significantly decreases the complexity; tablebases thus provide ``powerful arsenal'' to play perfect chess endings.
+
+  \item \textbf{Longest forced win}
+    The researches behind the Lomonosov tablebases discovered following endgames, proved to the longest 7-man checkmates:
+    \begin{description}
+      \item [among pawnless endgames]
+        Rook, Bishop and Knight against Queen and Knight.
+        Mate in 545.
+
+        \begin{figure}[H]
+          \centering
+          \newgame
+          \fenboard{QN4n1/6r1/3k4/8/b2K4/8/8/8 b - - 0 0}
+          \showboard
+          \captionWithCite{KRBN-KQN with mate in 545 moves}{Lomonosov2012eightlongest}
+          \label{fig:longest-pawnless-chess}
+        \end{figure}
+
+      \item [with pawns]
+    \end{description}
 \end{itemize}
 
 \todo
