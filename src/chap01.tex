@@ -164,17 +164,71 @@ instead of~$48 \times 47 = 2,256$ permutations for the pawns' locations, only si
     \begin{description}
       \item [pawnless:]
         An~endgame \rookB Rook, \bishopB Bishop and \knightB Knight against \queen Queen and \knight Knight (Figure~\ref{fig:longest-pawnless-chess}) can be mated after stunning number of~545 moves!
+        (\cite{Lomonosov2014eightlongest}) comments on the endgame as follows:
+        \begin{quotation}
+          \noindent
+          A~human player has no chance to solve this problem.
+          Even the best chess programs can't find the winning solution, even though they guess most moves right.
 
+          [$\dots$]
+          Top chess players admit that they fail to grasp the logic behind the first 400 moves.
+          Note that there are no captures until move 523 (523...Qxb3).
+
+          This mate is the longest one in~pawnless endings---other mates are far behind in~complexity.
+          This can be explained by the balance of~piece values:
+          11 against 12---the advantage is minimal.
+          We should also note that in the ending closest to this one by complexity---KRBN-KQB (Rook, Bishop and Knight against Queen and Bishop) the longest mate is much shorter and is won by the side with more pieces, not the queen.
+
+          This ending is not the only one with mate in~545.
+          By flipping the board and/or shifting some pieces we can find more similar positions with mate in~545.
+
+          [$\dots$]
+          it is not the [longest] mate---it is only on 4\textsuperscript{th} place among the longest mate endings.
+        \end{quotation}
         \begin{figure}[H]
           \centering
           \newgame
           \fenboard{QN4n1/6r1/3k4/8/b2K4/8/8/8 b - - 0 0}
           \showboard
-          \captionWithCite{KRBN-KQN: mate in 545 moves!}{Lomonosov2014eightlongest}
+          \captionWithCite{KRBN-KQN: White mates in 545.}{Lomonosov2014eightlongest}
           \label{fig:longest-pawnless-chess}
         \end{figure}
 
       \item [with pawns:]
+        An~ending position of~\rookB Rook, \bishopB Bishop and \knightB Knight versus \queen Queen and \pawn Pawn (see Figure~\ref{fig:longest-7-man-checkmate}) is the absolute winner of~the longest 7-man checkmates:
+        \begin{quotation}
+          \noindent
+          A~simple idea one has when he sees the position above is whether it is possible to take a~7-man position with a~pawn, to promote the pawn in several moves and get mate in 545, thus finding an~even longer mate.
+          It took a~long time to get this question answered.
+          This is because generating pawn endings is much more difficult than generating pawnless endings---with pawn endings, you must first generate the so-called minor endings that you go to when pieces get captured or pawns get promoted.
+          [$\dots$]
+          This is not only a~problem of~calculating power but also one of~storing and organizing enormous amount of~data.
+          This is why getting the pawn endings took 3 more years, and why some sources still claim that the longest known 7-man mate is mate in 545.
+
+          In truth, the longest 7-man mate is in the KRBN-KQP ending [Figure~\ref{fig:longest-7-man-checkmate}].
+          It is a~mate in 549.
+
+          A~peculiar thing in this position is the pawn promoting to knight instead of~queen on the 6\textsuperscript{th} move---to check the black king and avoid losing the queen [Figure~\ref{fig:longest-7-man-checkmate-pawn-promotion}].
+
+          After this move, we get the already familiar KRBN-KQN ending.
+          Again, we won't [find] the solution here unless we use the tablebases.
+        \end{quotation}
+        \begin{figure}[H]
+          \centering
+          \newgame
+          \fenboard{1n1k4/6Q1/5KP1/8/7b/1r6/8/8 w - - 0 0}
+          \showboard
+          \captionWithCite{The longest 7-man checkmate: White mates in 545.}{Lomonosov2014eightlongest}
+          \label{fig:longest-7-man-checkmate}
+        \end{figure}
+        \begin{figure}[H]
+          \centering
+          \newgame
+          \fenboard{7Q/3nk1P1/5b2/8/1r6/5K2/8/8 w - - 0 0}
+          \showboard
+          \captionWithCite{Mate in 544: g8 = \knight}{Lomonosov2014eightlongest}
+          \label{fig:longest-7-man-checkmate-pawn-promotion}
+        \end{figure}
     \end{description}
 \end{itemize}
 
