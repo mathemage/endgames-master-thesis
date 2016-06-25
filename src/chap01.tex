@@ -60,7 +60,7 @@ An~\emph{endgame tablebase} is a~database of~pre-calculated, exhaustively analys
 Such positions are calculated by \emph{retrograde analysis} (see below).
 Upon reaching arbitrary position from an~endgame tablebase, the~database provides an~optimal strategy to play perfect chess.
 
-Tablebases are designed for a~given set of~pieces, e.g. king and queen versus king (KQK).
+Tablebases are designed for a~given set of~pieces, e.g. \king King and \queen Queen versus \kingB King (KQK).
 Once the pieces are specified, there are 3 basic steps to create the~corresponding endgame tablebase:
 \begin{enumerate}[1]
   \item \textbf{Generation}:
@@ -69,21 +69,21 @@ Once the pieces are specified, there are 3 basic steps to create the~correspondi
 
     In~the case of~KQK, the number of~positions amounts to $\approx 40000$.
     Such number is due to the symmetry argument of~(\cite{Levy2009computers}):
+    \begin{quotation}
+      The \kingB{} can be placed on~any of 10~squares a1, b1, c1, d1, b2, c2, d2, c3, d3, and d4 (see diagram on Figure~\ref{fig:non-symmetric-black-king}).
+      On~any other square, its position can be considered equivalent by symmetry of~rotation or reflection.
+      Multiply this number of~$10$ by at most $60$ (legal remaining) squares for placing the \king{} and then by at most $62$ squares for the \queen.
+      The product $10 \times 60 \times 62 = 37200$.
+      Several hundred of~these positions are illegal, impossible, or symmetrical reflections of~each other, so the actual number is somewhat smaller.
+    \end{quotation}
     \begin{figure}[H]
       \centering
       \newgame
       \fenboard{8/8/8/8/3k4/2kk4/1kkk4/kkkk4 - - - 0 0}
       \showboard
-      \captionWithCite{Non-symmetric positions for \BlackKingOnWhite}{Levy2009computers}
+      \captionWithCite{Non-symmetric positions for \kingB}{Levy2009computers}
       \label{fig:non-symmetric-black-king}
     \end{figure}
-    \begin{quotation}
-      The \BlackKingOnWhite can be placed on~any of 10~squares a1, b1, c1, d1, b2, c2, d2, c3, d3, and d4 (see diagram on Figure~\ref{fig:non-symmetric-black-king}).
-      On~any other square, its position can be considered equivalent by symmetry of~rotation or reflection.
-      Multiply this number of~$10$ by at most $60$ (legal remaining) squares for placing the White king and then by at most $62$ squares for the White queen.
-      The product $10 \times 60 \times 62 = 37200$.
-      Several hundred of~these positions are illegal, impossible, or symmetrical reflections of~each other, so the actual number is somewhat smaller.
-    \end{quotation}
 
     Adding one new piece into a~\emph{pawnless} endgame multiplies the count of~positions by $\approx 60$ (the approximate quantity of~unoccupied positions).
     Pawns would break the front-back and diagonal symmetries, because they care about direction in their moves~(\cite{Muller2006EGTB}).
@@ -133,8 +133,16 @@ Once the pieces are specified, there are 3 basic steps to create the~correspondi
 \end{enumerate}
 
 Additionally, the computation of~tablebases can be simplified if \textbf{a priori information} is provided.
-For instance, a~position KRP(a2)KBP(a3) with pawns blocking each other (see diagram \todo) reduces number of~possibilities for the pawns:
+For instance, a~position KRP(a2)KBP(a3) with pawns blocking each other (diagram in Figure~\ref{fig:KRP(a2)KBP(a3)}) reduces number of~possibilities for the pawns:
 instead of~$48 \times 47 = 2,256$ permutations for the pawns' locations, only single one needs to be considered.~(\cite{Herik1987sixmenendgame})
+\begin{figure}[H]
+  \centering
+  \newgame
+  \fenboard{7K/R3bk2/8/8/8/p7/P7/8 - - - 0 0}
+  \showboard
+  \captionWithCite{KRP(a2)KBP(a3)}{Herik1987sixmenendgame}
+  \label{fig:KRP(a2)KBP(a3)}
+\end{figure}
 
 \subsection{Some Applications}
 \begin{itemize}
@@ -154,9 +162,8 @@ instead of~$48 \times 47 = 2,256$ permutations for the pawns' locations, only si
   \item \textbf{Longest forced win}
     The researches behind the Lomonosov tablebases discovered following endgames, proved to the longest 7-man checkmates:
     \begin{description}
-      \item [among pawnless endgames]
-        Rook, Bishop and Knight against Queen and Knight.
-        Mate in 545.
+      \item [pawnless:]
+        \rook Rook, \bishop Bishop and \knight Knight against \queenB Queen and \knightB Knight (Figure~\ref{fig:longest-pawnless-chess}) can be mated after stunning number of~545 moves!
 
         \begin{figure}[H]
           \centering
@@ -167,7 +174,7 @@ instead of~$48 \times 47 = 2,256$ permutations for the pawns' locations, only si
           \label{fig:longest-pawnless-chess}
         \end{figure}
 
-      \item [with pawns]
+      \item [with pawns:]
     \end{description}
 \end{itemize}
 
