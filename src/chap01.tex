@@ -100,8 +100,8 @@ Once the pieces are specified, there are 3 basic steps to create the~correspondi
       \item a~position is winning in $n+1$ moves if the player can reach a~position winning in $n$ moves (more precisely, where the opponent loses in at most $n$ moves)
     \end{enumerate}
     In terms of~\emph{depth to mate}%
-    \footnote{DTM is the number of~moves necessary to force a~checkmate.}
-    , positions are generated in the order of~increasing DTM.
+    \footnote{DTM is the number of~moves necessary to force a~checkmate.},
+    positions are generated in the order of~increasing DTM.
 
     Alternatively, Tim Krabbé (\cite{Krabbe2014StillersMonster}) describes retrograde analysis (from perspective of~White to mate) by generating:
     \begin{enumerate}[(1)]
@@ -118,7 +118,7 @@ Once the pieces are specified, there are 3 basic steps to create the~correspondi
     \end{enumerate}
       By connecting these positions back to mate, the shortest path through the database is formed.
       Such a~path contains perfect play:
-      White moves towards the quickest mate, Black moves to the slowest mate.
+      White moves towards the quickest mate, Black moves towards the slowest mate (which can be a~draw or even Black's win).
 
   \item \textbf{Verification}:
     (\cite{Bourzutschky2006sevenman}) pinpoints the importance of~the (seemingly optional) step of~verification:
