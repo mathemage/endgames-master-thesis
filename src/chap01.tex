@@ -99,28 +99,26 @@ Once the pieces are specified, there are 3 basic steps to create the~correspondi
       \item checkmated positions are determined in~the beginning
       \item a~position is winning in $n+1$ moves if the player can reach a~position winning in $n$ moves (more precisely, where the opponent loses in at most $n$ moves)
     \end{enumerate}
+    In terms of~\emph{depth to mate}%
+    \footnote{DTM is the number of~moves necessary to force a~checkmate.}
+    , positions are generated in the order of~increasing DTM.
 
-    Alternatively, (\cite{Krabbe2014StillersMonster}) describes retrograde analysis as follows:
-    \begin{quotation} \noindent
-      The idea is that a~database is made with all possible positions with a~given material [note: as in the preceding step].
-
-      Then a~sub-database is made of~all positions where Black is mated.
-      Then one where White can give mate.
-      
-      Then one where Black cannot stop White giving mate next move.
-
-      Then one where White can always reach a~position where Black cannot stop him from giving mate next move.
-
-      And so on, always a~ply%
+    Alternatively, Tim Krabbé (\cite{Krabbe2014StillersMonster}) describes retrograde analysis (from perspective of~White to mate) by generating:
+    \begin{enumerate}[(1)]
+      \item a~database of~all possible positions given the material (see the previous step of~generation),
+      \item a~sub-database made of~all positions where Black is mated,
+      \item positions where White can reach mate (DTM = 1),
+      \item positions where Black cannot prevent White giving mate next move,
+      \item positions where White can always reach a~position where Black cannot prevent him from giving mate next move (DTM = 2).
+      \item And so on, always a~ply%
       \footnote{In standard chess terminology, one move consists of a~turn by each player.
         Therefore a~\emph{ply} in chess is a~half-move.
         Thus, after 20 moves in a~chess game, 40 plies have been completed---20 by White and 20 by Black.}
-      further away from mate until all positions that are thus connected to mate have been found.
-
-      Then all of~these positions are linked back to mate by the shortest path through the database.
-      That means that, apart from ``equi-optimal'' moves, all the moves in such a~path are perfect:
-      White's move always leads to the quickest mate, Black's move always leads to the slowest mate.
-    \end{quotation}
+      further away from mate until all positions connected to mate are found.
+    \end{enumerate}
+      By connecting these positions back to mate, the shortest path through the database is formed.
+      Such a~path contains perfect play:
+      White moves towards the quickest mate, Black moves to the slowest mate.
 
   \item \textbf{Verification}:
     (\cite{Bourzutschky2006sevenman}) pinpoints the importance of~the (seemingly optional) step of~verification:
