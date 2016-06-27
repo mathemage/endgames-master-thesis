@@ -220,24 +220,17 @@ instead of~$48 \times 47 = 2,256$ permutations for the pawns' locations, only si
         \end{figure}
 
       \item [with pawns:]
-        The~ending position of~\rookB Rook, \bishopB Bishop and \knightB Knight versus \queen Queen and \pawn Pawn in Figure~\ref{fig:longest-7-man-checkmate} is the absolute winner of~the longest 7-man checkmates:
-        \begin{quotation}
-          \noindent
-          A~simple idea one has when he sees the position above is whether it is possible to take a~7-man position with a~pawn, to promote the pawn in several moves and get mate in 545, thus finding an~even longer mate.
-          It took a~long time to get this question answered.
-          This is because generating pawn endings is much more difficult than generating pawnless endings---with pawn endings, you must first generate the so-called minor endings that you go to when pieces get captured or pawns get promoted.
-          [$\dots$]
-          This is not only a~problem of~calculating power but also one of~storing and organizing enormous amount of~data.
-          This is why getting the pawn endings took 3 more years, and why some sources still claim that the longest known 7-man mate is mate in 545.
+        One simple idea to create an~even more complex endgame is to build on the previous position and make use of~pawns' promotion.
 
-          In truth, the longest 7-man mate is in the KRBN-KQP ending [Figure~\ref{fig:longest-7-man-checkmate}].
-          It is a~mate in 549.
+        The~ending position of~\rookB Rook, \bishopB Bishop and \knightB Knight versus \queen Queen and \pawn Pawn in Figure~\ref{fig:longest-7-man-checkmate} implements this idea:
+        White promotes his \pawn Pawn on the 6\textsuperscript{th} move.
+        Strangely, the promotion is to \knight Knight instead of~\queen Queen, so as to check the \kingB King and avoid losing the \queen Queen (Figure~\ref{fig:longest-7-man-checkmate-pawn-promotion}).
+        Afterwards, the familiar KRBN-KQN ending emerges and checkmate is forced by~White in 544 moves.
 
-          A~peculiar thing in this position is the pawn promoting to knight instead of~queen on the 6\textsuperscript{th} move---to check the black king and avoid losing the queen [Figure~\ref{fig:longest-7-man-checkmate-pawn-promotion}].
-
-          After this move, we get the already familiar KRBN-KQN ending.
-          Again, we won't [find] the solution here unless we use the tablebases.
-        \end{quotation}
+        The KRBN-KQP(g6) position is the absolute winner of~``the contest for the longest 7-man checkmate''.
+        It took 3 additional years to prove it because pawn endings also require \emph{minor endings}%
+        \footnote{positions after capturing pieces or promoting pawns}
+        to be generated, posing great challenges in~terms of~computational power, storage and data organization.
         \begin{figure}[H]
           \centering
           \newgame
