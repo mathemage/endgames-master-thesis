@@ -121,13 +121,17 @@ Once the pieces are specified, there are 3 basic steps to create the~correspondi
       White moves towards the quickest mate, Black moves towards the slowest mate (which can be a~draw or even Black's win).
 
   \item \textbf{Verification}:
-    (\cite{Bourzutschky2006sevenman}) pinpoints the importance of~the (seemingly optional) step of~verification:
+    The self-consistency of~the tablebase is verified by independently searching for each position (both Black and White to move).
+    The score of~the best move has to be in~line with the score in~the table.
+    As pinpointed by~(\cite{Bourzutschky2006sevenman}), this (seemingly optional) step is important:
     \begin{quotation} \noindent
-      The verification run checks the self-consistency of~the tablebase by performing a~[one-ply] search for each position (both Black and White to move) and verifying that the score of~the best move is indeed what is stored in the table.
       This is a~necessary and sufficient condition for tablebase accuracy.
       Since the verification program was developed independently of~the generation program (I don't even have the source code for the generation program) the likelihood of~errors is pretty small.
     \end{quotation}
 \end{enumerate}
+
+\hrule
+\medskip
 
 Additionally, the computation of~tablebases can be simplified if \textbf{a priori information} is provided.
 For instance, a~position KRP(a2)-KBP(a3) with pawns blocking each other (diagram in Figure~\ref{fig:KRP(a2)-KBP(a3)}) reduces number of~possibilities for the pawns:
