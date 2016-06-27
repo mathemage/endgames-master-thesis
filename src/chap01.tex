@@ -248,26 +248,19 @@ instead of~$48 \times 47 = 2,256$ permutations for the pawns' locations, only si
           \label{fig:longest-7-man-checkmate-pawn-promotion}
         \end{figure}
     \end{description}
-    (\cite{Lomonosov2014eightlongest}) shows another 6 monstrously huge endgames, each with over 500 forced moves to checkmate.
-    Astonishingly, the authors note on the surprising gap in~number of~moves between these ``hateful eight'' positions and the next (9\textsuperscript{th}) longest 7-piece endgame:
-    \begin{quotation} \noindent
-      First, we should note that the closest competitors to the KRBN-KQN ending (and its derivates) fall far behind.
-      KBNP-KBP and KNNP-KRB, ranking 9\textsuperscript{th} and 10\textsuperscript{th}, only give us $346$ until mates.
-      After this, endings follow with minimal gaps.
-    \end{quotation}
-    Furthermore, they provide the following prognosis on~the longest 8-man endgames:
-    \begin{quotation} \noindent
-      Many show interest in what is to expect from 8-man endings.
-      First, take note that the longest 6-man mate took 262 moves (KRN-KNN).
-      Moving to 7-man endings doubled this value.
-      Second, 8-man tablebases include much more endings with both sides having relatively equal strength.
+    (\cite{Lomonosov2014eightlongest}) show another 6 monstrously huge endgames, each with over 500 forced moves to checkmate.
+    The authors remark on the surprising gap in~number of~moves between the ``hateful eight'' KRBN-KQN (and derived) positions and the next (9\textsuperscript{th} and 10\textsuperscript{th}) longest 7-piece endgames:
+    KBNP-KBP and KNNP-KRB only give $346$ until mates.
 
-      All this gives us a~strong hope to discover a~mate in more than 1000 moves in one of~8-man endgames.
-      Unfortunately the size of~7-man tablebases will be 100 times larger than size of~7-man tablebases.
-      To fully compute them, one will need about 10 PB (10000 TB) of~disk space and 50 TB of~RAM.
-      Only top 10 supercomputers can solve 8-man problem in 2014.
-      So don't hold your breath expecting new breakthroughs too soon---the first 1000-move mate is unlikely to be found until 2020 when a~part of a~TOP100 supercomputer may be allowed to be used for solving this task.
-    \end{quotation}
+    And what is the view on~the longest 8-man endgames?
+    The longest 6-man mate takes 262 moves (KRN-KNN).
+    One more piece (7-man endings) doubles the maximum depth.
+    Therefore, the longest 8-man ending may easily reveal a~mate in~over 1000 moves!
+    However, there are much more positions with relatively balanced strengths on~both sides, making 8-man endgames much richer but also more complicated.
+    On top of~that, the complexity of~computation is simply ludicrous:
+    one would need about 10 PB of~disk space and 50 TB of~RAM.
+    As of~2014, only top 10 supercomputers can solve this problem.
+    (\cite{Lomonosov2014eightlongest})
 \end{itemize}
 \note{
   The displayed examples of~lengthy checkmates call into the question the validity of the \emph{50-move rule}, which states that draw can be claimed by any player, if no pawn has been moved and no capture has occurred during the last 50 moves.
