@@ -277,25 +277,31 @@ instead of~$48 \times 47 = 2,256$ permutations for the pawns' locations, only si
 }
 
 \section{Go Endgames Using Ad-Hoc Mathematics}
-
-This section is based on the work of Martin~\Mueller{} (\cite{Muller1995computer}) submitted as a~doctoral thesis at ETH \Zurich.
-Since the focus of~our survey are imperfect-information games rather than Go, the current section heavily derives from that work.
-
-\Mueller{} summarizes his personal view on computer Go in 1995 as follows:
-\begin{quotation} \noindent
-  Go is a~complex game.
-  The board size, the number of~possible moves and average length of a~game are greater than in chess or most other games.
-  Still, human intellect seems to handle Go well.
-  The game has a~lot of~logical, geometrical and combinatorial structure which human players can recognize and exploit.
-  In comparison, today’s Go programs comprehend only the most basic concepts of~Go.
-
+\epigraph{
   Combinatorial game theory captures an~essential part of~what Go is about.
   I think that in one form or another, it will become a~key component of~all successful future Go programs.%
-  \footnote{
-    In fact, this prognosis is misaligned:
-    AlphaGo, the most successful Go program designed so far, uses no Go-specific knowledge.
-    To compare \Mueller's prediction with current trends, consult the Note on page~\pageref{note:CGTvsAlphaGo} or Section~\ref{sec:AlphaGo}.
-  }
+  \footnotemark
+}{Martin~\Mueller}
+The ancient game of~Go offers astounding complexity:
+the board size, the quantity of~possible moves and the average game length produce an~astronomical number of~valid positions.
+More than in~any other classic game, human intuition plays a~vital role for a~successful play:
+Go offers abundance and richness of~geometrical, combinatorial and logical structure, ready to be exploited by human players.
+
+\footnotetext{
+  In fact, this prognosis is misaligned:
+  AlphaGo, the most successful Go program designed so far, uses no Go-specific knowledge.
+  To compare \Mueller's prediction with current trends, consult the Note on page~\pageref{note:CGTvsAlphaGo} or Section~\ref{sec:AlphaGo}.
+}
+\note{
+  This section is based on the work of Martin~\Mueller{} (\cite{Muller1995computer}) submitted as a~doctoral thesis at ETH \Zurich.
+  Since the focus of~our survey are imperfect-information games rather than Go, the current section heavily derives from the mentioned work.
+}
+
+\todo
+\Mueller{} summarizes his personal view on computer Go in 1995 as follows:
+\begin{quotation} \noindent
+  In comparison, today’s Go programs comprehend only the most basic concepts of~Go.
+
   To make progress, I~feel it is necessary both to encode more Go-specific knowledge and to push forward the application of~theories such as combinatorial game theory to Go.
   After more than 5 years of~working on the subject, the depth of~the game still astounds me:
   it has remained as much of a~mystery as ever.
