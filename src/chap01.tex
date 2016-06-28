@@ -211,57 +211,53 @@ instead of~$48 \times 47 = 2,256$ permutations for the pawns' locations, only si
   \item \textbf{The longest checkmates}
     \\
     The researchers behind the Lomonosov tablebases discovered following endgames, proved to be the longest 7-man checkmates.~(\cite{Lomonosov2014eightlongest})
-    \begin{description}
-      \item [pawnless:]
-        An~endgame \rookB Rook, \bishopB Bishop and \knightB Knight against \queen Queen and \knight Knight (Figure~\ref{fig:longest-pawnless-chess}) can be mated after stunning number of~545 moves!
 
-        It is the longest pawnless endgame possible with 7 pieces, others are far behind.
-        The closest endgame to this one by~length (\rookB Rook, \bishopB Bishop and \knightB Knight against \queen Queen and \bishop Bishop) is much less complex and won by the side with more pieces, not the queen.
+    A~\textbf{pawnless} endgame \rookB Rook, \bishopB Bishop and \knightB Knight against \queen Queen and \knight Knight (Figure~\ref{fig:longest-pawnless-chess}) can be mated after stunning number of~545 moves!
+    \begin{figure}[H]
+      \centering
+      \newgame
+      \fenboard{QN4n1/6r1/3k4/8/b2K4/8/8/8 b - - 0 0}
+      \showboard
+      \captionWithCite{KRBN-KQN: White mates in 545.}{Lomonosov2014eightlongest}
+      \label{fig:longest-pawnless-chess}
+    \end{figure}
+    \vskip -1em
+    It is the longest pawnless endgame possible with 7 pieces, others are far behind.
+    The closest endgame to this one by~length (\rookB Rook, \bishopB Bishop and \knightB Knight against \queen Queen and \bishop Bishop) is much less complex and won by the side with more pieces, not the queen.
 
-        No human expert and not even the best chess programs are able to find the winning solution.
-        Top chess players admit that they fail to understand the logic behind the initial 400 moves:
-        there are not even any captures until move~523.
+    No human expert and not even the best chess programs are able to find the winning solution.
+    Top chess players admit that they fail to understand the logic behind the initial 400 moves:
+    there are not even any captures until move~523. 
+    The authors attribute this immense complexity to the balance of~piece values:
+    11 against 12, which is the minimal advantage.
 
-        The authors (\cite{Lomonosov2014eightlongest}) attributes this immense complexity to the balance of~piece values:
-        11 against 12, which is the minimal advantage.
-        \begin{figure}[H]
-          \centering
-          \newgame
-          \fenboard{QN4n1/6r1/3k4/8/b2K4/8/8/8 b - - 0 0}
-          \showboard
-          \captionWithCite{KRBN-KQN: White mates in 545.}{Lomonosov2014eightlongest}
-          \label{fig:longest-pawnless-chess}
-        \end{figure}
+    One simple idea to create an~even more complex endgame \textbf{with pawns} is to build on the previous position and make use of~pawns' promotion.
+    \begin{figure}[H]
+      \centering
+      \newgame
+      \fenboard{1n1k4/6Q1/5KP1/8/7b/1r6/8/8 w - - 0 0}
+      \showboard
+      \captionWithCite{The longest 7-man checkmate: White mates in 549 moves.}{Lomonosov2014eightlongest}
+      \label{fig:longest-7-man-checkmate}
+    \end{figure}
+    The~ending position of~\rookB Rook, \bishopB Bishop and \knightB Knight versus \queen Queen and \pawn Pawn in Figure~\ref{fig:longest-7-man-checkmate} implements this idea:
+    White promotes his \pawn Pawn on the 6\textsuperscript{th} move.
+    Strangely, the promotion is to \knight Knight instead of~\queen Queen, so as to check the \kingB King and avoid losing the \queen Queen (Figure~\ref{fig:longest-7-man-checkmate-pawn-promotion}).
+    Afterwards, the familiar KRBN-KQN ending emerges and checkmate is forced by~White in 544 moves.
+    \begin{figure}[H]
+      \centering
+      \newgame
+      \fenboard{7Q/3nk1P1/5b2/8/1r6/5K2/8/8 w - - 0 0}
+      \showboard
+      \captionWithCite{Mate in 544: g8 = \knight}{Lomonosov2014eightlongest}
+      \label{fig:longest-7-man-checkmate-pawn-promotion}
+    \end{figure}
 
-      \item [with pawns:]
-        One simple idea to create an~even more complex endgame is to build on the previous position and make use of~pawns' promotion.
+    The KRBN-KQP(g6) position is the absolute winner of~``the contest for the longest 7-man checkmate''.
+    It took 3 additional years to prove it because pawn endings also require \emph{minor endings}%
+    \footnote{positions after capturing pieces or promoting pawns}
+    to be generated, posing great challenges in~terms of~computational power, storage and data organization.
 
-        The~ending position of~\rookB Rook, \bishopB Bishop and \knightB Knight versus \queen Queen and \pawn Pawn in Figure~\ref{fig:longest-7-man-checkmate} implements this idea:
-        White promotes his \pawn Pawn on the 6\textsuperscript{th} move.
-        Strangely, the promotion is to \knight Knight instead of~\queen Queen, so as to check the \kingB King and avoid losing the \queen Queen (Figure~\ref{fig:longest-7-man-checkmate-pawn-promotion}).
-        Afterwards, the familiar KRBN-KQN ending emerges and checkmate is forced by~White in 544 moves.
-
-        The KRBN-KQP(g6) position is the absolute winner of~``the contest for the longest 7-man checkmate''.
-        It took 3 additional years to prove it because pawn endings also require \emph{minor endings}%
-        \footnote{positions after capturing pieces or promoting pawns}
-        to be generated, posing great challenges in~terms of~computational power, storage and data organization.
-        \begin{figure}[H]
-          \centering
-          \newgame
-          \fenboard{1n1k4/6Q1/5KP1/8/7b/1r6/8/8 w - - 0 0}
-          \showboard
-          \captionWithCite{The longest 7-man checkmate: White mates in 545.}{Lomonosov2014eightlongest}
-          \label{fig:longest-7-man-checkmate}
-        \end{figure}
-        \begin{figure}[H]
-          \centering
-          \newgame
-          \fenboard{7Q/3nk1P1/5b2/8/1r6/5K2/8/8 w - - 0 0}
-          \showboard
-          \captionWithCite{Mate in 544: g8 = \knight}{Lomonosov2014eightlongest}
-          \label{fig:longest-7-man-checkmate-pawn-promotion}
-        \end{figure}
-    \end{description}
     (\cite{Lomonosov2014eightlongest}) show another 6 monstrously huge endgames, each with over 500 forced moves to checkmate.
     The authors remark on the surprising gap in~number of~moves between the ``hateful eight'' KRBN-KQN (and derived) positions and the next (9\textsuperscript{th} and 10\textsuperscript{th}) longest 7-piece endgames:
     KBNP-KBP and KNNP-KRB only give $346$ until mates.
