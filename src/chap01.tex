@@ -63,13 +63,15 @@ Nevertheless, endgames have one thing in~common:
 the complexity~of the board is often manageable by~computers, making it feasible to compute the perfect strategy.
 
 \subsection{Endgame Tablebase}
+\epigraph{
+  Studying the endgame is like cheating.
+}{Michael J. Frannett}
 
 An~\emph{endgame tablebase} is a~database of~pre-calculated, exhaustively analysed chess endgames stored as tables of~positions together with the best consequent moves.
-Such positions are calculated by \emph{retrograde analysis} (see below).
-Upon reaching arbitrary position from an~endgame tablebase, the~database provides an~optimal strategy to play perfect chess.
+Upon reaching an~arbitrary tablebase position, the~database thus provides an~optimal strategy to play perfect chess.
 
 Tablebases are designed for a~given set of~pieces, e.g. \king King and \queen Queen versus \kingB King (KQ-K).
-Once the pieces are specified, there are 3 basic steps to create the~corresponding endgame tablebase:
+There are 3 basic steps in their process of~creation:
 \begin{enumerate}[1]
   \item \textbf{Generation}:
     Computer generates all legal positions for the given pieces.
@@ -77,12 +79,11 @@ Once the pieces are specified, there are 3 basic steps to create the~correspondi
 
     In~the case of~KQ-K, the number of~positions amounts to $\approx 40000$.
     Such number is due to the symmetry argument~(\cite{Levy2009computers}):
-    assume the \kingB{} is on~square a1, b1, c1, d1, b2, c2, d2, c3, d3, or d4 (see diagram on Figure~\ref{fig:non-symmetric-black-king}).
+    assume the \kingB{} is on~square a1, b1, c1, d1, b2, c2, d2, c3, d3, or d4 (see diagram on~Figure~\ref{fig:non-symmetric-black-king}).
     Other squares are equivalent by symmetry of~rotation or reflection.
 
     Now there are $\approx 60$ remaining squares for the \king{} and at most $62$ squares for the \queen.
-    The product $10 \times 60 \times 62 = 37200$ is an~upper bound for number of~possible KQ-K positions.
-    However, several hundred of~these are not legal, possible, or they are symmetrical copies of~one another, so the final number is actually smaller.
+    Therefore, there are at most $10 \times 60 \times 62 = 37200$ KQ-K positions.
     \begin{figure}[H]
       \centering
       \newgame
