@@ -444,12 +444,12 @@ The results are stored in a~database of~local positions.
 Local subgames during a~live play are then matched one-to-one to a~set of~database positions.
 The value of a~full board position is the sum of~local position values and an~algorithm for sum-game evaluation selects the best available response.
 
+(\cite{Muller1995computer}) also implements a~version with lower memory requirements.
+This is achieved by~saving only a~selection of~positions, and in~case the subgame is missing in the database, re-doing the search.
+
+\hrule
 \todo
-\begin{enumerate}
-  \item
-  We also consider an algorithm with lower memory requirements, which stores only a subset of the positions of a local game in the database.
-  In this case, if play reaches a position not stored in the database, we must re-search the corresponding local game.
-\end{enumerate}
+
 In greater details, there are several points and aspects worth mentioning:
 \begin{enumerate}[(a)]
   \item endgame area
