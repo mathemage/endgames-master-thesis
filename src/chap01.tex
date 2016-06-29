@@ -284,16 +284,16 @@ instead of~$48 \times 47 = 2,256$ permutations for the pawns' locations, only si
   I think that in one form or another, it will become a~key component of~all successful future Go programs.%
   \footnotemark
 }{Martin~\cite{Muller1995computer}}
-The ancient game of~Go offers astounding complexity:
-the board size, the quantity of~possible moves and the average game length produce an~astronomical number of~valid positions.
-More than in~any other classic game, human intuition plays a~vital role for a~successful play:
-Go offers abundance and richness of~geometrical, combinatorial and logical structure, ready to be exploited by human players.
-
 \footnotetext{
   In fact, this prognosis is misaligned:
   AlphaGo, the most successful Go program designed so far, uses no Go-specific knowledge.
   To compare \Mueller's prediction with current trends, consult the Note on page~\pageref{note:CGTvsAlphaGo} or Section~\ref{sec:AlphaGo}.
 }
+The ancient game of~Go offers astounding complexity:
+the board size, the quantity of~possible moves and the average game length produce an~astronomical number of~valid positions.
+More than in~any other classic game, human intuition plays a~vital role for a~successful play:
+Go offers abundance and richness of~geometrical, combinatorial and logical structure, ready to be exploited by human players.
+
 \note{
   This section is based on the work of Martin~\Mueller{} (\cite{Muller1995computer}) submitted as a~doctoral thesis at ETH \Zurich.
   Since the focus of~our survey are imperfect-information games rather than Go, the current section heavily derives from the mentioned work.
@@ -318,29 +318,27 @@ In his dissertation, Martin~\Mueller{} mentions the following advantages of~Go e
 \end{itemize}
 
 \subsection{Partitioning an~Endgame into Local (Sub)games}
+\epigraph{
+  Divide et impera.
+}{Philip II of~Macedon}
 
-According to~(\cite{Muller1995computer}), there are very strong reasons to~partition board positions during endgames in~Go:
-\begin{quotation} \noindent
-  A~Go position usually consists of~several local scenes that can be analyzed individually.
-  In the opening, these scenes can be far apart, and their influence on~each other may be weak.
-  A~better partition occurs late in the game, when there are walls of~stones dividing the board.
-  A~move cannot have any influence across a~wall of~safe stones.
+A~typical Go position contains several \emph{subgames} (local scenes) suitable for independent analysis.
+Initially, the subgames have no influences on~one another due to their mutual distance.
+As the game progresses, nevertheless, they gain the crucial role due to a~clearer board partition with walls of~safe stones:
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=.4\textwidth]{../img/late_endgame_Go_position_suited_for_exact_analysis.png}
+  \captionWithCite{An~immortal wall enabling an exact analysis during late endgame}{Muller1995computer}
+  \label{fig:immortal-wall}
+\end{figure}
+No move can have any influence across these ``immortal'' walls and significant parts of~the board definitely belong to one of the players.
+The connected components of~remaining stones define local subgames independent from each other.
 
-  \begin{figure}[H]
-    \centering
-    \includegraphics[width=.4\textwidth]{../img/late_endgame_Go_position_suited_for_exact_analysis.png}
-    \captionWithCite{Late endgame position suited for exact analysis}{Muller1995computer}
-    \label{fig:late-Go-endgame}
-  \end{figure}
-
-  Board partition improves when many safe walls are on~the board.
-  In the opening and midgame, any partition can be approximate at best.
-  In the endgame, the partition gets more precise when the status of~all big groups has been settled, and the outlines of~territories are clear.
-  When stones become ``immortal'', significant parts of~the board definitely belong to one of the players.
-  The connected components of~the rest of~the board form local games that are independent from each other.
-
-  If each local game is simple enough to~analyze completely (such as in Figure~\ref{fig:late-Go-endgame}), combinatorial game theory can compute an~optimal move for the full board position.
-\end{quotation}
+In the opening and midgame, only approximate partitioning can be available.
+In the endgame, conversely, the partition gets more precise:
+the status of~all big groups has been settled, and the outlines of~territories are clear.
+If each local game is simple enough to~analyze completely (such as in Figure~\ref{fig:immortal-wall}), combinatorial game theory can compute an~optimal move for the full board position.
+(\cite{Muller1995computer})
 
 \subsection{Playing Computer Go as a~Sum of~Local Games}
 
