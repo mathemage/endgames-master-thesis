@@ -351,9 +351,17 @@ This is the general procedure for playing Go as a~sum of~local games used in~(\c
   \item Find an optimal move in the sum game and play it.
 \end{enumerate}
 \Mueller{} proposes heuristic algorithms for playing the entire game, and exact algorithms for late endgame positions.
-Thus, the task of~solving endgames in 1995---at the age of Computer Go's infancy---already played a~vital role.
+
+Undoubtedly, the task of~solving endgames in 1995 (at the age of Computer Go's infancy) already played a~vital role.
 
 \subsection{A~Combinatorial Game Theory Framework for Approximate Play of~Sum Games}
+\epigraph{
+  [$\dots$]
+  You get surreal numbers by playing games.
+  I used to feel guilty in Cambridge that I spent all day playing games, while I was supposed to be doing mathematics.
+  Then, when I discovered surreal numbers, I realized that playing games IS math.
+}{John H. Conway}
+
 
 \Mueller{} also suggests to replace the ``standard model'' of~computer Go by a~sum game model.
 The following benefits and problems of~the sum game model for computer Go are listed in~(\cite{Muller1995computer}):
@@ -362,28 +370,23 @@ The following benefits and problems of~the sum game model for computer Go are li
 
 \underline{Benefits}
 \begin{itemize}[+]
-  \item The model is well suited to the knowledge and style of~\textit{(at that time)} current Go programs:
-    they concentrate on local fighting and surrounding territories.
-  \item Locality reduces the complexity of~move generation and position evaluation.
-    With the emphasis on~evaluation, clever pruning during move generation is not as crucial as in~global search because of~the reduced search space.
-  \item Stepwise, directed expansion of~search is supported.
-    This provides more time control than the usual iterative deepening.
-    It is easy to use opponent's time.
-  \item Important Go terms can be expressed or~refined in terms of~the theory, and need not be programmed separately.
-  \item The reuse of~local game analysis improves efficiency while playing a~game.
-  \item Parallelism emerges naturally on~many levels: local searches are independent, evaluation and operations on mathematical games can be parallelized.
+  \item suitability to the knowledge and style of~Go programs at that time:
+    local fighting, surrounding territories
+  \item the reuse of~local game analysis for higher quality game-play
+  \item simplification of~move generation and position evaluation.
+  \item translation of~Go terms into the theory, without any need to separate programming
+  \item opportunities for parallelism:
+    independent local searches, evaluation and operations on mathematical games
 \end{itemize}
 
 \underline{Problems}
 \begin{itemize}[-]
-  \item Managing incrementally changing sets of~local graphs in place of a single position adds complexity.
-  \item Accurate board partition and recognition of~dependencies is crucial.
-  \item The usual problems of~selective search appear in complicated local games:
-    missing crucial moves leads to wrong evaluation.
-  \item Non-constant local games may be overlooked completely, such as insecure ``territories'' which can be destroyed from the inside.
-  \item In this model there is no concept of~long-range full board plans.
-    This is probably not a~big issue until programs reach amateur Dan or even professional level.%
-    \footnote{For an~update on the current situation, see Section~\ref{sec:AlphaGo}.}
+  \item required accurate board partition and recognition of~dependencies
+  \item the common issues of~selective search:
+    misleading evaluation due to missing crucial moves in~complicated games
+  \item the lack of~long-range full-board planning:
+    ``This is probably not a~big issue until programs reach amateur Dan or even professional level.''%
+    \footnote{For an~update on the situation today, see Section~\ref{sec:AlphaGo}.}
 \end{itemize}
 
 \subsection{A~Sum Game Model for the Entire Game of~Go}
