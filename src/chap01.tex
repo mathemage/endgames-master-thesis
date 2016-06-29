@@ -317,7 +317,7 @@ In his dissertation, Martin~\Mueller{} mentions the following advantages of~Go e
   \item Endgames provide a~simplified, more manageable sub-domain allowing the use of~stronger theoretical models than the larger, more general problem.
 \end{itemize}
 
-\subsection{Partitioning an~Endgame into Local (Sub)games}
+\subsection{Partitioning an~Endgame into (Sub)games and Playing Their~Game-Sum}
 \epigraph{
   Divide et impera.
 }{Philip II of~Macedon}
@@ -340,9 +340,7 @@ the status of~all big groups has been settled, and the outlines of~territories a
 If each local game is simple enough to~analyze completely (such as in Figure~\ref{fig:immortal-wall}), combinatorial game theory can compute an~optimal move for the full board position.
 (\cite{Muller1995computer})
 
-\subsection{Playing Computer Go as a~Sum of~Local Games}
-
-This is the general procedure for playing Go as a~sum of~local games used in~(\cite{Muller1995computer}):
+This is the general procedure of~(\cite{Muller1995computer}) for playing Go as a~sum of~local games:
 \begin{enumerate}
   \item Board partition: find safe blocks, safe territories, and local areas.
   \item Generate local game trees in each area.
@@ -361,7 +359,6 @@ Undoubtedly, the task of~solving endgames in 1995 (at the age of Computer Go's i
   I used to feel guilty in Cambridge that I spent all day playing games, while I was supposed to be doing mathematics.
   Then, when I discovered surreal numbers, I realized that playing games IS math.
 }{John H. Conway}
-
 
 \Mueller{} also suggests to replace the ``standard model'' of~computer Go by a~sum game model.
 The following benefits and problems of~the sum game model for computer Go are listed in~(\cite{Muller1995computer}):
