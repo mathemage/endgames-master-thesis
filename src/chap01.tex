@@ -391,30 +391,21 @@ Additionally, (\cite{Muller1995computer}) mentions several obstacles of~the sum 
 
 \begin{itemize}[-]
   \item the impossibility of a~perfect, precise split:
-    \begin{quotation} \noindent
-      When applying a~local game model to the opening or~midgame, the biggest obstacle is the fact that the board cannot be partitioned into independent subgames.
-      Few areas are completely surrounded, and surrounding stones are not yet invulnerable.
-      We develop heuristics for board partition that split the imperfectly surrounded areas of~the opening and midgame.
-    \end{quotation}
+    During the opening or~midgame, there are almost no surrounded spaces, and moreover, the surrounding stones would not be invulnerable yet.
+    Heuristics is needed for board partition to split the imperfectly surrounded areas.
 
-  \item the dependencies between the resulting subgames: 
-    \begin{quotation} \noindent
-      An~unavoidable side effect of~heuristic partition are dependencies between the resulting local games.
-      Simple strategies for dealing with dependencies are pretending the games are independent, or re-searching a~bigger merged game.
-    \end{quotation}
+  \item the dependencies between the resulting subgames, which arise with the previously mentioned heuristics:
+    Trivial strategies to overcome dependencies involve, e.g. pretending the games are independent, or re-searching a~bigger merged game.
     See Section~\ref{ssec:dependencies-of-subgames} for more details.
 
-  \item the difficulty (or almost infeasibility) of~exhaustive search in still quite large subgames:
-    \begin{quotation} \noindent
-      Even after heuristic partition, areas remain that are too big for an~exhaustive search by a~computer Go program, which must produce a~move in a~few seconds or minutes.
-      In such big areas we use selective search.
-      Tree growth is controlled by limiting the number of~moves generated, and by stopping the search before reaching a~terminal position.
+  \item the infeasibility of~exhaustive search in still large subgames:
+    The program is obliged to give a~move in a~few seconds or minutes.
+    However, there still remain areas intractable for an~exhaustive search.
 
-      There are two levels of~search control:
-      for the whole sum game, search time must be distributed between local games.
-      For each local game, we must decide which nodes to expand and which expert modules to use for search and evaluation.
-      A~post-processing stage handles detected dependencies between games.
-    \end{quotation}
+    In such subgames, \Mueller{} employs \emph{selective search} method.
+    He limits the number of~generated moves and stops the search before reaching a~terminal position.
+    For each local game, nodes to expand need to be decided and \emph{expert modules for search and evaluation} need to be selected.
+    A~post-processing stage handles detected dependencies between games.
 \end{itemize}
 
 Hence, the sum game model makes the best sense during the endgame part.
