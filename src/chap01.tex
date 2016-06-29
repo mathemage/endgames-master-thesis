@@ -394,10 +394,6 @@ Additionally, (\cite{Muller1995computer}) mentions several obstacles of~the sum 
     During the opening or~midgame, there are almost no surrounded spaces, and moreover, the surrounding stones would not be invulnerable yet.
     Heuristics is needed for board partition to split the imperfectly surrounded areas.
 
-  \item the dependencies between the resulting subgames, which arise with the previously mentioned heuristics:
-    Trivial strategies to overcome dependencies involve, e.g. pretending the games are independent, or re-searching a~bigger merged game.
-    See Section~\ref{ssec:dependencies-of-subgames} for more details.
-
   \item the infeasibility of~exhaustive search in still large subgames:
     The program is obliged to give a~move in a~few seconds or minutes.
     However, there still remain areas intractable for an~exhaustive search.
@@ -406,31 +402,24 @@ Additionally, (\cite{Muller1995computer}) mentions several obstacles of~the sum 
     He limits the number of~generated moves and stops the search before reaching a~terminal position.
     For each local game, nodes to expand need to be decided and \emph{expert modules for search and evaluation} need to be selected.
     A~post-processing stage handles detected dependencies between games.
+
+  \item the dependencies between the resulting subgames, which arise with the previously mentioned heuristics:
+    The effect of~such dependencies differs widely:
+    often it is so small that independence is a~useful approximation.
+    In cases when a~move works as a~\emph{double threat} however, dependency analysis is crucial.
+
+    Trivial strategies to overcome dependencies involve:
+    \begin{itemize}
+      \item ignoring the dependency, as if the games were independent,
+      \item proving that the dependency does not affect the value of~the sum, or play of~the sum game,
+      \item merging mutually dependent local games, then re-search the combined game, possibly using previously generated information on single games,
+      \item analyzing the interaction between local games, then use a~specialized theory to compute the joint game value.
+    \end{itemize}
 \end{itemize}
 
 Hence, the sum game model makes the best sense during the endgame part.
 This general principle is as well applicable in poker:
 we wait until the late stage of~the game, when it has greater impact to refine and re-solve the reached endgames.
-
-\subsection{Dependencies Between Local Games}
-\label{ssec:dependencies-of-subgames}
-
-(\cite{Muller1995computer}) warns against the dangers of~subgame dependencies:
-
-\begin{quotation} \noindent
-  Dependencies between games occur when the areas of~local games overlap during area expansion, and when constraints of~one local game are related to~another game.
-  The effect of~such dependencies differs widely:
-  often it is so small that independence is a~useful approximation.
-  In cases when a~move works as a~\emph{double threat} however, dependency analysis is crucial.
-\end{quotation}
-
-Strategies for dealing with dependencies are:
-\begin{itemize}
-  \item Ignore the dependency, treat games as independent
-  \item Prove that the dependency does not affect the value of~the sum, or play of~the sum game
-  \item Merge mutually dependent local games, then re-search the combined game, possibly using previously generated information on single games
-  \item Analyze the interaction between local games, then use a~specialized theory to compute the joint game value
-\end{itemize}
 
 \subsection{Local Search and Evaluation in the Endgame}
 
