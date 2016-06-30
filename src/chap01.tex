@@ -493,47 +493,45 @@ Once the board is partitioned, the algorithm of~(\cite{Muller1995computer}) for 
 \end{figure}
 
 Search and analysis produce the complete description of possible endgame plays, facilitating the perfect strategy.
-The results are stored in a~database of~local positions.
+The results are stored in a~\emph{database of~local positions}.
 Local subgames during a~live play are then matched one-to-one to a~set of~database positions.
 The value of a~full board position is the sum of~local position values and an~algorithm for sum-game evaluation selects the best available response.
 
-(\cite{Muller1995computer}) also implements a~version with lower memory requirements.
+A~version with lower memory requirements is implemented as well.
 This is achieved by~saving only a~selection of~positions, and in~case the subgame is missing in the database, re-doing the search.
+
+An~important question is what to store.
+Table~\ref{tab:db-loc-games} lists some possible answers:
+\begin{table}[!htbp]
+  \centering
+  \begin{tabular}{ |p{.45\textwidth}|p{.48\textwidth}| } 
+    \hline
+    \textbf{Type of database} & \textbf{Content} \\
+    \hline
+    Full                            & All positions encountered during exhaustive search \\
+    Color-complete (Black or White) & All positions reachable by non-dominated moves of~color and arbitrary opponent moves (pruned bad moves of~color) \\
+    Optimal                         & At least one position corresponding to each non-dominated option of each reachable position, guarantees optimal play from each position in~database \\
+    Ko-complete (Ko-optimal)        & Complete (optimal) + possible Ko threats and answers \\
+    Sufficiently good               & Guarantees optimal score from a~starting position, might fail to exploit some opponent mistakes \\
+    \hline
+  \end{tabular}
+  \caption{Possible database variants of~local games}
+  \label{tab:db-loc-games}
+\end{table}
+
+One needs to make a~trade-off between re-computation time and storage space.
+A~sensible solution is to~store only complicated moves in~the database, and re-calculate the rest when necessary.
+It is a~good idea to save only the information whether a~move is locally good or bad, but discard refutations\footnotemark.
+Such a~type of~database is robust against a~good opponent;
+however, it suffers from a~play of a~locally bad opponent.
+This~rare situation would call for the re-computation of~a~subtree in order to find a~refutation.
+\footnotetext{the trees proving that bad moves are inferior}
 
 \hrule
 \todo
 
 In greater details, there are several points and aspects worth mentioning:
 \begin{enumerate}[(a)]
-  \item saving results of~local search
-    \begin{quotation} \noindent
-      Positions encountered during local search are stored in \emph{a~database of~local games}.
-      An~important question is what to store:
-      There is a~tradeoff between recomputation time and required storage.
-      For building a~permanent database, it makes sense to store only ``difficult'' moves in the database, and recalculate the rest if needed.
-      It is efficient to store which moves are locally good or bad, but omit refutations:
-      the trees proving that bad moves are inferior.
-      Such a~database is sufficient for playing against a~good opponent.
-      Only in the unlikely case of~locally bad opponent play, we must recalculate one subtree to find a~refutation.
-      The Table~\ref{tab:db-loc-games} lists some possibilities.
-    \end{quotation}
-    \begin{table}[!htbp]
-      \centering
-      \begin{tabular}{ |p{.45\textwidth}|p{.48\textwidth}| } 
-        \hline
-        \textbf{Type of database} & \textbf{Content} \\
-        \hline
-        Full                            & All positions encountered during exhaustive search \\
-        Color-complete (Black or White) & All positions reachable by non-dominated moves of~color and arbitrary opponent moves (pruned bad moves of~color) \\
-        Optimal                         & At least one position corresponding to each non-dominated option of each reachable position, guarantees optimal play from each position in~database \\
-        Ko-complete (Ko-optimal)        & Complete (optimal) + possible Ko threats and answers \\
-        Sufficiently good               & Guarantees optimal score from a~starting position, might fail to exploit some opponent mistakes \\
-        \hline
-      \end{tabular}
-      \caption{Possible database variants of~local games}
-      \label{tab:db-loc-games}
-    \end{table}
-
   \item pruning game trees 
     \begin{quotation} \noindent
       The evaluation of~nodes leads to pruning the game tree:
