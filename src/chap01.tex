@@ -441,7 +441,7 @@ we wait until the late stage of~the game, when it has greater impact to refine a
   True genius resides in~the capacity for~evaluation of~uncertain, hazardous, and conflicting information. 
 }{Winston Churchill}
 
-Once the board is partitioned, the algorithm for converting a~Go endgame into a~combinatorial game follows these steps:
+Once the board is partitioned, the algorithm of~(\cite{Muller1995computer}) for converting a~Go endgame into a~combinatorial game follows these steps:
 \begin{enumerate}
   \item Generate local game trees:
     all legal moves are generated from point of~both players, with exceptions~of:
@@ -452,7 +452,21 @@ Once the board is partitioned, the algorithm for converting a~Go endgame into a~
       \item \emph{termination rules} for static evaluation of a~position, without further tree expansion%
         \footnote{Compare with \emph{value network} of~AlphaGo in Section~\ref{sec:AlphaGo}.}
     \end{enumerate}
+
   \item Score local terminal positions.
+    \begin{enumerate}[(a)]
+      \item terminal positions can be recognized by
+        \begin{enumerate}[$\diamondsuit$]
+          \item no more legal moves,
+          \item no more good moves,
+          \item the value of~position already known from the transposition table, pattern, or local position database.
+        \end{enumerate}
+        A~position is additionally considered terminal, once we can ascertain its value from another source.
+        Such a~value can be any value in~the sense of~mathematical games.
+
+        Non-terminal positions may have a~constant value as well, if the outcome is the same no matter who plays first, but this has to be proven using search.
+    \end{enumerate}
+
   \item Evaluate local games as mathematical games.
     Explicitly, evaluate terminal positions, and back up the values in~the tree, resulting in a~mathematical game evaluation of~each node.
   \item Select a~move in the resulting sum-game.
@@ -478,22 +492,6 @@ This is achieved by~saving only a~selection of~positions, and in~case the subgam
 
 In greater details, there are several points and aspects worth mentioning:
 \begin{enumerate}[(a)]
-  \item terminal positions
-    \begin{quotation} \noindent
-      \noindent
-      We recognize the following terminal positions:
-      \begin{enumerate}[$\diamondsuit$]
-        \item No legal moves
-        \item No good move (all points are territory, or dame)
-        \item Value of position known from transposition table, pattern, or local position database
-      \end{enumerate}
-      The first two types of~terminal positions evaluate to a~number, or number-plus-star (odd
-      number of~dame).
-      If the value of a~position is known from another source, it is terminal in the sense that there is no need to continue search.
-      The value itself can be any mathematical game value.
-      Non-terminal positions may have a~constant value as well, if the outcome is the same no matter who plays first, but this has to be proven using search.
-    \end{quotation}
-
   \item scoring
     \begin{quotation} \noindent
       Scoring assigns a~number, or number plus dame, to a~terminal position.
