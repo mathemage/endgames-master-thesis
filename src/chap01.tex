@@ -451,6 +451,12 @@ Once the board is partitioned, the algorithm for converting a~Go endgame into a~
   \item Translate the chosen move into a~corresponding Go position.
 \end{enumerate}
 
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=.7\textwidth]{../img/Go_search_tree.png}
+  \captionWithCite{Local game tree with evaluation of terminal nodes}{Muller1995computer}
+\end{figure}
+
 Search and analysis produce the complete description of possible endgame plays, facilitating the perfect strategy.
 The results are stored in a~database of~local positions.
 Local subgames during a~live play are then matched one-to-one to a~set of~database positions.
@@ -471,12 +477,6 @@ In greater details, there are several points and aspects worth mentioning:
       During endgame play, unsettled stones either become safe or are captured.
       Empty points will become occupied, safe territory or dame.
       A~rare case are ``untouchable'' empty points in \emph{seki}.
-
-      \begin{figure}[H]
-        \centering
-        \includegraphics[width=.7\textwidth]{../img/Go_search_tree.png}
-        \captionWithCite{Local game tree with evaluation of terminal nodes}{Muller1995computer}
-      \end{figure}
     \end{quotation}
 
   \item move generation
