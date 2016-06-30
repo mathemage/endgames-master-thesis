@@ -492,7 +492,7 @@ Once the board is partitioned, the algorithm of~(\cite{Muller1995computer}) for 
 
 \begin{figure}[H]
   \centering
-  \includegraphics[width=.7\textwidth]{../img/Go_search_tree.png}
+  \includegraphics[width=.5\textwidth]{../img/Go_search_tree.png}
   \captionWithCite{Local game tree with evaluation of terminal nodes}{Muller1995computer}
 \end{figure}
 
@@ -516,7 +516,7 @@ Table~\ref{tab:db-loc-games} lists some possible answers:
     \hline
     Full                            & $\dots$every position discovered during exhaustive search \\
     Color-complete (Black or White) & $\dots$every position reachable by~non-dominated moves of~the color and arbitrary opponent's moves (pruned bad moves of~the color) \\
-    Optimal                         & $\dots$at~least one position corresponding to~every non-dominated option of~every reachable position (guarantees optimal play from every position in~database) \\
+    Optimal                         & $\dots$at~least one position corresponding to~every non-dominated option of~every reachable position (guaranteed optimal play from every position in~database) \\
     Sufficiently good               & $\dots$guaranteed optimal score from a~starting position (might fail to exploit some opponent mistakes) \\
     \hline
   \end{tabular}
@@ -532,43 +532,32 @@ Such a~type of~database is robust against a~good opponent;
 however, it suffers from a~play of a~locally bad opponent.
 This~rare situation would call for the re-computation of~a~subtree in order to find a~refutation.
 
-(\cite{Muller1995computer}) considers various improvements to computational efficiency:
-\begin{quotation} \noindent
-  Ignoring illegal moves and captures, the number of possible plays in an $n$ point area is approximately $2n$ ($n$ for each player), and play generates a $n-1$ point area.
-  A~rough estimate for the size of~the game tree is therefore $2n\cdot2(n-1)\cdot \ldots \cdot2 = 2^n n!$
-
-  Due to this combinatorial explosion, even fairly small endgames become prohibitively expensive to compute using this approach.
-  In the following, we look at a~number of~techniques for reducing the size of the search tree.
-\end{quotation}
-
-\begin{enumerate}[(a)]
-  \item transposition table (see also Table~\ref{tab:reduction-transp-tab})
-    \begin{quotation} \noindent
-      A~transposition table detects identical board positions, reducing the size of~the search space from $\approx 2^n n!$ to $3^n$ states.
-
-      \begin{table}[!htbp]
-        \centering
-        \begin{tabular}{ |rrr| }
-          \hline
-          \textbf{$n$} & \textbf{$2^nn!$} & \textbf{$3^n$} \\
-          \hline
-          1	&	2	&	3 \\ 
-          2	&	8	&	9 \\ 
-          3	&	48	&	27 \\ 
-          4	&	384	&	81 \\ 
-          5	&	3840	&	243 \\ 
-          6	&	46080	&	729 \\ 
-          7	&	645120	&	2187 \\ 
-          8	&	10321920	&	6561 \\ 
-          9	&	185794560	&	19683 \\ 
-          10	&	3715891200	&	59049 \\ 
-          \hline
-        \end{tabular}
-        \caption{Reduction of search space by transposition table}
-        \label{tab:reduction-transp-tab}
-      \end{table}
-    \end{quotation}
-\end{enumerate}
+The number of~possible moves in an $n$-point area is approximately $2n$ ($n$ for each player), and such a~play generates a $n-1$ point area.
+Whence, the size of~the game tree is approximately $2n\cdot2(n-1)\cdot \ldots \cdot2 = 2^n n!$ nodes.
+Such a~combinatorial explosion makes even fairly small endgames prohibitively expensive.
+\Mueller{} overcomes this hardness with a~transposition table.
+A~\emph{transposition table} detects identical board positions, reducing the size of~the search space from $\approx 2^n n!$ to $3^n$ states (see the comparison in Table~\ref{tab:reduction-transp-tab})
+\begin{table}[!htbp]
+  \centering
+  \begin{tabular}{ |rrr| }
+    \hline
+    \textbf{$n$} & \textbf{$2^nn!$} & \textbf{$3^n$} \\
+    \hline
+    1	&	2	&	3 \\ 
+    2	&	8	&	9 \\ 
+    3	&	48	&	27 \\ 
+    4	&	384	&	81 \\ 
+    5	&	3840	&	243 \\ 
+    6	&	46080	&	729 \\ 
+    7	&	645120	&	2187 \\ 
+    8	&	10321920	&	6561 \\ 
+    9	&	185794560	&	19683 \\ 
+    10	&	3715891200	&	59049 \\ 
+    \hline
+  \end{tabular}
+  \caption{Reduction of search space by transposition table}
+  \label{tab:reduction-transp-tab}
+\end{table}
 
 \subsection{Using Combinatorial Game Theory to Solve Late Endgames by Computer}
 
