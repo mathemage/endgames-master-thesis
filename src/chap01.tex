@@ -487,7 +487,7 @@ Once the board is partitioned, the algorithm of~(\cite{Muller1995computer}) for 
 
   \item Select an~option in the resulting (abstract) sum-game.
   \item Translate the chosen option in~the abstract game into a~corresponding move in~Go.
-    It is implemented as~the first move with sufficient \emph{incentive} (\todo recall Section~\ref{sec:CGT}).
+    This move is taken as~the first move with sufficient \emph{incentive} (recall Section~\ref{sec:CGT}).
 \end{enumerate}
 
 \begin{figure}[H]
@@ -529,9 +529,6 @@ It is a~good idea to save only the information whether a~move is locally good or
 Such a~type of~database is robust against a~good opponent;
 however, it suffers from a~play of a~locally bad opponent.
 This~rare situation would call for the re-computation of~a~subtree in order to find a~refutation.
-
-\hrule
-\todo
 
 \subsection{Speeding up Local Search}
 
