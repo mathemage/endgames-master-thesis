@@ -496,6 +496,8 @@ Once the board is partitioned, the algorithm of~(\cite{Muller1995computer}) for 
   \captionWithCite{Local game tree with evaluation of terminal nodes}{Muller1995computer}
 \end{figure}
 
+\subsection{Storing Search Results into Database}
+
 Search and analysis produce the complete description of possible endgame plays, facilitating the perfect strategy.
 The results are stored in a~\emph{database of~local positions}.
 Local subgames during a~live play are then matched one-to-one to a~set of~database positions.
@@ -529,8 +531,6 @@ It is a~good idea to save only the information whether a~move is locally good or
 Such a~type of~database is robust against a~good opponent;
 however, it suffers from a~play of a~locally bad opponent.
 This~rare situation would call for the re-computation of~a~subtree in order to find a~refutation.
-
-\subsection{Speeding up Local Search}
 
 (\cite{Muller1995computer}) considers various improvements to computational efficiency:
 \begin{quotation} \noindent
