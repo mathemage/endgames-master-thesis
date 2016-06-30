@@ -453,9 +453,9 @@ Once the board is partitioned, the algorithm of~(\cite{Muller1995computer}) for 
         \footnote{Compare with \emph{value network} of~AlphaGo in Section~\ref{sec:AlphaGo}.}
     \end{enumerate}
 
-  \item Score local terminal positions.
+  \item Score local terminal positions:
     \begin{enumerate}[(a)]
-      \item terminal positions can be recognized by
+      \item \emph{terminal positions} can be recognized by
         \begin{enumerate}[$\diamondsuit$]
           \item no more legal moves,
           \item no more good moves,
@@ -465,6 +465,15 @@ Once the board is partitioned, the algorithm of~(\cite{Muller1995computer}) for 
         Such a~value can be any value in~the sense of~mathematical games.
 
         Non-terminal positions may have a~constant value as well, if the outcome is the same no matter who plays first, but this has to be proven using search.
+
+      \item \emph{scoring}%
+        \footnote{See Section~\ref{sec:Go}.}
+        comes in two widely-accepted flavors, namely
+        \begin{enumerate}[$\diamondsuit$]
+          \item Chinese variant, which counts stones and empty points belonging to either color,
+          \item Japanese variant, which counts territory and prisoners.
+        \end{enumerate}
+        Both variants have straightforward implementation because safe stones, dead stones, territories and neutral points are known exactly in~the endgame.
     \end{enumerate}
 
   \item Evaluate local games as mathematical games.
@@ -492,15 +501,6 @@ This is achieved by~saving only a~selection of~positions, and in~case the subgam
 
 In greater details, there are several points and aspects worth mentioning:
 \begin{enumerate}[(a)]
-  \item scoring
-    \begin{quotation} \noindent
-      Scoring assigns a~number, or number plus dame, to a~terminal position.
-      In Chinese rules, scoring measures how many stones and empty points belong to either color.
-      In Japanese rules, territory and prisoners are counted.
-      Both kinds of~scoring are straightforward in the endgame because safe and dead stones, territories and neutral points are known exactly.%
-      \footnote{See Section~\ref{sec:Go}.}
-    \end{quotation}
-
   \item exact play on a~subset of~the board
     \begin{quotation} \noindent
       When board partition indicates that big areas remain, or search cannot solve all small areas, the user interface offers three options:
