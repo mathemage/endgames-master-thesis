@@ -446,8 +446,11 @@ Once the board is partitioned, the algorithm of~(\cite{Muller1995computer}) for 
   \item Generate local game trees:
     all legal moves are generated from point of~both players, with exceptions~of:
     \begin{enumerate}[(a)]
-      \item \emph{pruning rules} (e.g. pruning moves dominated by other moves)%
-        \footnote{Compare with \emph{policy networks} of~AlphaGo in Section~\ref{sec:AlphaGo}.}
+      \item \emph{pruning rules}%
+        \footnote{Compare with \emph{policy networks} of~AlphaGo in Section~\ref{sec:AlphaGo}.},
+        e.g. pruning dominated subgame trees:
+        the evaluation of~nodes allows for pruning moves dominated by other moves.
+        Moves with a~dominating alternative are labelled as~\emph{locally bad moves}.
 
       \item \emph{termination rules} for static evaluation of a~position, without further tree expansion%
         \footnote{Compare with \emph{value network} of~AlphaGo in Section~\ref{sec:AlphaGo}.}
@@ -531,14 +534,6 @@ This~rare situation would call for the re-computation of~a~subtree in order to f
 
 In greater details, there are several points and aspects worth mentioning:
 \begin{enumerate}[(a)]
-  \item pruning game trees 
-    \begin{quotation} \noindent
-      The evaluation of~nodes leads to pruning the game tree:
-      moves to dominated options are marked as locally bad moves.
-      With the usual domination test for $\geq$, all but the first of~several equally good moves are pruned.
-      A~test for $>$ keeps the full set of~equally good moves.
-    \end{quotation}
-
   \item mapping a~move in the abstract game to a~Go move
     \begin{quotation} \noindent
       As a~last step, we must find a~Go move corresponding to the selected option in the abstract game.
