@@ -443,7 +443,15 @@ we wait until the late stage of~the game, when it has greater impact to refine a
 
 Once the board is partitioned, the algorithm for converting a~Go endgame into a~combinatorial game follows these steps:
 \begin{enumerate}
-  \item Generate local game trees.
+  \item Generate local game trees:
+    all legal moves are generated from point of~both players, with exceptions~of:
+    \begin{enumerate}[(a)]
+      \item \emph{pruning rules} (e.g. pruning moves dominated by other moves)%
+        \footnote{Compare with \emph{policy networks} of~AlphaGo in Section~\ref{sec:AlphaGo}.}
+
+      \item \emph{termination rules} for static evaluation of a~position, without further tree expansion%
+        \footnote{Compare with \emph{value network} of~AlphaGo in Section~\ref{sec:AlphaGo}.}
+    \end{enumerate}
   \item Score local terminal positions.
   \item Evaluate local games as mathematical games.
     Explicitly, evaluate terminal positions, and back up the values in~the tree, resulting in a~mathematical game evaluation of~each node.
@@ -470,15 +478,6 @@ This is achieved by~saving only a~selection of~positions, and in~case the subgam
 
 In greater details, there are several points and aspects worth mentioning:
 \begin{enumerate}[(a)]
-  \item move generation
-    \begin{quotation} \noindent
-      We generate all legal moves for both colors, except in a~terminal position or if moves can be pruned.
-      Examples of~\emph{pruning rules} are restricting the number of~\emph{dame} moves generated to at most one, and pruning moves dominated by other moves.%
-      \footnote{Compare with \emph{policy networks} of~AlphaGo in Section~\ref{sec:AlphaGo}.}
-      \emph{Termination rules} decide when a~position can be evaluated statically, without further expanding the tree.%
-      \footnote{Compare with \emph{value network} of~AlphaGo in Section~\ref{sec:AlphaGo}.}
-    \end{quotation}
-
   \item terminal positions
     \begin{quotation} \noindent
       \noindent
