@@ -485,8 +485,9 @@ Once the board is partitioned, the algorithm of~(\cite{Muller1995computer}) for 
     Even though the program reaches a~solved position, (\cite{Muller1995computer}) notes that a~``suicidal'' opponent may later cause great troubles, by endangering his immortal stones.
     Such an~act would violate the assumptions on~board partitioning and give rise to~new unexpected positions with rather complicated optimal play.
 
-  \item Select a~move in the resulting sum-game.
-  \item Translate the chosen move into a~corresponding Go position.
+  \item Select an~option in the resulting (abstract) sum-game.
+  \item Translate the chosen option in~the abstract game into a~corresponding move in~Go.
+    It is implemented as~the first move with sufficient \emph{incentive} (\todo recall Section~\ref{sec:CGT}).
 \end{enumerate}
 
 \begin{figure}[H]
@@ -531,15 +532,6 @@ This~rare situation would call for the re-computation of~a~subtree in order to f
 
 \hrule
 \todo
-
-In greater details, there are several points and aspects worth mentioning:
-\begin{enumerate}[(a)]
-  \item mapping a~move in the abstract game to a~Go move
-    \begin{quotation} \noindent
-      As a~last step, we must find a~Go move corresponding to the selected option in the abstract game.
-      We select the first move with sufficient \emph{incentive}.
-    \end{quotation}
-\end{enumerate}
 
 \subsection{Speeding up Local Search}
 
