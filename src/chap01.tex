@@ -508,24 +508,23 @@ Table~\ref{tab:db-loc-games} lists some possible answers:
     \hline
     \textbf{Type of database} & \textbf{Content} \\
     \hline
-    Full                            & All positions encountered during exhaustive search \\
-    Color-complete (Black or White) & All positions reachable by non-dominated moves of~color and arbitrary opponent moves (pruned bad moves of~color) \\
-    Optimal                         & At least one position corresponding to each non-dominated option of each reachable position, guarantees optimal play from each position in~database \\
-    Ko-complete (Ko-optimal)        & Complete (optimal) + possible Ko threats and answers \\
-    Sufficiently good               & Guarantees optimal score from a~starting position, might fail to exploit some opponent mistakes \\
+    Full                            & $\dots$every position discovered during exhaustive search \\
+    Color-complete (Black or White) & $\dots$every position reachable by~non-dominated moves of~the color and arbitrary opponent's moves (pruned bad moves of~the color) \\
+    Optimal                         & $\dots$at~least one position corresponding to~every non-dominated option of~every reachable position (guarantees optimal play from every position in~database) \\
+    Sufficiently good               & $\dots$guaranteed optimal score from a~starting position (might fail to exploit some opponent mistakes) \\
     \hline
   \end{tabular}
-  \caption{Possible database variants of~local games}
+  \captionWithCite{Possible database variants of~local games}{Muller1995computer}
   \label{tab:db-loc-games}
 \end{table}
 
 One needs to make a~trade-off between re-computation time and storage space.
 A~sensible solution is to~store only complicated moves in~the database, and re-calculate the rest when necessary.
-It is a~good idea to save only the information whether a~move is locally good or bad, but discard refutations\footnotemark.
+It is a~good idea to save only the information whether a~move is locally good or bad, but discard \emph{refutations}\footnotemark.
+\footnotetext{the trees proving that bad moves are inferior}
 Such a~type of~database is robust against a~good opponent;
 however, it suffers from a~play of a~locally bad opponent.
 This~rare situation would call for the re-computation of~a~subtree in order to find a~refutation.
-\footnotetext{the trees proving that bad moves are inferior}
 
 \hrule
 \todo
