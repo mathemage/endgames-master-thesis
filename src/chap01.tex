@@ -455,6 +455,15 @@ Once the board is partitioned, the algorithm of~(\cite{Muller1995computer}) for 
 
   \item Score local terminal positions:
     \begin{enumerate}[(a)]
+      \item \emph{scoring}%
+        \footnote{See Section~\ref{sec:Go}.}
+        comes in two widely-accepted flavors, namely
+        \begin{enumerate}[$\diamondsuit$]
+          \item Chinese variant, which counts stones and empty points belonging to either color,
+          \item Japanese variant, which counts territory and prisoners.
+        \end{enumerate}
+        Both variants have straightforward implementation because safe stones, dead stones, territories and neutral points are known exactly in~the endgame.
+
       \item \emph{terminal positions} can be recognized by
         \begin{enumerate}[$\diamondsuit$]
           \item no more legal moves,
@@ -465,19 +474,14 @@ Once the board is partitioned, the algorithm of~(\cite{Muller1995computer}) for 
         Such a~value can be any value in~the sense of~mathematical games.
 
         Non-terminal positions may have a~constant value as well, if the outcome is the same no matter who plays first, but this has to be proven using search.
-
-      \item \emph{scoring}%
-        \footnote{See Section~\ref{sec:Go}.}
-        comes in two widely-accepted flavors, namely
-        \begin{enumerate}[$\diamondsuit$]
-          \item Chinese variant, which counts stones and empty points belonging to either color,
-          \item Japanese variant, which counts territory and prisoners.
-        \end{enumerate}
-        Both variants have straightforward implementation because safe stones, dead stones, territories and neutral points are known exactly in~the endgame.
     \end{enumerate}
 
   \item Evaluate local games as mathematical games.
-    Explicitly, evaluate terminal positions, and back up the values in~the tree, resulting in a~mathematical game evaluation of~each node.
+    Explicitly, evaluate terminal positions, and back up the values in~the tree, resulting in a~mathematical-game evaluation of~each node.
+
+    Although a~solved position is reached, (\cite{Muller1995computer}) notes that a~``suicidal'' opponent may later cause great troubles, by endangering his immortal stones.
+    Such an~act would violate the assumptions on~board partitioning and give rise to~new unexpected positions with rather complicated optimal play.
+
   \item Select a~move in the resulting sum-game.
   \item Translate the chosen move into a~corresponding Go position.
 \end{enumerate}
@@ -501,18 +505,6 @@ This is achieved by~saving only a~selection of~positions, and in~case the subgam
 
 In greater details, there are several points and aspects worth mentioning:
 \begin{enumerate}[(a)]
-  \item exact play on a~subset of~the board
-    \begin{quotation} \noindent
-      When board partition indicates that big areas remain, or search cannot solve all small areas, the user interface offers three options:
-      \begin{enumerate}[$\diamondsuit$]
-        \item Stop playing
-        \item Ignore the unsolvable big areas
-        \item Use heuristic play in the big areas
-      \end{enumerate}
-      Even if an original position has been solved, suicidal opponents can cause problems later:
-      they might endanger their ``immortal'' stones, which violates our initial assumptions on board partition and generates new unstable positions where optimal play might be very complicated.
-    \end{quotation}
-
   \item saving results of~local search
     \begin{quotation} \noindent
       Positions encountered during local search are stored in \emph{a~database of~local games}.
