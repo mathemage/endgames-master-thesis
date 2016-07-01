@@ -136,15 +136,29 @@
 \include{preface}
 \include{chap00}
 
+%%% Part I %%%
 \part{Perfect Endgames of~Perfect-Information Games}
-\include{chap01}
+\epigraph{
+  In order to improve your game, you must study the endgame before everything else.
+  For whereas the endings can be studied and mastered by~themselves, the middle game and opening must be studied in relation to the end game.
+}{José Raúl Capablanca}
 
+For many games, solving their late stages (so-called \emph{endgames}) can be done in~an~online way.
+In other words, we are often able to postpone the computation of~the endgame strategy until the endgame itself is reached in~the play.
+
+This is especially the case of~perfect-information games such as chess or Go, where the endgame technique has been used for long time.
+In these domains, online endgame solving has~significant importance, as it substantially improves the playing quality of~agents.
+\include{chap01}
+%%%%%%%%%%%%%%%
+
+%%% Part II %%%
 \part{Imperfectness of~Imperfect-Information Endgames}
 \include{chap02}
 \include{chap03}
 \include{chap04}
 \include{chap05}
 \include{chap06}
+%%%%%%%%%%%%%%%
 
 \include{epilog}
 
