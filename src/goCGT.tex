@@ -299,24 +299,16 @@ A~\emph{transposition table} detects identical board positions, reducing the siz
 
 Pattern recognition is one of~the key components of~AlphaGo (see Chapter~\ref{ch:AlphaGo}).
 Arguably, the program's success might be partially attributed to learning Go patterns from human expert plays.
-For comparison, (\cite{Muller1995computer}) reports the following state of~``Go-related Research in Visual Perception, Machine Learning and Neural Networks'' in 1995:
-\begin{quotation} \noindent
-  Go has been used as a~vehicle for research in~visual perception, machine learning and neural networks (\cite{Wilcox79}, \cite{Enderton1991golem}, \cite{Stoutamire1991machine}, \cite{Schraudolph1994temporal}).
-  Starting from only the rules of~the game, learning programs can typically pick up basic Go principles, such as saving a~stone from capture, or making a~[one-point] jump.
 
-  A~most disturbing fact is that since Wilcox’ pioneering efforts, none of~this research has been applied to a~state-of-the-art Go program.
-  The problems of~automatically tuning and expanding an~existing knowledge base, or learning of~new high-level concepts, seem quite different from the ab-initio learning problems that have been researched.
+For comparison, (\cite{Muller1995computer}) hails computer Go as \emph{a~vehicle for research in~visual perception, machine learning and neural networks} (based on~\cite{Wilcox79}; \cite{Enderton1991golem}; \cite{Stoutamire1991machine}; \cite{Schraudolph1994temporal}).
 
-  Low level concepts can be learned, but they have already been programmed in the better programs.
-  Neural networks can be trained to play locally good shapes, but have no clue when to play it.%
-  \footnote{This assertion, in particular, has changed with AlphaGo.}
-  Such programs fall easy prey to those that know more about tactics and Life\&Death.
-\end{quotation}
-(\cite{Muller1995computer}) also suggests pattern matching as a~promising mean for improvement:
-\begin{quotation} \noindent
-  Research on pattern learning in computer Go has unfortunately been restricted to \emph{ab-initio} learning of~the most basic patterns from zero knowledge.
-  Interactive or automatic tuning and expansion of a~state-of-the-art pattern base is another fascinating research topic.
-\end{quotation}
+Being introduced just and only to~Go rules, learning programs can typically pick up basic Go principles, such as saving a~stone from capture, and familiarize themselves with~low-level game concepts.
+However, these concepts and principles have already been integrated into~other far superior \emph{expert-based programs}.
+Neural networks are therefore more adapt at~playing locally good shapes, but possess no~idea when to play it.%
+\footnote{This assertion especially has changed thanks to~AlphaGo.}
+These systems are vulnerable to other Go agents with better knowledge of~tactics.
+
+In the end, (\cite{Muller1995computer}) suggests \emph{pattern matching} as a~promising means for the significant advancement of~computer Go.
 
 \section{Contributions of~Combinatorial Game Theory to Go Endgames}
 
