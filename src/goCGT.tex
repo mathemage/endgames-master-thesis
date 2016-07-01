@@ -4,15 +4,15 @@
   I think that in one form or another, it will become a~key component of~all successful future Go programs.%
   \footnotemark
 }{Martin~\cite{Muller1995computer}}
+The ancient game of~Go offers astounding complexity:
+the board size, the quantity of~possible moves and the average game length produce an~astronomical number of~valid positions.
+More than in~any other classic game, human intuition plays a~vital role for a~successful play:
+Go offers abundance and richness of~geometrical, combinatorial and logical structure, ready to be exploited by human players.
 \footnotetext{
   In fact, this prognosis is misaligned:
   AlphaGo, the most successful Go program designed so far, uses no Go-specific knowledge.
   To compare \Mueller's prediction with current trends, consult the Note on page~\pageref{note:CGTvsAlphaGo} or Chapter~\ref{ch:AlphaGo}.
 }
-The ancient game of~Go offers astounding complexity:
-the board size, the quantity of~possible moves and the average game length produce an~astronomical number of~valid positions.
-More than in~any other classic game, human intuition plays a~vital role for a~successful play:
-Go offers abundance and richness of~geometrical, combinatorial and logical structure, ready to be exploited by human players.
 
 \note{
   This section is based on the work of Martin~\Mueller{} (\cite{Muller1995computer}) submitted as a~doctoral thesis at ETH \Zurich.
@@ -43,8 +43,7 @@ In his dissertation, Martin~\Mueller{} mentions the following advantages of~Go e
   \epigraph{
     Divide et impera.
   }{Philip II of~Macedon}
-}
-
+}%
 A~typical Go position contains several \emph{subgames} (local scenes) suitable for independent analysis.
 Initially, the subgames have no influences on~one another due to their mutual distance.
 As the game progresses, nevertheless, they gain the crucial role due to a~clearer board partition with walls of~safe stones:
@@ -84,7 +83,6 @@ Undoubtedly, the task of~solving endgames in 1995 (at the age of Computer Go's i
   I used to feel guilty in Cambridge that I spent all day playing games, while I was supposed to be doing mathematics.
   Then, when I discovered surreal numbers, I realized that playing games IS math.
 }{John Horton Conway}
-
 \Mueller{} suggests to replace the ``standard model'' of~computer Go by a~sum-game model.
 
 Here follows some of~the general benefits and problems of~the sum-game model for computer Go as listed in~(\cite{Muller1995computer}):
@@ -177,7 +175,6 @@ we wait until the late stage of~the game, when it has greater impact to refine a
 \epigraph{
   True genius resides in~the capacity for~evaluation of~uncertain, hazardous, and conflicting information. 
 }{Winston Churchill}
-
 Once the board is partitioned, the algorithm of~(\cite{Muller1995computer}) for converting a~Go endgame into a~combinatorial game follows these steps:
 \begin{enumerate}
   \item Generate local game trees:
@@ -237,7 +234,6 @@ Once the board is partitioned, the algorithm of~(\cite{Muller1995computer}) for 
 \epigraph{
   I'm blessed with very fast memorization skills, so I don't have to read it too far in advance.
 }{Jaimie Alexander}
-
 Search and analysis produce the complete description of possible endgame plays, facilitating the perfect strategy.
 The results are stored in a~\emph{database of~local positions}.
 Local subgames during a~live play are then matched one-to-one to a~set of~database positions.

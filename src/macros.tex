@@ -153,6 +153,9 @@
   \adjustbox{Trim=2pt 2pt 2pt 0pt,width=#1,raise=-0.06ex,margin=0.13ex 0ex 0.13ex 0ex}{\BlackKingOnWhite}%
 }%
 
+\let\oldepigraph\epigraph
+\renewcommand{\epigraph}[2]{\oldepigraph{#1}{#2}\noindent\ignorespaces}
+
 \hyphenation{
   e-qui-li-brium
   im-per-fect
