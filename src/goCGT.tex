@@ -75,16 +75,18 @@ This is the general procedure of~(\cite{Muller1995computer}) for playing Go as a
 
 Undoubtedly, the task of~solving endgames in 1995 (at the age of Computer Go's infancy) already played a~vital role.
 
-\section{Combinatorial Game Theory and Sum-Game Model for Approximate Play}
+\section{Combinatorial Game Theory for the Game of~Go}
 
 \epigraph{
   [$\dots$]
   You get surreal numbers by playing games.
+
   I used to feel guilty in Cambridge that I spent all day playing games, while I was supposed to be doing mathematics.
   Then, when I discovered surreal numbers, I realized that playing games IS math.
 }{John Horton Conway}
 
 \Mueller{} suggests to replace the ``standard model'' of~computer Go by a~sum-game model.
+
 Here follows some of~the general benefits and problems of~the sum-game model for computer Go as listed in~(\cite{Muller1995computer}):
 
 \medskip
@@ -94,13 +96,17 @@ Here follows some of~the general benefits and problems of~the sum-game model for
   \item suitability to the knowledge and style of~Go programs at that time:
     local fighting, surrounding territories$\dots$
   \item the reuse of~local game analysis for higher quality game-play
-  \item simplification of~move generation and position evaluation.
-  \item translation of~Go terms into the theory, without any need to separate programming
+  \item simplification of~move generation and position evaluation
+  \item translation of~Go terms into the theory, without any need for~separate programming
+  \item evaluation of~the opponent's endgame moves
+  \item assessment of~sufficiently good moves even with a~\emph{reduced} local game database
+  \item position's game-theoretic value computed long before the end
   \item opportunities for parallelism:
     independent local searches, evaluation and operations on mathematical games$\dots$
+  \item perfect computer play in~late endgame
 \end{itemize}
 
-\underline{Problems}
+\underline{Obstacles}
 \begin{itemize}[-]
   \item required accurate board partition and recognition of~dependencies
   \item the common issues of~selective search:
@@ -108,6 +114,23 @@ Here follows some of~the general benefits and problems of~the sum-game model for
   \item the lack of~long-range full-board planning:
     ``This is probably not a~big issue until programs reach amateur Dan or even professional level.''%
     \footnote{For an~update on the situation today, see Chapter~\ref{ch:AlphaGo}.}
+\end{itemize}
+
+The strict endgame analysis of~(\cite{Muller1995computer}) is additionally impossible, when one of~the following \underline{limitations} is met:
+\begin{itemize}[-]
+  \item \textbf{partition:}
+    There is insufficient amount of~blocks that can be proven safe.
+    Some of~the areas are hence too large for~the complete search.
+  \item \textbf{summation:}
+    No~move with dominating incentive exists, and both summing and partial search would take too long.
+  \item \textbf{Ko:}
+    Combinatorial game theory relies on the independence of~local subgames.
+    In the case of~Ko, the independence is broken:
+    a~locally bad move may be globally best if it serves as a~Ko threat (recall Section~\ref{sec:Go}).
+    \Mueller{} mentions in~1995 there was ongoing research to generalize the theory for handling Kos.
+  \item \textbf{Unneccessary complexity in ``straightforward'' situations:}
+    In cases where the focus of~play is straightforward (i.e. only one local situation is relevant), combinatorial game theory introduces additional complexity.
+    Namely, CGT investigates moves for~both players in~this and every other position.
 \end{itemize}
 
 \section{Board Partition and Subgame Dependencies}
@@ -173,7 +196,7 @@ Once the board is partitioned, the algorithm of~(\cite{Muller1995computer}) for 
   \item Score local terminal positions:
     \begin{enumerate}[(a)]
       \item \emph{scoring}%
-        \footnote{See Chapter~\ref{ch:Go}.}
+        \footnote{See Section~\ref{sec:Go}.}
         comes in two widely-accepted flavors, namely
         \begin{enumerate}[$\diamondsuit$]
           \item Chinese variant, which counts stones and empty points belonging to either color,
@@ -272,30 +295,6 @@ A~\emph{transposition table} detects identical board positions, reducing the siz
   \caption{Reduction of search space by transposition table}
   \label{tab:reduction-transp-tab}
 \end{table}
-
-\section{Using Combinatorial Game Theory to Solve Late Endgames by Computer}
-
-These are some objectives that can be accomplished by the approach of~(\cite{Muller1995computer}):
-\begin{itemize}
-  \item Perfect computer play in late endgame
-  \item Find the game-theoretic value of a position long before the end
-  \item Evaluate the opponent’s endgame moves
-  \item Find moves that are good enough even with a reduced local game database
-\end{itemize}
-On the other hand, the work also remarks that strict analysis of~endgames is not possible with this method if one of the following limits is reached:
-\begin{itemize}
-  \item \textbf{Partition:}
-    too few blocks can be proven safe independent of~endgame play.
-    Therefore some areas become too big for complete search.
-  \item \textbf{Summation:}
-    no move with dominating incentive exists, and both summing and partial search take too long.
-  \item \textbf{Ko:}
-    Standard combinatorial game theory exploits the independence of~local games.
-    In the case of~Ko, the independence is broken (a~locally bad move may be globally best if it serves as a~Ko threat).
-    Generalizations of~the theory to handle Kos are a topic of [at that time] current research.
-  \item \textbf{Added complexity in ‘obvious’ situations:}
-    In cases where the focus of~play is obvious (i.e. only one local situation is relevant), combinatorial game theory introduces additional complexity by investigating moves for both players in this and each other position.
-\end{itemize}
 
 \section{Pattern Learning}
 
