@@ -1,6 +1,6 @@
-\section{Chess Endgames}
+\chapter{Chess Endgames}
 
-\subsection{What are Endgames in Chess?}
+\section{What are Endgames in Chess?}
 \epigraph{
   Studying openings is just memorizing moves and looking for traps.
   Studying the endgame is chess.
@@ -50,7 +50,7 @@ Here are some examples of~various approaches to defining endgames:
 Nevertheless, endgames have one thing in~common:
 the complexity~of the board is often manageable by~computers, making it feasible to compute the perfect strategy.
 
-\subsection{Endgame Tablebases}
+\section{Endgame Tablebases}
 {
   \setlength{\epigraphwidth}{0.5\textwidth}
   \epigraph{
@@ -145,7 +145,7 @@ instead of~$48 \times 47 = 2,256$ permutations for the pawns' locations, only si
   \label{fig:KRP(a2)-KBP(a3)}
 \end{figure}
 
-\subsection{Some Applications of~Tablebases}
+\section{Some Applications of~Tablebases}
 {
   \setlength{\epigraphwidth}{0.5\textwidth}
   \epigraph{
@@ -272,7 +272,7 @@ instead of~$48 \times 47 = 2,256$ permutations for the pawns' locations, only si
   In situations where checkmate could be forced after an~enormous yet proved number of~moves, draw would be announced despite the guaranteed victory for one of~the players.
 }
 
-\section{Go Endgames Using Ad-Hoc Mathematics}
+\chapter{Go Endgames Using Ad-Hoc Mathematics}
 \epigraph{
   Combinatorial game theory captures an~essential part of~what Go is about.
   I think that in one form or another, it will become a~key component of~all successful future Go programs.%
@@ -281,7 +281,7 @@ instead of~$48 \times 47 = 2,256$ permutations for the pawns' locations, only si
 \footnotetext{
   In fact, this prognosis is misaligned:
   AlphaGo, the most successful Go program designed so far, uses no Go-specific knowledge.
-  To compare \Mueller's prediction with current trends, consult the Note on page~\pageref{note:CGTvsAlphaGo} or Section~\ref{sec:AlphaGo}.
+  To compare \Mueller's prediction with current trends, consult the Note on page~\pageref{note:CGTvsAlphaGo} or Chapter~\ref{ch:AlphaGo}.
 }
 The ancient game of~Go offers astounding complexity:
 the board size, the quantity of~possible moves and the average game length produce an~astronomical number of~valid positions.
@@ -297,7 +297,7 @@ Martin~\Mueller{} in~(\cite{Muller1995computer}) reports that (at that time) Go 
 ``to make progress, [he~feels] it is necessary both to encode more Go-specific knowledge and to push forward the application of~theories such as combinatorial game theory to Go''.
 Here follows the summary and the results of~his endeavors.
 
-\subsection{Why Focus on Go Endgames?}
+\section{Why Focus on Go Endgames?}
 
 In his dissertation, Martin~\Mueller{} mentions the following advantages of~Go endgames for research:
 \begin{itemize}
@@ -311,7 +311,7 @@ In his dissertation, Martin~\Mueller{} mentions the following advantages of~Go e
   \item Endgames provide a~simplified, more manageable sub-domain allowing the use of~stronger theoretical models than the larger, more general problem.
 \end{itemize}
 
-\subsection{Partitioning an~Endgame into (Sub)games and Playing Their~Game-Sum}
+\section{Partitioning an~Endgame into (Sub)games and Playing Their~Game-Sum}
 {
   \setlength{\epigraphwidth}{0.4\textwidth}
   \epigraph{
@@ -349,7 +349,7 @@ This is the general procedure of~(\cite{Muller1995computer}) for playing Go as a
 
 Undoubtedly, the task of~solving endgames in 1995 (at the age of Computer Go's infancy) already played a~vital role.
 
-\subsection{Combinatorial Game Theory and Sum-Game Model for Approximate Play}
+\section{Combinatorial Game Theory and Sum-Game Model for Approximate Play}
 
 \epigraph{
   [$\dots$]
@@ -381,10 +381,10 @@ Here follows some of~the general benefits and problems of~the sum-game model for
     misleading evaluation due to missing crucial moves in~complicated games
   \item the lack of~long-range full-board planning:
     ``This is probably not a~big issue until programs reach amateur Dan or even professional level.''%
-    \footnote{For an~update on the situation today, see Section~\ref{sec:AlphaGo}.}
+    \footnote{For an~update on the situation today, see Chapter~\ref{ch:AlphaGo}.}
 \end{itemize}
 
-\subsection{Board Partition and Subgame Dependencies}
+\section{Board Partition and Subgame Dependencies}
 \epigraph{
   Independence?
   That's middle class blasphemy.
@@ -424,7 +424,7 @@ Hence, the sum game model makes the best sense during the endgame part.
 This general principle is as well applicable in poker:
 we wait until the late stage of~the game, when it has greater impact to refine and re-solve the reached endgames.
 
-\subsection{Local Search and Evaluation in the Endgame}
+\section{Local Search and Evaluation in the Endgame}
 \epigraph{
   True genius resides in~the capacity for~evaluation of~uncertain, hazardous, and conflicting information. 
 }{Winston Churchill}
@@ -435,19 +435,19 @@ Once the board is partitioned, the algorithm of~(\cite{Muller1995computer}) for 
     all legal moves are generated from point of~both players, with exceptions~of:
     \begin{enumerate}[(a)]
       \item \emph{pruning rules}%
-        \footnote{Compare with \emph{policy networks} of~AlphaGo in Section~\ref{sec:AlphaGo}.},
+        \footnote{Compare with \emph{policy networks} of~AlphaGo in Chapter~\ref{ch:AlphaGo}.},
         e.g. pruning dominated subgame trees:
         the evaluation of~nodes allows for pruning moves dominated by other moves.
         Moves with a~dominating alternative are labelled as~\emph{locally bad moves}.
 
       \item \emph{termination rules} for static evaluation of a~position, without further tree expansion%
-        \footnote{Compare with \emph{value network} of~AlphaGo in Section~\ref{sec:AlphaGo}.}
+        \footnote{Compare with \emph{value network} of~AlphaGo in Chapter~\ref{ch:AlphaGo}.}
     \end{enumerate}
 
   \item Score local terminal positions:
     \begin{enumerate}[(a)]
       \item \emph{scoring}%
-        \footnote{See Section~\ref{sec:Go}.}
+        \footnote{See Chapter~\ref{ch:Go}.}
         comes in two widely-accepted flavors, namely
         \begin{enumerate}[$\diamondsuit$]
           \item Chinese variant, which counts stones and empty points belonging to either color,
@@ -475,7 +475,7 @@ Once the board is partitioned, the algorithm of~(\cite{Muller1995computer}) for 
 
   \item Select an~option in the resulting (abstract) sum-game.
   \item Translate the chosen option in~the abstract game into a~corresponding move in~Go.
-    This move is taken as~the first move with sufficient \emph{incentive} (recall Section~\ref{sec:CGT}).
+    This move is taken as~the first move with sufficient \emph{incentive} (recall Chapter~\ref{ch:CGT}).
 \end{enumerate}
 
 \begin{figure}[H]
@@ -484,7 +484,7 @@ Once the board is partitioned, the algorithm of~(\cite{Muller1995computer}) for 
   \captionWithCite{Local game tree with evaluation of terminal nodes}{Muller1995computer}
 \end{figure}
 
-\subsection{Storing Search Results into Database}
+\section{Storing Search Results into Database}
 
 Search and analysis produce the complete description of possible endgame plays, facilitating the perfect strategy.
 The results are stored in a~\emph{database of~local positions}.
@@ -547,7 +547,7 @@ A~\emph{transposition table} detects identical board positions, reducing the siz
   \label{tab:reduction-transp-tab}
 \end{table}
 
-\subsection{Using Combinatorial Game Theory to Solve Late Endgames by Computer}
+\section{Using Combinatorial Game Theory to Solve Late Endgames by Computer}
 
 These are some objectives that can be accomplished by the approach of~(\cite{Muller1995computer}):
 \begin{itemize}
@@ -571,7 +571,7 @@ On the other hand, the work also remarks that strict analysis of~endgames is not
     In cases where the focus of~play is obvious (i.e. only one local situation is relevant), combinatorial game theory introduces additional complexity by investigating moves for both players in this and each other position.
 \end{itemize}
 
-\subsection{Time and Memory Management}
+\section{Time and Memory Management}
 
 One reason why endgames are exhaustively studied is due to their computational benefits.
 As the game progresses, more exact analysis can be done, and thus, time and memory resources may be better utilized.
@@ -609,9 +609,9 @@ In particular, (\cite{Muller1995computer}) uses following ``adaptive'' resource 
 
 \end{enumerate}
 
-\subsection{Pattern Learning}
+\section{Pattern Learning}
 
-Pattern recognition is one of~the key components of~AlphaGo (see Section~\ref{sec:AlphaGo}).
+Pattern recognition is one of~the key components of~AlphaGo (see Chapter~\ref{ch:AlphaGo}).
 Arguably, the program's success might be partially attributed to learning Go patterns from human expert plays.
 For comparison, (\cite{Muller1995computer}) reports the following state of~``Go-related Research in Visual Perception, Machine Learning and Neural Networks'' in 1995:
 \begin{quotation} \noindent
@@ -632,7 +632,7 @@ For comparison, (\cite{Muller1995computer}) reports the following state of~``Go-
   Interactive or automatic tuning and expansion of a~state-of-the-art pattern base is another fascinating research topic.
 \end{quotation}
 
-\subsection{Contributions of~Combinatorial Game Theory to Go Endgames}
+\section{Contributions of~Combinatorial Game Theory to Go Endgames}
 
 The doctoral thesis (\cite{Muller1995computer}) highlights following contributions to general computer science:
 \begin{itemize}
@@ -656,7 +656,7 @@ In particular, CGT is used to ``connect'' individual relevant subgames, which ma
 
 As we will see later, the situation in the case of~Poker is slightly more delicate:
 the imperfect-information property prevents us from using an~immediate divide-and-conquer approach.
-Instead, we will \emph{augment} the information by saturating it with additional game states (see Section~\todo).
+Instead, we will \emph{augment} the information by saturating it with additional game states (see Chapter~\todo).
 
 \note{
   \label{note:CGTvsAlphaGo}
@@ -665,11 +665,11 @@ Instead, we will \emph{augment} the information by saturating it with additional
   Such a~combination has the capability to surpass professional human players at the highest ranks.
   On top of that, this solution can be adapted to other games without substantial modifications.
   As long as there is an~abundance of~available data, the system can always be trained with no need to imbue it with any game-specific knowledge.
-  See Section~\ref{sec:AlphaGo} for more details.
+  See Chapter~\ref{ch:AlphaGo} for more details.
 }
 
-\section{Go Endgames Using Neural Networks}
-\label{sec:AlphaGo}
+\chapter{Go Endgames Using Neural Networks}
+\label{ch:AlphaGo}
 
 As of~today, over 20 years have passed since \Mueller's work.
 \emph{DeepMind}, a~London-based AI start-up recently acquired by Google, has developed the strongest computer Go program so far:
@@ -703,7 +703,7 @@ For more details, also consult my presentations on AlphaGo given at:
     {\tt http://www.slideshare.net/KarelHa1/alphago-for-disco-group\\-of-eth-zurich}
 \end{itemize}
 
-\subsection{Game-Tree Search}
+\section{Game-Tree Search}
 
 Optimal value~$v^*(s)$ determines the~outcome of~the game from every board position $s$ under perfect play by~all players.
 This value can be computed by~recursively traversing the~search tree containing approximately $b^d$ possible sequences of moves, where $b$ is the breadth of~game (number of legal moves per position) and $d$ is its depth (game length).
@@ -735,7 +735,7 @@ Thus, better nodes are more likely to be chosen in future playouts.
   \label{fig:MCTS}
 \end{figure}
 
-\subsection{Neural networks}
+\section{Neural networks}
 
 Inspired by biological neural networks, an~artificial neural network (ANN) is a~network of~interconnected nodes that make up a~model.
 ANNs can be defined as~statistical learning models that are used to approximate functions which depend on a~large number of~inputs.
@@ -755,7 +755,7 @@ They are invariant to expectable transformations of~input, such as translations 
 \textbf{Deep neural network} (DNN) is a~neural network with many hidden layers.
 It can model complex non-linear relationships, e.g. in~speech, in~images, in~videos or in~board positions of~Go.
 
-\subsection{Pipeline of Neural Networks}
+\section{Pipeline of Neural Networks}
 
 AlphaGo employs two kinds of deep convolutional neural networks---a~\emph{policy network} (for move selection) and a~\emph{value network} (for board evaluation).
 \begin{figure}[H]
@@ -788,7 +788,7 @@ There are two flavors of~these networks:
 \textbf{Value network} $v_\theta$ is a~CNN evaluating board positions, so as to address the problem of the game-tree depth.
 It is trained by regression to predict the outcome in~positions of~the self-played games.
 
-\subsection{Main Algorithm}
+\section{Main Algorithm}
 
 Finally, the neural networks are combined with MCTS into the main algorithm.
 
@@ -816,7 +816,7 @@ For more details, consult (\cite{Silver2016mastering}) or the before-mentioned p
   Therefore, it would be imprecise to talk about ``endgame'' here.
 }
 
-\subsection{Playing Strength}
+\section{Playing Strength}
 
 In order to assess the playing strength of~AlphaGo, DeepMind has organized an~internal tournament between different other Go programs,%
 \footnote{\emph{CrazyStone} and \emph{Zen} are the strongest commercial programs, whereas \emph{Pachi} and \emph{Fuego} are strongest among the open-source ones.}
