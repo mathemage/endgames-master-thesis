@@ -90,10 +90,10 @@
 % The following section was added by Karel Ha.
 
 % http://tex.stackexchange.com/questions/211414/chapter-0-roman-numerals
-\newcommand{\ZeroRoman}[1]{% 0 + \Roman
-  \ifcase\value{#1}\relax 0\else% Chapter 0
-  \Roman{#1}\fi}% All other chapters
-\renewcommand{\thechapter}{\ZeroRoman{chapter}}
+\newcommand{\ZeroAlph}[1]{% 0 + \Alph
+  \ifcase\value{#1}\relax 0% Chapter 0
+  \else\Alph{#1}\fi}% All other chapters
+\renewcommand{\thechapter}{\ZeroAlph{chapter}}
 
 % http://tex.stackexchange.com/questions/94464/note-environment-with-mdframed
 \global\mdfdefinestyle{exampledefault}{%
