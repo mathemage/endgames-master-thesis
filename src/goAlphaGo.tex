@@ -151,45 +151,54 @@ For more details, consult (\cite{Silver2016mastering}) or the before-mentioned p
 
 \section{Playing Strength}
 \epigraph{
-  [AlphaGo] is very strong and stable, it seems like a~wall.
-
-  [$\dots$]
   I know AlphaGo is a~computer, but if no one told me, maybe I would think the player was a~little strange, but a~very strong player, a~real person.
 }{Fan Hui}
-In order to assess the playing strength of~AlphaGo, DeepMind has organized an~internal tournament between different other Go programs,%
+In order to assess the playing strength of~AlphaGo, DeepMind has organized an~internal tournament between different other Go programs.%
 \footnote{\emph{CrazyStone} and \emph{Zen} are the strongest commercial programs, whereas \emph{Pachi} and \emph{Fuego} are strongest among the open-source ones.}
-as well as a~duel of~AlphaGo against the European Go Champion Fan Hui.
 Figure~\ref{fig:Go-tournament} displays the outcome of the tournament:
-
-\begin{quotation} \noindent
-  Each program used approximately 5 s computation time per move.
-  To provide a~greater challenge to AlphaGo, some programs (pale upper bars) were given four handicap stones (that is, free moves at~the start of~every game) against all opponents.
-  Programs were evaluated on an Elo scale: a~230 point gap corresponds to a~79\% probability of winning, which roughly corresponds to one amateur dan rank advantage on KGS;
-  an~approximate correspondence to human ranks is also shown, horizontal lines show KGS ranks achieved online by that program.
-  Games against the human European champion Fan Hui were also included;
-  these games used longer time controls.
-  95\% confidence intervals are shown.~(\cite{Silver2016mastering})
-\end{quotation}
-
 \begin{figure}[H]
   \centering
-  \includegraphics[width=.5\textwidth]{../img/results_of_tournament.png}
+  \includegraphics[width=.45\textwidth]{../img/results_of_tournament.png}
   \captionWithCite{Tournament with other programs and Fan Hui}{Silver2016mastering}
   \label{fig:Go-tournament}
 \end{figure}
+The 95\%-confidence intervals were used.
+Programs were allowed approximately 5~seconds of~computational time per move, and some of~them (with faded tops of~bars) also later played with four \emph{handicap stones} (free extra moves at~the beginning of~each game) against all others.
 
-Here is an~official report provided by Google DeepMind%
-\footnote{\href{https://deepmind.com/alpha-go.html}{https://deepmind.com/alpha-go.html}}
-about AlphaGo's matches against human professionals:
-\begin{quotation} \noindent
-  After our program AlphaGo won 5--0 in a~formal match on~October 2015, against the reigning 3-times European Champion, Fan Hui, becoming the first program to ever beat a~professional Go player in an~even game;
-  AlphaGo then went on to complete its ultimate challenge.
+The Elo scale was used for assessing the playing strength:
+a~230-point gap equals to a~79\%-probability of~winning, as well corresponding to about one \emph{amateur dan} rank difference on~\emph{KGS Go Server}\footnotemark.
+The ranks achieved by~programs on~KGS are also shown: on~the right side.
+\footnotetext{\href{https://www.gokgs.com/}{https://www.gokgs.com/}}
 
-  In March 2016 AlphaGo won 4--1 against the legendary Lee Sedol, the top Go player in the world over the past decade.
-  The matches were held at the Four Seasons Hotel, Seoul, South Korea on March 9\textsuperscript{th}, 10\textsuperscript{th}, 12\textsuperscript{th}, 13\textsuperscript{th} and 15\textsuperscript{th} and livestreamed on DeepMind’s YouTube channel as well as broadcast on TV throughout Asia through Korea’s Baduk TV, as well as in China, Japan, and elsewhere.
+Finally, AlphaGo played spectacular duels against two professional human players:
+\begin{description}
+  \item [Fan Hui]~
+    \begin{itemize}
+      \item professional 2\textsuperscript{nd} dan
+      \item European Go Champion in 2013, 2014 and 2015
+      \item European Professional Go Champion in 2016 
+    \end{itemize}
+    $\rightarrow$ \textbf{AlphaGo won 5:0} in a~formal match in~October 2015, becoming \emph{the first program to~ever beat a~professional Go player in an~even game}.%
+    \footnote{\href{https://deepmind.com/alpha-go.html}{https://deepmind.com/alpha-go.html}}
 
-  They were played under Chinese rules with a~komi of~$7.5$ (the compensation points the player who goes second receives at~the end of~the match).
-  Each player received two hours per match with three lots of 60-second byoyomi (countdown periods after they have finished their allotted time).
-\end{quotation}
+  \item [Lee Sedol ``The Strong Stone'']~
+    \begin{itemize}
+      \item professional 9\textsuperscript{th} dan 
+      \item the $2\textsuperscript{nd}$ in international titles
+      \item the $5\textsuperscript{th}$ youngest (12 years 4 months) to become a~professional Go player in~South Korean history
+      \item the top Go player in the world over the past decade
+      \item Legendary Lee Sedol would win 97 out of~100 games against Fan Hui.
+    \end{itemize}
+    $\rightarrow$ \textbf{AlphaGo won 4:1} in March 2016.
+    Each game was won by~resignation.
 
+    The winner of~the match was awarded the prize of~\$1,000,000.
+    Google DeepMind donated this money to~charities, including~UNICEF, and various Go organisations.
+
+    Lee Sedol received \$170,000, \$150,000 for participation in all games and extra \$20,000 for every victory.
+\end{description}
+
+\epigraph{
+  I have never been so much celebrated and praised for winning one single game.
+}{Lee Sedol}
 Following from this, computers seem to have reached the ``superhuman'' level of~expertise and they now appear to be superior to humans in~the game of~Go.
