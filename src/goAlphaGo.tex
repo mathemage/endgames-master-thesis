@@ -7,10 +7,6 @@ As of~today, over 20 years have passed since \Mueller's work.
 \emph{DeepMind}, a~London-based AI start-up recently acquired by Google, has developed the strongest computer Go program so far:
 \emph{AlphaGo}.
 
-\begin{quotation} \noindent
-  The game of~Go has long been viewed as~the most challenging of~classic games for artificial intelligence owing to its enormous search space and the difficulty of~evaluating board positions and moves.
-\end{quotation}
-
 \note{
   This chapter is based on~the article ``Mastering the game of Go with deep neural networks and tree search''~(\cite{Silver2016mastering}), which documents the internals of~AlphaGo.
 
@@ -42,11 +38,11 @@ In~the case of~chess, that is $b \approx 35$ and $d \approx 80$, whereas Go has 
 This amounts to a~terrifying overnumerousness: there are more Go positions than atoms in the observable Universe.
 Therefore, exhaustive search is deemed intractable.
 
-How to handle the size~of the game tree? For the$\dots$
+How to handle the size~of the game tree?
 \begin{itemize}
-  \item $\dots$breadth: we train a~neural network to~select moves.
-  \item $\dots$depth: we train a~neural network to~evaluate the current position.
-  \item $\dots$tree traverse: we use Monte Carlo tree search method.
+  \item For the breadth, we train \emph{a~neural network to~select} moves.
+  \item For the depth, we train \emph{a~neural network to~evaluate} the current position.
+  \item For the tree traverse, we use \emph{Monte Carlo tree search} method.
 \end{itemize}
 
 \textbf{Monte Carlo tree search} (MCTS) is a~Monte Carlo heuristic of~the classical tree search.
