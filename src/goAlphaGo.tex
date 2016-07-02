@@ -7,35 +7,36 @@ As of~today, over 20 years have passed since \Mueller's work.
 \emph{DeepMind}, a~London-based AI start-up recently acquired by Google, has developed the strongest computer Go program so far:
 \emph{AlphaGo}.
 
+\begin{quotation} \noindent
+  The game of~Go has long been viewed as~the most challenging of~classic games for artificial intelligence owing to its enormous search space and the difficulty of~evaluating board positions and moves.
+
+  Here we introduce a~new approach to computer Go that uses \emph{value networks} to evaluate board positions and \emph{policy networks} to select moves.
+  These deep neural networks are trained by a novel combination of supervised learning from human expert games, and reinforcement learning from games of self-play.
+  Without any lookahead search, the neural networks play Go at the level of~state-of-the-art Monte Carlo tree search programs that simulate thousands of~random games of~self-play. 
+
+  We also introduce a~new search algorithm that combines Monte Carlo simulation with value and policy networks.
+  Using this search algorithm, our program AlphaGo achieved a~99.8~\% winning rate against other Go programs, and defeated the human European Go champion by 5 games to~0.
+  This is the first time that a~computer program has defeated a~human professional player in the full-sized game of~Go, a~feat previously thought to be at least a~decade away.
+\end{quotation}
+
 \note{
-  This chapter is based on~the article ``Mastering the game of Go with deep neural networks and tree search''~(\cite{Silver2016mastering}), which documents the internals of~AlphaGo:
+  This chapter is based on~the article ``Mastering the game of Go with deep neural networks and tree search''~(\cite{Silver2016mastering}), which documents the internals of~AlphaGo.
 
-  \begin{quotation} \noindent
-    The game of~Go has long been viewed as~the most challenging of~classic games for artificial intelligence owing to its enormous search space and the difficulty of~evaluating board positions and moves.
-
-    Here we introduce a~new approach to computer Go that uses \emph{value networks} to evaluate board positions and \emph{policy networks} to select moves.
-    These deep neural networks are trained by a novel combination of supervised learning from human expert games, and reinforcement learning from games of self-play.
-    Without any lookahead search, the neural networks play Go at the level of~state-of-the-art Monte Carlo tree search programs that simulate thousands of~random games of~self-play. 
-
-    We also introduce a~new search algorithm that combines Monte Carlo simulation with value and policy networks.
-    Using this search algorithm, our program AlphaGo achieved a~99.8~\% winning rate against other Go programs, and defeated the human European Go champion by 5 games to~0.
-    This is the first time that a~computer program has defeated a~human professional player in the full-sized game of~Go, a~feat previously thought to be at least a~decade away.
-  \end{quotation}
-}
-For more details, also consult my presentations on AlphaGo given at:
+  For more details, also consult my presentations on AlphaGo given at:
 \begin{itemize}
-  \item Spring School of Combinatorics 2016 (Charles University in Prague): \\
+  \item Spring School of Combinatorics 2016 (Charles University in~Prague): \\
     \href{http://www.slideshare.net/KarelHa1/mastering-the-game-of-go-with-deep-neural-networks-and-tree-search-presentation}
-    {\tt http://www.slideshare.net/KarelHa1/mastering-the-game-of-go\\-with-deep-neural-networks-and-tree-search-presentation}
+    {\tt http://www.slideshare.net/KarelHa1/mastering-the\\-game-of-go-with-deep-neural-networks-and-tree\\-search-presentation}
 
-  \item Optimization Seminar (Charles University in Prague) \\
+  \item Optimization Seminar (Charles University in~Prague) \\
     \href{http://www.slideshare.net/KarelHa1/alphago-mastering-the-game-of-go-with-deep-neural-networks-and-tree-search}
-    {\tt http://www.slideshare.net/KarelHa1/alphago-mastering-the-game\\-of-go-with-deep-neural-networks-and-tree-search}
+    {\tt http://www.slideshare.net/KarelHa1/alphago\\-mastering-the-game-of-go-with-deep-neural\\-networks-and-tree-search}
 
   \item Distributed Computing group (ETH \Zurich) \\
     \href{http://www.slideshare.net/KarelHa1/alphago-for-disco-group-of-eth-zurich}
-    {\tt http://www.slideshare.net/KarelHa1/alphago-for-disco-group\\-of-eth-zurich}
+    {\tt http://www.slideshare.net/KarelHa1/alphago\\-for-disco-group-of-eth-zurich}
 \end{itemize}
+}
 
 \section{Game-Tree Search}
 \epigraph{
