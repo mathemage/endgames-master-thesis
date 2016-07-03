@@ -29,12 +29,12 @@ As of~today, over 20 years have passed since \Mueller's work.
 \section{Game-Tree Search}
 \epigraph{
   There are more possible positions in~Go than there are atoms in~the universe.
-  That makes Go a~googol [$10^{100}$] times more complex than chess.
+  That makes Go a~googol [$10^{100}$] times more complex than Chess.
 }{\href{https://deepmind.com/alpha-go.html}{Google DeepMind}}
 Optimal value~$v^*(s)$ determines the~outcome of~the game from every board position $s$ under perfect play by~all players.
 This value can be computed by~recursively traversing the~search tree containing approximately $b^d$ possible sequences of moves, where $b$ is the breadth of~game (number of legal moves per position) and $d$ is its depth (game length).
 
-In~the case of~chess, that is $b \approx 35$ and $d \approx 80$, whereas Go has $b \approx 250$ and $d \approx 150$.
+In~the case of~Chess, that is $b \approx 35$ and $d \approx 80$, whereas Go has $b \approx 250$ and $d \approx 150$.
 This amounts to a~terrifying overnumerousness: there are more Go positions than atoms in the observable Universe.
 Therefore, exhaustive search is deemed intractable.
 

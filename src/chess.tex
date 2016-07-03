@@ -1,10 +1,10 @@
 \chapter{Chess Endgames}
-\label{ch:chess}
+\label{ch:Chess}
 
 \section{What are Endgames in Chess?}
 \epigraph{
   Studying openings is just memorizing moves and looking for traps.
-  Studying the endgame is chess.
+  Studying the endgame is Chess.
 }{Josh Waitzkin}
 The notion of~``endgame'' has no strict definition and greatly differs by various authors.
 The common sense says it begins with only few pieces left.
@@ -57,8 +57,8 @@ the complexity~of the board is often manageable by~computers, making it feasible
     Studying the endgame is like cheating.
   }{Michael J.~Frannett}
 }%
-An~\emph{endgame tablebase} is a~database of~pre-calculated, exhaustively analysed chess endgames stored as tables of~positions together with the best consequent moves.
-Upon reaching an~arbitrary tablebase position, the~database thus provides an~optimal strategy to play perfect chess.
+An~\emph{endgame tablebase} is a~database of~pre-calculated, exhaustively analysed Chess endgames stored as tables of~positions together with the best consequent moves.
+Upon reaching an~arbitrary tablebase position, the~database thus provides an~optimal strategy to play perfect Chess.
 
 Tablebases are designed for a~given set of~pieces, e.g. \king King and \queen Queen versus \kingB King (KQ-K).
 There are 3 basic steps in their process of~creation:
@@ -89,7 +89,7 @@ There are 3 basic steps in their process of~creation:
   \item \textbf{Evaluation}:
     The generated positions are evaluated using the tool of~\emph{backward induction}%
     \footnote{\emph{backward reasoning} applied in~general game theory, in order to solve easier subgames}
-    , in chess also called \emph{retrograde (endgame) analysis}.
+    , in Chess also called \emph{retrograde (endgame) analysis}.
     Each position is evaluated as a~win or a~loss in a~certain number of~moves.
     At~the end of~the retrograde analysis, positions which are not designated as wins or losses are necessarily draws.
 
@@ -110,9 +110,9 @@ There are 3 basic steps in their process of~creation:
       \item positions where Black cannot prevent White giving mate next move,
       \item positions where White can always reach a~position where Black cannot prevent him from giving mate next move (DTM = 2).
       \item And so on, always a~ply%
-      \footnote{In standard chess terminology, one move consists of a~turn by each player.
-        Therefore a~\emph{ply} in chess is a~half-move.
-        Thus, after 20 moves in a~chess game, 40 plies have been completed---20 by White and 20 by Black.}
+      \footnote{In standard Chess terminology, one move consists of a~turn by each player.
+        Therefore a~\emph{ply} in Chess is a~half-move.
+        Thus, after 20 moves in a~Chess game, 40 plies have been completed---20 by White and 20 by Black.}
       further away from mate until all positions connected to mate are found.
     \end{enumerate}
       By connecting these positions back to mate, the shortest path through the database is formed.
@@ -154,22 +154,22 @@ instead of~$48 \times 47 = 2,256$ permutations for the pawns' locations, only si
   }{\emph{Futurama}, Season 1, Episode 11}
 }
 \begin{itemize}
-  \item \textbf{Complexity of~solving chess}
+  \item \textbf{Complexity of~solving Chess}
     \\
-    \emph{Generalized chess}%
-    \footnote{chess played with an~arbitrarily large number of~pieces on an~arbitrarily large chessboard}
+    \emph{Generalized Chess}%
+    \footnote{Chess played with an~arbitrarily large number of~pieces on an~arbitrarily large chessboard}
     has been proven to be EXPTIME-complete (\cite{Fraenkel1981computing}):
     it takes exponential time to determine the winner of~any position in the worst case.
-    The result, however, gives no lower bound on~the amount of~work required to solve regular $8\times 8$ chess.
+    The result, however, gives no lower bound on~the amount of~work required to solve regular $8\times 8$ Chess.
 
     Conversely, there has been progress from the other side:
     as of~2012, all 7 and fewer piece (2 kings and up to 5 other pieces) endgames have been solved.%
-    \footnote{\emph{Lomonosov tablebases}: \href{http://tb7.chessok.com/}{http://tb7.chessok.com/}}
-    Evidently, focusing on endgame significantly decreases the complexity; tablebases thus provide ``powerful arsenal'' to play perfect chess endings.
+    \footnote{\emph{Lomonosov tablebases}: \href{http://tb7.chessok.com/}{http://tb7.Chessok.com/}}
+    Evidently, focusing on endgame significantly decreases the complexity; tablebases thus provide ``powerful arsenal'' to play perfect Chess endings.
 
-  \item \textbf{Effects on chess theory}
+  \item \textbf{Effects on Chess theory}
     \\
-    Tablebases have enabled significant breakthroughs in~chess endgame theory.
+    Tablebases have enabled significant breakthroughs in~Chess endgame theory.
     They caused major changes in the view on~many endgame piece combinations, which were considered to result in a~completely different way.
     Some impressive examples~(\cite{Wikipedia2016endgame}):%
     \begin{itemize}
@@ -205,21 +205,21 @@ instead of~$48 \times 47 = 2,256$ permutations for the pawns' locations, only si
     \\
     The researchers behind the Lomonosov tablebases discovered following endgames, proved to be the longest 7-man checkmates.~(\cite{Lomonosov2014eightlongest})
 
-    A~\textbf{pawnless} endgame \rookB Rook, \bishopB Bishop and \knightB Knight against \queen Queen and \knight Knight (Figure~\ref{fig:longest-pawnless-chess}) can be mated after stunning number of~545 moves!
+    A~\textbf{pawnless} endgame \rookB Rook, \bishopB Bishop and \knightB Knight against \queen Queen and \knight Knight (Figure~\ref{fig:longest-pawnless-Chess}) can be mated after stunning number of~545 moves!
     \begin{figure}[H]
       \centering
       \newgame
       \fenboard{QN4n1/6r1/3k4/8/b2K4/8/8/8 b - - 0 0}
       \showboard
       \captionWithCite{KRBN-KQN: White mates in 545.}{Lomonosov2014eightlongest}
-      \label{fig:longest-pawnless-chess}
+      \label{fig:longest-pawnless-Chess}
     \end{figure}
     \vskip -1em
     It is the longest pawnless endgame possible with 7 pieces, others are far behind.
     The closest endgame to this one by~length (\rookB Rook, \bishopB Bishop and \knightB Knight against \queen Queen and \bishop Bishop) is much less complex and won by the side with more pieces, not the queen.
 
-    No human expert and not even the best chess programs are able to find the winning solution.
-    Top chess players admit that they fail to understand the logic behind the initial 400 moves:
+    No human expert and not even the best Chess programs are able to find the winning solution.
+    Top Chess players admit that they fail to understand the logic behind the initial 400 moves:
     there are not even any captures until move~523. 
     The authors attribute this immense complexity to the balance of~piece values:
     11 against 12, which is the minimal advantage.
