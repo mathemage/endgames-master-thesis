@@ -15,3 +15,7 @@ In Chapter~\ref{ch:chess}, we will see the power of~subgame pre-computation with
 solutions to~endings are stored in so-called \emph{endgame tablebase}.
 They are used in~real world to~aid professional chess players, either in~proving their guaranteed victory or in~analysing past games.
 Moreover, since tablebases are mathematically proven to be~optimal, they provide a~glimpse into the world of~``perfect chess'' played by ``all-knowing super-players''.
+
+In contrast, Chapter~\ref{ch:goCGT} demonstrates how the in-play approach to~endgames is beneficial in~the game of~Go.
+Once reaching the late stage, the board is partitioned into distinct parts.
+The corresponding (and provably independent) subgames are re-solved ``on the fly'', just to be afterwards combined using the \emph{combinatorial game theory}.
