@@ -6,31 +6,19 @@
 
 \section{Games with Turns}
 
-\subsection{Extensive Form}
-\label{ssec:extensive-form}
+\subsection{Extensive Form for Imperfect-Information}
+\label{ssec:extensive-form-imperf-info}
 
-An~\emph{extensive-form game} (\cite[p.~200]{Osborne1994course}) consists of
-
+Recall extensive forms (for perfect-information games) from Section~\ref{sec:extensive-form-perf-info}.
+An~\emph{extensive-form game for imperfect-information game} is an~extensive form with additional:
 \begin{itemize}
-  \item a finite set of \emph{players} $P$,
-  \item a finite set $H$ of all possible \emph{histories},
-    \begin{itemize}
-      \item Each history consists of individual \emph{actions}.
-      \item $h \sqsubseteq h'$ denotes that history~$h$ is a~prefix of $h'$.
-      \item $\emptyset \in H$ and $h' \in H \land h \sqsubseteq h' \implies h \in H$
-      \item Set $Z \subseteq H$ is the set of \emph{terminal histories}, i.e. histories that are not prefixes of any other histories.
-    \end{itemize}
-  \item the set of available actions $A(h) = \braces{a: (h, a) \in H}$ for every node $h \in H \setminus Z$,
-  \item a~function $P()$ assigning an~\emph{acting player} to each $h \in H \setminus Z$.
-    The acting players are taken from the set $P \cup \braces{c}$, where $c$ is the \textbf{c}hance player (e.~g. a~dice, the card dealer, the nature etc.).
-    Thus, $P(h) \in P \cup \braces{c}$ for any $h \in H \setminus Z$.
-  \item a~function $f_c$ determining the probability measure over actions $A(h)$ for nodes $h$ with $p(h) = c$, the nodes of the chance player.
-  \item The partition $\I_i$ of nodes $\braces{h \in H: p(h) = i}$ is called the \emph{information partition} of player~$i$.
-    Its element $I \in \I_i$ is an \emph{information set} of player~$i$ and $I(h) \in \I_i$ (with $p(h) = i$) denotes the information set containing $h$.
+  \item function $f_c$ determining the probability measure over actions $A(h)$ for nodes $h$ with $p(h) = c$, the nodes of the chance player.
+
+  \item partition $\I_i$ of nodes $\braces{h \in H: p(h) = i}$, which is called the \emph{information partition} of player~$i$.
+    Its element $I \in \I_i$ is an~\emph{information set} of player~$i$ and $I(h) \in \I_i$ (with $p(h) = i$) denotes the information set containing $h$.
 
     An information set represents grouping of histories that are indistinguishable from $i$'s point of view.
     In the game of poker, for example, this might be because of hidden cards of opponents.
-  \item a \emph{utility function} $u_i\colon Z \goto \R$,
 \end{itemize}
 
 There are further notions related to any extensive-form game:
