@@ -13,7 +13,9 @@ Such a~``memoization'' approach is notably fruitful in~popular games such as Che
 \section{Extensive Form for Perfect-Information}
 \label{sec:extensive-form-perf-info}
 
-An~\emph{extensive-form game} (\cite[p.~200]{Osborne1994course}) consists of
+Games with perfect information can be naturally represented with a~\emph{game tree}.
+Tree representation (rather than a~representation with a~pay-off matrix) is called an extensive form.
+Formally, an~\emph{extensive-form game} (\cite[p.~200]{Osborne1994course}) consists of
 
 \begin{itemize}
   \item a finite set of \emph{players} $P$,
@@ -26,7 +28,7 @@ An~\emph{extensive-form game} (\cite[p.~200]{Osborne1994course}) consists of
       \item Set $Z \subseteq H$ is the set of \emph{terminal histories}, i.e. histories that are not prefixes of any other histories.
     \end{itemize}
 
-  \item the set of available actions $A(h) = \braces{a: (h, a) \in H}$ for every node $h \in H \setminus Z$,
+  \item the set of available actions $A(h) = \braces{a: (h, a) \in H}$ for every (non-terminal) node $h \in H \setminus Z$,
 
   \item a~function $P()$ assigning an~\emph{acting player} to each $h \in H \setminus Z$.
     The acting players are taken from the set $P \cup \braces{c}$, where $c$ is the \textbf{c}hance player (e.~g. a~dice, the card dealer, the nature etc.).
