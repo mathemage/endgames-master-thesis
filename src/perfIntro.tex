@@ -4,8 +4,14 @@
   For whereas the endings can be studied and mastered by~themselves, the middle game and opening must be studied in relation to the end game.
 }{José Raúl Capablanca}
 
-For many games, solving their late stages (so-called \emph{endgames}) can be done in~an~online way.
+For many games, solving their late stages (so-called \emph{endgames}) can be done in~a~dynamic online way.
 In other words, we are often able to postpone the computation of~the endgame strategy until the endgame itself is reached in~the play.
 
-This is especially the case of~perfect-information games such as chess or Go, where the endgame technique has been used for long time.
+\section{Working Examples}
+Subgame solutions are particularly used in~perfect-information games such as chess or Go, where the endgame technique has been used for~long time.
 In these domains, online endgame solving has~significant importance, as it substantially improves the playing quality of~agents.
+
+In Chapter~\ref{ch:chess}, we will see the power of~subgame pre-computation with the example of~chess:
+solutions to~endings are stored in so-called \emph{endgame tablebase}.
+They are used in~real world to~aid professional chess players, either in~proving their guaranteed victory or in~analysing past games.
+Moreover, since tablebases are mathematically proven to be~optimal, they provide a~glimpse into the world of~``perfect chess'' played by ``all-knowing super-players''.
