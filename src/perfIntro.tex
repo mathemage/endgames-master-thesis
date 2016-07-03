@@ -19,3 +19,8 @@ Moreover, since tablebases are mathematically proven to be~optimal, they provide
 In contrast, Chapter~\ref{ch:goCGT} demonstrates how the in-play approach to~endgames is beneficial in~the game of~Go.
 Once reaching the late stage, the board is partitioned into distinct parts.
 The corresponding (and provably independent) subgames are re-solved ``on the fly'', just to be afterwards combined using the \emph{combinatorial game theory}.
+
+Finally, Chapter~\ref{ch:AlphaGo} reviews the modern approach to~computer Go employed by~Google DeepMind:
+the Go program \emph{AlphaGo} combines \emph{Monte Carlo tree search} with \emph{neural networks} to~simulate every play position, as if it were an~endgame.
+This in particular means that several moves into the future are simulated and the corresponding part of~the game tree is unrolled and expanded.
+The rest of~the tree is discarded, effectively leaving only the relevant subgame for the oncoming play.
