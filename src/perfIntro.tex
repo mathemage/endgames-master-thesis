@@ -49,18 +49,64 @@ Formally, an~\emph{extensive-form game} (\cite[p.~200]{Osborne1994course}) for a
 \epigraph{
   At that time I did not suspect that it\footnotemark{} often would be quoted, almost exclusively for the definition of subgame perfectness.
 }{Reinhard Justus Reginald Selten}
-\footnotetext{the paper ``An Oligopoly Model with Demand Inertia'' (\cite{Selten1968oligopoly})}
 In~the perfect-information setting, a~\emph{subgame} is a~game corresponding to a~subtree of~the game tree.
 Specifically, any node in~the tree induces its own subgame:
+\footnotetext{the paper ``An Oligopoly Model with Demand Inertia'' (\cite{Selten1968oligopoly})}
 \begin{figure}[H]
   \centering
   \scriptsize
-  \def\svgwidth{.5\textwidth}
+  \def\svgwidth{.7\textwidth}
   \input{../img/extended-form_subgame.pdf_tex}
   \def\captionTitle{Subgame induced by node~$2_2$}
   \caption[\captionTitle]{\captionTitle{}\\ (\href{https://en.wikipedia.org/wiki/Subgame_perfect_equilibrium}{https://en.wikipedia.org/wiki/Subgame\_perfect\_equilibrium})}
   \label{fig:ext-form-subgame}
 \end{figure}
+
+One cannot emphasize enough the ideal conditions for~subgames in~the perfect-information setting:
+
+\begin{thm}
+  All subgames can be re-computed independently.
+  In particular, these re-solved sub-strategies may be ``re-substituted'' back into the full-game strategy, with no detriments to~the original optimality.
+\end{thm}
+
+\begin{proof}
+  Let $\sigma$ be any~full-game strategy and $\sigma_S$ be its restriction to a~subgame~$S$ rooted at node~$r$.
+  Assume we found an~optimal strategy $\sigma^*$ in the subgame~$S$.
+  For any player~$i$, the arising expected utility $u^*_i := u_i(\sigma^*)$ is player~$i$'s optimal value within $S$.
+  Hence, his utility could only improve:
+  \begin{equation}
+    u^*_i \ge u_i(\sigma_S)
+    \label{eq:TODO}
+  \end{equation}
+  The new re-combined strategy $\sigma'$ (i.e. $\sigma^*$ within~$S$, and the original $\sigma$ elsewhere) cannot decrease $i$'s utility:
+  $u_i(\sigma') \ge u_i(\sigma)$.
+  This is because
+  \begin{enumerate}[(a)]
+    \item either subgame~$S$ is not reached by the original strategy at~all (i.e. $\pi^\sigma(r) = 0$), and thus, the game value of~$S$ has no effect on~the full-game utility:
+      $u_i(\sigma') = u_i(\sigma)$,
+    \item or otherwise $S$ is reached, and the new (optimal) utility in~$S$ can only increase the overall utility:
+      \begin{align*}
+        u_i(\sigma')
+        &= \sum _{z \in Z} \pi^{\sigma'}\!(z) \,u_i(z) \\
+        %
+        &= \sum _{z \in Z \cap S} \pi^{\sigma'}\!(z) \,u_i(z)
+        + \sum _{z \in Z \setminus S} \pi^{\sigma'}\!(z) \,u_i(z) \\
+        %
+        &= \left[ \pi^{\sigma'}\!(r)\sum _{z \in Z \cap S} \pi^{\sigma^*}\!(r, z) \,u_i(z) \right]
+        + \sum _{z \in Z \setminus S} \pi^{\sigma'}\!(z) \,u_i(z) \\
+        %
+        &= \pi^{\sigma}\!(r) \,u_i^*
+        + \sum _{z \in Z \setminus S} \pi^{\sigma}\!(z) \,u_i(z) \\
+        %
+        &\ge \pi^{\sigma}\!(r) \,u_i(\sigma_S)
+        + \sum _{z \in Z \setminus S} \pi^{\sigma}\!(z) \,u_i(z) \\
+        %
+        &= \sum _{z \in Z \cap S} \pi^{\sigma}\!(z) \,u_i(z)
+        + \sum _{z \in Z \setminus S} \pi^{\sigma}\!(z) \,u_i(z)
+        = u_i(\sigma)
+      \end{align*}
+  \end{enumerate}
+\end{proof}
 
 \section{Working Examples}
 \epigraph{
