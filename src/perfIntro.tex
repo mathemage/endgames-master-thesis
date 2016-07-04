@@ -21,12 +21,12 @@ Games with perfect information can be naturally represented with a~\emph{game tr
   \def\svgwidth{.9\textwidth}
   \input{../img/game_tree_nim_5.pdf_tex}
   \def\captionTitle{Game tree of~(1,2)-Nim with 1~heap of 5~stones}
-  \caption[\captionTitle]{\captionTitle{}\\ (example \codeText{nim.efg} rendered by \codeText{Gambit})}
+  \caption[\captionTitle]{\captionTitle{}\\ (rendered by \codeText{Gambit} using the included example \codeText{nim.efg})}
   \label{fig:game-tree-nim-5}
 \end{figure}
 \noindent
 Tree representation (rather than a~representation with a~pay-off matrix) is called an extensive form.
-Formally, an~\emph{extensive-form game} (\cite[p.~200]{Osborne1994course}) for perfect-information game consists of:
+Formally, an~\emph{extensive-form game} (\cite[p.~200]{Osborne1994course}) for a~perfect-information game consists of:
 \begin{itemize}
   \item a finite set of \emph{players} $P$,
 
@@ -41,11 +41,11 @@ Formally, an~\emph{extensive-form game} (\cite[p.~200]{Osborne1994course}) for p
   \item the set of available actions $A(h) = \braces{a: (h, a) \in H}$ for every (non-terminal) node $h \in H \setminus Z$,
 
   \item a~function $P()$ assigning an~\emph{acting player} to each $h \in H \setminus Z$.
-    The acting players are taken from the set $P \cup \braces{c}$, where $c$ is the \textbf{c}hance player (e.~g. a~dice, the card dealer, the nature etc.).
-    Thus, $P(h) \in P \cup \braces{c}$ for any $h \in H \setminus Z$.
 
   \item a \emph{utility function} $u_i\colon Z \goto \R$,
 \end{itemize}
+
+\section{Subgames}
 
 \section{Working Examples}
 \epigraph{
