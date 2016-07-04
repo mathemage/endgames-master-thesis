@@ -12,8 +12,11 @@
   Education is only a~ladder to~gather fruit from the tree of~knowledge, not the fruit itself.
 }{Albert Einstein}
 Recall extensive forms (for perfect-information games) from Section~\ref{sec:extensive-form-perf-info}.
-An~\emph{extensive-form game for imperfect-information game} is an~extensive form with additional:
+An~\emph{extensive form} (for an~imperfect-information game) is the usual extensive form with additional:
 \begin{itemize}
+  \item \textbf{c}hance player $c$ (e.~g. a~dice, the card dealer, the nature etc.).
+    The set of~players is denoted by $P \cup \braces{c}$.
+    For the function $P()$ of~acting players we have $P(h) \in P \cup \braces{c}$ for any $h \in H \setminus Z$.
   \item function $f_c$ determining the probability measure over actions $A(h)$ for nodes $h$ with $p(h) = c$, the nodes of the chance player.
 
   \item partition $\I_i$ of nodes $\braces{h \in H: p(h) = i}$, which is called the \emph{information partition} of player~$i$.
