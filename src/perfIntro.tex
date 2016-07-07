@@ -49,19 +49,16 @@ Formally, an~\emph{extensive-form game} (\cite[p.~200]{Osborne1994course}) for a
 We will also need the notion of~a~strategy and the expected utility.
 \begin{itemize}
   \item A~(behavior) \emph{strategy}~$\sigma_i$ of player~$i$ defines a~probability distribution over actions $A(h)$ wherever he acts (i.e. at~every node~$h \in H$ with $p(h) = i$).
-
-  \item The set~$\Sigma_i$ contains all possible strategies for player~$i$.
+    The set~$\Sigma_i$ contains all possible strategies for player~$i$.
 
   \item A~\emph{strategy profile} $\sigma$ is a~vector of~players' strategies:
     $\sigma = (\sigma_1, \sigma_2, \ldots, \sigma_ {\abs{P}})$.
-
-  \item The set of~all such possible strategy profiles is denoted by~$\Sigma$.
-    Hence, it is the Cartesian product $\Sigma = \prod\limits _{i \in P} \Sigma_i$.
+    The set of~all such possible strategy profiles is denoted by~$\Sigma$.
+    Hence, it is the Cartesian product $\Sigma = \prod_{i \in P} \Sigma_i$.
 
   \item We use the Greek letter $\pi$ to evaluate the probability corresponding to a~strategy profile~$\sigma$:
     \[\pi ^\sigma(h) = \prod _{i \in P} \pi _i ^\sigma (h)\]
-
-  \item Thus, $\pi ^\sigma (h, a)$ is the (joint) probability of~taking the action~$a$ at~node~$h$.
+    Thus, $\pi ^\sigma (h, a)$ is the (joint) probability of~taking the action~$a$ at~node~$h$.
 \end{itemize}
 
 \section{Subgames}
