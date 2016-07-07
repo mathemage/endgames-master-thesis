@@ -26,6 +26,7 @@ Games with perfect information can be naturally represented with a~\emph{game tr
 \end{figure}
 \noindent
 Tree representation (rather than a~representation with a~pay-off matrix) is called an extensive form.
+
 Formally, an~\emph{extensive-form game} (\cite[p.~200]{Osborne1994course}) for a~perfect-information game consists of:
 \begin{itemize}
   \item a finite set of \emph{players} $P$,
@@ -33,8 +34,9 @@ Formally, an~\emph{extensive-form game} (\cite[p.~200]{Osborne1994course}) for a
   \item a finite set $H$ of all possible \emph{histories},
     \begin{itemize}
       \item Each history consists of individual \emph{actions}.
-      \item $h \sqsubseteq h'$ denotes that history~$h$ is a~prefix of $h'$.
-      \item $\emptyset \in H$ and $h' \in H \land h \sqsubseteq h' \implies h \in H$
+      \item $\emptyset \in H$
+      \item Relation~$h \sqsubseteq h'$ denotes that history~$h$ is a~prefix of $h'$.
+      \item If $h' \in H$ and $h \sqsubseteq h'$, then $h \in H$.
       \item Set $Z \subseteq H$ is the set of \emph{terminal histories}, i.e. histories that are not prefixes of any other histories.
     \end{itemize}
 
