@@ -40,7 +40,7 @@ Formally, an~\emph{extensive-form game} (\cite[p.~200]{Osborne1994course}) for a
 
   \item the set of available actions $A(h) = \braces{a: (h, a) \in H}$ for every (non-terminal) node $h \in H \setminus Z$,
 
-  \item a~function $P()$ assigning an~\emph{acting player} to each $h \in H \setminus Z$.
+  \item a~function $p\colon P \to H \setminus Z$, which assigns an~\emph{acting player} $p(h)$ to each non-terminal history~$h$.
 
   \item a \emph{utility function} $u_i\colon Z \goto \R$,
 \end{itemize}
