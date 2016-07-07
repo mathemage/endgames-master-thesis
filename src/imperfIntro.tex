@@ -23,18 +23,18 @@ An~\emph{extensive form} (for an~imperfect-information game) is the usual extens
     Its element $I \in \I_i$ is an~\emph{information set} of player~$i$ and $I(h) \in \I_i$ (with $p(h) = i$) denotes the information set containing $h$.
 
     An information set represents grouping of histories that are indistinguishable from $i$'s point of view.
-    In the game of poker, for example, this might be because of hidden cards of opponents.
+    In the game of poker, for example, this might be because of  opponents' hidden cards.
 \end{itemize}
 
-There are further notions related to any extensive-form game:
-
+\todo nasleduje...
 \begin{itemize}
-  \item \emph{Strategy}~$\sigma_i$ of (non-chance) player~$i$ determines a~probability distribution over $A(I)$ at every $I \in \I_i$.
-    Thus $\pi ^\sigma (I, a)$ is the probability of action $a$ at the information set~$I$.
-    $\Sigma_i$ denotes the set of all possible strategies for player~$i$.
+  \item A~\emph{strategy}~$\sigma_i$ of player~$i$ gives a~probability distribution over $A(I)$ at every $I \in \I_i$, and $\pi ^\sigma (I, a)$ is the probability of action $a$ at the information set~$I$.
+    Again, $\Sigma_i$ denotes the set of all possible strategies for player~$i$.
+
   \item A~\emph{strategy profile} is a~vector of all (non-chance) players' strategies denoted by $\sigma = (\sigma_1, \sigma_2, \ldots, \sigma_ {\abs{P}})$.
     The set of all such possible strategy profiles is denoted by $\Sigma$.
     Hence, it is the Cartesian product $\Sigma = \prod\limits _{i \in P} \Sigma_i$.
+
   \item We use the Greek letter $\pi$ to evaluate the probability corresponding to a~profile~$\sigma$:
     \[\pi ^\sigma(h) = \prod _{i \in P \cup \braces{c}} \pi _i ^\sigma (h)\]
     
