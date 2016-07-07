@@ -49,11 +49,13 @@ Formally, an~\emph{extensive-form game} (\cite[p.~200]{Osborne1994course}) for a
 
 There are further notions related to extensive-form games:
 \begin{itemize}
-  \item A~\emph{strategy}~$\sigma_i$ of player~$i$ gives a~probability distribution over $A(h)$ at every $h \in H$, and $\pi ^\sigma (h, a)$ is the (joint) probability of~taking the action~$a$ at~node~$h$.
-    $\Sigma_i$ denotes the set of~all such possible strategies for player~$i$.
+  \item A~(behavior) \emph{strategy}~$\sigma_i$ of player~$i$ defines a~probability distribution over actions $A(h)$ at~every node~$h \in H$, where he acts (i.e. $p(h) = i$).
 
-  \item We use the Greek letter $\pi$ to evaluate the probability corresponding to a~profile~$\sigma$:
-    \[\pi ^\sigma(h) = \prod _{i \in P \cup \braces{c}} \pi _i ^\sigma (h)\]
+  \item We use the Greek letter $\pi$ to evaluate the probability corresponding to a~strategy profile~$\sigma$:
+    \[\pi ^\sigma(h) = \prod _{i \in P} \pi _i ^\sigma (h)\]
+
+  \item $\pi ^\sigma (h, a)$ is the (joint) probability of~taking the action~$a$ at~node~$h$.
+    $\Sigma_i$ denotes the set of~all such possible strategies for player~$i$.
 \end{itemize}
 
 \section{Subgames}
