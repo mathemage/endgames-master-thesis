@@ -37,24 +37,25 @@ Formally, an~\emph{extensive-form game} (\cite[p.~200]{Osborne1994course}) for a
       \item $\emptyset \in H$,
       \item relation~$h \sqsubseteq h'$ denotes that history~$h$ is a~prefix of $h'$,
       \item if $h' \in H$ and $h \sqsubseteq h'$, then $h \in H$,
-      \item set $Z \subseteq H$ is the set of \emph{terminal histories}, i.e. histories that are not prefixes of any other histories.
+      \item set $Z \subseteq H$ is the set of \emph{terminal histories}, i.e. histories that are not prefixes of~any other histories.
     \end{itemize}
 
   \item the set of available actions $A(h) = \braces{a: (h, a) \in H}$ for every (non-terminal) node $h \in H \setminus Z$ (i.e. edges to~children in the game tree),
 
   \item a~function $p\colon P \to H \setminus Z$, which assigns an~\emph{acting player} $p(h)$ to each non-terminal history~$h$.
 
-  \item a \emph{utility function} $u_i\colon Z \goto \R$.
+  \item a~\emph{utility function} $u_i\colon Z \goto \R$.
 \end{itemize}
-We will also need the notion of~strategy and the expected utility:
+We will also need the notion of~a~strategy and the expected utility.
 \begin{itemize}
   \item A~(behavior) \emph{strategy}~$\sigma_i$ of player~$i$ defines a~probability distribution over actions $A(h)$ wherever he acts (i.e. at~every node~$h \in H$ with $p(h) = i$).
+
+  \item The set~$\Sigma_i$ contains all possible strategies for player~$i$.
 
   \item We use the Greek letter $\pi$ to evaluate the probability corresponding to a~strategy profile~$\sigma$:
     \[\pi ^\sigma(h) = \prod _{i \in P} \pi _i ^\sigma (h)\]
 
-  \item $\pi ^\sigma (h, a)$ is the (joint) probability of~taking the action~$a$ at~node~$h$.
-    $\Sigma_i$ denotes the set of~all such possible strategies for player~$i$.
+  \item Thus, $\pi ^\sigma (h, a)$ is the (joint) probability of~taking the action~$a$ at~node~$h$.
 \end{itemize}
 
 \section{Subgames}
