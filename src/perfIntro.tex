@@ -29,15 +29,15 @@ Tree representation (rather than a~representation with a~pay-off matrix) is call
 
 Formally, an~\emph{extensive-form game} (\cite[p.~200]{Osborne1994course}) for a~perfect-information game consists of:
 \begin{itemize}
-  \item a finite set of \emph{players} $P$,
+  \item a~finite set of~\emph{players}~$P$,
 
-  \item a finite set $H$ of all possible \emph{histories} (i.e. paths from the root to vertices of~the game tree),
+  \item a~finite set $H$ of~all possible \emph{histories} (i.e. paths from the root to vertices of~the game tree), where
     \begin{itemize}
-      \item Each history consists of individual \emph{actions}.
-      \item $\emptyset \in H$
-      \item Relation~$h \sqsubseteq h'$ denotes that history~$h$ is a~prefix of $h'$.
-      \item If $h' \in H$ and $h \sqsubseteq h'$, then $h \in H$.
-      \item Set $Z \subseteq H$ is the set of \emph{terminal histories}, i.e. histories that are not prefixes of any other histories.
+      \item each history consists of~individual \emph{actions} (i.e. tree edges),
+      \item $\emptyset \in H$,
+      \item relation~$h \sqsubseteq h'$ denotes that history~$h$ is a~prefix of $h'$,
+      \item if $h' \in H$ and $h \sqsubseteq h'$, then $h \in H$,
+      \item set $Z \subseteq H$ is the set of \emph{terminal histories}, i.e. histories that are not prefixes of any other histories.
     \end{itemize}
 
   \item the set of available actions $A(h) = \braces{a: (h, a) \in H}$ for every (non-terminal) node $h \in H \setminus Z$ (i.e. edges to~children in the game tree),
@@ -46,10 +46,9 @@ Formally, an~\emph{extensive-form game} (\cite[p.~200]{Osborne1994course}) for a
 
   \item a \emph{utility function} $u_i\colon Z \goto \R$.
 \end{itemize}
-
 We will also need the notion of~strategy and the expected utility:
 \begin{itemize}
-  \item A~(behavior) \emph{strategy}~$\sigma_i$ of player~$i$ defines a~probability distribution over actions $A(h)$ at~every node~$h \in H$, where he acts (i.e. $p(h) = i$).
+  \item A~(behavior) \emph{strategy}~$\sigma_i$ of player~$i$ defines a~probability distribution over actions $A(h)$ wherever he acts (i.e. at~every node~$h \in H$ with $p(h) = i$).
 
   \item We use the Greek letter $\pi$ to evaluate the probability corresponding to a~strategy profile~$\sigma$:
     \[\pi ^\sigma(h) = \prod _{i \in P} \pi _i ^\sigma (h)\]
