@@ -1,0 +1,97 @@
+%% Creator: Inkscape inkscape 0.48.4, www.inkscape.org
+%% PDF/EPS/PS + LaTeX output extension by Johan Engelen, 2010
+%% Accompanies image file 'rock-paper-scissors-ext-form.pdf' (pdf, eps, ps)
+%%
+%% To include the image in your LaTeX document, write
+%%   \input{<filename>.pdf_tex}
+%%  instead of
+%%   \includegraphics{<filename>.pdf}
+%% To scale the image, write
+%%   \def\svgwidth{<desired width>}
+%%   \input{<filename>.pdf_tex}
+%%  instead of
+%%   \includegraphics[width=<desired width>]{<filename>.pdf}
+%%
+%% Images with a different path to the parent latex file can
+%% be accessed with the `import' package (which may need to be
+%% installed) using
+%%   \usepackage{import}
+%% in the preamble, and then including the image with
+%%   \import{<path to file>}{<filename>.pdf_tex}
+%% Alternatively, one can specify
+%%   \graphicspath{{<path to file>/}}
+%% 
+%% For more information, please see info/svg-inkscape on CTAN:
+%%   http://tug.ctan.org/tex-archive/info/svg-inkscape
+%%
+\begingroup%
+  \makeatletter%
+  \providecommand\color[2][]{%
+    \errmessage{(Inkscape) Color is used for the text in Inkscape, but the package 'color.sty' is not loaded}%
+    \renewcommand\color[2][]{}%
+  }%
+  \providecommand\transparent[1]{%
+    \errmessage{(Inkscape) Transparency is used (non-zero) for the text in Inkscape, but the package 'transparent.sty' is not loaded}%
+    \renewcommand\transparent[1]{}%
+  }%
+  \providecommand\rotatebox[2]{#2}%
+  \ifx\svgwidth\undefined%
+    \setlength{\unitlength}{452.51268713bp}%
+    \ifx\svgscale\undefined%
+      \relax%
+    \else%
+      \setlength{\unitlength}{\unitlength * \real{\svgscale}}%
+    \fi%
+  \else%
+    \setlength{\unitlength}{\svgwidth}%
+  \fi%
+  \global\let\svgwidth\undefined%
+  \global\let\svgscale\undefined%
+  \makeatother%
+  \begin{picture}(1,0.94794074)%
+    \put(0,0){\includegraphics[width=\unitlength]{rock-paper-scissors-ext-form.pdf}}%
+    \put(0.0033225,0.48502194){\color[rgb]{1,0,0}\makebox(0,0)[lb]{\smash{1}}}%
+    \put(0.1646282,0.80321402){\color[rgb]{1,0,0}\makebox(0,0)[lb]{\smash{rock}}}%
+    \put(0.4342076,0.81647202){\color[rgb]{0,0,1}\makebox(0,0)[lb]{\smash{2}}}%
+    \put(0.5955133,0.91369738){\color[rgb]{0,0,1}\makebox(0,0)[lb]{\smash{rock}}}%
+    \put(0.83194769,0.92695538){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{draw}}}%
+    \put(0.93138271,0.88718137){\color[rgb]{1,0,0}\makebox(0,0)[lb]{\smash{0}}}%
+    \put(0.97336639,0.88718137){\color[rgb]{0,0,1}\makebox(0,0)[lb]{\smash{0}}}%
+    \put(0.5955133,0.80321402){\color[rgb]{0,0,1}\makebox(0,0)[lb]{\smash{paper}}}%
+    \put(0.81868969,0.81647202){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{2 wins}}}%
+    \put(0.93138271,0.77669801){\color[rgb]{1,0,0}\makebox(0,0)[lb]{\smash{-1}}}%
+    \put(0.98441473,0.77669801){\color[rgb]{0,0,1}\makebox(0,0)[lb]{\smash{1}}}%
+    \put(0.5955133,0.69273066){\color[rgb]{0,0,1}\makebox(0,0)[lb]{\smash{scissors}}}%
+    \put(0.81868969,0.70598866){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{1 wins}}}%
+    \put(0.93138271,0.66621465){\color[rgb]{1,0,0}\makebox(0,0)[lb]{\smash{1}}}%
+    \put(0.97336639,0.66621465){\color[rgb]{0,0,1}\makebox(0,0)[lb]{\smash{-1}}}%
+    \put(0.1646282,0.47176394){\color[rgb]{1,0,0}\makebox(0,0)[lb]{\smash{paper}}}%
+    \put(0.4342076,0.48502194){\color[rgb]{0,0,1}\makebox(0,0)[lb]{\smash{2}}}%
+    \put(0.5955133,0.5822473){\color[rgb]{0,0,1}\makebox(0,0)[lb]{\smash{rock}}}%
+    \put(0.81868969,0.5955053){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{1 wins}}}%
+    \put(0.93138271,0.55573129){\color[rgb]{1,0,0}\makebox(0,0)[lb]{\smash{1}}}%
+    \put(0.97336639,0.55573129){\color[rgb]{0,0,1}\makebox(0,0)[lb]{\smash{-1}}}%
+    \put(0.5955133,0.47176394){\color[rgb]{0,0,1}\makebox(0,0)[lb]{\smash{paper}}}%
+    \put(0.83194769,0.48502194){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{draw}}}%
+    \put(0.93138271,0.44524794){\color[rgb]{1,0,0}\makebox(0,0)[lb]{\smash{0}}}%
+    \put(0.97336639,0.44524794){\color[rgb]{0,0,1}\makebox(0,0)[lb]{\smash{0}}}%
+    \put(0.5955133,0.36128058){\color[rgb]{0,0,1}\makebox(0,0)[lb]{\smash{scissors}}}%
+    \put(0.81868969,0.37453859){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{2 wins}}}%
+    \put(0.93138271,0.33476458){\color[rgb]{1,0,0}\makebox(0,0)[lb]{\smash{-1}}}%
+    \put(0.98441473,0.33476458){\color[rgb]{0,0,1}\makebox(0,0)[lb]{\smash{1}}}%
+    \put(0.1646282,0.14031387){\color[rgb]{1,0,0}\makebox(0,0)[lb]{\smash{scissors}}}%
+    \put(0.4342076,0.15357187){\color[rgb]{0,0,1}\makebox(0,0)[lb]{\smash{2}}}%
+    \put(0.5955133,0.25079722){\color[rgb]{0,0,1}\makebox(0,0)[lb]{\smash{rock}}}%
+    \put(0.81868969,0.26405523){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{2 wins}}}%
+    \put(0.93138271,0.22428122){\color[rgb]{1,0,0}\makebox(0,0)[lb]{\smash{-1}}}%
+    \put(0.98441473,0.22428122){\color[rgb]{0,0,1}\makebox(0,0)[lb]{\smash{1}}}%
+    \put(0.5955133,0.14031387){\color[rgb]{0,0,1}\makebox(0,0)[lb]{\smash{paper}}}%
+    \put(0.81868969,0.15357187){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{1 wins}}}%
+    \put(0.93138271,0.11379786){\color[rgb]{1,0,0}\makebox(0,0)[lb]{\smash{1}}}%
+    \put(0.97336639,0.11379786){\color[rgb]{0,0,1}\makebox(0,0)[lb]{\smash{-1}}}%
+    \put(0.5955133,0.02983051){\color[rgb]{0,0,1}\makebox(0,0)[lb]{\smash{scissors}}}%
+    \put(0.83194769,0.04308851){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{draw}}}%
+    \put(0.93138271,0.0033145){\color[rgb]{1,0,0}\makebox(0,0)[lb]{\smash{0}}}%
+    \put(0.97336639,0.0033145){\color[rgb]{0,0,1}\makebox(0,0)[lb]{\smash{0}}}%
+  \end{picture}%
+\endgroup%

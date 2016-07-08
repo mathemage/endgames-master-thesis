@@ -20,18 +20,18 @@ EFG 2 R "rock-paper-scissors" { "Player 1" "Player 2" }
 ""
 
 p "1" 1 1 "1" { "rock" "paper" "scissors" } 0
-p "" 2 1 "2" { "rock" "paper" "scissors" } 0
+p "2" 2 1 "2" { "rock" "paper" "scissors" } 0
 t "draw" 1 "" { 0, 0 }
-t "2 wins" 8 "" { -1, 1 }
-t "1 wins" 9 "" { 1, -1 }
-p "" 2 1 "2" { "rock" "paper" "scissors" } 0
-t "1 wins" 2 "" { 1, -1 }
-t "draw" 3 "" { 0, 0 }
-t "2 wins" 4 "" { -1, 1 }
-p "" 2 1 "2" { "rock" "paper" "scissors" } 0
-t "2 wins" 5 "" { -1, 1 }
-t "1 wins" 6 "" { 1, -1 }
-t "draw" 7 "" { 0, 0 }
+t "2 wins" 2 "" { -1, 1 }
+t "1 wins" 3 "" { 1, -1 }
+p "2" 2 1 "2" { "rock" "paper" "scissors" } 0
+t "1 wins" 4 "" { 1, -1 }
+t "draw" 5 "" { 0, 0 }
+t "2 wins" 6 "" { -1, 1 }
+p "2" 2 1 "2" { "rock" "paper" "scissors" } 0
+t "2 wins" 7 "" { -1, 1 }
+t "1 wins" 8 "" { 1, -1 }
+t "draw" 9 "" { 0, 0 }
 </efgfile>
 </game>
 </gambit:document>
