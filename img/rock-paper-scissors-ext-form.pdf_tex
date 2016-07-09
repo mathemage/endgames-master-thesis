@@ -52,7 +52,7 @@
     \put(0,0){\includegraphics[width=\unitlength]{rock-paper-scissors-ext-form.pdf}}%
     \put(0.0033225,0.48502194){\color[rgb]{1,0,0}\makebox(0,0)[lb]{\smash{1}}}%
     \put(0.1646282,0.80321402){\color[rgb]{1,0,0}\makebox(0,0)[lb]{\smash{rock}}}%
-    \put(0.4342076,0.81647202){\color[rgb]{0,0,1}\makebox(0,0)[lb]{\smash{2}}}%
+    \put(0.4142076,0.81647202){\color[rgb]{0,0,1}\makebox(0,0)[lb]{\smash{$2_R$}}}%
     \put(0.5955133,0.91369738){\color[rgb]{0,0,1}\makebox(0,0)[lb]{\smash{rock}}}%
     \put(0.83194769,0.92695538){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{draw}}}%
     \put(0.93138271,0.88718137){\color[rgb]{1,0,0}\makebox(0,0)[lb]{\smash{0}}}%
@@ -66,7 +66,7 @@
     \put(0.93138271,0.66621465){\color[rgb]{1,0,0}\makebox(0,0)[lb]{\smash{1}}}%
     \put(0.97336639,0.66621465){\color[rgb]{0,0,1}\makebox(0,0)[lb]{\smash{-1}}}%
     \put(0.1646282,0.47176394){\color[rgb]{1,0,0}\makebox(0,0)[lb]{\smash{paper}}}%
-    \put(0.4342076,0.48502194){\color[rgb]{0,0,1}\makebox(0,0)[lb]{\smash{2}}}%
+    \put(0.4142076,0.48502194){\color[rgb]{0,0,1}\makebox(0,0)[lb]{\smash{$2_P$}}}%
     \put(0.5955133,0.5822473){\color[rgb]{0,0,1}\makebox(0,0)[lb]{\smash{rock}}}%
     \put(0.81868969,0.5955053){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{1 wins}}}%
     \put(0.93138271,0.55573129){\color[rgb]{1,0,0}\makebox(0,0)[lb]{\smash{1}}}%
@@ -80,7 +80,7 @@
     \put(0.93138271,0.33476458){\color[rgb]{1,0,0}\makebox(0,0)[lb]{\smash{-1}}}%
     \put(0.98441473,0.33476458){\color[rgb]{0,0,1}\makebox(0,0)[lb]{\smash{1}}}%
     \put(0.1646282,0.14031387){\color[rgb]{1,0,0}\makebox(0,0)[lb]{\smash{scissors}}}%
-    \put(0.4342076,0.15357187){\color[rgb]{0,0,1}\makebox(0,0)[lb]{\smash{2}}}%
+    \put(0.4142076,0.15357187){\color[rgb]{0,0,1}\makebox(0,0)[lb]{\smash{$2_S$}}}%
     \put(0.5955133,0.25079722){\color[rgb]{0,0,1}\makebox(0,0)[lb]{\smash{rock}}}%
     \put(0.81868969,0.26405523){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{2 wins}}}%
     \put(0.93138271,0.22428122){\color[rgb]{1,0,0}\makebox(0,0)[lb]{\smash{-1}}}%

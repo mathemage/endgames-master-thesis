@@ -50,7 +50,7 @@
   \makeatother%
   \begin{picture}(1,1.66564035)%
     \put(0,0){\includegraphics[width=\unitlength]{rock-paper-scissors-subgame.pdf}}%
-    \put(0.00583801,1.43463476){\color[rgb]{0,0,1}\makebox(0,0)[lb]{\smash{2}}}%
+    \put(0.00083801,1.43463476){\color[rgb]{0,0,1}\makebox(0,0)[lb]{\smash{$2_R$}}}%
     \put(0.28927059,1.60547084){\color[rgb]{0,0,1}\makebox(0,0)[lb]{\smash{rock}}}%
     \put(0.70471286,1.62876666){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{draw}}}%
     \put(0.87943158,1.55887918){\color[rgb]{1,0,0}\makebox(0,0)[lb]{\smash{0}}}%
@@ -63,7 +63,7 @@
     \put(0.68141704,1.24050286){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{1 wins}}}%
     \put(0.87943158,1.17061537){\color[rgb]{1,0,0}\makebox(0,0)[lb]{\smash{1}}}%
     \put(0.9532017,1.17061537){\color[rgb]{0,0,1}\makebox(0,0)[lb]{\smash{-1}}}%
-    \put(0.00583801,0.85223905){\color[rgb]{0,0,1}\makebox(0,0)[lb]{\smash{2}}}%
+    \put(0.00083801,0.85223905){\color[rgb]{0,0,1}\makebox(0,0)[lb]{\smash{$2_P$}}}%
     \put(0.28927059,1.02307513){\color[rgb]{0,0,1}\makebox(0,0)[lb]{\smash{rock}}}%
     \put(0.68141704,1.04637096){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{1 wins}}}%
     \put(0.87943158,0.97648347){\color[rgb]{1,0,0}\makebox(0,0)[lb]{\smash{1}}}%
@@ -76,7 +76,7 @@
     \put(0.68141704,0.65810715){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{2 wins}}}%
     \put(0.87943158,0.58821967){\color[rgb]{1,0,0}\makebox(0,0)[lb]{\smash{-1}}}%
     \put(0.97261489,0.58821967){\color[rgb]{0,0,1}\makebox(0,0)[lb]{\smash{1}}}%
-    \put(0.00583801,0.26984334){\color[rgb]{0,0,1}\makebox(0,0)[lb]{\smash{2}}}%
+    \put(0.00083801,0.26984334){\color[rgb]{0,0,1}\makebox(0,0)[lb]{\smash{$2_S$}}}%
     \put(0.28927059,0.44067942){\color[rgb]{0,0,1}\makebox(0,0)[lb]{\smash{rock}}}%
     \put(0.68141704,0.46397525){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{2 wins}}}%
     \put(0.87943158,0.39408776){\color[rgb]{1,0,0}\makebox(0,0)[lb]{\smash{-1}}}%
