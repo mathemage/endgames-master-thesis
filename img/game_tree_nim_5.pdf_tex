@@ -36,7 +36,7 @@
   }%
   \providecommand\rotatebox[2]{#2}%
   \ifx\svgwidth\undefined%
-    \setlength{\unitlength}{674.24771938bp}%
+    \setlength{\unitlength}{755.0343239bp}%
     \ifx\svgscale\undefined%
       \relax%
     \else%
@@ -48,67 +48,51 @@
   \global\let\svgwidth\undefined%
   \global\let\svgscale\undefined%
   \makeatother%
-  \begin{picture}(1,0.57233298)%
+  \begin{picture}(1,0.5019238)%
     \put(0,0){\includegraphics[width=\unitlength]{game_tree_nim_5.pdf}}%
-    \put(-0.00141704,0.24245354){\color[rgb]{1,0,0}\makebox(0,0)[lb]{\smash{5 left}}}%
-    \put(0.12789151,0.34090437){\color[rgb]{1,0,0}\makebox(0,0)[lb]{\smash{TAKE 1}}}%
-    \put(0.18960696,0.38498683){\color[rgb]{0,0,1}\makebox(0,0)[lb]{\smash{4 left}}}%
-    \put(0.31891551,0.42319163){\color[rgb]{0,0,1}\makebox(0,0)[lb]{\smash{TAKE 1}}}%
-    \put(0.38063096,0.46727409){\color[rgb]{1,0,0}\makebox(0,0)[lb]{\smash{3 left}}}%
-    \put(0.50993951,0.47756){\color[rgb]{1,0,0}\makebox(0,0)[lb]{\smash{TAKE 1}}}%
-    \put(0.57165496,0.52164246){\color[rgb]{0,0,1}\makebox(0,0)[lb]{\smash{2 left}}}%
-    \put(0.70096351,0.51429538){\color[rgb]{0,0,1}\makebox(0,0)[lb]{\smash{TAKE 1}}}%
-    \put(0.88023218,0.55837784){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{1 left}}}%
-    \put(0.94929471,0.54809193){\color[rgb]{1,0,0}\makebox(0,0)[lb]{\smash{1}}}%
-    \put(0.94929471,0.52311187){\color[rgb]{1,0,0}\makebox(0,0)[lb]{\smash{1}}}%
-    \put(0.98015243,0.54809193){\color[rgb]{0,0,1}\makebox(0,0)[lb]{\smash{-1}}}%
-    \put(0.98309126,0.52311187){\color[rgb]{0,0,1}\makebox(0,0)[lb]{\smash{1}}}%
-    \put(0.70096351,0.44082461){\color[rgb]{0,0,1}\makebox(0,0)[lb]{\smash{TAKE 2}}}%
-    \put(0.88023218,0.48490707){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{0 left}}}%
-    \put(0.94929471,0.47462116){\color[rgb]{1,0,0}\makebox(0,0)[lb]{\smash{-1}}}%
-    \put(0.95223354,0.4496411){\color[rgb]{1,0,0}\makebox(0,0)[lb]{\smash{1}}}%
-    \put(0.98603009,0.47462116){\color[rgb]{0,0,1}\makebox(0,0)[lb]{\smash{1}}}%
-    \put(0.98603009,0.4496411){\color[rgb]{0,0,1}\makebox(0,0)[lb]{\smash{1}}}%
-    \put(0.50993951,0.36735384){\color[rgb]{1,0,0}\makebox(0,0)[lb]{\smash{TAKE 2}}}%
-    \put(0.63043157,0.4114363){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{1 left}}}%
-    \put(0.69949409,0.4011504){\color[rgb]{1,0,0}\makebox(0,0)[lb]{\smash{-1}}}%
-    \put(0.70243292,0.37617033){\color[rgb]{1,0,0}\makebox(0,0)[lb]{\smash{1}}}%
-    \put(0.73622948,0.4011504){\color[rgb]{0,0,1}\makebox(0,0)[lb]{\smash{1}}}%
-    \put(0.73622948,0.37617033){\color[rgb]{0,0,1}\makebox(0,0)[lb]{\smash{1}}}%
-    \put(0.31891551,0.25714769){\color[rgb]{0,0,1}\makebox(0,0)[lb]{\smash{TAKE 2}}}%
-    \put(0.38063096,0.30123015){\color[rgb]{1,0,0}\makebox(0,0)[lb]{\smash{2 left}}}%
-    \put(0.50993951,0.29388307){\color[rgb]{1,0,0}\makebox(0,0)[lb]{\smash{TAKE 1}}}%
-    \put(0.63043157,0.33796554){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{1 left}}}%
-    \put(0.69949409,0.32767963){\color[rgb]{1,0,0}\makebox(0,0)[lb]{\smash{-1}}}%
-    \put(0.70243292,0.30269957){\color[rgb]{1,0,0}\makebox(0,0)[lb]{\smash{1}}}%
-    \put(0.73622948,0.32767963){\color[rgb]{0,0,1}\makebox(0,0)[lb]{\smash{1}}}%
-    \put(0.73622948,0.30269957){\color[rgb]{0,0,1}\makebox(0,0)[lb]{\smash{1}}}%
-    \put(0.50993951,0.22041231){\color[rgb]{1,0,0}\makebox(0,0)[lb]{\smash{TAKE 2}}}%
-    \put(0.63043157,0.26449477){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{0 left}}}%
-    \put(0.69949409,0.25420886){\color[rgb]{1,0,0}\makebox(0,0)[lb]{\smash{1}}}%
-    \put(0.69949409,0.2292288){\color[rgb]{1,0,0}\makebox(0,0)[lb]{\smash{1}}}%
-    \put(0.73035182,0.25420886){\color[rgb]{0,0,1}\makebox(0,0)[lb]{\smash{-1}}}%
-    \put(0.73329065,0.2292288){\color[rgb]{0,0,1}\makebox(0,0)[lb]{\smash{1}}}%
-    \put(0.12789151,0.05583778){\color[rgb]{1,0,0}\makebox(0,0)[lb]{\smash{TAKE 2}}}%
-    \put(0.31891551,0.11020615){\color[rgb]{0,0,1}\makebox(0,0)[lb]{\smash{TAKE 1}}}%
-    \put(0.38063096,0.15428861){\color[rgb]{1,0,0}\makebox(0,0)[lb]{\smash{2 left}}}%
-    \put(0.50993951,0.14694154){\color[rgb]{1,0,0}\makebox(0,0)[lb]{\smash{TAKE 1}}}%
-    \put(0.63043157,0.191024){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{1 left}}}%
-    \put(0.69949409,0.18073809){\color[rgb]{1,0,0}\makebox(0,0)[lb]{\smash{-1}}}%
-    \put(0.70243292,0.15575803){\color[rgb]{1,0,0}\makebox(0,0)[lb]{\smash{1}}}%
-    \put(0.73622948,0.18073809){\color[rgb]{0,0,1}\makebox(0,0)[lb]{\smash{1}}}%
-    \put(0.73622948,0.15575803){\color[rgb]{0,0,1}\makebox(0,0)[lb]{\smash{1}}}%
-    \put(0.50993951,0.07347077){\color[rgb]{1,0,0}\makebox(0,0)[lb]{\smash{TAKE 2}}}%
-    \put(0.63043157,0.11755323){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{0 left}}}%
-    \put(0.69949409,0.10726732){\color[rgb]{1,0,0}\makebox(0,0)[lb]{\smash{1}}}%
-    \put(0.69949409,0.08228726){\color[rgb]{1,0,0}\makebox(0,0)[lb]{\smash{1}}}%
-    \put(0.73035182,0.10726732){\color[rgb]{0,0,1}\makebox(0,0)[lb]{\smash{-1}}}%
-    \put(0.73329065,0.08228726){\color[rgb]{0,0,1}\makebox(0,0)[lb]{\smash{1}}}%
-    \put(0.31891551,-0){\color[rgb]{0,0,1}\makebox(0,0)[lb]{\smash{TAKE 2}}}%
-    \put(0.38063096,0.04408246){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{1 left}}}%
-    \put(0.44969348,0.03379655){\color[rgb]{1,0,0}\makebox(0,0)[lb]{\smash{-1}}}%
-    \put(0.45263231,0.00881649){\color[rgb]{1,0,0}\makebox(0,0)[lb]{\smash{1}}}%
-    \put(0.48642886,0.03379655){\color[rgb]{0,0,1}\makebox(0,0)[lb]{\smash{1}}}%
-    \put(0.48642886,0.00881649){\color[rgb]{0,0,1}\makebox(0,0)[lb]{\smash{1}}}%
+    \put(-0.00127714,0.20461168){\color[rgb]{1,0,0}\makebox(0,0)[lb]{\smash{5 left}}}%
+    \put(0.11526543,0.32512729){\color[rgb]{1,0,0}\makebox(0,0)[lb]{\smash{take 1}}}%
+    \put(0.19737497,0.33307338){\color[rgb]{0,0,1}\makebox(0,0)[lb]{\smash{4 left}}}%
+    \put(0.31391755,0.39929075){\color[rgb]{0,0,1}\makebox(0,0)[lb]{\smash{take 1}}}%
+    \put(0.39602709,0.40723683){\color[rgb]{1,0,0}\makebox(0,0)[lb]{\smash{3 left}}}%
+    \put(0.51256966,0.4482916){\color[rgb]{1,0,0}\makebox(0,0)[lb]{\smash{take 1}}}%
+    \put(0.5946792,0.45623769){\color[rgb]{0,0,1}\makebox(0,0)[lb]{\smash{2 left}}}%
+    \put(0.71122178,0.48140029){\color[rgb]{0,0,1}\makebox(0,0)[lb]{\smash{take 1}}}%
+    \put(0.89927911,0.48934638){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{1 left}}}%
+    \put(0.95887474,0.46550812){\color[rgb]{1,0,0}\makebox(0,0)[lb]{\smash{1}}}%
+    \put(0.98403735,0.46550812){\color[rgb]{0,0,1}\makebox(0,0)[lb]{\smash{-1}}}%
+    \put(0.71122178,0.41518292){\color[rgb]{0,0,1}\makebox(0,0)[lb]{\smash{take 2}}}%
+    \put(0.89927911,0.423129){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{0 left}}}%
+    \put(0.95887474,0.39929075){\color[rgb]{1,0,0}\makebox(0,0)[lb]{\smash{-1}}}%
+    \put(0.99065908,0.39929075){\color[rgb]{0,0,1}\makebox(0,0)[lb]{\smash{1}}}%
+    \put(0.51256966,0.34896555){\color[rgb]{1,0,0}\makebox(0,0)[lb]{\smash{take 2}}}%
+    \put(0.6476531,0.35691163){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{1 left}}}%
+    \put(0.70724873,0.33307338){\color[rgb]{1,0,0}\makebox(0,0)[lb]{\smash{-1}}}%
+    \put(0.73903307,0.33307338){\color[rgb]{0,0,1}\makebox(0,0)[lb]{\smash{1}}}%
+    \put(0.31391755,0.24963949){\color[rgb]{0,0,1}\makebox(0,0)[lb]{\smash{take 2}}}%
+    \put(0.39602709,0.25758557){\color[rgb]{1,0,0}\makebox(0,0)[lb]{\smash{2 left}}}%
+    \put(0.51256966,0.28274818){\color[rgb]{1,0,0}\makebox(0,0)[lb]{\smash{take 1}}}%
+    \put(0.6476531,0.29069426){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{1 left}}}%
+    \put(0.70724873,0.26685601){\color[rgb]{1,0,0}\makebox(0,0)[lb]{\smash{-1}}}%
+    \put(0.73903307,0.26685601){\color[rgb]{0,0,1}\makebox(0,0)[lb]{\smash{1}}}%
+    \put(0.51256966,0.2165308){\color[rgb]{1,0,0}\makebox(0,0)[lb]{\smash{take 2}}}%
+    \put(0.6476531,0.22447689){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{0 left}}}%
+    \put(0.70724873,0.20063864){\color[rgb]{1,0,0}\makebox(0,0)[lb]{\smash{1}}}%
+    \put(0.73241133,0.20063864){\color[rgb]{0,0,1}\makebox(0,0)[lb]{\smash{-1}}}%
+    \put(0.11526543,0.06820389){\color[rgb]{1,0,0}\makebox(0,0)[lb]{\smash{take 2}}}%
+    \put(0.31391755,0.11720475){\color[rgb]{0,0,1}\makebox(0,0)[lb]{\smash{take 1}}}%
+    \put(0.39602709,0.12515083){\color[rgb]{1,0,0}\makebox(0,0)[lb]{\smash{2 left}}}%
+    \put(0.51256966,0.15031343){\color[rgb]{1,0,0}\makebox(0,0)[lb]{\smash{take 1}}}%
+    \put(0.6476531,0.15825952){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{1 left}}}%
+    \put(0.70724873,0.13442126){\color[rgb]{1,0,0}\makebox(0,0)[lb]{\smash{-1}}}%
+    \put(0.73903307,0.13442126){\color[rgb]{0,0,1}\makebox(0,0)[lb]{\smash{1}}}%
+    \put(0.51256966,0.08409606){\color[rgb]{1,0,0}\makebox(0,0)[lb]{\smash{take 2}}}%
+    \put(0.6476531,0.09204215){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{0 left}}}%
+    \put(0.70724873,0.06820389){\color[rgb]{1,0,0}\makebox(0,0)[lb]{\smash{1}}}%
+    \put(0.73241133,0.06820389){\color[rgb]{0,0,1}\makebox(0,0)[lb]{\smash{-1}}}%
+    \put(0.31391755,0.01787869){\color[rgb]{0,0,1}\makebox(0,0)[lb]{\smash{take 2}}}%
+    \put(0.39602709,0.02582477){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{1 left}}}%
+    \put(0.45562272,0.00198652){\color[rgb]{1,0,0}\makebox(0,0)[lb]{\smash{-1}}}%
+    \put(0.48740706,0.00198652){\color[rgb]{0,0,1}\makebox(0,0)[lb]{\smash{1}}}%
   \end{picture}%
 \endgroup%
