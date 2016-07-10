@@ -79,6 +79,109 @@ There may be various properties for extensive-form games:
 
 \subsection{Sequence Form}
 
+One way to solve extensive-form games is using linear programming (see \cite{AGT07}).
+However, the number of pure strategies (over which players are mixing) is usually exponential since every possible combination of~all actions in~each information set needs to be accounted.
+Thus, the the linear program (LP) becomes intractable.
+A~possible way around this issue is to use the \emph{sequence form} of the game, which reduces the size of LP by having variables only for sequences of~actions and combining only those to obtain a~full game play.
+
+A~\emph{sequence} $s_p(h)$ of~moves of player~$p$ is his history of~actions on the (unique) path from the root to node $h$ while $S_p$ is the set of all possible sequences of player $p$.
+The \emph{realization probability} of a~sequence $s_p$ of player~$p$ under a~behavior strategy $\sigma _p$ is $\sigma _p [s] = \prod_{a \in s} \sigma _p(a)$.
+It has the meaning of~$p$'s contribution to the product of~probabilities on the sequence $s_p$.
+The \emph{realization plan} of some $p$'s mixed strategy $\mu_p$ is a~mapping $x\colon S_p \to \mathbb{R}$ defined by
+$x(s) = \sum _{\textrm{pure strategy } \sigma _p} \mu _p (\sigma _p) \cdot \sigma _p [s]$.
+We usually write $x$ resp. $y$ for realization plan of player~$1$ resp. player~$2$.
+Mixed strategies $\sigma _p, \sigma' _p \in \Sigma _p$ are \emph{realization equivalent} if they reach any game state with equal probabilities, against an~arbitrary strategy of the opponent.
+A~well-known result of (Kuhn, 1953)%
+\footnote{for further details see \cite{AGT07}}
+states that behavior strategies have the same expressive power as mixed strategies:
+\begin{thm}[Kuhn's theorem]
+For a~player in a~game with perfect recall, any mixed strategy is realization equivalent to some behavior strategy.
+\end{thm}
+Therefore, we will restrict ourselves to finding equilibria among behavioral strategy profiles, specifically, among possible realization plans.
+For any realization plan $x$, any $I \in \mathcal{I}_1$ and any sequence $s\in S_1$, the necessary conditions are
+\begin{equation}
+\label{seq-cond}
+    x(\emptyset) = 1, \quad x(s_1(I)) = \sum _{a \in A(I)} x(s_1(I \cdot a))
+\end{equation}
+and analogously for any realization plan $y$ of player $2$.
+These requirements are natural, since behavior strategies define probability distribution over actions in information sets.
+
+To describe the conditions (\ref{seq-cond}) as constraints of a~linear program, we think of realization plans as vectors
+$(x_s) _{s\in S_1} \equiv x \in \mathbb{R} ^{\lv S_1 \rv}$
+and
+$(y_s) _{s\in S_2} \equiv y \in \mathbb{R} ^{\lv S_2 \rv}$.
+The linear constraints corresponding to (\ref{seq-cond}) are given as
+\begin{equation}
+\label{seq-constr}
+    Ex = e, \ x \ge 0
+    \quad \textrm{and} \quad
+    Fy = f, \ y \ge 0,
+\end{equation}
+where the left-hand side is the unit vector $e = (1, 0, \dots, 0) ^\top$ and the constraint matrix
+$E \in \mathbb{R} ^{(1 + \lv \mathcal{I}_1 \rv) \times \lv S_1 \rv}$
+has columns indexed by all sequences of player~$1$ while rows indexed by the conditions~(\ref{seq-cond}) (similarly also for $F$ and $f$).
+Especially, the first row of $Ex = e$ has the form of~$x _{\emptyset} = 1$ and the row corresponding to an~information set~$I \in \mathcal{I}_1$ is
+\[
+    x _{s_1 (I)} - \sum _{a \in A(I)} x _{s_1(I \cdot a)} = 0.
+\]
+Analogously for $Fy = f$, that is, $E$ and $F$ are $\{0, -1, 1\}$ matrices.
+
+The sequence form payoff matrix is $A \in \mathbb{R} ^{\lv S_1 \rv \times \lv S_2 \rv}$ for player~$1$ and $-A$ for player~$2$ (as in every zero sum game), which is described for each sequence $s \in S_1$ and each $s' \in S_2$ by
+\[
+    A _{s,s'} = \sum _{z \in Z,\; s_1(z) = s,\; s_2(z) = s'} u_1(z) \pi_c (z).
+\]
+Here $\pi_c (z)$ denotes the contribution of~the chance player~$c$ to the overall probability on the path to $z$.
+Since this overall probability is the product of~move probabilities on the path to $z$ (including the chance player), the expected utility to player~$1$ is
+$
+    \sum _{z \in Z} u_1(z) \sigma_1 [s_1(z)] \sigma_2 [s_2(z)] \pi_c (z)
+    = x ^\top A y
+$
+because $\sigma_1 [s_1(z)] = x _{s_1(z)}$ and $\sigma_2 [s_2(z)] = y _{s_2(z)}$.
+
+Now, a~best response $x$ against any fixed plan~$y$ maximizes his expected utility $x ^\top (Ay)$.
+In other words, it is a~solution to the LP
+\begin{equation}
+\label{seq-primal-param}
+\begin{split}
+    \max\  &x^\top (Ay) \\
+    E&x = e \\
+    &x \ge 0.
+\end{split}
+\end{equation}
+Its dual linear program has vector $u \in \mathbb{R}^{1 + \lv \mathcal{I}_1 \rv}$ of~unconstrained variables per each equation of~(\ref{seq-primal-param}) and it looks like
+\begin{equation}
+\label{seq-dual-param}
+\begin{split}
+    \min\  &u^\top e \\
+    E^\top &u \ge Ay.
+\end{split}
+\end{equation}
+As both (\ref{seq-primal-param}) and (\ref{seq-dual-param}) are feasible, they have equal optimal values by the strong duality theorem.
+Therefore, whereas player~$1$ wants to maximize $x^\top Ay = u^\top e$, his opponent wants to minimize it (in a~zero sum game) through his free choice of~$y$.
+This amounts to the LP
+\begin{equation}
+\label{seq-dual}
+\begin{split}
+    \min_{u, y}\  &u^\top e \\
+    E^\top u - Ay &\ge 0 \\
+    Fy &= f \\
+    y &\ge 0
+\end{split}
+\end{equation}
+with the following dual LP
+\begin{equation}
+\label{seq-primal}
+\begin{split}
+    \max_{v, x}\  &v^\top f \\
+    Ex &= e \\
+    F^\top v - A^\top x &\le 0 \\
+    x &\ge 0.
+\end{split}
+\end{equation}
+It is important to mention that $E, F, A$ are sparse matrices, whose number of~variables and number of~non-zero values are linear in the size of~game tree.
+In conclusion, zero-sum extensive form games can be solved using (dual) linear programming with LPs of~linear sizes.
+
+
 \section{Methods of~Solution}
 
 \subsection{Linear Programming}
