@@ -80,9 +80,10 @@ There may be various properties for extensive-form games:
 \epigraph{
   Error is ever the sequence of~haste.
 }{Duke of Wellington}
-One way to solve extensive-form games is using linear programming (see \cite{AGT07}).
-However, the number of pure strategies (over which players are mixing) is usually exponential since every possible combination of~all actions in~each information set needs to be accounted.
-Thus, the the linear program (LP) becomes intractable.
+One possible way to~solve extensive-form games is with linear programming (\cite[pp.~73--74]{AGT07}).
+However, the number of~pure strategies (over which players are mixing) is usually exponential:
+we need to account for every combination of~actions in~each information set.
+Thus, the linear program (LP) becomes intractable.
 A~possible way around this issue is to use the \emph{sequence form} of the game, which reduces the size of LP by having variables only for sequences of~actions and combining only those to obtain a~full game play.
 
 A~\emph{sequence} $s_p(h)$ of~moves of player~$p$ is his history of~actions on the (unique) path from the root to node $h$ while $S_p$ is the set of all possible sequences of player $p$.
