@@ -48,8 +48,10 @@ Formally, an~\emph{extensive-form game} (\cite[p.~200]{Osborne1994course}) for a
 \end{itemize}
 We will also need the notion of~a~strategy and the expected utility.
 \begin{itemize}
-  \item A~(behavior) \emph{strategy}~$\sigma_i$ of player~$i$ defines a~probability distribution over actions $A(h)$ wherever he acts (i.e. at~every node~$h \in H$ with $p(h) = i$).
+  \item A~\emph{strategy}~$\sigma_i$ of player~$i$ defines a~probability distribution over actions $A(h)$ wherever he acts (i.e. at~every node~$h \in H$ with $p(h) = i$).
     The set~$\Sigma_i$ contains all possible strategies for player~$i$.
+
+  \item A~strategy can be either \emph{pure} (strictly a~single action is chosen) or \emph{mixed} (probabilistic choice of~actions is allowed).
 
   \item A~\emph{strategy profile} $\sigma$ is a~vector of~players' strategies:
     $\sigma = (\sigma_1, \sigma_2, \ldots, \sigma_ {\abs{P}})$.
