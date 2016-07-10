@@ -77,9 +77,12 @@ There may be various properties for extensive-form games:
 \end{itemize}
 
 \section{Sequence Form}
-\epigraph{
-  Error is ever the sequence of~haste.
-}{Duke of Wellington}
+{
+  \setlength{\epigraphwidth}{0.65\textwidth}
+  \epigraph{
+    Error is ever the sequence of~haste.
+  }{Duke of Wellington}
+}%
 One possible way to~solve extensive-form games is with linear programming (\cite[pp.~73--74]{AGT07}).
 However, the number of~pure strategies (over which players are mixing) is usually exponential:
 we need to account for every combination of~actions in~each information set.
@@ -108,6 +111,13 @@ For any realization plan $x$, any $I \in \mathcal{I}_1$ and any sequence $s\in S
 and analogously for any realization plan $y$ of player $2$.
 These requirements are natural, since behavior strategies define probability distribution over actions in information sets.
 
+\section{Solving Games with Linear Programming}
+{
+  \setlength{\epigraphwidth}{0.65\textwidth}
+  \epigraph{
+    If you optimize everything, you will always be unhappy.
+  }{Donald Ervin Knuth}
+}%
 To describe the conditions (\ref{seq-cond}) as constraints of a~linear program, we think of realization plans as vectors
 $(x_s) _{s\in S_1} \equiv x \in \mathbb{R} ^{\lv S_1 \rv}$
 and
@@ -183,19 +193,7 @@ with the following dual LP
 It is important to mention that $E, F, A$ are sparse matrices, whose number of~variables and number of~non-zero values are linear in the size of~game tree.
 In conclusion, zero-sum extensive form games can be solved using (dual) linear programming with LPs of~linear sizes.
 
-
-\section{Methods of~Solution}
-
-\subsection{Linear Programming}
-{
-  \setlength{\epigraphwidth}{0.65\textwidth}
-  \epigraph{
-    If you optimize everything, you will always be unhappy.
-  }{Donald Ervin Knuth}
-}%
-\todo
-
-\subsection{Learning}
+\section{Solving Games with Learning Algorithms}
 {
   \setlength{\epigraphwidth}{0.65\textwidth}
   \epigraph{
