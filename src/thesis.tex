@@ -56,6 +56,8 @@
 \usepackage{skak}           % for typesetting Chess
 \usepackage{adjustbox}      % for text-sized Chess symbols
 \usepackage{epigraph}       % for \epigraph
+\usepackage[acronym, toc]{glossaries}
+\include{glossaries}
 
 %%% Basic information on the thesis
 
@@ -145,6 +147,7 @@
 
 %%% Part II %%%
 \part{Imperfectness of~Imperfect-Information Endgames}
+\acrfull{love}
 \include{imperfIntro}
 \include{imperfShortcomings}
 \include{chap03}
@@ -167,7 +170,8 @@
 
 %%% Abbreviations used in the thesis, if any, including their explanation
 %%% In mathematical theses, it could be better to move the list of abbreviations to the beginning of the thesis.
-\chapwithtoc{List of Abbreviations}
+\glossarystyle{listgroup}
+\printglossary[title=List of~Acronyms, toctitle=List of~Acronyms, type=\acronymtype]
 
 %%% Attachments to the master thesis, if any. Each attachment must be
 %%% referred to at least once from the text of the thesis. Attachments
