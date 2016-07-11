@@ -110,7 +110,11 @@ The size of~the \emph{strategic-form} \acrshort{lp} increases rapidly, deeming t
 
 A~possible solution is to use the \emph{sequence form}.
 This~\acrshort{lp} has only variables for \emph{sequences of~actions} and only they are combined.
-A~\emph{sequence} $s_p(h)$ of~moves of player~$p$ is his history of~actions on the (unique) path from the root to node $h$ while $S_p$ is the set of all possible sequences of player $p$.
+
+\begin{itemize}
+  \item A~\emph{sequence} $s_i(h)$ is player~$i$'s history of~actions, on the (unique) path from the game-tree root to node~$h$.
+    Set~$S_i$ denotes all conceivable sequences of~$i$.
+\end{itemize}
 The \emph{realization probability} of a~sequence $s_p$ of player~$p$ under a~behavior strategy $\sigma _p$ is $\sigma _p [s] = \prod_{a \in s} \sigma _p(a)$.
 It has the meaning of~$p$'s contribution to the product of~probabilities on the sequence $s_p$.
 The \emph{realization plan} of some $p$'s mixed strategy $\mu_p$ is a~mapping $x\colon S_p \to \mathbb{R}$ defined by
