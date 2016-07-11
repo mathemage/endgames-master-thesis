@@ -107,9 +107,9 @@ The size of~the \emph{strategic-form} \acrshort{lp} increases rapidly, deeming t
   \label{fig:strategic-form}
 \end{figure}
 
-A~possible solution is to~use the \emph{sequence form}.
+A~possible solution is to~use the \emph{sequence form} (\cite[pp.~70--73]{AGT07}).
 This form of~\acrshort{lp} has variables just for \emph{sequences of~actions}.
-Only sequences from~the same root-to-leaf paths are combined:
+Only sequences from~the same root-to-leaf paths are then combined:
 \begin{figure}[H]
   \centering
   \tiny
@@ -123,11 +123,10 @@ Only sequences from~the same root-to-leaf paths are combined:
 \end{figure}
 \noindent
 \begin{itemize}
-  \item A~\emph{sequence} $s_i(h)$ is player~$i$'s history of~actions, on the (unique) path from the game-tree root to node~$h$.
-    Set~$S_i$ denotes all valid sequences of~$i$.
+  \item \emph{Sequence} $s_i(h)$ denotes player~$i$'s history of~actions, along the (unique) path from the root to node~$h$.
+    Set~$S_i$ is the set of~all valid sequences of~$i$.
 
-  \item The \emph{realization probability} of a~sequence $s_p$ of player~$p$ under a~behavior strategy $\sigma _p$ is $\sigma _p [s] = \prod_{a \in s} \sigma _p(a)$.
-    It has the meaning of~$p$'s contribution to the product of~probabilities on the sequence $s_p$.
+  \item The \emph{realization probability} of sequence~$s \in S_i$ under behavior strategy~$\sigma_i$ is $\sigma _i [s] = \prod_{a \in s} \sigma_i(a)$.
 
   \item The \emph{realization plan} of some $p$'s mixed strategy $\mu_p$ is a~mapping $x\colon S_p \to \mathbb{R}$ defined by $x(s) = \sum _{\textrm{pure strategy } \sigma _p} \mu _p (\sigma _p) \cdot \sigma _p [s]$.
     We usually write $x$ resp. $y$ for realization plan of player~$1$ resp. player~$2$.
