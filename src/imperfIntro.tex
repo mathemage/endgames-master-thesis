@@ -93,8 +93,9 @@ There may be various properties for extensive-form games:
     Error is ever the sequence of~haste.
   }{Duke of Wellington}
 }%
-One possible way to~solve extensive-form games is with linear programming (\cite[pp.~73--74]{AGT07}).
-However, the number of~pure strategies (over which players are mixing) is generally exponential:
+One possible way (\cite[pp.~73--74]{AGT07}) to~solve extensive-form games is by solving a~related \acrfull{lp}.
+However, the number of~pure strategies (over which players are mixing) is generally exponential, as we need to combine all action choices across all information sets (see Figure~\ref{fig:strategic-form}).
+The related \emph{strategic-form} \acrshort{lp} soon becomes too large, and thus intractable to~solve.
 \begin{figure}[H]
   \centering
   \tiny
@@ -102,12 +103,11 @@ However, the number of~pure strategies (over which players are mixing) is genera
   \input{../img/strategic-form-tree.pdf_tex}
   \includegraphics[width=.4\textwidth]{../img/strategic-form.png}
   \def\captionTitle{Left: An~extensive-form game. \\Right: The corresponding strategic-form pay-off matrices.}
-  \caption[\captionTitle]{\captionTitle{} \\(\cite[p.~67]{AGT07})}
+  \caption[The strategic-form pay-off matrices]{\captionTitle{} \\(\cite[p.~67]{AGT07})}
   \label{fig:strategic-form}
 \end{figure}
-We need to account for every combination of~actions in~each information set.
+\noindent
 
-Thus, the related linear program (LP) becomes intractable.
 A~possible way around this issue is to use the \emph{sequence form} of the game, which reduces the size of LP by having variables only for sequences of~actions and combining only those to obtain a~full game play.
 
 A~\emph{sequence} $s_p(h)$ of~moves of player~$p$ is his history of~actions on the (unique) path from the root to node $h$ while $S_p$ is the set of all possible sequences of player $p$.
@@ -139,7 +139,7 @@ These requirements are natural, since behavior strategies define probability dis
     If you optimize everything, you will always be unhappy.
   }{Donald Ervin Knuth}
 }%
-To describe the conditions (\ref{seq-cond}) as constraints of a~\acrfull{lp}, we think of realization plans as vectors
+To describe the conditions (\ref{seq-cond}) as constraints of an~\acrshort{lp}, we think of realization plans as vectors
 $(x_s) _{s\in S_1} \equiv x \in \mathbb{R} ^{\lv S_1 \rv}$
 and
 $(y_s) _{s\in S_2} \equiv y \in \mathbb{R} ^{\lv S_2 \rv}$.
