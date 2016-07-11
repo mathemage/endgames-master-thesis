@@ -1,0 +1,76 @@
+%% Creator: Inkscape inkscape 0.48.4, www.inkscape.org
+%% PDF/EPS/PS + LaTeX output extension by Johan Engelen, 2010
+%% Accompanies image file 'strategic-form-tree.pdf' (pdf, eps, ps)
+%%
+%% To include the image in your LaTeX document, write
+%%   \input{<filename>.pdf_tex}
+%%  instead of
+%%   \includegraphics{<filename>.pdf}
+%% To scale the image, write
+%%   \def\svgwidth{<desired width>}
+%%   \input{<filename>.pdf_tex}
+%%  instead of
+%%   \includegraphics[width=<desired width>]{<filename>.pdf}
+%%
+%% Images with a different path to the parent latex file can
+%% be accessed with the `import' package (which may need to be
+%% installed) using
+%%   \usepackage{import}
+%% in the preamble, and then including the image with
+%%   \import{<path to file>}{<filename>.pdf_tex}
+%% Alternatively, one can specify
+%%   \graphicspath{{<path to file>/}}
+%% 
+%% For more information, please see info/svg-inkscape on CTAN:
+%%   http://tug.ctan.org/tex-archive/info/svg-inkscape
+%%
+\begingroup%
+  \makeatletter%
+  \providecommand\color[2][]{%
+    \errmessage{(Inkscape) Color is used for the text in Inkscape, but the package 'color.sty' is not loaded}%
+    \renewcommand\color[2][]{}%
+  }%
+  \providecommand\transparent[1]{%
+    \errmessage{(Inkscape) Transparency is used (non-zero) for the text in Inkscape, but the package 'transparent.sty' is not loaded}%
+    \renewcommand\transparent[1]{}%
+  }%
+  \providecommand\rotatebox[2]{#2}%
+  \ifx\svgwidth\undefined%
+    \setlength{\unitlength}{602.64933449bp}%
+    \ifx\svgscale\undefined%
+      \relax%
+    \else%
+      \setlength{\unitlength}{\unitlength * \real{\svgscale}}%
+    \fi%
+  \else%
+    \setlength{\unitlength}{\svgwidth}%
+  \fi%
+  \global\let\svgwidth\undefined%
+  \global\let\svgscale\undefined%
+  \makeatother%
+  \begin{picture}(1,0.36961559)%
+    \put(0,0){\includegraphics[width=\unitlength]{strategic-form-tree.pdf}}%
+    \put(0.0024947,0.13687786){\color[rgb]{1,0,0}\makebox(0,0)[lb]{\smash{1}}}%
+    \put(0.12361086,0.22978889){\color[rgb]{1,0,0}\makebox(0,0)[lb]{\smash{L}}}%
+    \put(0.25965916,0.23974365){\color[rgb]{0,0,1}\makebox(0,0)[lb]{\smash{2}}}%
+    \put(0.38077533,0.31274517){\color[rgb]{0,0,1}\makebox(0,0)[lb]{\smash{l}}}%
+    \put(0.58318865,0.32269992){\color[rgb]{1,0,0}\makebox(0,0)[lb]{\smash{1}}}%
+    \put(0.70430481,0.35422331){\color[rgb]{1,0,0}\makebox(0,0)[lb]{\smash{S}}}%
+    \put(0.9564919,0.3343138){\color[rgb]{1,0,0}\makebox(0,0)[lb]{\smash{2}}}%
+    \put(0.98801529,0.3343138){\color[rgb]{0,0,1}\makebox(0,0)[lb]{\smash{2}}}%
+    \put(0.70430481,0.27126703){\color[rgb]{1,0,0}\makebox(0,0)[lb]{\smash{T}}}%
+    \put(0.9564919,0.25135753){\color[rgb]{1,0,0}\makebox(0,0)[lb]{\smash{0}}}%
+    \put(0.98801529,0.25135753){\color[rgb]{0,0,1}\makebox(0,0)[lb]{\smash{3}}}%
+    \put(0.38077533,0.14683261){\color[rgb]{0,0,1}\makebox(0,0)[lb]{\smash{r}}}%
+    \put(0.58318865,0.15678737){\color[rgb]{1,0,0}\makebox(0,0)[lb]{\smash{1}}}%
+    \put(0.70430481,0.18831075){\color[rgb]{1,0,0}\makebox(0,0)[lb]{\smash{S}}}%
+    \put(0.9564919,0.16840125){\color[rgb]{1,0,0}\makebox(0,0)[lb]{\smash{5}}}%
+    \put(0.98801529,0.16840125){\color[rgb]{0,0,1}\makebox(0,0)[lb]{\smash{6}}}%
+    \put(0.70430481,0.10535447){\color[rgb]{1,0,0}\makebox(0,0)[lb]{\smash{T}}}%
+    \put(0.9564919,0.08544497){\color[rgb]{1,0,0}\makebox(0,0)[lb]{\smash{6}}}%
+    \put(0.98801529,0.08544497){\color[rgb]{0,0,1}\makebox(0,0)[lb]{\smash{1}}}%
+    \put(0.12361086,0.0223982){\color[rgb]{1,0,0}\makebox(0,0)[lb]{\smash{R}}}%
+    \put(0.30943293,0.00248869){\color[rgb]{1,0,0}\makebox(0,0)[lb]{\smash{3}}}%
+    \put(0.34095631,0.00248869){\color[rgb]{0,0,1}\makebox(0,0)[lb]{\smash{3}}}%
+  \end{picture}%
+\endgroup%
