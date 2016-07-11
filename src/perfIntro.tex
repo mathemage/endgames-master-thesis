@@ -65,7 +65,7 @@ We will also need the notion of~a~strategy and the expected utility.
   \item Given a~strategy profile $\sigma$, the \emph{expected utility}~$u_i (\sigma)$ for player~$i$
     is the sum of~utilities in~the leaves (weighted by the probabilities of~reaching them):
     \[ u_i (\sigma) = \sum _{z \in Z} \pi^\sigma\!(z) \,u_i(z)\]
-    %Therefore, it is the expected value of~the game tree, calculated recursively bottom-up.
+    %Therefore, it is the expected utility of~the game tree, calculated recursively bottom-up.
 \end{itemize}
 
 \section{Subgames}
@@ -89,7 +89,7 @@ One cannot emphasize enough the ideal conditions for~subgames in~the perfect-inf
 \begin{thm}
   \label{thm:perf-info-subgames}
   All subgames can be re-computed independently.
-  In particular, these re-solved sub-strategies can be ``re-substituted'' back into the full-game strategy, without decreasing the total expected value.
+  In particular, these re-solved sub-strategies can be ``re-substituted'' back into the full-game strategy, without decreasing the total expected utility.
 \end{thm}
 
 \begin{proof}
@@ -124,7 +124,7 @@ One cannot emphasize enough the ideal conditions for~subgames in~the perfect-inf
     %
     = u_i(\sigma)
   \end{align*}
-  Therefore, combining the new $\sigma^*$ with the full-game $\sigma$ does not decrease the expected value.
+  Therefore, combining the new $\sigma^*$ with the full-game $\sigma$ does not decrease the expected utility.
 \end{proof}
 
 This means that we can deal with subgames of~perfect-information games separately (either by~pre-computing or by~dynamic in-play re-solving).
