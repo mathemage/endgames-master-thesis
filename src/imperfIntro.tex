@@ -106,11 +106,21 @@ The size of~the \emph{strategic-form} \acrshort{lp} increases rapidly, deeming t
   \caption[The strategic-form pay-off matrices]{\captionTitle{} \\(\cite[p.~67]{AGT07})}
   \label{fig:strategic-form}
 \end{figure}
+
+A~possible solution is to~use the \emph{sequence form}.
+This form of~\acrshort{lp} has variables just for \emph{sequences of~actions}.
+Only sequences from~the same root-to-leaf paths are combined:
+\begin{figure}[H]
+  \centering
+  \tiny
+  \def\svgwidth{.5\textwidth}
+  \input{../img/strategic-form-tree.pdf_tex}
+  \includegraphics[width=.4\textwidth]{../img/sequence-form.png}
+  \def\captionTitle{Left: An~extensive-form game. \\Right: The corresponding sequence-form pay-off matrices.}
+  \caption[The sequence-form pay-off matrices]{\captionTitle{} \\(\cite[p.~67]{AGT07})}
+  \label{fig:sequence-form}
+\end{figure}
 \noindent
-
-A~possible solution is to use the \emph{sequence form}.
-This~\acrshort{lp} has only variables for \emph{sequences of~actions} and only they are combined.
-
 \begin{itemize}
   \item A~\emph{sequence} $s_i(h)$ is player~$i$'s history of~actions, on the (unique) path from the game-tree root to node~$h$.
     Set~$S_i$ denotes all conceivable sequences of~$i$.
