@@ -95,7 +95,18 @@ There may be various properties for extensive-form games:
 }%
 One possible way to~solve extensive-form games is with linear programming (\cite[pp.~73--74]{AGT07}).
 However, the number of~pure strategies (over which players are mixing) is generally exponential:
-we need to account for every combination of~actions in~each information set.
+\begin{figure}[H]
+  \centering
+  \tiny
+  \def\svgwidth{.5\textwidth}
+  \input{../img/strategic-form-tree.pdf_tex}
+  \includegraphics[width=.4\textwidth]{../img/strategic-form.png}
+  \def\captionTitle{Left: An~extensive-form game. \\Right: The corresponding strategic-form pay-off matrices.}
+  \caption[\captionTitle]{\captionTitle{} \\(\cite[p.~67]{AGT07})}
+  \label{fig:strategic-form}
+\end{figure}
+We need to account for every combination of~actions in~each information set.
+
 Thus, the related linear program (LP) becomes intractable.
 A~possible way around this issue is to use the \emph{sequence form} of the game, which reduces the size of LP by having variables only for sequences of~actions and combining only those to obtain a~full game play.
 
