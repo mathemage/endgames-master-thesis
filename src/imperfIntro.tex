@@ -116,14 +116,15 @@ Only sequences from~the same root-to-leaf paths are combined:
   \def\svgwidth{.5\textwidth}
   \input{../img/strategic-form-tree.pdf_tex}
   \includegraphics[width=.4\textwidth]{../img/sequence-form.png}
-  \def\captionTitle{Left: An~extensive-form game. \\Right: The corresponding sequence-form pay-off matrices.}
-  \caption[The sequence-form pay-off matrices]{\captionTitle{} \\(\cite[p.~67]{AGT07})}
+  \def\captionTitle{Left: A~game with sequences~$S_1 = \{\emptyset, L, R, LS, LT\}$ and $S_2 = \{\emptyset, l, r \}$.
+    Right: The corresponding sequence-form pay-off matrices.}
+  \caption[The sequence-form pay-off matrices]{\captionTitle{} (\cite[p.~67]{AGT07})}
   \label{fig:sequence-form}
 \end{figure}
 \noindent
 \begin{itemize}
   \item A~\emph{sequence} $s_i(h)$ is player~$i$'s history of~actions, on the (unique) path from the game-tree root to node~$h$.
-    Set~$S_i$ denotes all conceivable sequences of~$i$.
+    Set~$S_i$ denotes all valid sequences of~$i$.
 \end{itemize}
 The \emph{realization probability} of a~sequence $s_p$ of player~$p$ under a~behavior strategy $\sigma _p$ is $\sigma _p [s] = \prod_{a \in s} \sigma _p(a)$.
 It has the meaning of~$p$'s contribution to the product of~probabilities on the sequence $s_p$.
