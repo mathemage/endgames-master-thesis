@@ -125,20 +125,23 @@ Only sequences from~the same root-to-leaf paths are combined:
 \begin{itemize}
   \item A~\emph{sequence} $s_i(h)$ is player~$i$'s history of~actions, on the (unique) path from the game-tree root to node~$h$.
     Set~$S_i$ denotes all valid sequences of~$i$.
+
+  \item The \emph{realization probability} of a~sequence $s_p$ of player~$p$ under a~behavior strategy $\sigma _p$ is $\sigma _p [s] = \prod_{a \in s} \sigma _p(a)$.
+    It has the meaning of~$p$'s contribution to the product of~probabilities on the sequence $s_p$.
+
+  \item The \emph{realization plan} of some $p$'s mixed strategy $\mu_p$ is a~mapping $x\colon S_p \to \mathbb{R}$ defined by $x(s) = \sum _{\textrm{pure strategy } \sigma _p} \mu _p (\sigma _p) \cdot \sigma _p [s]$.
+    We usually write $x$ resp. $y$ for realization plan of player~$1$ resp. player~$2$.
+
+  \item Mixed strategies $\sigma _p, \sigma' _p \in \Sigma _p$ are \emph{realization equivalent} if they reach any game state with equal probabilities, against an~arbitrary strategy of the opponent.
+    A~well-known result of (Kuhn, 1953)%
+    \footnote{for further details see \cite{AGT07}}
+    states that behavior strategies have the same expressive power as mixed strategies:
+    \begin{thm}[Kuhn's theorem]
+      For a~player in a~game with perfect recall, any mixed strategy is realization equivalent to some behavior strategy.
+    \end{thm}
+    Therefore, we will restrict ourselves to finding equilibria among behavioral strategy profiles, specifically, among possible realization plans.
 \end{itemize}
-The \emph{realization probability} of a~sequence $s_p$ of player~$p$ under a~behavior strategy $\sigma _p$ is $\sigma _p [s] = \prod_{a \in s} \sigma _p(a)$.
-It has the meaning of~$p$'s contribution to the product of~probabilities on the sequence $s_p$.
-The \emph{realization plan} of some $p$'s mixed strategy $\mu_p$ is a~mapping $x\colon S_p \to \mathbb{R}$ defined by
-$x(s) = \sum _{\textrm{pure strategy } \sigma _p} \mu _p (\sigma _p) \cdot \sigma _p [s]$.
-We usually write $x$ resp. $y$ for realization plan of player~$1$ resp. player~$2$.
-Mixed strategies $\sigma _p, \sigma' _p \in \Sigma _p$ are \emph{realization equivalent} if they reach any game state with equal probabilities, against an~arbitrary strategy of the opponent.
-A~well-known result of (Kuhn, 1953)%
-\footnote{for further details see \cite{AGT07}}
-states that behavior strategies have the same expressive power as mixed strategies:
-\begin{thm}[Kuhn's theorem]
-For a~player in a~game with perfect recall, any mixed strategy is realization equivalent to some behavior strategy.
-\end{thm}
-Therefore, we will restrict ourselves to finding equilibria among behavioral strategy profiles, specifically, among possible realization plans.
+
 For any realization plan $x$, any $I \in \mathcal{I}_1$ and any sequence $s\in S_1$, the necessary conditions are
 \begin{equation}
 \label{seq-cond}
