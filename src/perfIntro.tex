@@ -105,10 +105,9 @@ Specifically, any node in~the tree induces its own subgame:
 
 If we fix opponents' strategies, it is only beneficial to re-solve subgames:%
 \footnote{This property also holds for imperfect-information subgames.}
-\begin{thm}
+\begin{thm}[subgame re-solving and utility]
   \label{thm:perf-info-subgames-utility}
-  All subgames can be re-computed independently.
-  In particular, these re-solved sub-strategies can be ``re-substituted'' back into the full-game strategy, without decreasing the total expected utility.
+  The re-computed sub-strategies can be ``placed back'' into the full-game strategy, without decreasing the total expected utility.
 \end{thm}
 \begin{proof}
   Let $\sigma$ be any~full-game strategy and $\sigma_S$ be its restriction to a~subgame~$S$ rooted at node~$r$.
@@ -151,7 +150,7 @@ no opponent can exploit the newly computed sub-strategy by adjusting his play (e
   Assume we are given a~two-person zero-sum game, its subgame~$S$ rooted at node~$r$ and a~fixed player~$i$.
   Let $\sigma_i$ be the~original strategy, $\sigma_i^*$ the re-computed strategy that only differs within $S$, let $\sigma_{-i} = BR(\sigma _{i})$ and $\sigma_{-i}^* = BR(\sigma^*_{i})$ be opponent's corresponding best responses, and let $\sigma = (\sigma_i, \sigma_{-i})$ and $\sigma^* = (\sigma_i^*, \sigma_{-i}^*)$ be the resulting profiles.
 
-  If $u_i^r (\sigma) \le u_i^r (\sigma^*)$ (the utility improved in~the subgame), then at every node $h \in H$ also $u_i^h (\sigma) \le u_i^h (\sigma^*)$ (the utilities improved everywhere else).
+  If $u_i^r (\sigma) \le u_i^r (\sigma^*)$ (the worst-case utility improved in~the subgame), then at~every node $h \in H$ we also have $u_i^h (\sigma) \le u_i^h (\sigma^*)$ (the worst-case utilities improved everywhere else).
 \end{thm}
 \begin{proof}
   \todo
