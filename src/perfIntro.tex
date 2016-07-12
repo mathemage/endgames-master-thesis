@@ -72,10 +72,6 @@ We will also need the notion of~a~strategy, the expected utility and a~best resp
     is the sum of~utilities in~the leaves (weighted by the probabilities of~reaching them):
     \[ u_i (\sigma) = \sum _{z \in Z} \pi^\sigma\!(z) \,u_i(z)\]
 
-    For our purposes, let us also define a~restriction of the expected utility on a~subgame rooted in node~$h\in H$:
-    \[ u_i^h(\sigma) = \sum _{z \in Z,\; h \sqsubseteq z} \pi^\sigma\!(h,z) \,u_i(z) \]
-    where $\pi^\sigma(h,z)$ is the probability of~reaching $z$ from node~$h$.
-
   \item Player~$i$'s \emph{best response}~$BR _i (\sigma _{-i})$ (briefly $BR _i (\sigma)$) is a~strategy $\sigma _i \in \Sigma _i$ maximizing his expected utility against other players:
     \[ u_i (\sigma) = \max _{\sigma'_i \in \Sigma_i} u_i ((\sigma'_i, \sigma_{-i})) \]
     Provided a~fixed $\sigma_{-i}$, one technique to find some best response is to recursively traverse the game tree and pick each node's most valuable action (with the maximum utility).
@@ -101,6 +97,12 @@ Specifically, any node in~the tree induces its own subgame:
   \caption[\captionTitle]{\captionTitle{}\\ (\href{https://en.wikipedia.org/wiki/Subgame_perfect_equilibrium}{https://en.wikipedia.org/wiki/Subgame\_perfect\_equilibrium})}
   \label{fig:ext-form-subgame}
 \end{figure}
+
+\note{
+  For the upcoming proofs, we define the notation for \emph{the~restriction of the expected utility} on a~subgame rooted in node~$h\in H$:
+  \[ u_i^h(\sigma) = \sum _{z \in Z,\; h \sqsubseteq z} \pi^\sigma\!(h,z) \,u_i(z) \]
+  where $\pi^\sigma(h,z)$ is the probability of~reaching $z$ from node~$h$ under $\sigma$.
+}
 
 If we fix opponents' strategies, it is only beneficial to re-solve subgames (in~both perfect-information and imperfect-information games):
 \begin{thm}
