@@ -64,12 +64,16 @@ We will also need the notion of~a~strategy and the expected utility.
   \item Given a~strategy profile $\sigma$, the \emph{expected utility}~$u_i (\sigma)$ for player~$i$
     is the sum of~utilities in~the leaves (weighted by the probabilities of~reaching them):
     \[ u_i (\sigma) = \sum _{z \in Z} \pi^\sigma\!(z) \,u_i(z)\]
-    %Therefore, it is the expected utility of~the game tree, calculated recursively bottom-up.
 \end{itemize}
 Finally, we will outline some solution concepts for extensive-form games:
 \begin{itemize}
   \item Player~$i$'s \emph{best response}~$BR _i (\sigma _{-i})$ (briefly $BR _i (\sigma)$) is a~strategy $\sigma _i \in \Sigma _i$ maximizing his expected utility against other players:
     \[ u_i (\sigma) = \max _{\sigma'_i \in \Sigma_i} u_i ((\sigma'_i, \sigma_{-i})) \]
+    Provided a~fixed $\sigma_{-i}$, one technique to find some best response is to recursively traverse the game tree and pick each node's most valuable action (with the maximum utility).
+
+    Note that there may be several best responses, when a~node has several most valuable actions.
+    Let us assume $BR _i (\sigma _{-i})$ denotes any of~them:
+    this simplification is not overly harmful, since all best responses lead to the same (maximum) total utility.
 \end{itemize}
 
 \section{Subgames}
