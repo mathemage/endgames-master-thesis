@@ -98,7 +98,7 @@ Specifically, any node in~the tree induces its own subgame:
 %One cannot emphasize enough the ideal conditions for~subgames in~the perfect-information setting:
 If we fix opponents' strategies, it is only beneficial to re-solve subgames (in~both perfect-information and imperfect-information games):
 \begin{thm}
-  \label{thm:perf-info-subgames}
+  \label{thm:perf-info-subgames-utility}
   All subgames can be re-computed independently.
   In particular, these re-solved sub-strategies can be ``re-substituted'' back into the full-game strategy, without decreasing the total expected utility.
 \end{thm}
@@ -139,7 +139,7 @@ If we fix opponents' strategies, it is only beneficial to re-solve subgames (in~
 \end{proof}
 
 This means that we can deal with subgames of~perfect-information games separately (either by~pre-computing or by~dynamic in-play re-solving).
-Moreover, we may freely combine the newly found strategies with the original ones, since Theorem~\ref{thm:perf-info-subgames} guarantees they won't be inferior.
+Moreover, we may freely combine the newly found strategies with the original ones, since Theorem~\ref{thm:perf-info-subgames-utility} guarantees they won't be inferior.
 
 \section{Working Examples}
 \epigraph{
