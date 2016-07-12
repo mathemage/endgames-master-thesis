@@ -46,12 +46,12 @@ Formally, an~\emph{extensive-form game} (\cite[p.~200]{Osborne1994course}) for a
 
   \item a~\emph{utility function} $u_i\colon Z \goto \R$.
 \end{itemize}
-We will also need the notion of~a~strategy and the expected utility.
+We will also need the notion of~a~strategy, the expected utility and a~best response.
 \begin{itemize}
   \item A~(behavior) \emph{strategy}~$\sigma_i$ of player~$i$ defines a~probability distribution over actions $A(h)$ wherever he acts (i.e. at~every node~$h \in H$ with $p(h) = i$).
     The set~$\Sigma_i$ contains all possible strategies for player~$i$.
 
-  \item A~strategy can be either \emph{pure} (strictly a~single action is chosen) or \emph{mixed} (probabilistic choice of~actions is allowed).
+  Additionally, a~strategy can be \emph{pure} (just one action is strictly chosen everywhere) or \emph{mixed} (a~probability distribution over pure strategies).
 
   \item A~\emph{strategy profile} $\sigma$ is a~vector of~players' strategies:
     $\sigma = (\sigma_1, \sigma_2, \ldots, \sigma_ {\abs{P}})$.
@@ -64,9 +64,7 @@ We will also need the notion of~a~strategy and the expected utility.
   \item Given a~strategy profile $\sigma$, the \emph{expected utility}~$u_i (\sigma)$ for player~$i$
     is the sum of~utilities in~the leaves (weighted by the probabilities of~reaching them):
     \[ u_i (\sigma) = \sum _{z \in Z} \pi^\sigma\!(z) \,u_i(z)\]
-\end{itemize}
-Finally, we will outline some solution concepts for extensive-form games:
-\begin{itemize}
+
   \item Player~$i$'s \emph{best response}~$BR _i (\sigma _{-i})$ (briefly $BR _i (\sigma)$) is a~strategy $\sigma _i \in \Sigma _i$ maximizing his expected utility against other players:
     \[ u_i (\sigma) = \max _{\sigma'_i \in \Sigma_i} u_i ((\sigma'_i, \sigma_{-i})) \]
     Provided a~fixed $\sigma_{-i}$, one technique to find some best response is to recursively traverse the game tree and pick each node's most valuable action (with the maximum utility).
