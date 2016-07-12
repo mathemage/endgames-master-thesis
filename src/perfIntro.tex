@@ -3,7 +3,6 @@
   In order to improve your game, you must study the endgame before everything else.
   For whereas the endings can be studied and mastered by~themselves, the middle game and opening must be studied in relation to the end game.
 }{José Raúl Capablanca}
-
 For many games, solving their late stages (so-called \emph{endgames}) can be done in~a~dynamic online way.
 In other words, we are often able to postpone the computation of~the endgame strategy until the endgame itself is reached in~the play.
 
@@ -104,7 +103,8 @@ Specifically, any node in~the tree induces its own subgame:
   where $\pi^\sigma(h,z)$ is the probability of~reaching $z$ from node~$h$ under $\sigma$.
 }
 
-If we fix opponents' strategies, it is only beneficial to re-solve subgames (in~both perfect-information and imperfect-information games):
+If we fix opponents' strategies, it is only beneficial to re-solve subgames:%
+\footnote{This property also holds for imperfect-information subgames.}
 \begin{thm}
   \label{thm:perf-info-subgames-utility}
   All subgames can be re-computed independently.
@@ -113,10 +113,9 @@ If we fix opponents' strategies, it is only beneficial to re-solve subgames (in~
 \begin{proof}
   Let $\sigma$ be any~full-game strategy and $\sigma_S$ be its restriction to a~subgame~$S$ rooted at node~$r$.
   Assume we found a~better (or even optimal) strategy $\sigma^*$ for the subgame~$S$.
-  For any player~$i$, the arising expected utility $u^*_i := u_i(\sigma^*)$ is player~$i$'s optimal value within $S$.
-  Hence, his utility can only improve:
+  In other words, the arising expected utility of~any player~$i$ is better within $S$:
   \begin{equation}
-    u^*_i \ge u_i(\sigma_S)
+    u_i^r(\sigma^*) \ge u_i^r(\sigma_S)
     \label{eq:opt-val-of-subgame}
   \end{equation}
   The new re-combined strategy $\sigma'$ (i.e. $\sigma^*$ within~$S$, and the original $\sigma$ elsewhere) cannot decrease $i$'s utility:
@@ -131,10 +130,10 @@ If we fix opponents' strategies, it is only beneficial to re-solve subgames (in~
     &= \left[ \pi^{\sigma'}\!(r)\sum _{z \in Z \cap S} \pi^{\sigma^*}\!(r, z) \,u_i(z) \right]
     + \sum _{z \in Z \setminus S} \pi^{\sigma'}\!(z) \,u_i(z) \\
     %
-    &= \pi^{\sigma}\!(r) \,u_i^*
+    &= \pi^{\sigma}\!(r) \,u_i^r(\sigma^*)
     + \sum _{z \in Z \setminus S} \pi^{\sigma}\!(z) \,u_i(z)
     %
-    \stackrel{\text{(\ref{eq:opt-val-of-subgame})}}{\ge} \pi^{\sigma}\!(r) \,u_i(\sigma_S)
+    \stackrel{\text{(\ref{eq:opt-val-of-subgame})}}{\ge} \pi^{\sigma}\!(r) \,u_i^r(\sigma_S)
     + \sum _{z \in Z \setminus S} \pi^{\sigma}\!(z) \,u_i(z) \\
     %
     &= \sum _{z \in Z \cap S} \pi^{\sigma}\!(z) \,u_i(z)
@@ -142,7 +141,7 @@ If we fix opponents' strategies, it is only beneficial to re-solve subgames (in~
     %
     = u_i(\sigma)
   \end{align*}
-  Therefore, combining the new $\sigma^*$ with the full-game $\sigma$ does not decrease the expected utility.
+  Therefore, combining the new $\sigma^*$ with the full-game $\sigma$ does not decrease the total expected utility.
 \end{proof}
 
 The perfect-information setting offers one additional advantage over the imperfect information:
