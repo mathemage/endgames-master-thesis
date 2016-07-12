@@ -150,7 +150,7 @@ no opponent can exploit the newly computed sub-strategy by adjusting his play (e
   Assume we are given a~two-person zero-sum game, its subgame~$S$ rooted at node~$r$ and a~fixed player~$i$.
   Let $\sigma_i$ be the~original strategy, $\sigma_i^*$ the re-computed strategy that only differs within $S$, let $\sigma_{-i} = BR(\sigma _{i})$ and $\sigma_{-i}^* = BR(\sigma^*_{i})$ be opponent's corresponding best responses, and let $\sigma = (\sigma_i, \sigma_{-i})$ and $\sigma^* = (\sigma_i^*, \sigma_{-i}^*)$ be the resulting profiles.
 
-  If $u_i^r (\sigma) \le u_i^r (\sigma^*)$ (the worst-case utility improved in~the subgame), then at~every node $h \in H$ we also have $u_i^h (\sigma) \le u_i^h (\sigma^*)$ (the worst-case utilities improved everywhere else).
+  If $u_i^r (\sigma) \le u_i^r (\sigma^*)$ (the worst-case utility does not decrease in~the subgame), then at~every node $h \in H \setminus S$ we also have $u_i^h (\sigma) \le u_i^h (\sigma^*)$ (the worst-case utilities outside the subgame do not decrease).
 \end{thm}
 \begin{proof}
   By definition, all best responses produce the same expected utility, because they all maximize opponent's value.
@@ -158,8 +158,17 @@ no opponent can exploit the newly computed sub-strategy by adjusting his play (e
   This method selects (recursively) the action with the maximum utility (or any of~them in~case of~multiplicity).
 
   Let $T_h$ be the subtree rooted at~$h$.
-  If $T_h$ does not contain $S$, then the best responses $\sigma_{-i}$ and $\sigma^*_{-i}$ are identical within $T_h$, and thus, $u_i^h (\sigma) = u_i^h (\sigma^*)$.
-  If, on~the other hand, $T_h$ does contain $S$, we will prove the inequality by~mathematical induction on the height of~$T_h$.
+  If $T_h$ does not contain $S$ (i.e. $h \not\sqsubseteq r$), then the best responses $\sigma_{-i}$ and $\sigma^*_{-i}$ are identical within $T_h$, which trivially implies $u_i^h (\sigma) = u_i^h (\sigma^*)$.
+  On~the other hand, if $T_h$ does contain $S$, we will prove the inequality by~mathematical induction on the height of~$T_h$.
+
+  For the base case, the tree containing $S$ with the minimum height is the subgame tree $S \equiv T_r$ itself, where the inequality holds by assumptions.
+  For the inductive step, let node~$h$ has $k$ children $h_1, \dots h_k$, and without loss of~generality, $T_{h_1}$ contains $S$.
+  By~the induction hypothesis, $u_i^{h_1} (\sigma) \le u_i^{h_1} (\sigma^*)$.
+  Depending on the acting player in~$h$, the best response picks:
+  \begin{enumerate}[(a)]
+    \item the actions with $\max_{j = 1, \dots, k} \, u_i^{h_j} (\sigma)$ and $\max_{j = 1, \dots, k} \, u_i^{h_j} (\sigma^*)$ (for player~$i$)
+    \item the actions with $\max_{j = 1, \dots, k} \, -u_i^{h_j} (\sigma) = \min_{j = 1, \dots, k} \, u_i^{h_j} (\sigma)$ and $\max_{j = 1, \dots, k} \, -u_i^{h_j} (\sigma^*) = \min_{j = 1, \dots, k} \, u_i^{h_j} (\sigma^*)$ (for player~$-i$)
+  \end{enumerate}
 
   \todo
 \end{proof}
