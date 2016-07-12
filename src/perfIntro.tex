@@ -60,12 +60,16 @@ We will also need the notion of~a~strategy and the expected utility.
 
   \item We use the symbol $\pi^\sigma$ (resp. $\pi_i^\sigma$) to evaluate the overall (resp. player~$i$'s) probability corresponding to a~strategy profile~$\sigma$.
     Thus, the probability $\pi^\sigma(h)$ of~reaching node~$h$ can be decomposed to each player's contribution as $\pi ^\sigma(h) = \prod _{i \in P} \pi _i ^\sigma (h)$.
-    %Thus, $\pi ^\sigma (h, a)$ is the (joint) probability of~taking the action~$a$ at~node~$h$.
 
   \item Given a~strategy profile $\sigma$, the \emph{expected utility}~$u_i (\sigma)$ for player~$i$
     is the sum of~utilities in~the leaves (weighted by the probabilities of~reaching them):
     \[ u_i (\sigma) = \sum _{z \in Z} \pi^\sigma\!(z) \,u_i(z)\]
     %Therefore, it is the expected utility of~the game tree, calculated recursively bottom-up.
+\end{itemize}
+Finally, we will outline some solution concepts for extensive-form games:
+\begin{itemize}
+  \item Player~$i$'s \emph{best response}~$BR _i (\sigma _{-i})$ (briefly $BR _i (\sigma)$) is a~strategy $\sigma _i \in \Sigma _i$ maximizing his expected utility against other players:
+    \[ u_i (\sigma) = \max _{\sigma'_i \in \Sigma_i} u_i ((\sigma'_i, \sigma_{-i})) \]
 \end{itemize}
 
 \section{Subgames}
