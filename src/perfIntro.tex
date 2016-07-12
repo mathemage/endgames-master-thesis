@@ -145,11 +145,13 @@ If we fix opponents' strategies, it is only beneficial to re-solve subgames:%
 \end{proof}
 
 The perfect-information setting offers one additional advantage over the imperfect information:
-no opponent can exploit the newly computed sub-strategy cannot by adjusting strategy (either in~the trunk or the subgame).
-\begin{thm}
+no opponent can exploit the newly computed sub-strategy by adjusting his play (either in~the trunk or the subgame).
+\begin{thm}[unexploitable subgame re-solving]
   \label{thm:perf-info-subgames-unexploitability}
-  Let $\sigma_i$ be the~original strategy and $\sigma_i^*$ be the~newly re-computed strategy.
-  \todo Let us also have opponents' respective best responses $\sigma_{-i} = $ and $\sigma_{-i}^* = $
+  Assume we are given a~two-person zero-sum game, its subgame~$S$ rooted at node~$r$ and a~fixed player~$i$.
+  Let $\sigma_i$ be the~original strategy, $\sigma_i^*$ the re-computed strategy that only differs within $S$, let $\sigma_{-i} = BR(\sigma _{i})$ and $\sigma_{-i}^* = BR(\sigma^*_{i})$ be opponent's corresponding best responses, and let $\sigma = (\sigma_i, \sigma_{-i})$ and $\sigma^* = (\sigma_i^*, \sigma_{-i}^*)$ be the resulting profiles.
+
+  If $u_i^r (\sigma) \le u_i^r (\sigma^*)$ (the utility improved in~the subgame), then at every node $h \in H$ also $u_i^h (\sigma) \le u_i^h (\sigma^*)$ (the utilities improved everywhere else).
 \end{thm}
 \begin{proof}
   \todo
