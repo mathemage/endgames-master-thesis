@@ -59,11 +59,15 @@ We will also need the notion of~a~strategy, the expected utility and a~best resp
     Hence, it is the Cartesian product $\Sigma = \prod_{i \in P} \Sigma_i$.
 
   \item We use the symbol $\pi^\sigma$ (resp. $\pi_i^\sigma$) to evaluate the overall (resp. player~$i$'s) probability corresponding to a~strategy profile~$\sigma$.
-    Thus, the probability $\pi^\sigma(h)$ of~reaching node~$h$ can be decomposed to each player's contribution as $\pi ^\sigma(h) = \prod _{i \in P} \pi _i ^\sigma (h)$.
+    The probability $\pi^\sigma(h)$ of~reaching node~$h$ can be decomposed to each player's contribution as $\pi ^\sigma(h) = \prod _{i \in P} \pi _i ^\sigma (h)$.
 
   \item Given a~strategy profile $\sigma$, the \emph{expected utility}~$u_i (\sigma)$ for player~$i$
     is the sum of~utilities in~the leaves (weighted by the probabilities of~reaching them):
     \[ u_i (\sigma) = \sum _{z \in Z} \pi^\sigma\!(z) \,u_i(z)\]
+
+    For our purposes, let us define a~restriction of the expected utility on a~subgame rooted in node~$h\in H$:
+    \[ u_i^h(\sigma) = \sum _{z \in Z,\; h \sqsubseteq z} \pi^\sigma\!(h,z) \,u_i(z) \]
+    where $\pi^\sigma(h,z)$ is the probability of~reaching $z$ from node~$h$.
 
   \item Player~$i$'s \emph{best response}~$BR _i (\sigma _{-i})$ (briefly $BR _i (\sigma)$) is a~strategy $\sigma _i \in \Sigma _i$ maximizing his expected utility against other players:
     \[ u_i (\sigma) = \max _{\sigma'_i \in \Sigma_i} u_i ((\sigma'_i, \sigma_{-i})) \]
