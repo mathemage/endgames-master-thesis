@@ -153,6 +153,14 @@ no opponent can exploit the newly computed sub-strategy by adjusting his play (e
   If $u_i^r (\sigma) \le u_i^r (\sigma^*)$ (the worst-case utility improved in~the subgame), then at~every node $h \in H$ we also have $u_i^h (\sigma) \le u_i^h (\sigma^*)$ (the worst-case utilities improved everywhere else).
 \end{thm}
 \begin{proof}
+  By definition, all best responses produce the same expected utility, because they all maximize opponent's value.
+  We can therefore do calculations of~utilities with respect to an~arbitrary best response, e.g. the standard best response retrieved by~the \emph{backward induction}.
+  This method selects (recursively) the action with the maximum utility (or any of~them in~case of~multiplicity).
+
+  Let $T_h$ be the subtree rooted at~$h$.
+  If $T_h$ does not contain $S$, then the best responses $\sigma_{-i}$ and $\sigma^*_{-i}$ are identical within $T_h$, and thus, $u_i^h (\sigma) = u_i^h (\sigma^*)$.
+  If, on~the other hand, $T_h$ does contain $S$, we will prove the inequality by~mathematical induction on the height of~$T_h$.
+
   \todo
 \end{proof}
 
