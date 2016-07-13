@@ -202,8 +202,9 @@ no opponent can exploit the newly computed sub-strategy by adjusting his play (e
   If a~player employs a~re-computed subgame strategy, the opponent has no way to~adjust his strategy, in order to increase his own overall utility.
 \end{cor}
 
-This means that we can deal with subgames of~perfect-information games separately (either by~pre-computing or by~dynamic in-play re-solving).
-Moreover, we may freely combine the newly found strategies with the original ones, since Theorem~\ref{thm:perf-info-subgames-utility} guarantees they won't be inferior.
+This means that we can deal with subgames of~perfect-information games separately, either by~pre-computation or by~dynamic in-play re-solve.
+Moreover, we may freely combine the newly found strategies with the original ones:
+Theorem~\ref{thm:perf-info-subgames-utility} guarantees they won't be inferior, and Theorem~\ref{thm:perf-info-subgames-unexploitability} guarantees their unexploitability by the opponent.
 
 \section{Working Examples}
 \epigraph{
