@@ -158,7 +158,7 @@ The second kind of~conditions ensures that the probabilities in~realization plan
 \end{equation}
 Interestingly, the conditions (\ref{eq:seq-cond-children}), (\ref{eq:seq-cond-init}) are also sufficient, giving a~full characterization for realization plans.~(\cite[Proposition~3.10, p.~71]{AGT07})
 
-Now we re-formulate (\ref{eq:seq-cond-children}) and (\ref{eq:seq-cond-init}) using constraint matrices as follows
+Now we re-formulate (\ref{eq:seq-cond-children}) and (\ref{eq:seq-cond-init}) using \emph{sequence constraint matrices}:
 \begin{equation}
   \label{eq:seq-constr}
   Ex = e, \ x \ge 0
@@ -177,13 +177,14 @@ and the row corresponding to an~information set~$I \in \mathcal{I}_1$ looks like
 The right-hand side is therefore the unit vector $e = (1, 0, \dots, 0) ^\top$ and the matrix~$E$ is sparse, with $\Onot(\lv \I_1 \rv)$ non-zero elements.
 Analogously for $Fy = f$.
 
+The \emph{sequence-form payoff matrix}~$A \in \mathbb{R} ^{\lv S_1 \rv \times \lv S_2 \rv}$ for player~$1$ is at every sequence $s \in S_1$ and $s' \in S_2$ described as
+\[
+  A _{s,s'} = \sum _{\substack{z \in Z\\ s_1(z) = s,\; s_2(z) = s'}} u_1(z) \; \pi_c (z),
+\]
+Player~$2$'s sequence-form payoff matrix is $-A$, because of~the zero-sum property.
 \clearpage
 \todo
 
-The sequence form payoff matrix is $A \in \mathbb{R} ^{\lv S_1 \rv \times \lv S_2 \rv}$ for player~$1$ and $-A$ for player~$2$ (as in every zero sum game), which is described for each sequence $s \in S_1$ and each $s' \in S_2$ by
-\[
-    A _{s,s'} = \sum _{z \in Z,\; s_1(z) = s,\; s_2(z) = s'} u_1(z) \pi_c (z).
-\]
 Here $\pi_c (z)$ denotes the contribution of~the chance player~$c$ to the overall probability on the path to $z$.
 Since this overall probability is the product of~move probabilities on the path to $z$ (including the chance player), the expected utility to player~$1$ is
 $
