@@ -127,24 +127,6 @@ Only sequences from~the same root-to-leaf paths are then combined:
     \footnotetext{For player~$2$, a~realization plan $y\colon S_2 \to \R$ would be defined similarly.}
     \[ x(s) = \sum _{\textrm{pure strategy } \sigma} \mu_1(\sigma)\; \pi^{\sigma}[s] \]
 \end{itemize}
-Realization plans play the role of~variables in sequence-form \acrshort{lp} formulations.
-Not any two mappings $x\colon S_1 \to \R$ and $y\colon S_2 \to \R$ can be realization plans, though.
-We need to add two types of~\acrshort{lp} constraints.
-
-The first kind of~necessary conditions states that the probability of~a~sequence can be decomposed into probabilities of~its immediate continuations:
-\begin{align}
-  \label{eq:seq-cond-children}
-  \begin{split}
-    x(s_1(I)) &= \sum _{a \in A(I)} x(s_1(I \cdot a)), \quad I\in\I_1, \\
-    y(s_2(I')) &= \sum _{a' \in A(I')} y(s_2(I' \cdot a')), \quad I'\in\I_2.
-  \end{split}
-\end{align}
-The second kind of~conditions ensures that the probabilities in~realization plans sum to $1$:
-\begin{equation}
-  \label{eq:seq-cond-init}
-  x(\emptyset) = 1, \quad y(\emptyset) = 1
-\end{equation}
-Interestingly, the conditions (\ref{eq:seq-cond-children}), (\ref{eq:seq-cond-init}) are also sufficient, giving a~full characterization for realization plans.~(\cite[Proposition~3.10, p.~71]{AGT07})
 
 \section{Solving Games with Linear Programming}
 {
@@ -153,25 +135,50 @@ Interestingly, the conditions (\ref{eq:seq-cond-children}), (\ref{eq:seq-cond-in
     If you optimize everything, you will always be unhappy.
   }{Donald Ervin Knuth}
 }%
-To describe the conditions (\ref{seq-cond}) as constraints of an~\acrshort{lp}, we think of realization plans as vectors
-$(x_s) _{s\in S_1} \equiv x \in \mathbb{R} ^{\lv S_1 \rv}$
+Realization plans play the role of~variables in sequence-form \acrshort{lp} formulations.
+We think of realization plans as vectors
+$x := (x_s) _{s\in S_1} \in \mathbb{R} ^{\lv S_1 \rv}$
 and
-$(y_s) _{s\in S_2} \equiv y \in \mathbb{R} ^{\lv S_2 \rv}$.
-The linear constraints corresponding to (\ref{seq-cond}) are given as
+$y := (y_s) _{s\in S_2} \in \mathbb{R} ^{\lv S_2 \rv}$.
+Not all vectors $x \ge 0$, $y \ge 0$ can be realization plans, though.
+We need to add two more types of~\acrshort{lp} constraints.
+
+The first kind of~necessary conditions states that the probability of~a~sequence can be decomposed into probabilities of~its immediate continuations:
+\begin{align}
+  \label{eq:seq-cond-children}
+  \begin{split}
+    x_{s_1(I)} &= \sum _{a \in A(I)}    x_{s_1(I \cdot a)}, \quad I\in\I_1, \\
+    y_{s_2(I')} &= \sum _{a' \in A(I')} y_{s_2(I' \cdot a')}, \quad I'\in\I_2.
+  \end{split}
+\end{align}
+The second kind of~conditions ensures that the probabilities in~realization plans sum to $1$:
 \begin{equation}
-\label{seq-constr}
-    Ex = e, \ x \ge 0
-    \quad \textrm{and} \quad
-    Fy = f, \ y \ge 0,
+  \label{eq:seq-cond-init}
+  x_{\emptyset} = 1, \quad y_{\emptyset} = 1
 \end{equation}
-where the left-hand side is the unit vector $e = (1, 0, \dots, 0) ^\top$ and the constraint matrix
-$E \in \mathbb{R} ^{(1 + \lv \mathcal{I}_1 \rv) \times \lv S_1 \rv}$
-has columns indexed by all sequences of player~$1$ while rows indexed by the conditions~(\ref{seq-cond}) (similarly also for $F$ and $f$).
-Especially, the first row of $Ex = e$ has the form of~$x _{\emptyset} = 1$ and the row corresponding to an~information set~$I \in \mathcal{I}_1$ is
+Interestingly, the conditions (\ref{eq:seq-cond-children}), (\ref{eq:seq-cond-init}) are also sufficient, giving a~full characterization for realization plans.~(\cite[Proposition~3.10, p.~71]{AGT07})
+
+Now we re-formulate (\ref{eq:seq-cond-children}) and (\ref{eq:seq-cond-init}) using constraint matrices as follows
+\begin{equation}
+  \label{eq:seq-constr}
+  Ex = e, \ x \ge 0
+  \quad \textrm{and} \quad
+  Fy = f, \ y \ge 0.
+\end{equation}
+The first player gets a~constraint matrix $E \in \{-1, 0, 1\} ^{(1 + \lv \I_1 \rv) \times \lv S_1 \rv}$, where columns are indexed by sequences from $s\in S_1$ and rows by equations of~(\ref{eq:seq-cond-children}) and (\ref{eq:seq-cond-init}).
+Specifically, the first row of $Ex = e$ has form
+\[
+  x _{\emptyset} = 1
+\]
+and the row corresponding to an~information set~$I \in \mathcal{I}_1$ looks like
 \[
     x _{s_1 (I)} - \sum _{a \in A(I)} x _{s_1(I \cdot a)} = 0.
 \]
-Analogously for $Fy = f$, that is, $E$ and $F$ are $\{0, -1, 1\}$ matrices.
+The right-hand side is therefore the unit vector $e = (1, 0, \dots, 0) ^\top$ and the matrix~$E$ is sparse, with $\Onot(\lv \I_1 \rv)$ non-zero elements.
+Analogously for $Fy = f$.
+
+\clearpage
+\todo
 
 The sequence form payoff matrix is $A \in \mathbb{R} ^{\lv S_1 \rv \times \lv S_2 \rv}$ for player~$1$ and $-A$ for player~$2$ (as in every zero sum game), which is described for each sequence $s \in S_1$ and each $s' \in S_2$ by
 \[
