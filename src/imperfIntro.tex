@@ -117,7 +117,7 @@ Only sequences from~the same root-to-leaf paths are then combined:
 \end{figure}
 \noindent
 \begin{itemize}
-  \item \emph{Sequence}~$s_i(h)$ describes player~$i$'s history of~actions, i.e. edges along the (unique) path from the root to node~$h$.
+  \item \emph{Sequence}~$s_i(I)$ describes player~$i$'s history of~actions, i.e. edges passed along the path from the root to information set~$I\in I_i$.
     Set~$S_i$ denotes the set of~all valid sequences for $i$.
 
   \item The \emph{realization probability} (of~a~sequence~$s \in S_i$ under a~strategy~$\sigma_i \in \Sigma_i$) is $\pi^{\sigma_i} [s] = \prod_{a \in s} \pi^{\sigma_i}(a)$.
@@ -125,16 +125,22 @@ Only sequences from~the same root-to-leaf paths are then combined:
   \item Recall that a~mixed strategy $\mu_i$ is a~probability distribution over (all) pure strategies of player~$i$.
     A~\emph{realization plan} $x\colon S_i \to \R$ is then prescribed as
     \[ x(s) = \sum _{\textrm{pure strategy } \sigma} \mu_i(\sigma)\; \pi^{\sigma}[s] \]
-    In other words, it expresses the probability of~following sequence~$s$ under distribution~$\mu_i$.
-    Commonly, letter~$x$ (resp. $y$) is used for realization plans of player~$1$ (resp. player~$2$).
+    It expresses the probability of~following sequence~$s$ under distribution~$\mu_i$.
 \end{itemize}
-
-For any realization plan $x$, any $I \in \mathcal{I}_1$ and any sequence $s\in S_1$, the necessary conditions are
+Commonly, letter~$x$ (resp. $y$) is used for realization plans of player~$1$ (resp. player~$2$).
+The necessary conditions are
 \begin{equation}
-\label{seq-cond}
-    x(\emptyset) = 1, \quad x(s_1(I)) = \sum _{a \in A(I)} x(s_1(I \cdot a))
+  \label{eq:seq-cond-init}
+  x(\emptyset) = 1, \quad y(\emptyset) = 1
 \end{equation}
-and analogously for any realization plan $y$ of player $2$.
+and
+\begin{align}
+  \label{eq:seq-cond-children}
+  \begin{split}
+    x(s_1(I)) &= \sum _{a \in A(I)} x(s_1(I \cdot a)), \\
+    y(s_2(I)) &= \sum _{a' \in A(I)} y(s_2(I \cdot a'))
+  \end{split}
+\end{align}
 These requirements are natural, since behavior strategies define probability distribution over actions in information sets.
 
 \section{Solving Games with Linear Programming}
