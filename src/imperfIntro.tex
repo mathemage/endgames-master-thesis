@@ -160,7 +160,7 @@ Interestingly, the conditions (\ref{eq:seq-cond-children}), (\ref{eq:seq-cond-in
 
 Now we re-formulate (\ref{eq:seq-cond-children}) and (\ref{eq:seq-cond-init}) using \emph{sequence constraint matrices}:
 \begin{equation}
-  \label{eq:seq-constr}
+  \label{eq:seq-constraints}
   Ex = e, \ x \ge 0
   \quad \textrm{and} \quad
   Fy = f, \ y \ge 0.
@@ -206,20 +206,20 @@ we can write player~$1$'s utility as
   u_1(z)
   = x ^\top A y
 \]
+Hence, a~best-response realization plan $x$ against any realization plan~$y$ maximizes $1$'s utility $u_1(\sigma) = x ^\top (Ay)$.
+It is, by also using (\ref{eq:seq-constraints}), a~solution to \acrshort{lp} 
+\begin{equation}
+  \label{lp:seq-primal-param}
+  \begin{split}
+    \max\  &x^\top (Ay) \\
+    E&x = e \\
+    &x \ge 0.
+  \end{split}
+\end{equation}
 
 \clearpage
 \todo
 
-Now, a~best response $x$ against any fixed plan~$y$ maximizes his expected utility $x ^\top (Ay)$.
-In other words, it is a~solution to the LP
-\begin{equation}
-\label{seq-primal-param}
-\begin{split}
-    \max\  &x^\top (Ay) \\
-    E&x = e \\
-    &x \ge 0.
-\end{split}
-\end{equation}
 Its dual linear program has vector $u \in \mathbb{R}^{1 + \lv \mathcal{I}_1 \rv}$ of~unconstrained variables per each equation of~(\ref{seq-primal-param}) and it looks like
 \begin{equation}
 \label{seq-dual-param}
