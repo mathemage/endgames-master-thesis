@@ -168,24 +168,25 @@ Now we re-formulate (\ref{eq:seq-cond-children}) and (\ref{eq:seq-cond-init}) us
 The first player gets a~constraint matrix $E \in \{-1, 0, 1\} ^{(1 + \lv \I_1 \rv) \times \lv S_1 \rv}$, where columns are indexed by sequences from $s\in S_1$ and rows by equations of~(\ref{eq:seq-cond-children}) and (\ref{eq:seq-cond-init}).
 Specifically, the first row of $Ex = e$ has form
 \[
-  x _{\emptyset} = 1
+  x _{\emptyset} = 1,
 \]
 and the row corresponding to an~information set~$I \in \mathcal{I}_1$ looks like
 \[
     x _{s_1 (I)} - \sum _{a \in A(I)} x _{s_1(I \cdot a)} = 0.
 \]
-The right-hand side is therefore the unit vector $e = (1, 0, \dots, 0) ^\top$ and the matrix~$E$ is sparse, with $\Onot(\lv \I_1 \rv)$ non-zero elements.
-Analogously for $Fy = f$.
+The \emph{sequences constraint vector}~$e$ on the right-hand side is thus $(1, 0, \dots, 0) ^\top$.
+Matrix~$E$ is sparse as it has only $\Onot(\lv \I_1 \rv)$ non-zero elements.
+For constraints $Fy = f$, everything is analogous.
 
-The \emph{sequence-form payoff matrix}~$A \in \mathbb{R} ^{\lv S_1 \rv \times \lv S_2 \rv}$ for player~$1$ is at every sequence $s \in S_1$ and $s' \in S_2$ described as
+The \emph{sequence-form payoff matrix}~$A \in \mathbb{R} ^{\lv S_1 \rv \times \lv S_2 \rv}$ of~player~$1$ is described for every sequence $s \in S_1$ and $s' \in S_2$ by
 \[
-  A _{s,s'} = \sum _{\substack{z \in Z\\ s_1(z) = s,\; s_2(z) = s'}} u_1(z) \; \pi_c (z),
+  A _{s,s'} = \sum _{\substack{z \in Z\\ s_1(z) = s,\; s_2(z) = s'}} \pi_c (z) \; u_1(z),
 \]
-Player~$2$'s sequence-form payoff matrix is $-A$, because of~the zero-sum property.
+where $\pi_c (z)$ is the contribution of~the chance to the probability, along the path to leaf~$z$.
+The sequence-form payoff matrix of~player~$2$ is $-A$, because of~the zero-sum property.
 \clearpage
 \todo
 
-Here $\pi_c (z)$ denotes the contribution of~the chance player~$c$ to the overall probability on the path to $z$.
 Since this overall probability is the product of~move probabilities on the path to $z$ (including the chance player), the expected utility to player~$1$ is
 $
     \sum _{z \in Z} u_1(z) \sigma_1 [s_1(z)] \sigma_2 [s_2(z)] \pi_c (z)
