@@ -114,8 +114,8 @@ If we fix opponents' strategies, it is only beneficial to re-solve subgames:%
   Assume we found a~better (or even optimal) strategy $\sigma^*$ for the subgame~$S$.
   In other words, the arising expected utility of~any player~$i$ is better within $S$:
   \begin{equation}
-    u_i^r(\sigma^*) \ge u_i^r(\sigma_S)
     \label{eq:opt-val-of-subgame}
+    u_i^r(\sigma^*) \ge u_i^r(\sigma_S)
   \end{equation}
   The new re-combined strategy $\sigma'$ (i.e. $\sigma^*$ within~$S$, and the original $\sigma$ elsewhere) cannot decrease $i$'s utility:
   \begin{align*}
@@ -132,7 +132,8 @@ If we fix opponents' strategies, it is only beneficial to re-solve subgames:%
     &= \pi^{\sigma}\!(r) \,u_i^r(\sigma^*)
     + \sum _{z \in Z \setminus S} \pi^{\sigma}\!(z) \,u_i(z)
     %
-    \stackrel{\text{(\ref{eq:opt-val-of-subgame})}}{\ge} \pi^{\sigma}\!(r) \,u_i^r(\sigma_S)
+    \stackrel{\mathclap{\mathrm{(\ref{eq:opt-val-of-subgame})}}} {\ge}
+    \pi^{\sigma}\!(r) \,u_i^r(\sigma_S)
     + \sum _{z \in Z \setminus S} \pi^{\sigma}\!(z) \,u_i(z) \\
     %
     &= \sum _{z \in Z \cap S} \pi^{\sigma}\!(z) \,u_i(z)
@@ -144,33 +145,57 @@ If we fix opponents' strategies, it is only beneficial to re-solve subgames:%
 \end{proof}
 
 The perfect-information setting offers one additional advantage over the imperfect information:
-no opponent can exploit the newly computed sub-strategy by adjusting his play (either in~the trunk or the subgame).
+no opponent can exploit the newly computed sub-strategy by adjusting his play (either in~the trunk or in~the subgame).
 \begin{thm}[unexploitable subgame re-solving]
   \label{thm:perf-info-subgames-unexploitability}
   Assume we are given a~two-person zero-sum game, its subgame~$S$ rooted at node~$r$ and a~fixed player~$i$.
   Let $\sigma_i$ be the~original strategy, $\sigma_i^*$ the re-computed strategy that only differs within $S$, let $\sigma_{-i} = BR(\sigma _{i})$ and $\sigma_{-i}^* = BR(\sigma^*_{i})$ be opponent's corresponding best responses, and let $\sigma = (\sigma_i, \sigma_{-i})$ and $\sigma^* = (\sigma_i^*, \sigma_{-i}^*)$ be the resulting profiles.
 
-  If $u_i^r (\sigma) \le u_i^r (\sigma^*)$ (the worst-case utility does not decrease in~the subgame), then at~every node $h \in H \setminus S$ we also have $u_i^h (\sigma) \le u_i^h (\sigma^*)$ (the worst-case utilities outside the subgame do not decrease).
+  If $u_i^r (\sigma) \le u_i^r (\sigma^*)$ (player~$i$'s worst-case utility does not decrease in~the subgame), then at~every node $h \in H \setminus S$ we also have $u_i^h (\sigma) \le u_i^h (\sigma^*)$ (player~$i$'s worst-case utilities outside the subgame do not decrease).
 \end{thm}
 \begin{proof}
-  By definition, all best responses produce the same expected utility, because they all maximize opponent's value.
-  We can therefore do calculations of~utilities with respect to an~arbitrary best response, e.g. the standard best response retrieved by~the \emph{backward induction}.
-  This method selects (recursively) the action with the maximum utility (or any of~them in~case of~multiplicity).
+  By definition, all best responses produce equal expected utilities, because they all maximize opponent's value.
+  We can therefore do calculations of~utilities with respect to any~arbitrary best response, e.g. the standard best response retrieved by~the \emph{backward induction}\footnotemark.
+  \footnotetext{This method recursively selects the action with the maximum utility, or any of~them in~the case of~multiplicity.}
 
   Let $T_h$ be the subtree rooted at~$h$.
   If $T_h$ does not contain $S$ (i.e. $h \not\sqsubseteq r$), then the best responses $\sigma_{-i}$ and $\sigma^*_{-i}$ are identical within $T_h$, which trivially implies $u_i^h (\sigma) = u_i^h (\sigma^*)$.
   On~the other hand, if $T_h$ does contain $S$, we will prove the inequality by~mathematical induction on the height of~$T_h$.
 
-  For the base case, the tree containing $S$ with the minimum height is the subgame tree $S \equiv T_r$ itself, where the inequality holds by assumptions.
+  For the base case, the minimum-height tree containing $S$ is the subgame tree $S \equiv T_r$ itself, where the inequality holds by assumptions.
   For the inductive step, let node~$h$ has $k$ children $h_1, \dots h_k$, and without loss of~generality, $T_{h_1}$ contains $S$.
   By~the induction hypothesis, $u_i^{h_1} (\sigma) \le u_i^{h_1} (\sigma^*)$.
-  Depending on the acting player in~$h$, the best response picks:
-  \begin{enumerate}[(a)]
-    \item the actions with $\max_{j = 1, \dots, k} \, u_i^{h_j} (\sigma)$ and $\max_{j = 1, \dots, k} \, u_i^{h_j} (\sigma^*)$ (for player~$i$)
-    \item the actions with $\max_{j = 1, \dots, k} \, -u_i^{h_j} (\sigma) = \min_{j = 1, \dots, k} \, u_i^{h_j} (\sigma)$ and $\max_{j = 1, \dots, k} \, -u_i^{h_j} (\sigma^*) = \min_{j = 1, \dots, k} \, u_i^{h_j} (\sigma^*)$ (for player~$-i$)
-  \end{enumerate}
-
-  \todo
+  Because the subtrees of~the remaining children don't contain $S$ (i.e. $h_j \not\sqsubseteq r$ for $j = 2, \dots, k$), $\sigma$ and $\sigma^*$ are equal there.
+  Hence, $u_i^{h_j} (\sigma) = u_i^{h_j} (\sigma^*)$ for $j = 2, \dots, k$.
+  Therefore, we have
+  \begin{equation}
+    \label{eq:children-inc-util}
+    u_i^{h_j}(\sigma) \le u_i^{h_j}(\sigma^*)
+  \end{equation}
+  If $i$ is the acting player of~$h$ (i.e. $p(h) = i$), then by~expressing utilities as weighted sums of~children's utilities we get
+  \begin{align*}
+    u_i^h(\sigma)
+    %
+    &= \sum _{j = 1, \dots, k} \pi^\sigma\!(h,h_j) \,u_i^{h_j}(\sigma)
+    %
+    = \sum _{j = 1, \dots, k} \pi^{\sigma^*}\!(h,h_j) \,u_i^{h_j}(\sigma) \\
+    %
+    &\stackrel{\mathclap{\mathrm{(\ref{eq:children-inc-util})}}} {\le}
+    \sum _{j = 1, \dots, k} \pi^{\sigma^*}\!(h,h_j) \,u_i^{h_j}(\sigma^*)
+    %
+    = u_i^h(\sigma^*)
+  \end{align*}
+  On the other hand, if the opponent is the one who is acting (i.e. $p(h) \ne i$), he aims to choose the action with $i$'s minimum utility (due to the zero-sum property):
+  \begin{align*}
+    u_i^h(\sigma)
+    %
+    = \min _{j = 1, \dots, k} \,u_i^{h_j}(\sigma)
+    %
+    \stackrel{\mathclap{\mathrm{(\ref{eq:children-inc-util})}}} {\le}
+    \min _{j = 1, \dots, k} \,u_i^{h_j}(\sigma^*)
+    %
+    = u_i^h(\sigma^*)
+  \end{align*}
 \end{proof}
 
 \begin{cor}
