@@ -122,26 +122,29 @@ Only sequences from~the same root-to-leaf paths are then combined:
 
   \item The \emph{realization probability} (of~a~sequence~$s \in S_i$ under a~strategy~$\sigma_i \in \Sigma_i$) is $\pi^{\sigma_i} [s] = \prod_{a \in s} \pi^{\sigma_i}(a)$.
 
-  \item Recall that a~mixed strategy $\mu_i$ is a~probability distribution over (all) pure strategies of player~$i$.
-    A~\emph{realization plan} $x\colon S_i \to \R$ is then prescribed as
-    \[ x(s) = \sum _{\textrm{pure strategy } \sigma} \mu_i(\sigma)\; \pi^{\sigma}[s] \]
-    It expresses the probability of~following sequence~$s$ under distribution~$\mu_i$.
+  \item Recall that a~mixed strategy~$\mu_1$ is a~probability distribution over (all) pure strategies of player~$1$.
+    A~\emph{realization plan}\footnotemark{} $x\colon S_1 \to \R$ expresses the probability of~following sequence~$s$ under distribution~$\mu_1$:
+    \footnotetext{For player~$2$, a~realization plan $y\colon S_2 \to \R$ would be defined similarly.}
+    \[ x(s) = \sum _{\textrm{pure strategy } \sigma} \mu_1(\sigma)\; \pi^{\sigma}[s] \]
 \end{itemize}
-Commonly, letter~$x$ (resp. $y$) is used for realization plans of player~$1$ (resp. player~$2$).
-The necessary conditions are
+Realization plans play the role of~variables in sequence-form \acrshort{lp} formulations.
+Not any two mappings $x\colon S_1 \to \R$ and $y\colon S_2 \to \R$ can be realization plans, though.
+We need to add two types of~\acrshort{lp} constraints.
+
+The first kind of~necessary conditions states that the probability of~a~sequence can be decomposed into probabilities of~its immediate continuations:
+\begin{align}
+  \label{eq:seq-cond-children}
+  \begin{split}
+    x(s_1(I)) &= \sum _{a \in A(I)} x(s_1(I \cdot a)), \quad I\in\I_1, \\
+    y(s_2(I')) &= \sum _{a' \in A(I')} y(s_2(I' \cdot a')), \quad I'\in\I_2.
+  \end{split}
+\end{align}
+The second kind of~conditions ensures that the probabilities in~realization plans sum to $1$:
 \begin{equation}
   \label{eq:seq-cond-init}
   x(\emptyset) = 1, \quad y(\emptyset) = 1
 \end{equation}
-and
-\begin{align}
-  \label{eq:seq-cond-children}
-  \begin{split}
-    x(s_1(I)) &= \sum _{a \in A(I)} x(s_1(I \cdot a)), \\
-    y(s_2(I)) &= \sum _{a' \in A(I)} y(s_2(I \cdot a'))
-  \end{split}
-\end{align}
-These requirements are natural, since behavior strategies define probability distribution over actions in information sets.
+Interestingly, the conditions (\ref{eq:seq-cond-children}), (\ref{eq:seq-cond-init}) are also sufficient, giving a~full characterization for realization plans.~(\cite[Proposition~3.10, p.~71]{AGT07})
 
 \section{Solving Games with Linear Programming}
 {
