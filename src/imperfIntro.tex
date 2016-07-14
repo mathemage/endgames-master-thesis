@@ -144,7 +144,7 @@ We think of realization plans as vectors
 $x := (x_s) _{s\in S_1} \in \mathbb{R} ^{\lv S_1 \rv}$
 and
 $y := (y_s) _{s\in S_2} \in \mathbb{R} ^{\lv S_2 \rv}$.
-Not all vectors $x \ge 0$, $y \ge 0$ can be realization plans, though.
+Not all vectors $x \ge \vect{0}$, $y \ge \vect{0}$ can be realization plans, though.
 We need to add two more types of~\acrshort{lp} constraints.
 
 The first kind of~necessary conditions states that the probability of~a~sequence can be decomposed into probabilities of~its immediate continuations:
@@ -165,9 +165,9 @@ Interestingly, the conditions (\ref{eq:seq-cond-children}), (\ref{eq:seq-cond-in
 Now we re-formulate (\ref{eq:seq-cond-children}) and (\ref{eq:seq-cond-init}) using \emph{sequence constraint matrices}:
 \begin{equation}
   \label{eq:seq-constraints}
-  Ex = e, \ x \ge 0
+  Ex = e, \ x \ge \vect{0}
   \quad \textrm{and} \quad
-  Fy = f, \ y \ge 0.
+  Fy = f, \ y \ge \vect{0}.
 \end{equation}
 The first player gets a~sequence constraint matrix $E \in \{-1, 0, 1\} ^{(1 + \lv \I_1 \rv) \times \lv S_1 \rv}$, where columns are indexed by sequences from $s\in S_1$ and rows by equations of~(\ref{eq:seq-cond-children}) and (\ref{eq:seq-cond-init}).
 Specifically, the first row of $Ex = e$ has form
@@ -211,35 +211,45 @@ we can write player~$1$'s utility as
   = x ^\top A y
 \]
 So a~best-response realization plan $x$ against arbitrary realization plan~$y$ maximizes the utility $u_1(\sigma) = x ^\top (Ay)$.
-By~(\ref{eq:seq-constraints}), we can find such~$x$ as a~solution to this \acrshort{lp}:
-\begin{equation*}
+By~(\ref{eq:seq-constraints}), we can find such~$x$ as a~solution to the following \acrshort{lp} (parametrized by~$y$):
+\begin{equation}
+  \label{lp:seq-primal-param}
   \begin{split}
-    \max\  &x^\top (Ay) \\
+    \max\ (Ay)^\top &x \\
     E&x = e \\
-    &x \ge 0.
+    &x \ge \vect{0}.
   \end{split}
-\end{equation*}
-This is the corresponding dual \acrshort{lp} with a~vector of~dual variables $u \in \mathbb{R}^{1 + \lv \mathcal{I}_1 \rv}$:
-\begin{equation*}
+\end{equation}
+This \acrshort{lp} has a~finite optimal value, because it is
+\begin{enumerate}[(a)]
+  \item \emph{feasible}: Any valid realization plan~$x$ will do.
+  \item \emph{bounded}: Since $x$ expresses probabilities, $\vect{0} \le x \le \vect{1} = (1, \dots, 1)^\top$.
+    That gives upper bound $\lv Ay \rv ^\top \vect{1}$.
+\end{enumerate}
+The corresponding dual \acrshort{lp} with a~vector of~dual variables $u \in \mathbb{R}^{1 + \lv \mathcal{I}_1 \rv}$:
+\begin{equation}
+  \label{lp:seq-dual-param}
   \begin{split}
-    \min\  &u^\top e \\
+    \min\  e^\top &u \\
     E^\top &u \ge Ay.
   \end{split}
-\end{equation*}
+\end{equation}
+
+and for (\ref{lp:seq-dual-param}).
+They must have equal optimal values by the strong duality theorem.
 
 \clearpage
 \todo
 
-As both (\ref{seq-primal-param}) and (\ref{seq-dual-param}) are feasible, they have equal optimal values by the strong duality theorem.
 Therefore, whereas player~$1$ wants to maximize $x^\top Ay = u^\top e$, his opponent wants to minimize it (in a~zero sum game) through his free choice of~$y$.
 This amounts to the LP
 \begin{equation}
 \label{seq-dual}
 \begin{split}
     \min_{u, y}\  &u^\top e \\
-    E^\top u - Ay &\ge 0 \\
+    E^\top u - Ay &\ge \vect{0} \\
     Fy &= f \\
-    y &\ge 0
+    y &\ge \vect{0}
 \end{split}
 \end{equation}
 with the following dual LP
@@ -248,8 +258,8 @@ with the following dual LP
 \begin{split}
     \max_{v, x}\  &v^\top f \\
     Ex &= e \\
-    F^\top v - A^\top x &\le 0 \\
-    x &\ge 0.
+    F^\top v - A^\top x &\le \vect{0} \\
+    x &\ge \vect{0}.
 \end{split}
 \end{equation}
 It is important to mention that $E, F, A$ are sparse matrices, whose number of~variables and number of~non-zero values are linear in the size of~game tree.
