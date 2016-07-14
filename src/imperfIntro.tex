@@ -67,17 +67,11 @@ There are further notions related to extensive-form games:
     Formally, it is
     \[ CBV _i ^\sigma (I) = v _i ^{(\sigma _{-i}, CBR _i (\sigma _{-i} ))} (I) \]
 
-\end{itemize}
+  \item An~extensive-form game with (non-singleton) information sets can have a~\emph{perfect recall}:
+    any two states from the same information set~$I \in \I _i$ share the same history of~past actions and same passed information sets of~$i$.
 
-There may be various properties for extensive-form games:
-
-\begin{itemize}
-  \item being \emph{two-player}
-  \item having \emph{perfect recall}: any two states from the same information set $I \in \I _i$ share the same history of past actions and player $i$'s information sets.
-
-    In other words, at any stage of the game no player can forget what happened so far:
-    neither actions taken nor the information sets reached.
-  \item being \emph{zero-sum}: For any $\sigma \in \Sigma$ we have $\sum _{i \in P} u _i (\sigma) = 0$.
+    Games without this property have a~\emph{imperfect recall}:
+    at~some stage of~the game a~player forgets what happened so far, either some actions taken or some information sets reached.
 \end{itemize}
 
 \section{Sequence Form}
