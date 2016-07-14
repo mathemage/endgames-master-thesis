@@ -210,28 +210,26 @@ we can write player~$1$'s utility as
   u_1(z)
   = x ^\top A y
 \]
-Hence, a~best-response realization plan $x$ against any realization plan~$y$ maximizes $1$'s utility $u_1(\sigma) = x ^\top (Ay)$.
-It is, by also using (\ref{eq:seq-constraints}), a~solution to \acrshort{lp} 
-\begin{equation}
-  \label{lp:seq-primal-param}
+So a~best-response realization plan $x$ against arbitrary realization plan~$y$ maximizes the utility $u_1(\sigma) = x ^\top (Ay)$.
+By~(\ref{eq:seq-constraints}), we can find such~$x$ as a~solution to this \acrshort{lp}:
+\begin{equation*}
   \begin{split}
     \max\  &x^\top (Ay) \\
     E&x = e \\
     &x \ge 0.
   \end{split}
-\end{equation}
+\end{equation*}
+This is the corresponding dual \acrshort{lp} with a~vector of~dual variables $u \in \mathbb{R}^{1 + \lv \mathcal{I}_1 \rv}$:
+\begin{equation*}
+  \begin{split}
+    \min\  &u^\top e \\
+    E^\top &u \ge Ay.
+  \end{split}
+\end{equation*}
 
 \clearpage
 \todo
 
-Its dual linear program has vector $u \in \mathbb{R}^{1 + \lv \mathcal{I}_1 \rv}$ of~unconstrained variables per each equation of~(\ref{seq-primal-param}) and it looks like
-\begin{equation}
-\label{seq-dual-param}
-\begin{split}
-    \min\  &u^\top e \\
-    E^\top &u \ge Ay.
-\end{split}
-\end{equation}
 As both (\ref{seq-primal-param}) and (\ref{seq-dual-param}) are feasible, they have equal optimal values by the strong duality theorem.
 Therefore, whereas player~$1$ wants to maximize $x^\top Ay = u^\top e$, his opponent wants to minimize it (in a~zero sum game) through his free choice of~$y$.
 This amounts to the LP
