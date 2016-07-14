@@ -234,33 +234,32 @@ The corresponding dual \acrshort{lp} with a~vector of~dual variables $u \in \mat
   \end{split}
 \end{equation}
 is therefore also feasible, bounded and has the equal optimal value by the strong duality theorem.
-
-\clearpage
-\todo
-
-Therefore, whereas player~$1$ wants to maximize $x^\top Ay = u^\top e$, his opponent wants to minimize it (in a~zero sum game) through his free choice of~$y$.
-This amounts to the LP
+In a~zero-sum game, when player~$1$ wants to maximize his utility $x^\top Ay = u^\top e$, his opponent wants to minimize it by his choice of~a~realization plan~$y$.
+Realization plans are characterized by constraints of~(\ref{eq:seq-constraints}).
+All of~this leads to this \acrshort{lp} formulation
 \begin{equation}
-\label{seq-dual}
-\begin{split}
-    \min_{u, y}\  &u^\top e \\
+  \label{lp:seq-dual}
+  \begin{split}
+    \min_{u, y}\  e^\top u &\\
     E^\top u - Ay &\ge \vect{0} \\
     Fy &= f \\
     y &\ge \vect{0}
-\end{split}
+  \end{split}
 \end{equation}
-with the following dual LP
+with such a~dual LP
 \begin{equation}
-\label{seq-primal}
-\begin{split}
-    \max_{v, x}\  &v^\top f \\
+  \label{lp:seq-form}
+  \begin{split}
+    \max_{v, x}\  f^\top v & \\
     Ex &= e \\
     F^\top v - A^\top x &\le \vect{0} \\
-    x &\ge \vect{0}.
-\end{split}
+    x &\ge \vect{0},
+  \end{split}
 \end{equation}
-It is important to mention that $E, F, A$ are sparse matrices, whose number of~variables and number of~non-zero values are linear in the size of~game tree.
-In conclusion, zero-sum extensive form games can be solved using (dual) linear programming with LPs of~linear sizes.
+which is the standard \emph{sequence-form \acrshort{lp} formulation} used for solving extensive forms.
+
+Notably, $E$, $F$ and $A$ are sparse matrices, with the number of~variables and non-zero values linear in~the size of~the game tree.
+So zero-sum extensive-form games can be solved using (dual) linear programming on~the \emph{linear-sized} \acrshort{lp}~(\ref{lp:seq-form}).
 
 \section{Solving Games with Learning Algorithms}
 {
