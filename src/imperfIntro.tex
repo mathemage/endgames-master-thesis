@@ -123,9 +123,10 @@ Only sequences from~the same root-to-leaf paths are then combined:
   \item The \emph{realization probability} (of~a~sequence~$s \in S_i$ under a~strategy~$\sigma_i \in \Sigma_i$) is $\pi^{\sigma_i} [s] = \prod_{a \in s} \pi^{\sigma_i}(a)$.
 
   \item Recall that a~mixed strategy~$\mu_1$ is a~probability distribution over (all) pure strategies of player~$1$.
-    A~\emph{realization plan}\footnotemark{} $x\colon S_1 \to \R$ expresses the probability of~following sequence~$s$ under distribution~$\mu_1$:
+    A~\emph{realization plan}\footnotemark{} $x\colon S_1 \to \R$ expresses the probability of~following sequence~$s$ under a~mixed strategy~$\mu_1$:
     \footnotetext{For player~$2$, a~realization plan $y\colon S_2 \to \R$ would be defined similarly.}
     \[ x(s) = \sum _{\textrm{pure strategy } \sigma} \mu_1(\sigma)\; \pi^{\sigma}[s] \]
+    If $\mu_1$ is a~behavior strategy and sequence~$s$ ends in a~state~$h$, we directly get $x(s) = \pi^{\mu_1}_1(h)$}.
 \end{itemize}
 
 \section{Solving Games with Linear Programming}
