@@ -223,8 +223,7 @@ By~(\ref{eq:seq-constraints}), we can find such~$x$ as a~solution to the followi
 This \acrshort{lp} has a~finite optimal value, because it is
 \begin{enumerate}[(a)]
   \item \emph{feasible}: Any valid realization plan~$x$ will do.
-  \item \emph{bounded}: Since $x$ expresses probabilities, $\vect{0} \le x \le \vect{1} = (1, \dots, 1)^\top$.
-    That gives upper bound $\lv Ay \rv ^\top \vect{1}$.
+  \item \emph{bounded}: Since $x$ expresses probabilities, $\vect{0} \le x \le \vect{1} = (1, \dots, 1)^\top$, giving an~upper bound $(Ay)^\top x \le \lv Ay \rv ^\top \vect{1}$.
 \end{enumerate}
 The corresponding dual \acrshort{lp} with a~vector of~dual variables $u \in \mathbb{R}^{1 + \lv \mathcal{I}_1 \rv}$:
 \begin{equation}
@@ -234,9 +233,7 @@ The corresponding dual \acrshort{lp} with a~vector of~dual variables $u \in \mat
     E^\top &u \ge Ay.
   \end{split}
 \end{equation}
-
-and for (\ref{lp:seq-dual-param}).
-They must have equal optimal values by the strong duality theorem.
+is therefore also feasible, bounded and has the equal optimal value by the strong duality theorem.
 
 \clearpage
 \todo
