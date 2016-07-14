@@ -112,14 +112,23 @@ Only sequences from~the same root-to-leaf paths are then combined:
 \noindent
 \begin{itemize}
   \item \emph{Sequence}~$s_i(I)$ describes player~$i$'s history of~actions, i.e. edges passed along the path from the root to information set~$I\in I_i$.
-    Set~$S_i$ denotes the set of~all valid sequences for $i$.
+
+    Set~$S_i$ denotes the set of~all $i$'s valid sequences:
+    every non-empty sequence $s\in S_i$ is uniquely determined by its last action $a\in A_{I}$ at~an~information set~$I \in \I_i$.
+    We can characterize
+    \[
+      S_i = \{\emptyset\} \cup \{ s_i(I) \cdot a \mid I\in\I_i,\, a\in A(I) \}
+    \]
+    which leads to the linear size $\lv S_i \rv = 1 + \sum_{I\in\I_i} \lv A(I) \rv$.
 
   \item The \emph{realization probability} (of~a~sequence~$s \in S_i$ under a~strategy~$\sigma_i \in \Sigma_i$) is $\pi^{\sigma_i} [s] = \prod_{a \in s} \pi^{\sigma_i}(a)$.
 
   \item Recall that a~mixed strategy~$\mu_1$ is a~probability distribution over (all) pure strategies of player~$1$.
     A~\emph{realization plan}\footnotemark{} $x\colon S_1 \to \R$ expresses the probability of~following sequence~$s$ under a~mixed strategy~$\mu_1$:
     \footnotetext{For player~$2$, a~realization plan $y\colon S_2 \to \R$ would be defined similarly.}
-    \[ x(s) = \sum _{\textrm{pure strategy } \sigma} \mu_1(\sigma)\; \pi^{\sigma}[s] \]
+    \[
+      x(s) = \sum _{\textrm{pure strategy } \sigma} \mu_1(\sigma)\; \pi^{\sigma}[s]
+    \]
     If $\mu_1$ is a~behavior strategy and sequence~$s$ ends in a~state~$h$, we directly get $x(s) = \pi^{\mu_1}_1(h)$.
 \end{itemize}
 
