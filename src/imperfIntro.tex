@@ -78,6 +78,10 @@ There are further notions related to extensive-form games:
 \epigraph{
   Error is ever the sequence of~haste.
 }{Duke of Wellington}
+\vskip -2em
+\note{
+  This section is based on~\cite[Section~3.10]{AGT07}.
+}
 One possible way (\cite[pp.~73--74]{AGT07}) to~solve extensive-form games is by solving a~corresponding \acrfull{lp} called the \emph{strategic form}.
 However, the number of~pure strategies (over which players are mixing) is generally exponential, as we need to combine all action choices across all information sets (see Figure~\ref{fig:strategic-form}).
 The size of~the \emph{strategic-form} \acrshort{lp} increases rapidly, deeming the problem intractable to~solve.
@@ -133,6 +137,10 @@ Only sequences from~the same root-to-leaf paths are then combined:
 \epigraphLong{
   If you optimize everything, you will always be unhappy.
 }{Donald Ervin Knuth}
+\vskip -2em
+\note{
+  This section is based on~\cite[Section~3.11]{AGT07}.
+}
 Realization plans play the role of~variables in sequence-form \acrshort{lp} formulations.
 We think of realization plans as vectors
 $x := (x_s) _{s\in S_1} \in \mathbb{R} ^{\lv S_1 \rv}$
@@ -253,7 +261,7 @@ with such a~dual LP
 which is the standard \emph{sequence-form \acrshort{lp} formulation} used for solving extensive forms.
 
 Notably, $E$, $F$ and $A$ are sparse matrices, with the number of~variables and non-zero values linear in~the size of~the game tree.
-So zero-sum extensive-form games can be solved using (dual) linear programming on~the \emph{linear-sized} \acrshort{lp}~(\ref{lp:seq-form}).
+So zero-sum extensive-form games can be solved by (dual) linear programming for the \emph{linear-sized} \acrshort{lp}s~(\ref{lp:seq-form}).
 
 \section{Solving Games with Learning Algorithms}
 \epigraphLong{
