@@ -10,8 +10,12 @@
 \section{Motivation}
 Two-player zero-sum imperfect-information games can be solved via linear programming (\cite{Koller1994fast}), by modelling sequences of~moves as variables of~a~sequence-form \acrshort{lp} (recall Section~\ref{sec:solving-games-lp}).
 This approach scales well to games with up to $10^8$ game states.
-Unfortunately, many attractive games are far larger:
-e.g. two-player \acrfull{lhe}
+Unfortunately, many attractive Poker games are far larger:
+\begin{itemize}
+  \item two-player \acrfull{lhe} $\approx 10^{17}$ states
+  \item two-player \acrfull{nlhe}\footnotemark{} $\approx 10^{165}$ states.
+    \footnotetext{the most popular online variant of~Poker}
+\end{itemize}
 
 \section{Gadget game-tree}
 
