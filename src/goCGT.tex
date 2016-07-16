@@ -1,6 +1,6 @@
 \chapter{Go Endgames Using Ad-Hoc Mathematics}
 \label{ch:goCGT}
-\epigraph{
+\epigraphLong{
   Combinatorial game theory captures an~essential part of~what Go is about.
   I think that in one form or another, it will become a~key component of~all successful future Go programs.%
   \footnotemark
@@ -15,12 +15,12 @@ In~the words of~Google DeepMind (\cite{Silver2016mastering}), Go serves as~``the
   AlphaGo, the most successful Go program designed so far, uses no Go-specific knowledge.
   To compare \Mueller's prediction with current trends, consult the Note on page~\pageref{note:CGTvsAlphaGo} or Chapter~\ref{ch:AlphaGo}.
 }
-
+\vskip 1em
 \note{
   This chapter is based on the work of Martin~\Mueller{} (\cite{Muller1995computer}) submitted as a~doctoral thesis at ETH \Zurich.
   Since the focus of~our survey are imperfect-information games rather than Go, the chapter heavily derives from the mentioned work.
 }
-
+\vskip 1.5em
 Martin~\Mueller{} in~(\cite{Muller1995computer}) reports that (at that time) Go programs ``comprehend only the most basic concepts of~Go'' and that
 ``to make progress, [he~feels] it is necessary both to encode more Go-specific knowledge and to push forward the application of~theories such as combinatorial game theory to Go''.
 Here follows the summary and the results of~his endeavors.
@@ -74,8 +74,7 @@ This is the general procedure of~(\cite{Muller1995computer}) for playing Go as a
 Undoubtedly, the task of~solving endgames in 1995 (at the age of Computer Go's infancy) already played a~vital role.
 
 \section{Combinatorial Game Theory for the Game of~Go}
-
-\epigraph{
+\epigraphLong{
   [$\dots$]
   You get surreal numbers by~playing games.
 
@@ -131,7 +130,7 @@ The strict endgame analysis of~(\cite{Muller1995computer}) is additionally impos
 \end{itemize}
 
 \section{Board Partition and Subgame Dependencies}
-\epigraph{
+\epigraphLong{
   Independence?
   That's middle class blasphemy.
   We are all dependent on~one another, every soul of~us on Earth. 
@@ -171,7 +170,7 @@ This general principle is as well applicable in poker:
 we wait until the late stage of~the game, when it has greater impact to refine and re-solve the reached endgames.
 
 \section{Local Search and Evaluation in the Endgame}
-\epigraph{
+\epigraphLong{
   True genius resides in~the capacity for~evaluation of~uncertain, hazardous, and conflicting information. 
 }{Winston Churchill}
 Once the board is partitioned, the algorithm of~(\cite{Muller1995computer}) for converting a~Go endgame into a~combinatorial game follows these steps:
@@ -313,7 +312,7 @@ These systems are vulnerable to other Go agents with better knowledge of~tactics
 In the end, (\cite{Muller1995computer}) suggests \emph{pattern matching} as a~promising means for the significant advancement of~computer Go.
 
 \section{Contributions of~Combinatorial Game Theory to Go Endgames}
-\epigraph{
+\epigraphLong{
   You can retire from a~job, but don't ever retire from making extremely meaningful contributions in~life.
 }{Stephen Covey}
 \Mueller's doctoral thesis acclaims following contributions to computer science:
