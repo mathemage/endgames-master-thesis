@@ -37,6 +37,9 @@ an~agent only needs to~deal with those portions of~the game that are actually re
 As a~consequence, the endgame can be re-solved with a~finer abstraction and more precise pot and stack sizes.
 
 \section{Gadget Game}
+\epigraphLong{
+  What is so brilliant about the gadgets is their simplicity.
+}{Desmond Llewelyn}
 We start by~constructing a~fine-grained subgame abstraction.
 The original strategies for the subgame are discarded and only the strategies prior to the subgame (i.e. the trunk) are needed.
 The strategies in the trunk are used to compute the joint distribution (i.e. belief) over the states at~the beginning of the subgame.
@@ -44,7 +47,7 @@ The strategies in the trunk are used to compute the joint distribution (i.e. bel
 Finally, we add a~chance node~$c$ just before the fine-grained subgame~$S$.
 The node leads to the states at~the root of~the subgame.
 The chance node plays according to the computed belief.
-Adding the chance node ``roots'' the subgame, thus making it a~well-defined game (Figure~\ref{fig:endgame-solving-gadget}).
+Adding the chance node ``roots'' the subgame, thus making it a~proper tree of a~well-defined game (Figure~\ref{fig:endgame-solving-gadget}).
 \begin{figure}[H]
   \centering
   \includegraphics[width=.3\textwidth]{../img/endgame-solving-gadget.png}
