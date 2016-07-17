@@ -40,6 +40,7 @@ As a~consequence, the endgame can be re-solved with a~finer abstraction and more
 \epigraphLong{
   What is so brilliant about the gadgets is their simplicity.
 }{Desmond Llewelyn}
+\todo copy-paste
 We start by~constructing a~fine-grained subgame abstraction.
 The original strategies for the subgame are discarded and only the strategies prior to the subgame (i.e. the trunk) are needed.
 The strategies in the trunk are used to compute the joint distribution (i.e. belief) over the states at~the beginning of the subgame.
@@ -51,13 +52,11 @@ Adding the chance node ``roots'' the subgame, thus making it a~proper tree of a~
 \begin{figure}[H]
   \centering
   \includegraphics[width=.3\textwidth]{../img/endgame-solving-gadget.png}
-  \captionWithCite{A~gadget game for endgame solving}{Moravcik2016refining}
+  \captionWithCite{A~gadget game for endgame solving\\}{Moravcik2016refining}
   \label{fig:endgame-solving-gadget}
 \end{figure}
 
 \section{Equivalent Linear Program}
-\todo
-
 The equivalent \acrshort{lp} formulation for the abstracted endgame is the sequence-form \acrshort{lp} from~(\ref{lp:seq-form}):
 \begin{equation*}
   \begin{split}
@@ -68,4 +67,13 @@ The equivalent \acrshort{lp} formulation for the abstracted endgame is the seque
   \end{split}
 \end{equation*}
 
-\section{Experimental Results}
+\todo
+
+\section{Discussion}
+The endgame solving improves agents' play only \emph{empirically}~(\cite[Table~1]{GanzfriedSandholm13improving}).
+Theoretically, however, there is no guarantee of~optimality:
+even if the trunk strategy (and thus the starting distribution) is optimal, the combined strategy can become drastically more exploitable.
+This can be seen from the extensive form of~rock-paper-scissors and Claim~\ref{claim:rps-subgame}.
+
+A~worse exploitability arises when the opponent can ``see a~better option'' and aim for it.
+This notion of~a~better alternative can be summarized by~a~\emph{counterfactual value}, and Chapter~\ref{ch:cfr-d} shows how to use these values to~guarantee theoretical bounds.
