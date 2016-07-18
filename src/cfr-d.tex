@@ -22,13 +22,6 @@ As a~consequence, several appealing games still resist to be solved, despite the
   This used to be the case for the two-player \acrshort{lhe}, until the~recent, highly-celebrated breakthrough by~the same research group (\cite{Bowling2015heads}).
 }
 
-The innovative aspect of~(\cite{BurchJohansonBowling13}) consists of~two contributions:
-\begin{itemize}[(i)]
-  \item a~technique to re-solve imperfect-information subgames, which is guaranteed not to increase exploitability of~the resulting full-game strategy,
-  \item a~new off-line solving algorithm called \emph{\acrfull{cfr-d}}, which computes an~error-bounded \acrshort{ne} approximation.
-    It achieves this by decomposing and independently analyzing subgames.
-\end{itemize}
-
 \section{Gadget Game}
 \epigraphLong{
   Dreams about the future are always filled with gadgets.
@@ -60,4 +53,15 @@ For more details see (\cite{BurchJohansonBowling13}).
 
 \section{Equivalent Linear Program}
 
-\section{Experimental Results}
+\section{Discussion}
+The innovative aspect of~(\cite{BurchJohansonBowling13}) consists of~two main contributions:
+\begin{itemize}[(i)]
+  \item A~technique to re-solve imperfect-information subgames, which is guaranteed not to increase sub-optimality of~the resulting full-game strategy.
+    Owing to summary information about a~subgame strategy (namely the \acrlong{cbv}s), the newly generated strategy is no more exploitable than the original one.
+
+  \item A~new off-line solving algorithm called \emph{\acrfull{cfr-d}}, capable of~computing an~error-bounded \acrshort{ne} approximation.
+    \acrshort{cfr-d} achieves this by decomposing and independently analyzing subgames.
+
+    By~sacrificing computation time, the decomposition allows for \emph{sub-linear space costs}.
+    For instance, two-player \acrshort{lhe} with \acrshort{cfr-d} can be solved in less than 16 GB, rather than~more than 200 TB of~disk space!
+\end{itemize}
