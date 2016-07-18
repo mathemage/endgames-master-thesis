@@ -20,21 +20,40 @@
 \end{proof}
 
 \section{Equivalent Linear Program}
+To find a strategy that maximizes the subgame margin, we can easily modify the \acrshort{lp}~(2\todo):
 \begin{equation}
   \label{lp:max-margin}
   \begin{split}
-    \max_{v, x}\  &m \\
+    \max_{v, x}\ &m \\
     v_I - m &\ge CBV_2^\sigma(I), \quad I \in \I_2^{R(S)}\\ 
     Ex &= e \\
     F^\top v - A^\top x &\le \vect{0} \\
     x &\ge \vect{0},
   \end{split}
 \end{equation}
+where $m$ is a~scalar corresponding to the subgame margin that we aim to~maximize.
+The similarities between \acrshort{lp} (3\todo) and \acrshort{lp} (2\todo) make it easier to see our improvement:
+whereas the \acrshort{lp} (2\todo) optimization only guarantees non-negative margin, we maximize it.
+Although the optimization formulation is almost identical to~the re-solving, our gadget construction is different.
 
 \section{Gadget Game}
 \epigraphLong{
   A~new gadget that lasts only five minutes is worth more than an~immortal work that bores everyone.
 }{Francis Picabia}
+One way to find the refined strategy is to solve the corresponding \acrfull{lp}.
+However, algorithms that are tailor-made for \acrshort{efg}s often outperform the optimization approach (\cite{Bosansky2013solving}).
+These algorithms often permit the use of~domain-specific tricks to provide further performance gains (\cite{Johanson2012efficient}).
+Thus, formulating our optimization problem \acrshort{lp} (3\todo) as an \acrshort{efg} will mean that we can compute larger subgame abstractions using the available computing resources.
+Essentially, the construction of a~gadget game equivalent to the \acrshort{lp} (3\todo) will allow us to compute larger subgames---more than it would be possible with just the plain \acrshort{lp}.
+
+\begin{figure}[H]
+  \centering
+  \def\svgwidth{.4\textwidth}
+  \input{../img/max-margin-gadget.pdf_tex}
+  \def\captionTitle{Our max-margin gadget}
+  \caption[\captionTitle]{\captionTitle. When $1$'s original strategy is used, the terminal nodes' offsets enforce the opponent to have a~zero utility in~best response.}
+  \label{fig:max-margin-gadget}
+\end{figure}
 All states in~the original subgame are directly copied into the resulting gadget game.
 We create the gadget game by~making two alterations to~the original subgame:
 \begin{enumerate}[(i)]
@@ -54,15 +73,6 @@ The following is a~description of~the steps (see also Figure~\ref{fig:max-margin
     In case of~no deviation from our original strategy $\sigma_1^S$, the shifting gives a~value of~$0$ to~opponent's starting states.
 \end{enumerate}
 \todo
-
-\begin{figure}[H]
-  \centering
-  \def\svgwidth{.4\textwidth}
-  \input{../img/max-margin-gadget.pdf_tex}
-  \def\captionTitle{Our max-margin gadget}
-  \caption[\captionTitle]{\captionTitle. When $1$'s original strategy is used, the terminal nodes' offsets enforce the opponent to have a~zero utility in~best response.}
-  \label{fig:max-margin-gadget}
-\end{figure}
 
 \section{Experimental Results}
 \epigraphLong{
