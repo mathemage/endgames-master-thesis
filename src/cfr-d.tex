@@ -5,12 +5,19 @@
 }
 
 \section{Motivation}
-(\cite{BurchJohansonBowling13}) describes a~pioneering technique how to \emph{decompose} subgames of~imperfect-information games and solve them independently, while preserving the optimality of~the full-game solution.
-This brings countless benefits:
+The work of~(\cite{BurchJohansonBowling13}) describes a~pioneering technique how to \emph{decompose} subgames of~imperfect-information games and solve them independently, while preserving the optimality of~the full-game solution.
+We thus inherit many benefits of~subgame re-solving from perfect-information games:
 \begin{itemize}
-  \item smarter usage of~run-time information, i.e. endgame actually reached during a~real play
-  \item memory and disk limitations
+  \item Run-time information (e.g. endgame actually reached during a~real play) can be exploited in a~smarter way.
+  \item Memory and disk limitations (either at~run-time or while solving a~game) can be overcome by a~time/space trade-off.
+  \item A~\acrlong{ne} for a~game larger than available storage may be computed.
+    This can be achieved by the~new off-line solving algorithm \emph{\acrfull{cfr-d}}.
+  \item If we only need to work with one subgame at a~time, then significantly less storage is required.
+  \item It is not obligatory to store the complete strategy, which might be too large to store.
+    Instead, subgame strategies may be re-computed on~demand, when needed.
 \end{itemize}
+All previous algorithms were limited to rather small domains, with the complete strategy fitting in available space.
+As a~consequence, appealing games such as two-player \acrshort{lhe} long resisted intense research efforts to be entirely solved.
 
 \section{Gadget Game}
 \epigraphLong{
