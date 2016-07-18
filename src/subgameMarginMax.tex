@@ -25,6 +25,26 @@
 \epigraphLong{
   A~new gadget that lasts only five minutes is worth more than an~immortal work that bores everyone.
 }{Francis Picabia}
+All states in~the original subgame are directly copied into the resulting gadget game.
+We create the gadget game by~making two alterations to~the original subgame:
+\begin{enumerate}[(i)]
+  \item we shift player~$2$'s utilities using the $CBV_2$ (to initialize all $2$'s values to~zero)
+  \item we add $2$'s node followed by chance nodes $c_{I_1}, c_{I_2}, c_{I_3}, \dots$ at~the top of the subgame (to allow the opponent to~pick any starting state, relating the game values to~the margin)
+\end{enumerate}
+We will distinguish the states, strategies, utilities, etc. for the gadget game by~adding a~tilde to corresponding notations.
+The following is a~description of~the steps (see also Figure~\ref{fig:max-margin-gadget} that visualizes the gadget).
+\begin{enumerate}
+  \item We establish a~common baseline.
+    For~comparing changes in~the performance of~$2$'s root information sets, they need a~common starting point:
+    the original strategy $\sigma_1^S$.
+
+    For every $I \in \I_2^{R(S)}$ we subtract the opponent's original counterfactual best response value, setting the utility at~each terminal node~$z \in Z(I)$ to $\ut_2(\zt) = u_2(z) - CBV_2^{\sigma^S_1}(I)$.
+    We must not forget to~update $\ut_1(\zt) = -\ut_2(\zt)$ either, as we need the game to remain zero-sum.
+
+    In case of~no deviation from our original strategy $\sigma_1^S$, the shifting gives a~value of~$0$ to~opponent's starting states.
+\end{enumerate}
+\todo
+
 \begin{figure}[H]
   \centering
   \def\svgwidth{.4\textwidth}
