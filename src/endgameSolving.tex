@@ -56,7 +56,7 @@ Adding the chance node ``roots'' the subgame, thus making it a~proper tree of a~
 \end{figure}
 
 \section{Equivalent Linear Program}
-The equivalent \acrshort{lp} formulation for the abstracted endgame is the sequence-form \acrshort{lp} the gadget game (recall the \acrshort{lp} from~(\ref{lp:seq-form})):
+The equivalent \acrshort{lp} formulation for the abstracted endgame
 \begin{equation*}
   \label{lp:endgame-solving}
   \begin{split}
@@ -66,8 +66,15 @@ The equivalent \acrshort{lp} formulation for the abstracted endgame is the seque
     x &\ge \vect{0},
   \end{split}
 \end{equation*}
-
-\todo
+is the sequence-form \acrshort{lp} for the gadget game.
+Same as in~the \acrshort{lp} from~(\ref{lp:seq-form}):
+\begin{itemize}
+  \item $A$ is the sequence-form payoff matrix
+  \item $x$ is a~vector of~$1$'s sequence probabilities
+  \item $v$ is a~vector of~$2$'s (negative) \acrlong{cbv}s
+  \item $E$ and $F$ are the sequence constraint matrices 
+  \item $e$ is the sequence constraint vector.
+\end{itemize}
 
 \section{Discussion}
 The endgame solving improves agents' play only \emph{empirically}~(\cite[Table~1]{Ganzfried2015endgame}).
