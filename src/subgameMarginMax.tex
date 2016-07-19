@@ -5,6 +5,27 @@
 }
 
 \section{Motivation and Overview}
+The outline of~this chapter is:
+\begin{enumerate}[(1)]
+    \setlength\itemsep{-.5ex}
+  \item listing the steps used by~our technique,
+  \item using the problem of~refining imperfect-information subgames to motivate a~value to be maximized,
+  \item formalizing this value as the \emph{\acrfull{sm}},
+  \item discuss and formalize its properties,
+  \item formulate an~\acrshort{lp} optimizing the \acrshort{sm},
+  \item describe a~corresponding \acrshort{efg} construction: \emph{a~max-margin gadget}.
+\end{enumerate}
+Our technique follows the steps of~the subgame-refinement framework:
+\begin{enumerate}[(i)]
+    \setlength\itemsep{-.5ex}
+  \item create an~abstraction for the game;
+  \item compute an~equilibrium approximation within the abstraction,
+  \item play according to this strategy,
+  \item when the play reaches final stage of~the game, create a~fine-grained abstraction for the endgame,
+  \item refine the strategy in~the fine-grained abstraction,
+  \item use the resulting strategy in that subgame (creating a~combined strategy).
+\end{enumerate}
+Since all the steps except for (v) are identical to already described techniques, we describe only step (v) in details.
 
 \section{Subgame Margin}
 
