@@ -76,6 +76,18 @@ This follows from the construction of~the gadget for re-solving games.
 where $\I_2^{R(S)}$ denotes the root information sets and $CBV_2^\sigma(I)$ is $2$'s original \acrlong{cbv} in~the information set~$I$.
 The sequence payoff matrices $A_1$ and $A_2$ are slightly different, to reflect different strategies of~the chance player in the gadget for endgame solving (Figure~\ref{fig:endgame-solving-gadget}) and the gadget for re-solving subgames (Figure~\ref{fig:re-solving-gadget}).
 
+It is worth remarking three noteworthy points:
+\begin{enumerate}[(1)]
+  \item (\ref{lp:cfr-d}) is not optimizing any value ($0$ is a~constant).
+    Instead, the \acrshort{lp} looks for a~feasible solution.
+    Though theoretically equivalent, in this case it is semantically different for the strategy.
+  \item The original, unrefined strategy is a~feasible solution to (\ref{lp:cfr-d}).
+  \item Points (1) and (2) might suggest the strategy may not improve.
+    Empirical evaluations show otherwise however:
+    using a~\acrshort{cfr} algorithm to solve the gadget game, the performance of~the refined strategy improves over the original (\cite{BurchJohansonBowling13}).
+    Our experiments further confirm this (Section~\ref{sec:max-margin-experiments}).
+\end{enumerate}
+
 \section{Discussion}
 The innovative aspect of~(\cite{BurchJohansonBowling13}) consists of~two main contributions:
 \begin{itemize}[(i)]
