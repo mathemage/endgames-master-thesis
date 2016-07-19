@@ -14,7 +14,7 @@ The outline of~this chapter is:
     \setlength\itemsep{-.5ex}
   \item listing the steps used by~our technique,
   \item using the problem of~refining imperfect-information subgames to motivate a~value to be maximized,
-  \item formalizing this value as the \emph{\acrfull{sm}},
+  \item formalizing this value as the \emph{\acrlong{sm}},
   \item discuss and formalize its properties,
   \item formulate an~\acrshort{lp} optimizing the \acrshort{sm},
   \item describe a~corresponding \acrshort{efg} construction: \emph{a~max-margin gadget}.
@@ -35,8 +35,21 @@ Since all the steps except for (v) are identical to already described techniques
 \epigraph{
   Your margin is my opportunity.
 }{Jeff Preston Bezos}
+To address the potential increase in~exploitability caused by an~opponent altering his behavior in the trunk, we ensure that there is no~distribution of~starting states that would allow him to increase his CBV when confronted by subgame refinement.
+The simplest way to ensure this is to decrease his CBV in~all possible starting states.
+We can put a~lower bound on~this improvement by measuring the state with the smallest decrease in CBV.
+Our goal is to maximize this lower bound.
+We refer to this values as the \acrfull{sm}.
 
-\begin{defn}[Subgame margin]
+\begin{defn}[\acrlong{sm}]
+  Let $\sigma_1$, $\sigma_1'$ be a~pair of~player~$1$'s strategies for subgame~$S$.
+  Then a~\acrlong{sm}
+  \[
+    SM_1 (\sigma_1, \sigma_1' , S) =
+    \min_{I_2 \in \I_2^{R(S)}}
+    \left( CBV_2^{\sigma_1} (I_2) - CBV_2^{\sigma_1'} (I_2) \right)
+  \]
+  measures the minimal ``gap'' between the corresponding \acrlong{cbv}s, over all root information sets $I_2 \in \I_2^{R(S)}$.
 \end{defn}
 
 \begin{thm}[improvement is proportional to the subgame margin (and may be greater)]
