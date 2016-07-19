@@ -52,6 +52,19 @@ Since the game is zero-sum, this forces player~$1$ to play the subgame well enou
 For more details see (\cite{BurchJohansonBowling13}).
 
 \section{Equivalent Linear Program}
+\begin{equation}
+  \label{lp:cfr-d}
+  \begin{split}
+    \max_{v, x}\ &0 \\
+    \color{red}
+      v_I - m &
+    \color{red}
+      \ge CBV_2^\sigma(I), \quad I \in \I_2^{R(S)}\\ 
+    Ex &= e \\
+    F^\top v - A^\top x &\le \vect{0} \\
+    x &\ge \vect{0},
+  \end{split}
+\end{equation}
 
 \section{Discussion}
 The innovative aspect of~(\cite{BurchJohansonBowling13}) consists of~two main contributions:
