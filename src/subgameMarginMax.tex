@@ -46,6 +46,19 @@ These algorithms often permit the use of~domain-specific tricks to provide furth
 Thus, formulating our optimization problem \acrshort{lp} (3\todo) as an \acrshort{efg} will mean that we can compute larger subgame abstractions using the available computing resources.
 Essentially, the construction of a~gadget game equivalent to the \acrshort{lp} (3\todo) will allow us to compute larger subgames---more than it would be possible with just the plain \acrshort{lp}.
 
+\note{
+  We will distinguish the states, strategies, utilities, etc. and their translations to the gadget game by~adding a~tilde to corresponding notations.
+
+  From now on, without loss of generality, we will be refining the strategy for player~$1$ in two-player zero-sum games.
+}
+
+All states in~the original subgame are directly copied into the resulting gadget game.
+We create the gadget game by~making two alterations to~the original subgame:
+\begin{enumerate}[(i)]
+  \item we shift player~$2$'s utilities using the $CBV_2$ (to initialize all $2$'s values to~zero)
+  \item we add a~rooting node for $2$, followed by chance nodes $c_{I_1}, c_{I_2}, c_{I_3}, \dots$ at~the top of the subgame (to allow the opponent to~pick any starting state, relating the game values to~the margin)
+\end{enumerate}
+
 \begin{figure}[H]
   \centering
   \def\svgwidth{.4\textwidth}
@@ -54,23 +67,16 @@ Essentially, the construction of a~gadget game equivalent to the \acrshort{lp} (
   \caption[\captionTitle]{\captionTitle. When $1$'s original strategy is used, the terminal nodes' offsets enforce the opponent to have a~zero utility in~best response.}
   \label{fig:max-margin-gadget}
 \end{figure}
-All states in~the original subgame are directly copied into the resulting gadget game.
-We create the gadget game by~making two alterations to~the original subgame:
-\begin{enumerate}[(i)]
-  \item we shift player~$2$'s utilities using the $CBV_2$ (to initialize all $2$'s values to~zero)
-  \item we add $2$'s node followed by chance nodes $c_{I_1}, c_{I_2}, c_{I_3}, \dots$ at~the top of the subgame (to allow the opponent to~pick any starting state, relating the game values to~the margin)
-\end{enumerate}
-We will distinguish the states, strategies, utilities, etc. for the gadget game by~adding a~tilde to corresponding notations.
+
 The following is a~description of~the steps (see also Figure~\ref{fig:max-margin-gadget} that visualizes the gadget).
 \begin{enumerate}
   \item We establish a~common baseline.
     For~comparing changes in~the performance of~$2$'s root information sets, they need a~common starting point:
     the original strategy $\sigma_1^S$.
 
-    For every $I \in \I_2^{R(S)}$ we subtract the opponent's original counterfactual best response value, setting the utility at~each terminal node~$z \in Z(I)$ to $\ut_2(\zt) = u_2(z) - CBV_2^{\sigma^S_1}(I)$.
+    For every $I \in \I_2^{R(S)}$ we subtract the opponent's original \acrlong{cbv}, setting the utility at~each terminal node~$z \in Z(I)$ to $\ut_2(\zt) = u_2(z) - CBV_2^{\sigma^S_1}(I)$.
     We must not forget to~update $\ut_1(\zt) = -\ut_2(\zt)$ either, as we need the game to remain zero-sum.
-
-    In case of~no deviation from our original strategy $\sigma_1^S$, the shifting gives a~value of~$0$ to~opponent's starting states.
+    Conditioned on~the original strategy $\sigma_1^S$, the shifting gives an~expected value of~$0$ to~opponent's starting states.
 \end{enumerate}
 \todo
 
