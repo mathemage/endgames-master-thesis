@@ -49,7 +49,7 @@ Essentially, the construction of a~gadget game equivalent to the \acrshort{lp} (
 \note{
   We will distinguish the states, strategies, utilities, etc. and their translations to the gadget game by~adding a~tilde to corresponding notations.
 
-  From now on, without loss of generality, we will be refining the strategy for player~$1$ in two-player zero-sum games.
+  From now on, without loss of~generality, we will be refining the strategy for player~$1$ in a~two-player zero-sum game.
 }
 
 All states in~the original subgame are directly copied into the resulting gadget game.
@@ -77,6 +77,15 @@ The following is a~description of~the steps (see also Figure~\ref{fig:max-margin
     For every $I \in \I_2^{R(S)}$ we subtract the opponent's original \acrlong{cbv}, setting the utility at~each terminal node~$z \in Z(I)$ to $\ut_2(\zt) = u_2(z) - CBV_2^{\sigma^S_1}(I)$.
     We must not forget to~update $\ut_1(\zt) = -\ut_2(\zt)$ either, as we need the game to remain zero-sum.
     Conditioned on~the original strategy $\sigma_1^S$, the shifting gives an~expected value of~$0$ to~opponent's starting states.
+
+  \item Player~$2$ is permitted to choose his belief at~the start of~the subgame, while $1$ retains his belief from the original strategy at~the starting point of~the subgame.
+    Since $2$ is aiming to~maximize $\ut_2$, he will always select the information set with the lowest margin.
+    The minimax nature of~the zero-sum game motivates player~$1$ to find a~strategy maximizing this value of~the lowest margin.
+
+    We create an~additional decision node $\dt$ for player~$2$.
+    Every action corresponds to choosing an~initial information set $I$.
+    However, since an~action can lead only to a~single tree node rather than a~whole information set, we may not connect this action to state~$\dt$ directly.
+    Instead, each action leads to a new chance node $c_{\It}$, where the chance distributes histories~$\htil \in \It$ based on~the probability~$\pi_{-2}^\sigma (h)$.
 \end{enumerate}
 \todo
 
