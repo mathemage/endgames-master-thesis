@@ -47,7 +47,7 @@ See Figure~\ref{fig:re-solving-gadget} for a~sketch of~the construction.
 
 \begin{figure}[H]
   \centering
-  \includegraphics[width=.25\textwidth]{../img/re-solving-game-gadget.png}
+  \includegraphics[width=.2\textwidth]{../img/re-solving-game-gadget.png}
   \def\captionTitle{A~gadget game for re-solving subgames}
   \caption[\captionTitle]{
     \captionTitle.
@@ -68,12 +68,7 @@ For more details see (\cite{BurchJohansonBowling13}).
 \section{Equivalent Linear Program}
 This time, the presented \acrshort{lp} is not a~straightforward sequential-form representation of~the gadget construction.
 Although such a~representation would be possible, it would not help to provide a~desirable insight.
-Instead, we formulate an~\acrshort{lp} that solves the same game (for player~$1$) while demonstrating the underlying properties of~the re-solving approach.
-
-The formulation uses the following fact:
-any strategy, where the opponent's \acrshort{cbv} is not greater than the original one, is a~solution to the game.
-This follows from the construction of~the gadget for re-solving games.
-
+Instead, we formulate an~\acrshort{lp} that solves the same game (for player~$1$) while demonstrating the underlying properties of~the re-solving approach:
 \begin{equation}
   \label{lp:cfr-d}
   \begin{split}
@@ -88,9 +83,14 @@ This follows from the construction of~the gadget for re-solving games.
   \end{split}
 \end{equation}
 where $\I_2^{R(S)}$ denotes the root information sets and $CBV_2^\sigma(I)$ is $2$'s original \acrlong{cbv} in~the information set~$I$.
+
 The sequence payoff matrices $A_2$ and $A$ (from (\ref{lp:endgame-solving})) are slightly different, to reflect different strategies of~the chance player in the gadget for endgame solving (Figure~\ref{fig:endgame-solving-gadget}) and the gadget for re-solving subgames (Figure~\ref{fig:re-solving-gadget}).
 
-It is worth remarking three noteworthy points:
+The formulation uses the following fact:
+any strategy, where the opponent's \acrshort{cbv} is not greater than the original one, is a~solution to the game.
+This follows from the construction of~the gadget for re-solving games.
+
+It is worth remarking three important points:
 \begin{enumerate}[(1)]
   \item (\ref{lp:cfr-d}) is not optimizing any value ($0$ is a~constant).
     Instead, the \acrshort{lp} looks for a~feasible solution.
