@@ -50,11 +50,11 @@
   \makeatother%
   \begin{picture}(1,1.03878679)%
     \put(0,0){\includegraphics[width=\unitlength]{max-margin-gadget.pdf}}%
-    \put(0.48,0.96){\makebox(0,0)[lb]{$2$}}%
+    \put(0.48,0.95){\makebox(0,0)[lb]{$\dt$}}%
     \put(0.47,0.17){\makebox(0,0)[lb]{\Large$\mathbf{S}$}}%
-    \put(0.13111042,0.57952077){\makebox(0,0)[lb]{\Large$c_{I_1}$}}%
-    \put(0.47111042,0.57952077){\makebox(0,0)[lb]{\Large$c_{I_2}$}}%
-    \put(0.77111042,0.57952077){\makebox(0,0)[lb]{\Large$c_{I_3}$}}%
+    \put(0.13111042,0.57952077){\makebox(0,0)[lb]{\large$c_{\It_1}$}}%
+    \put(0.47111042,0.57952077){\makebox(0,0)[lb]{\large$c_{\It_2}$}}%
+    \put(0.77111042,0.57952077){\makebox(0,0)[lb]{\large$c_{\It_3}$}}%
     \put(0.141,0.02352077){\makebox(0,0)[lb]{\small$
       \tilde{u}_2(\tilde{z})
       = u_2(z) - CBV_2(\tilde{I})

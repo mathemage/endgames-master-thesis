@@ -56,7 +56,7 @@ All states in~the original subgame are directly copied into the resulting gadget
 We create the gadget game by~making two alterations to~the original subgame:
 \begin{enumerate}[(i)]
   \item we shift player~$2$'s utilities using the $CBV_2$ (to initialize all $2$'s values to~zero)
-  \item we add a~rooting node for $2$, followed by chance nodes $c_{I_1}, c_{I_2}, c_{I_3}, \dots$ at~the top of the subgame (to allow the opponent to~pick any starting state, relating the game values to~the margin)
+  \item we add a~rooting node~$\dt$ for $2$, followed by chance nodes $c_{I_1}, c_{I_2}, c_{I_3}, \dots$ at~the top of the subgame (to allow the opponent to~pick any starting state, relating the game values to~the margin)
 \end{enumerate}
 
 \begin{figure}[H]
@@ -86,8 +86,9 @@ The following is a~description of~the steps (see also Figure~\ref{fig:max-margin
     Every action corresponds to choosing an~initial information set $I$.
     However, since an~action can lead only to a~single tree node rather than a~whole information set, we may not connect this action to state~$\dt$ directly.
     Instead, each action leads to a new chance node $c_{\It}$, where the chance distributes histories~$\htil \in \It$ based on~the probability~$\pi_{-2}^\sigma (h)$.
+
+    \todo
 \end{enumerate}
-\todo
 
 \section{Experimental Results}
 \epigraphLong{
