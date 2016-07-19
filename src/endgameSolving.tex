@@ -56,13 +56,13 @@ Adding the chance node ``roots'' the subgame, thus making it a~proper tree of a~
 \end{figure}
 
 \section{Equivalent Linear Program}
-The equivalent \acrshort{lp} formulation for the abstracted endgame is the sequence-form \acrshort{lp} from~(\ref{lp:seq-form}):
+The equivalent \acrshort{lp} formulation for the abstracted endgame is the sequence-form \acrshort{lp} the gadget game (recall the \acrshort{lp} from~(\ref{lp:seq-form})):
 \begin{equation*}
   \label{lp:endgame-solving}
   \begin{split}
     \max_{v, x}\  f^\top v & \\
     Ex &= e \\
-    F^\top v - A_{\color{red}2}^\top x &\le \vect{0} \\
+    F^\top v - A^\top x &\le \vect{0} \\
     x &\ge \vect{0},
   \end{split}
 \end{equation*}
