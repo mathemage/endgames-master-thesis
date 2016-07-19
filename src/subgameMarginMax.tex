@@ -85,12 +85,17 @@ The following is a~description of~the steps (see also Figure~\ref{fig:max-margin
     The minimax nature of~the zero-sum game motivates player~$1$ to find a~strategy maximizing this value of~the lowest margin.
 
     We create an~additional decision node $\dt$ for player~$2$.
-    Every action corresponds to choosing an~initial information set $I$.
+    Every action corresponds to choosing an~initial information set $I\in \I_2^{R(S)}$.
     However, since an~action can lead only to a~single tree node rather than a~whole information set, we may not connect this action to state~$\dt$ directly.
     Instead, each action leads to a new chance node $c_{\It}$, where the chance distributes histories~$\htil \in \It$ based on~the probability~$\pi_{-2}^\sigma (h)$.
 
     \todo
 \end{enumerate}
+
+Following from the construction, we get straightforwardly
+\begin{claim}
+  A~strategy for the max-margin gadget is a~\acrlong{ne} if and only if it is a~solution to the \acrshort{lp}~(\ref{lp:max-margin}).
+\end{claim}
 
 \section{Experimental Results}
 \epigraphLong{
