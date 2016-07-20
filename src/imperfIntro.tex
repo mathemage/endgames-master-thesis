@@ -36,7 +36,7 @@ An~\emph{extensive form} (for an~imperfect-information game) is the usual extens
   \label{fig:strategic-form-tree}
 \end{figure}
 \noindent
-There are further notions related to extensive-form games:
+There are further notions related to \acrshort{efg}s:
 \begin{itemize}
   \item A~(behavior) \emph{strategy}~$\sigma_i$ of player~$i$ gives a~probability distribution over $A(I)$ at every $I \in \I_i$, and $\pi ^\sigma (I, a)$ is the probability of action $a$ at the information set~$I$.
     Again, $\Sigma_i$ denotes the set of all possible strategies for player~$i$.
@@ -44,7 +44,7 @@ There are further notions related to extensive-form games:
   \item $\sigma | _{I \goto a}$ denotes the strategy identical to $\sigma$ with the only one exception:
     the action~$a$ is always played at the information set~$I$.
 
-  \item A~\emph{Nash equilibrium} (in the context of extensive-form games) is a~strategy profile $\sigma$ such that no player~$i \in P$ has any incentive to deviate from his strategy.
+  \item A~\emph{Nash equilibrium} (in the context of \acrshort{efg}s) is a~strategy profile $\sigma$ such that no player~$i \in P$ has any incentive to deviate from his strategy.
     In other words, all players are playing best responses against each other:
     \[ \forall i \in P\colon u_i (\sigma) = \max _{\sigma'_i \in \Sigma_i} u_i ((\sigma'_i, \sigma_{-i})) \]
 
@@ -67,7 +67,7 @@ There are further notions related to extensive-form games:
     Formally, it is
     \[ CBV _i ^\sigma (I) = v _i ^{(\sigma _{-i}, CBR _i (\sigma _{-i} ))} (I) \]
 
-  \item An~extensive-form game with (non-singleton) information sets can have a~\emph{perfect recall}:
+  \item An~\acrshort{efg} with (non-singleton) information sets can have a~\emph{perfect recall}:
     any two states from the same information set~$I \in \I _i$ share the same history of~past actions and same passed information sets of~$i$.
 
     Games without this property have a~\emph{imperfect recall}:
@@ -82,7 +82,7 @@ There are further notions related to extensive-form games:
 \note{
   This section is based on~\cite[Section~3.10]{AGT07}.
 }
-One possible way (\cite[pp.~73--74]{AGT07}) to~solve extensive-form games is by solving a~corresponding \acrfull{lp} called the \emph{strategic form}.
+One possible way (\cite[pp.~73--74]{AGT07}) to~solve \acrshort{efg}s is by solving a~corresponding \acrfull{lp} called the \emph{strategic form}.
 However, the number of~pure strategies (over which players are mixing) is generally exponential, as we need to combine all action choices across all information sets (see Figure~\ref{fig:strategic-form}).
 The size of~the \emph{strategic-form} \acrshort{lp} increases rapidly, deeming the problem intractable to~solve.
 \begin{figure}[H]
@@ -91,7 +91,7 @@ The size of~the \emph{strategic-form} \acrshort{lp} increases rapidly, deeming t
   \def\svgwidth{.5\textwidth}
   \input{../img/strategic-form-tree.pdf_tex}
   \includegraphics[width=.4\textwidth]{../img/strategic-form.png}
-  \caption[The strategic-form pay-off matrices]{Left: An~extensive-form game. Right: The corresponding strategic-form pay-off matrices. (\cite[p.~67]{AGT07})}
+  \caption[The strategic-form pay-off matrices]{Left: An~\acrshort{efg}. Right: The corresponding strategic-form pay-off matrices. (\cite[p.~67]{AGT07})}
   \label{fig:strategic-form}
 \end{figure}
 
@@ -258,10 +258,10 @@ with such a~dual LP
   \end{split}
 \end{equation}
 where $v$ is the vector of~(negative) \acrshort{cbv}s for player~$2$ (\cite{Cermak2014practical, AGT07}).
-The (\ref{lp:seq-form}) is the standard \emph{sequence-form \acrshort{lp} formulation} used for solving extensive-form games.
+The (\ref{lp:seq-form}) is the standard \emph{sequence-form \acrshort{lp} formulation} used for solving \acrshort{efg}s.
 
 Notably, $E$, $F$ and $A$ are sparse matrices, with the number of~variables and non-zero values linear in~the size of~the game tree.
-So zero-sum extensive-form games can be solved by (dual) linear programming for the \emph{linear-sized} \acrshort{lp}s~(\ref{lp:seq-form}).
+So zero-sum \acrshort{efg}s can be solved by (dual) linear programming for the \emph{linear-sized} \acrshort{lp}s~(\ref{lp:seq-form}).
 
 \section{Solving Games with Learning Algorithms}
 \epigraphLong{
