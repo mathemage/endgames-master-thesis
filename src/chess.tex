@@ -95,17 +95,15 @@ There are 3 basic steps in their process of~creation:
       \item checkmated positions are determined in~the beginning
       \item a~position is winning in $n+1$ moves if the player can reach a~position winning in $n$ moves (more precisely, where the opponent loses in at most $n$ moves)
     \end{enumerate}
-    In terms of~\emph{depth to mate}%
-    \footnote{DTM is the number of~moves necessary to force a~checkmate.},
-    positions are generated in the order of~increasing DTM.
+    Positions are generated in the order of~increasing \acrfull{dtm}, the number of~moves necessary to force a~checkmate.
 
     Alternatively, Tim Krabbé (\cite{Krabbe2014StillersMonster}) describes retrograde analysis (from perspective of~White to mate) by generating:
     \begin{enumerate}[(1)]
       \item a~database of~all possible positions given the material (see the previous step of~generation),
       \item a~sub-database made of~all positions where Black is mated,
-      \item positions where White can reach mate (DTM = 1),
+      \item positions where White can reach mate (\acrshort{dtm} = 1),
       \item positions where Black cannot prevent White giving mate next move,
-      \item positions where White can always reach a~position where Black cannot prevent him from giving mate next move (DTM = 2).
+      \item positions where White can always reach a~position where Black cannot prevent him from giving mate next move (\acrshort{dtm} = 2).
       \item And so on, always a~ply%
       \footnote{In standard Chess terminology, one move consists of a~turn by each player.
         Therefore a~\emph{ply} in Chess is a~half-move.
