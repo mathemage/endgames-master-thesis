@@ -60,6 +60,7 @@ Upon reaching an~arbitrary tablebase position, the~database thus provides an~opt
 Tablebases are designed for a~given set of~pieces, e.g. \king King and \queen Queen versus \kingB King (KQ-K).
 There are 3 basic steps in their process of~creation:
 \begin{enumerate}[1]
+    \setlength\itemsep{-.5ex}
   \item \textbf{Generation}:
     Computer generates all legal positions for the given pieces.
     For each position, the tablebase evaluates the situation separately for White-to-move and Black-to-move.
@@ -99,6 +100,7 @@ There are 3 basic steps in their process of~creation:
 
     Alternatively, Tim Krabbé (\cite{Krabbe2014StillersMonster}) describes retrograde analysis (from perspective of~White to mate) by generating:
     \begin{enumerate}[(1)]
+        \setlength\itemsep{-.5ex}
       \item a~database of~all possible positions given the material (see the previous step of~generation),
       \item a~sub-database made of~all positions where Black is mated,
       \item positions where White can reach mate (\acrshort{dtm} = 1),
@@ -107,7 +109,8 @@ There are 3 basic steps in their process of~creation:
       \item And so on, always a~ply%
       \footnote{In standard Chess terminology, one move consists of a~turn by each player.
         Therefore a~\emph{ply} in Chess is a~half-move.
-        Thus, after 20 moves in a~Chess game, 40 plies have been completed---20 by White and 20 by Black.}
+        Thus, after 20 moves in a~Chess game, 40 plies have been completed:
+        20 by White and 20 by Black.}
       further away from mate until all positions connected to mate are found.
     \end{enumerate}
       By connecting these positions back to mate, the shortest path through the database is formed.
@@ -125,11 +128,7 @@ There are 3 basic steps in their process of~creation:
 \end{enumerate}
 
 \hrule
-\medskip
 
-Additionally, the computation of~tablebases can be simplified if \textbf{a priori information} is provided.
-For instance, a~position KRP(a2)-KBP(a3) with pawns blocking each other (diagram in Figure~\ref{fig:KRP(a2)-KBP(a3)}) reduces number of~possibilities for the pawns:
-instead of~$48 \times 47 = 2,256$ permutations for the pawns' locations, only single one needs to be considered.~(\cite{Herik1987sixmenendgame})
 \begin{figure}[H]
   \centering
   \newgame
@@ -138,6 +137,9 @@ instead of~$48 \times 47 = 2,256$ permutations for the pawns' locations, only si
   \captionWithCite{KRP(a2)-KBP(a3)}{Herik1987sixmenendgame}
   \label{fig:KRP(a2)-KBP(a3)}
 \end{figure}
+Additionally, the computation of~tablebases can be simplified if \textbf{a priori information} is provided.
+For instance, a~position KRP(a2)-KBP(a3) with pawns blocking each other (diagram in Figure~\ref{fig:KRP(a2)-KBP(a3)}) reduces number of~possibilities for the pawns:
+instead of~$48 \times 47 = 2,256$ permutations for the pawns' locations, only single one needs to be considered.~(\cite{Herik1987sixmenendgame})
 
 \section{Some Applications of~Tablebases}
 \epigraph{
@@ -146,6 +148,7 @@ instead of~$48 \times 47 = 2,256$ permutations for the pawns' locations, only si
   \textsc{Bender}:      Uh-oh, nerds!
 }{\emph{Futurama}, Season 1, Episode 11}
 \begin{itemize}
+    \setlength\itemsep{-.5ex}
   \item \textbf{Complexity of~solving Chess}
     \\
     \emph{Generalized Chess}%
@@ -165,6 +168,7 @@ instead of~$48 \times 47 = 2,256$ permutations for the pawns' locations, only si
     They caused major changes in the view on~many endgame piece combinations, which were considered to result in a~completely different way.
     Some impressive examples~(\cite{Wikipedia2016endgame}):%
     \begin{itemize}
+        \setlength\itemsep{-.5ex}
       \item KQR-KQR endgames.
         Despite the equality of~material, the player to move wins in~$67.74\%$ of~positions.~(\cite{Haworth2001discarding})
 
