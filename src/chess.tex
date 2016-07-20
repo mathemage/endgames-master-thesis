@@ -147,6 +147,7 @@ instead of~$48 \times 47 = 2,256$ permutations for the pawns' locations, only si
   \textsc{Fratbot \#2}: Oh, p**h. You win again! \\
   \textsc{Bender}:      Uh-oh, nerds!
 }{\emph{Futurama}, Season 1, Episode 11}
+\vskip -3em
 \begin{itemize}
     \setlength\itemsep{-.5ex}
   \item \textbf{Complexity of~solving Chess}
@@ -158,8 +159,7 @@ instead of~$48 \times 47 = 2,256$ permutations for the pawns' locations, only si
     The result, however, gives no lower bound on~the amount of~work required to solve regular $8\times 8$ Chess.
 
     Conversely, there has been progress from the other side:
-    as of~2012, all 7 and fewer piece (2 kings and up to 5 other pieces) endgames have been solved.%
-    \footnote{\emph{Lomonosov tablebases}: \href{http://tb7.chessok.com/}{http://tb7.Chessok.com/}}
+    as of~2012, all 7 and fewer piece (2 kings and up to 5 other pieces) endgames have been solved (\emph{Lomonosov Tablebases} at~\href{http://tb7.chessok.com/}{http://tb7.Chessok.com/}).
     Evidently, focusing on endgame significantly decreases the complexity; tablebases thus provide ``powerful arsenal'' to play perfect Chess endings.
 
   \item \textbf{Effects on Chess theory}
@@ -172,11 +172,12 @@ instead of~$48 \times 47 = 2,256$ permutations for the pawns' locations, only si
       \item KQR-KQR endgames.
         Despite the equality of~material, the player to move wins in~$67.74\%$ of~positions.~(\cite{Haworth2001discarding})
 
-      \item In both KQR-KQR and KQQ-KQQ, the first player to check usually wins.~(\cite[p.~379, p.~384]{Nunn2002secrets})
+      \item In both KQR-KQR and KQQ-KQQ, the first player to check usually wins.~(\cite[p.~379, 384]{Nunn2002secrets})
 
-      \item Many positions are winnable although at~first sight they appear to be non-winnable.
-        For example, this position [Fig.~\ref{fig:80-moves-to-liquidate-the-pawn}] is a~win for Black in 154 moves (during which the white pawn is liquidated after around eighty moves).
-        \begin{figure}[H]
+      \item
+        Many positions are winnable although at~first sight they appear to be non-winnable.
+        For example, the position in Figure~\ref{fig:80-moves-to-liquidate-the-pawn} is a~win for Black in 154 moves (during which the white pawn is liquidated after around eighty moves).
+        \begin{figure}
           \centering
           \newgame
           \fenboard{7k/4B3/2B5/2P5/8/8/3K4/5q2 b - - 0 0}
@@ -185,8 +186,8 @@ instead of~$48 \times 47 = 2,256$ permutations for the pawns' locations, only si
           \label{fig:80-moves-to-liquidate-the-pawn}
         \end{figure}
 
-      \item In this position [Fig.~\ref{fig:119-moves-to-pawn}], the White pawn's first move is at move 119 against optimal defense by Black:
-        \begin{figure}[H]
+      \item In the position of~Figure~\ref{fig:119-moves-to-pawn}, the White pawn's first move is at move 119 against optimal defense by Black:
+        \begin{figure}
           \centering
           \newgame
           \fenboard{8/2q5/8/6R1/8/7k/2P3R1/K7 b - - 0 0}
@@ -194,7 +195,6 @@ instead of~$48 \times 47 = 2,256$ permutations for the pawns' locations, only si
           \captionWithCite{119 moves to pawn's first move}{Wikipedia2016endgame}
           \label{fig:119-moves-to-pawn}
         \end{figure}
-
     \end{itemize}
 
   \item \textbf{The longest checkmates}
