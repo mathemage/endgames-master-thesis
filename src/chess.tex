@@ -53,7 +53,7 @@ the complexity~of the board is often manageable by~computers, making it feasible
 \section{Endgame Tablebases}
 \epigraph{
   Studying the endgame is like cheating.
-}{Michael J.~Frannett}
+}{Michael Frannett}
 An~\emph{endgame tablebase} is a~database of~pre-calculated, exhaustively analysed Chess endgames stored as tables of~positions together with the best consequent moves.
 Upon reaching an~arbitrary tablebase position, the~database thus provides an~optimal strategy to play perfect Chess.
 
@@ -90,7 +90,7 @@ There are 3 basic steps in their process of~creation:
     Each position is evaluated as a~win or a~loss in a~certain number of~moves.
     At~the end of~the retrograde analysis, positions which are not designated as wins or losses are necessarily draws.
 
-    Invented by Richard E. Bellman in 1965~(\cite{Bellman1965application}), the retrograde analysis faithfully follows the approach of~\emph{dynamic programming}:
+    Invented by Richard Bellman in 1965~(\cite{Bellman1965application}), the retrograde analysis faithfully follows the approach of~\emph{dynamic programming}:
     \begin{enumerate}[(a)]
       \item checkmated positions are determined in~the beginning
       \item a~position is winning in $n+1$ moves if the player can reach a~position winning in $n$ moves (more precisely, where the opponent loses in at most $n$ moves)
