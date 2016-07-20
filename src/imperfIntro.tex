@@ -63,7 +63,7 @@ There are further notions related to extensive-form games:
     a~best response $\sigma$ can select an~arbitrary action in an~unreachable information set $I$ (the one where $\pi ^\sigma (I) = 0$).
     Such best responses are in general not counterfactual best responses.
 
-  \item For the sake of notation's simplicity, we will define \emph{counterfactual best response value} as the counterfactual value for the strategy, where player $i$ plays according $CBR _i (\sigma _{-i})$ rather than the original $\sigma$.
+  \item For the sake of notation's simplicity, we will define a~\emph{\acrfull{cbv}} as~the counterfactual value for the strategy, where player $i$ plays according $CBR _i (\sigma _{-i})$ rather than the original $\sigma$.
     Formally, it is
     \[ CBV _i ^\sigma (I) = v _i ^{(\sigma _{-i}, CBR _i (\sigma _{-i} ))} (I) \]
 
@@ -257,7 +257,7 @@ with such a~dual LP
     x &\ge \vect{0},
   \end{split}
 \end{equation}
-where $v$ is the vector of~(negative) counterfactual best response values for player~$2$ (\cite{Cermak2014practical, AGT07}).
+where $v$ is the vector of~(negative) \acrshort{cbv}s for player~$2$ (\cite{Cermak2014practical, AGT07}).
 The (\ref{lp:seq-form}) is the standard \emph{sequence-form \acrshort{lp} formulation} used for solving extensive-form games.
 
 Notably, $E$, $F$ and $A$ are sparse matrices, with the number of~variables and non-zero values linear in~the size of~the game tree.
