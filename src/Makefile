@@ -1,11 +1,16 @@
 all: thesis.pdf
 
-# LaTeX must be run multiple times to get references right
+# LaTeX must be run multiple times to get references and glossaries right:
+# http://tex.stackexchange.com/questions/74163/glossaries-issue-wrong-pagenumber-for-book-and-memoir
+# latex latex makeglossary bibtex latex latex makeglossary latex 
 thesis.pdf: thesis.tex $(wildcard *.tex) bibliography.bib
 	pdflatex $<
-	bibtex thesis
-	makeglossaries thesis
 	pdflatex $<
+	makeglossaries thesis
+	bibtex thesis
+	pdflatex $<
+	pdflatex $<
+	makeglossaries thesis
 	pdflatex $<
 
 clean:
