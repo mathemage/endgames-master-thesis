@@ -39,6 +39,13 @@ As a~consequence, several appealing games still resist to be solved, despite the
 \epigraphLong{
   Dreams about the future are always filled with gadgets.
 }{Neil deGrasse Tyson}
+\vskip -2em
+\note{
+  We will distinguish the states, strategies, utilities, etc. and their translations to the gadget game by~adding a~tilde to corresponding notations.
+
+  From now on, without loss of~generality, we will be refining the strategy for player~$1$ in a~two-player zero-sum game.
+}
+
 Again, we start by~creating a~fine-grained abstraction for the subgame.
 The original strategy for the subgame (from the coarse abstraction) is then translated into the fine-grained abstraction as $\sigma_1^S$.
 The translated strategy is now used to compute $CBV_2 ^{\sigma_1^S} (I)$ for every information set~$I$ at~the root of~the subgame.
@@ -47,7 +54,7 @@ See Figure~\ref{fig:re-solving-gadget} for a~sketch of~the construction.
 
 \begin{figure}[H]
   \centering
-  \includegraphics[width=.2\textwidth]{../img/re-solving-game-gadget.png}
+  \includegraphics[width=.25\textwidth]{../img/re-solving-game-gadget.png}
   \def\captionTitle{A~gadget game for re-solving subgames}
   \caption[\captionTitle]{
     \captionTitle.
