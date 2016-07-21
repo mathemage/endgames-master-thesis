@@ -68,7 +68,7 @@ This improvement is at~least proportional to the subgame margin (and may be even
 \end{proof}
 
 \section{Equivalent Linear Program}
-To find a strategy that maximizes the subgame margin, we can easily modify the \acrshort{lp}~(2\todo):
+To formulate the subgame-margin maximization as an~\acrshort{lp}, we easily modify (\ref{lp:cfr-d}):
 \begin{equation}
   \label{lp:max-margin}
   \begin{split}
@@ -82,8 +82,8 @@ To find a strategy that maximizes the subgame margin, we can easily modify the \
 where $m$ is a~scalar corresponding to the subgame margin that we aim to~maximize.
 It serves as ``a gap'' between all values $v_I$ and the given constants $CBV_2^\sigma(I)$, and we wish to make this gap as~large as~possible.
 
-The similarities between \acrshort{lp} (3\todo) and \acrshort{lp} (2\todo) make it easier to see our improvement:
-whereas the \acrshort{lp} (2\todo) optimization only guarantees non-negative margin, we maximize it.
+The similarities between (\ref{lp:max-margin}) and (\ref{lp:cfr-d}) make it easier to see our improvement:
+whereas the \acrshort{lp} (\ref{lp:cfr-d}) only guarantees a~non-negative margin, we maximize it.
 Although the optimization formulation is almost identical to~the re-solving, our gadget construction is different.
 
 \section{Gadget Game}
@@ -93,8 +93,8 @@ Although the optimization formulation is almost identical to~the re-solving, our
 One way to find the refined strategy is to solve the corresponding \acrfull{lp}.
 However, algorithms that are tailor-made for \acrshort{efg}s often outperform the optimization approach (\cite{Bosansky2013solving}).
 These algorithms often permit the use of~domain-specific tricks to provide further performance gains (\cite{Johanson2012efficient}).
-Thus, formulating our optimization problem \acrshort{lp} (3\todo) as an \acrshort{efg} will mean that we can compute larger subgame abstractions using the available computing resources.
-Essentially, the construction of a~gadget game equivalent to the \acrshort{lp} (3\todo) will allow us to compute larger subgames---more than it would be possible with just the plain \acrshort{lp}.
+Thus, formulating our optimization problem~(\ref{lp:max-margin}) as an \acrshort{efg} will mean that we can compute larger subgame abstractions using the available computing resources.
+Essentially, the construction of a~gadget game equivalent to the \acrshort{lp}~(\ref{lp:max-margin}) will allow us to compute larger subgames---more than it would be possible with just the plain \acrshort{lp}.
 
 All states in~the original subgame are directly copied into the resulting gadget game.
 We create the gadget game by~making two alterations to~the original subgame:
