@@ -49,10 +49,13 @@ We refer to this values as the \acrfull{sm}.
     \min_{I_2 \in \I_2^{R(S)}}
     \left( CBV_2^{\sigma_1} (I_2) - CBV_2^{\sigma_1'} (I_2) \right)
   \]
-  measures the ``gap'' between the old and the new \acrlong{cbv}s, across all root information sets $I_2 \in \I_2^{R(S)}$.
+  measures the ``gap in~decrease'' between the old and the new \acrlong{cbv}s, across all root information sets $I_2 \in \I_2^{R(S)}$.
 \end{defn}
 
-We will use the following lemma to re-state Theorem~\ref{thm:cf-val-and-utility}:
+Subgame margin has several useful properties.
+The exploitability is strongly related to the value of~the margin:
+if it is non-negative, the new combined strategy is guaranteed to be no more exploitable than the original one.
+To prove it, we will first re-state Theorem~\ref{thm:cf-val-and-utility} using the following lemma:
 \begin{lem}
   \label{lem:cbv-and-sm}
   $CBV_2^{\sigma_1'} (I_2) \leq CBV_2^{\sigma_1} (I_2)$ for all $I_2 \in \I_2^{R(S)}$
@@ -70,9 +73,11 @@ We will use the following lemma to re-state Theorem~\ref{thm:cf-val-and-utility}
   $
 \end{proof}
 
-Subgame margin has several useful properties.
-The exploitability is strongly related to the value of~the margin.
-If it is non-negative, the new combined strategy is guaranteed to be no more exploitable than the original one.
+\begin{cor}[Theorem~\ref{thm:cf-val-and-utility} via \acrlong{sm}]
+  \label{cor:sm-and-utility}
+  Given a~strategy~$\sigma_1$, a~subgame~$S$, and a~re-solved subgame strategy~$\sigma_1^S$, let $\sigma_1' = \sigma_{1, [S \leftarrow \sigma_1^S]}$ be the combination of~$\sigma_1$ and~$\sigma_1^S$.
+  If $SM_1 (\sigma_1, \sigma_1' , S) \geq 0$, then $u_2(\sigma_1', \textrm{CBR}(\sigma_1')) \leq  u_2(\sigma_1, \textrm{CBR}(\sigma_1))$.
+\end{cor}
 
 Moreover, given that the opponent's best response reaches the subgame with non-zero probability, the exploitability of~our combined strategy is even reduced.
 This improvement is at~least proportional to the subgame margin (and may be even greater).
