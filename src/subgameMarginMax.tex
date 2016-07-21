@@ -90,10 +90,15 @@ This improvement is at~least proportional to the subgame margin:
     u_1(\sigma_1', CBR(\sigma_1')) - u_1(\sigma_1, CBR(\sigma_1)) \ge \pi_{-2}^{\sigma_1'} (I_2) \cdot SM_1(\sigma_1, \sigma_1', S).
   \]
 \end{thm}
-
 \begin{proof}
   \todo
 \end{proof}
+Though this lower bound might seem artificial at~first, it has promising properties for the subgame refinement.
+Since we refine the strategy once we reach the subgame, either we face $2$'s \acrlong{br} that reaches $S$, or he has made a~mistake earlier in the game.
+
+Furthermore, the probability of~player~$1$ reaching a~subgame is proportional to $\pi_{-2}^{\sigma_1'}(I_2)$.
+As this term (and by extension, the bound) grows, the probability of~reaching that subgame increases.
+In conclusion, we are more likely to reach a~subgame with a~larger bound.
 
 \section{Equivalent Linear Program}
 To formulate the subgame-margin maximization as an~\acrshort{lp}, we easily modify (\ref{lp:cfr-d}):
