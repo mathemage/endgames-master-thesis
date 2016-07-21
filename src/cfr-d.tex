@@ -70,12 +70,16 @@ At~each of~these nodes, $2$ may either accept the corresponding \acrshort{cbv} c
 
 The chance player distributes the player~$2$ into these states using the (normalized) $\pi^\sigma_{-2}$ (how likely is the state given that $2$ plays to reach it).
 Since the game is zero-sum, this forces player~$1$ to play the subgame well enough, so that the opponent's value is no greater than the original CBV.
+Acting like that, $1$'s overall game utility will not deteriorate:
 
 \begin{thm}[\cite{BurchJohansonBowling13}, Theorem~1]
   \label{thm:cf-val-and-utility}
   Given a~strategy $\sigma_1$, a subgame $S$, and a~re-solved subgame strategy $\sigma_1^S$, let $\sigma_1' = \sigma_{1, [S \leftarrow \sigma_1^S]}$ be the combination of $\sigma_1$ and $\sigma_1^S$.
   If $CBV_2^{\sigma'}(I) \leq  CBV_2^{\sigma}(I)$ for all information sets~$I\in\I_2^{R(S)}$, then $u_2(\sigma_1', \textrm{CBR}(\sigma_1')) \leq  u_2(\sigma_1, \textrm{CBR}(\sigma_1))$.
 \end{thm}
+\begin{proof}
+  Consult the appendix of~(\cite{BurchJohansonBowling13}).
+\end{proof}
 
 \section{Equivalent Linear Program}
 This time, the presented \acrshort{lp} is not a~straightforward sequential-form representation of~the gadget construction.
