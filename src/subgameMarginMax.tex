@@ -80,10 +80,15 @@ To prove it, we will first re-state Theorem~\ref{thm:cf-val-and-utility} using t
 \end{cor}
 
 Moreover, given that the opponent's best response reaches the subgame with non-zero probability, the exploitability of~our combined strategy is even reduced.
-This improvement is at~least proportional to the subgame margin (and may be even greater).
+This improvement is at~least proportional to the subgame margin:
 
 \begin{thm}[improvement proportional to the \acrlong{sm}]
-  \todo
+  \label{thm:improvement-propto-sm}
+  With the $S$, $\sigma_1$ and $\sigma_1'$ from the Corollary, also assume there exists a~\acrlong{br}~$\sigma_2^* = BR(\sigma_1')$ such that $\pi^{<\sigma_1',\sigma_2^*>} (I_2) > 0$ for some $I_2 \in\I_2^{R(S)}$.
+  Then 
+  \[
+    u_1(\sigma_1', CBR(\sigma_1')) - u_1(\sigma_1, CBR(\sigma_1)) \ge \pi_{-2}^{\sigma_1'} (I_2) \cdot SM_1(\sigma_1, \sigma_1', S).
+  \]
 \end{thm}
 
 \begin{proof}
