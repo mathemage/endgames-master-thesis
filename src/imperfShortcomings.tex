@@ -9,7 +9,7 @@ even if we play a~best response in the subgame, we \textbf{assume the fixed orig
 
 This is, however, not true since the opponent can distinguish the states within our own information set, which---for us---are indistinguishable.
 He can therefore freely change his behavior in~the trunk and manipulate against our best response for his own benefit.
-For more illustration, study the example in Section~\ref{sec:intricate-ex} (taken from \cite{BurchJohansonBowling13}).
+For more illustration, study the example in Section~\ref{sec:intricate-ex} (taken from \cite{BurchJohansonBowling2014}).
 
 \section{An~Intricate Example}
 \label{sec:intricate-ex}
@@ -34,7 +34,7 @@ To see the difficulties of~combining a~re-solved subgame strategy with an~origin
   \def\svgwidth{.45\textwidth}
   \input{../img/rock-paper-scissors-ext-form.pdf_tex}
   \def\captionTitle{Extensive form of~rock-paper-scissors}
-  \caption[\captionTitle]{\captionTitle: Scissors cuts paper. Paper covers rock. Rock crushes scissors. (\cite{Ganzfried2015endgame, BurchJohansonBowling13})}
+  \caption[\captionTitle]{\captionTitle: Scissors cuts paper. Paper covers rock. Rock crushes scissors. (\cite{Ganzfried2015endgame, BurchJohansonBowling2014})}
   \label{fig:game-tree-rock-paper-scissors}
 \end{figure}
 
@@ -58,7 +58,7 @@ One apparent subgame (recall Definition~\ref{defn:subgame}) of~rock-paper-scisso
   \def\svgwidth{.25\textwidth}
   \input{../img/rock-paper-scissors-subgame.pdf_tex}
   \def\captionTitle{An~(imperfect-information) subgame~$S$ of~rock-paper-scissors}
-  \captionWithCite{\captionTitle}{BurchJohansonBowling13}
+  \captionWithCite{\captionTitle}{BurchJohansonBowling2014}
   \label{fig:subgame-rock-paper-scissors}
 \end{figure}
 \noindent
@@ -67,7 +67,7 @@ Specifically, the probability of~being in state~$2_R$ equals to 1's probability 
 The three augmented information sets of~player~$1$ (Definition~\ref{defn:augm-info-set}) are $ \I_1^R = \{2_R\}$, $\I_1^P = \{2_P\}$ and $\I_1^S = \{2_S\}$.
 
 It is not enough to~na{\"i}vely re-solve subgame~$S$ with the~assumption of~a~fixed strategy in the trunk:
-\begin{claim}[\cite{Ganzfried2015endgame}, Proposition~1; \cite{BurchJohansonBowling13}]
+\begin{claim}[\cite{Ganzfried2015endgame}, Proposition~1; \cite{BurchJohansonBowling2014}]
   \label{claim:rps-subgame}
   If subgame $S$ is re-solved with a~fixed trunk strategy, there is an~equilibristic solution (i.e. a~best response against the fixed trunk strategy) that player~1 can exploit, once he is allowed to adjust his strategy in the trunk.
 \end{claim}
@@ -101,7 +101,7 @@ Solving subgames separately thus appear as an~impossible mission.
 However, in the following chapters we will look into two recent techniques, which deal with imperfect-information subgames in a~promising way:
 \begin{enumerate}[(i)]
   \item endgame solving (\cite{Ganzfried2015endgame}) in Chapter~\ref{ch:endgame-solving}
-  \item \acrshort{cfr-d} and decomposition (\cite{BurchJohansonBowling13}) in Chapter~\ref{ch:cfr-d}
+  \item \acrshort{cfr-d} and decomposition (\cite{BurchJohansonBowling2014}) in Chapter~\ref{ch:cfr-d}
 \end{enumerate}
 We also re-state both of~them using equivalent \acrshort{lp} formulations.
 Treating these techniques as~optimization problems will help to reveal their underlying features.
