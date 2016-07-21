@@ -49,14 +49,32 @@ We refer to this values as the \acrfull{sm}.
     \min_{I_2 \in \I_2^{R(S)}}
     \left( CBV_2^{\sigma_1} (I_2) - CBV_2^{\sigma_1'} (I_2) \right)
   \]
-  measures the minimal ``gap'' between the corresponding \acrlong{cbv}s, over all root information sets $I_2 \in \I_2^{R(S)}$.
+  measures the ``gap'' between the old and the new \acrlong{cbv}s, across all root information sets $I_2 \in \I_2^{R(S)}$.
 \end{defn}
+
+We will use the following lemma to re-state Theorem~\ref{thm:cf-val-and-utility}:
+\begin{lem}
+  \label{lem:cbv-and-sm}
+  $CBV_2^{\sigma_1'} (I_2) \leq CBV_2^{\sigma_1} (I_2)$ for all $I_2 \in \I_2^{R(S)}$
+  iff
+  $SM_1 (\sigma_1, \sigma_1' , S) \geq 0.$
+\end{lem}
+\begin{proof}
+  $
+  CBV_2^{\sigma_1'} (I_2) \leq CBV_2^{\sigma_1} (I_2)
+  \quad \Longleftrightarrow \quad
+  0 \leq CBV_2^{\sigma_1} (I_2) - CBV_2^{\sigma_1'} (I_2)
+  \quad \Longleftrightarrow \quad
+  0 \leq \min_{I_2 \in \I_2^{R(S)}} \left( CBV_2^{\sigma_1} (I_2) - CBV_2^{\sigma_1'} (I_2) \right)
+  = SM_1 (\sigma_1, \sigma_1' , S)
+  $
+\end{proof}
 
 Subgame margin has several useful properties.
 The exploitability is strongly related to the value of~the margin.
 If it is non-negative, the new combined strategy is guaranteed to be no more exploitable than the original one.
 
-Furthermore, given that the opponent's best response reaches the subgame with non-zero probability, the exploitability of~our combined strategy is even reduced.
+Moreover, given that the opponent's best response reaches the subgame with non-zero probability, the exploitability of~our combined strategy is even reduced.
 This improvement is at~least proportional to the subgame margin (and may be even greater).
 
 \begin{thm}[improvement proportional to the \acrlong{sm}]
