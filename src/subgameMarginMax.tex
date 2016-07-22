@@ -173,20 +173,21 @@ Following from the construction, we get straightforwardly
 \end{claim}
 
 \section{Gadget Game Revisited}
-First of~all, we demonstrate that the counterfactual values of~information sets at the root of the subgame do not increase, when compared to the old values in the original game.
+First of~all, we show that re-solving does not increase \acrshort{cbv}s at~the root of the subgame, when compared to old \acrshort{cbv}s in the original game.
 
-Let $S$ be a subgame and let $\mathcal{I}_2^R$ be the set of~information sets at the root of $S$.
-For every information set $I~\in~\mathcal{I}_2^R$ we are also given its counterfactual value
-$v_2(I) \equiv v_2 ^{\langle\sigma_1, \textrm{CBR}_2(\sigma_1)\rangle} (I)$, where the strategy $\sigma$ is taken from the original game, as well as its probability $\pi_{-2} ^\sigma(I)$.
+Let $\mathcal{I}_2^{R(S)}$ be the set of~information sets at~the root of a~subgame~$S$ and let $\sigma$ be the strategy from the original game.
+On top of that, for every information set~$I~\in~\mathcal{I}_2^{R(S)}$ we are given its \acrlong{cbv} $CBV_2^{\sigma}(I)$.
 
-We construct a~new (two-player zero-sum perfect recall) game $\tilde{S}$ by adding a~new root node $\tilde{r}_0$.
-In this node, our opponent (player $2$) chooses which information set $I \in \mathcal{I}_2^{\tilde{R}}$ to enter.
-Formally, this can be achieved by creating chance nodes $\tilde{r}_I$ per each set $I \in \mathcal{I}_2^{\tilde{R}}$.
+We construct a~new two-player zero-sum perfect-recall ``gadget'' game $\tilde{S}$.
+First, we add a~new root node $\dt$, where the opponent chooses an~information set $I \in \mathcal{I}_2^{R(S)}$ to enter.
+\hrule
+\todo
+Formally, this can be achieved by creating chance nodes $\tilde{r}_I$ per each set $I \in \mathcal{I}_2^{R(S)}$.
 As soon as the opponent chooses which $\tilde{r}_I$ to enter, the chance player deals our cards.
 Namely, for each $\tilde{h}\in I$, the chance to be in state $h$ is determined as
 $\pi_c (\tilde{r}_I, \tilde{r}_I \cdot \tilde{h}) = \pi_{-2} ^{\sigma}(\tilde{h}) / k_I$.
 Here, the normalization factor $k_I = \sum_{ \tilde{h} \in I} \pi_{-2}^\sigma(\tilde{h})$ is used in order to make probabilities
-$\pi_c (\tilde{r}_I, \tilde{r}_I \cdot \tilde{h})$ sum to $1$ within any information set $I \in I_2 ^{\tilde{R}}$.
+$\pi_c (\tilde{r}_I, \tilde{r}_I \cdot \tilde{h})$ sum to $1$ within any information set $I \in I_2 ^{R(S)}$.
 
 The remaining structure of the subgame is directly copied, replicating every state $h$ with a~state $\tilde{h}$.
 On top of that, the utility of every terminal node is shifted by the counterfactual value of the containing root information set.
@@ -207,7 +208,7 @@ Thus, we get
     \begin{split}
       \tilde{v}_2^\tilsig (I)
       &= \sum_{z\in Z(I)}
-      \pi_{-2}^\tilsig(\tilde{r}_0, z) 
+      \pi_{-2}^\tilsig(\dt, z) 
       \cdot \pi_{2}^\tilsig(z[I], z)
       \cdot \tilde{u}_2(z) \\
       &= \sum_{z\in Z(I)}
@@ -234,7 +235,7 @@ Now we prove that our gadget game does not increase the counterfactual values in
   \label{thm:cf-val-max-margin-gadget}
   Let us have the original strategy $\sigma_1$ of player~$1$, a~subgame~$S$, and a~re-solved subgame strategy $\sigma_1^S$ for the above-constructed gadget game.
   Let also $\sigma_1' = \sigma_{1, [S \leftarrow \sigma_1^S]}$ be the combination of $\sigma_1$ in the trunk and $\sigma_1^S$ in the subgame~$S$.
-  Then $v_2^{\langle\sigma_1', \textrm{CBR}(\sigma_1')\rangle}(I) \leq  v_2^{\langle\sigma_1, \textrm{CBR}(\sigma_1)\rangle}(I) \equiv v_2(I)$ holds for every information set $I\in\mathcal{I}_2^R$ at the root of subgame $S$.
+  Then $v_2^{\langle\sigma_1', \textrm{CBR}(\sigma_1')\rangle}(I) \leq  v_2^{\langle\sigma_1, \textrm{CBR}(\sigma_1)\rangle}(I) \equiv v_2(I)$ holds for every information set $I\in\mathcal{I}_2^{R(S)}$ at the root of subgame $S$.
 \end{thm}
 
 \begin{proof}
@@ -242,7 +243,7 @@ Now we prove that our gadget game does not increase the counterfactual values in
   Together with the opponent's best response $\textrm{CBR}_2(\sigma'_1) = \textrm{CBR}_2(\sigma_1)$, we obtain the strategy profile 
   $\sigma' := \langle \sigma_1, \textrm{CBR}_2(\sigma_1) \rangle$.
   It yields the identical counterfactual values
-  $v_2 ^{\sigma'} (I) = v_2(I)$ for all $I\in\mathcal{I}_2^R$.
+  $v_2 ^{\sigma'} (I) = v_2(I)$ for all $I\in\mathcal{I}_2^{R(S)}$.
   By Lemma \ref{lem:cfshift}, with $\tilsig'$ as the subgame portion of~the whole $\sigma'$, the counterfactual values evaluates to
   $\tilde{v}_2 ^{\tilsig'}(I)
   = v_2 ^{\sigma'} (I)~-~v_2(I)
@@ -252,8 +253,8 @@ Now we prove that our gadget game does not increase the counterfactual values in
   Since any counterfactual value of a~root is the same thing as the regular expected value, we infer that
   \begin{equation*}
     \begin{split}
-      \tilde{u}_2 ^{\tilsig'} (\tilde{r}_0)
-      &= \tilde{v}_2 ^{\tilsig'} (\tilde{r}_0)
+      \tilde{u}_2 ^{\tilsig'} (\dt)
+      &= \tilde{v}_2 ^{\tilsig'} (\dt)
       = \max _{I\in \mathcal{I}_2^{R(S)}} \tilde{v}_2 ^\tilsig (\tilde{r}_I) \\
       &= \max _{I\in \mathcal{I}_2^{R(S)}} \tilde{v}_2 ^\tilsig (I)
       = \max _{I\in \mathcal{I}_2^{R(S)}} 0 
@@ -263,14 +264,14 @@ Now we prove that our gadget game does not increase the counterfactual values in
   where the second equality is due to the best-response property.
   In a~zero-sum game, this means 
   $
-  \tilde{u}_1 ^{\tilsig'} (\tilde{r}_0)
-  = - \tilde{u}_2 ^{\tilsig'} (\tilde{r}_0)
+  \tilde{u}_1 ^{\tilsig'} (\dt)
+  = - \tilde{u}_2 ^{\tilsig'} (\dt)
   = 0
   $,
   and thus, the maximizing player~$1$ can only do better.
   In particular, he gains utility
   $
-  \tilde{u}_1 ^{\sigma^S} (\tilde{r}_0) \ge 0
+  \tilde{u}_1 ^{\sigma^S} (\dt) \ge 0
   $
   for some optimal strategy $\sigma_1^S$ and the corresponding profile
   $\sigma^S := \langle \sigma_1^S, \textrm{CBR}_2 (\sigma_1^S)\rangle$,
@@ -278,9 +279,9 @@ Now we prove that our gadget game does not increase the counterfactual values in
   \begin{equation*}
     \begin{split}
       0
-      &\ge - \tilde{u}_1 ^{\sigma^S} (\tilde{r}_0)
-      = \tilde{u}_2 ^{\sigma^S} (\tilde{r}_0)
-      = \tilde{v}_2 ^{\sigma^S} (\tilde{r}_0) \\
+      &\ge - \tilde{u}_1 ^{\sigma^S} (\dt)
+      = \tilde{u}_2 ^{\sigma^S} (\dt)
+      = \tilde{v}_2 ^{\sigma^S} (\dt) \\
       &= v_2 ^{\langle\sigma_1', \textrm{CBR}(\sigma_1')\rangle} (I)~-~v_2(I)
     \end{split}
   \end{equation*}
@@ -304,7 +305,7 @@ On top of that, not only the construction preserves the upper bounds of~counterf
   \label{thm:sm-maximized}
   In the same setting as in Theorem \ref{thm:nyx-cfval}, the margin
   \[
-    m := \min _{I \in \mathcal{I}_2^R} 
+    m := \min _{I \in \mathcal{I}_2^{R(S)}} 
     \left( v_2(I) - v_2^{\langle\sigma_1', \textrm{CBR}_2 (\sigma_1')\rangle}(I) \right)
   \]
   is maximum among all possible $\sigma'_1$.
@@ -312,19 +313,19 @@ On top of that, not only the construction preserves the upper bounds of~counterf
 \begin{proof}
   For a~contradiction, let there be a~strategy profile~$\ovsigma = \langle \ovsigma_1, \textrm{CBR}_2 (\ovsigma_1)\rangle$, which is the strategy $\sigma$ with substituted subgame part and which generates a~better margin
   \[
-    m' := \min _{I \in \mathcal{I}_2^R} 
+    m' := \min _{I \in \mathcal{I}_2^{R(S)}} 
     \left( v_2(I) - v_2^{\ovsigma}(I) \right)
     > m.
   \]
   To get a~counterfactual best response $\textrm{CBR}_2 (\ovsigma_1)$, player~$2$ may only mix the actions with the largest counterfactual values.
-  In state $\tilde{r}_0$ this means
+  In state $\dt$ this means
   \begin{equation*}
     \begin{split}
-      \tilde{u}_2 ^\ovsigma(\tilde{r}_0)
-      &= \tilde{v}_2 ^\ovsigma(\tilde{r}_0)
-      = \max _{I \in \mathcal{I}_2^R} \tilde{v}_2 ^\ovsigma(I)
-      = - \min _{I \in \mathcal{I}_2^R} \left( -\tilde{v}_2 ^\ovsigma(I) \right) \\
-      &= - \min _{I \in \mathcal{I}_2^R} \left( v_2(I) - v_2^{\ovsigma}(I) \right)
+      \tilde{u}_2 ^\ovsigma(\dt)
+      &= \tilde{v}_2 ^\ovsigma(\dt)
+      = \max _{I \in \mathcal{I}_2^{R(S)}} \tilde{v}_2 ^\ovsigma(I)
+      = - \min _{I \in \mathcal{I}_2^{R(S)}} \left( -\tilde{v}_2 ^\ovsigma(I) \right) \\
+      &= - \min _{I \in \mathcal{I}_2^{R(S)}} \left( v_2(I) - v_2^{\ovsigma}(I) \right)
       = - m'
     \end{split}
   \end{equation*}
@@ -332,20 +333,20 @@ On top of that, not only the construction preserves the upper bounds of~counterf
 
   In a~zero-sum game, we get
   $
-  \tilde{u}_1 ^\ovsigma(\tilde{r}_0)
-  = -\tilde{u}_2 ^\ovsigma(\tilde{r}_0)
+  \tilde{u}_1 ^\ovsigma(\dt)
+  = -\tilde{u}_2 ^\ovsigma(\dt)
   = m'
   $,
   Similarly,
   $
-  \tilde{u}_1 ^{\langle\sigma_1', \textrm{CBR}(\sigma_1')\rangle} (\tilde{r}_0)
+  \tilde{u}_1 ^{\langle\sigma_1', \textrm{CBR}(\sigma_1')\rangle} (\dt)
   = m
   $
   by an~analogous transcription.
   In conclusion, this implies
   $
-  \tilde{u}_1 ^\ovsigma(\tilde{r}_0)
-  > \tilde{u}_1 ^{\langle\sigma_1', \textrm{CBR}(\sigma_1')\rangle} (\tilde{r}_0)
+  \tilde{u}_1 ^\ovsigma(\dt)
+  > \tilde{u}_1 ^{\langle\sigma_1', \textrm{CBR}(\sigma_1')\rangle} (\dt)
   $,
   which contradicts the fact that $\langle\sigma_1', \textrm{CBR}(\sigma_1')\rangle$ is a~Nash equilibrium in the gadget game~$\tilde{S}$.
 \end{proof}
@@ -359,3 +360,16 @@ This is an~improvement over the approach demonstrated by~(\cite{BurchJohansonBow
 \epigraphLong{
   If you find that you're spending almost all your time on theory, start turning some attention to practical things; it will improve your theories. If you find that you're spending almost all your time on practice, start turning some attention to theoretical things; it will improve your practice.
 }{Donald Knuth}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=\textwidth]{../img/sm-experiments}
+  \def\captionTitle{\acrshort{cfr}+ iterations versus \acrshort{sm} of~refined strategies}
+  \caption[\captionTitle]{\captionTitle (in milli big blinds per game).
+    One big blind corresponds to 100 chips.
+    The max-margin technique produces the optimal value, much greater than ones produced by~subgame re-solving or endgame solving (which has even negative \acrshort{sm}s).
+    The $95\%$ confidence intervals after $10000$ iterations:
+    max-margin $101.49 \pm 7.09$, subgame re-solving $8.79 \pm 2.45$, endgame solving $-518.5 \pm 49.19$
+  }
+  \label{fig:sm-experiments}
+\end{figure}
