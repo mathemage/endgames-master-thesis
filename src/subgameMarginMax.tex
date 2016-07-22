@@ -375,6 +375,14 @@ While this number is relatively large compared to other participating agents, it
 The action abstraction used for the original Nyx strategy has the imperfect recall, whereas the refined subgame uses the perfect recall.
 We use the same actions in~the refined subgame as in~the original strategy.
 
+We refine only the subgames that has less than $1000$ betting sequences (after creating the fine-grained abstraction).
+This is simply to speed up the experiments.
+The original agent's strategy is preserved in~the trunk of~the game for both player~$1$ and player~$2$.
+Once gameplay reaches the subgame (the river), we refine $1$'s strategy using each of~the three techniques.
+We have run $10000$ iterations of~the \acrshort{cfr}+ algorithm in the corresponding gadget games.
+Exponential weighting is used to update the average strategies (\cite{Tammelin2015solving}).
+Each technique was used to refine $\approx 2000$ subgames.
+Figure~\ref{fig:sm-experiments} displays the average margins for the evaluated techniques.
 
 \begin{figure}[H]
   \centering
