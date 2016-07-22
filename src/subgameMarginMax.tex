@@ -366,7 +366,7 @@ We use an~improved version of~the \emph{Nyx} agent, the second strongest partici
 
 All three of~the subgame refinement techniques tested here used the same abstractions and trunk strategy.
 Following (\cite{Ganzfried2015endgame}), we begin the subgame at~start of~the last round (the river).
-While we used card abstraction to compute the original trunk strategy (\cite{Schmid2015automatic, Johanson2013evaluating}), the fine-grained abstraction for the endgame is calculated \emph{without the need for card abstraction}.
+Although we used card abstraction to compute the original trunk strategy (\cite{Schmid2015automatic, Johanson2013evaluating}), the fine-grained abstraction for the endgame is calculated \emph{without the need for card abstraction}.
 This is an~improvement over the original implementation of~(\cite{Ganzfried2015endgame}), where both the trunk strategy and the refined subgame used card abstraction.
 This is a~result of~the improved efficiency of~the \cfrplus algorithm (and the domain-specific speedups it enables), whereas the endgame solving of~(\cite{Ganzfried2015endgame}) used linear programming to~compute the strategy.
 
@@ -379,10 +379,11 @@ We refine only the subgames that has less than $1000$ betting sequences (after c
 This is simply to speed up the experiments.
 The original agent's strategy is preserved in~the trunk of~the game for both player~$1$ and player~$2$.
 Once gameplay reaches the subgame (the river), we refine $1$'s strategy using each of~the three techniques.
-We have run $10000$ iterations of~the \cfrplus algorithm in the corresponding gadget games.
-Exponential weighting is used to update the average strategies (\cite{Tammelin2015solving}).
+We have run $10000$ iterations of~the \cfrplus algorithm in the corresponding gadget games, with exponential weighting to update the average strategies (\cite{Tammelin2015solving}).
 Each technique was used to refine $\approx 2000$ subgames.
 Figure~\ref{fig:sm-experiments} displays the average margins for the evaluated techniques.
+
+The max-margin technique produces the optimal value, much greater than ones produced by~subgame re-solving or endgame solving (which has even negative \acrlong{sm}s).
 
 \begin{figure}[H]
   \centering
@@ -390,9 +391,13 @@ Figure~\ref{fig:sm-experiments} displays the average margins for the evaluated t
   \def\captionTitle{\cfrplus iterations versus \acrshort{sm} of~refined strategies}
   \caption[\captionTitle]{\captionTitle (in milli big blinds per game).
     One big blind corresponds to 100 chips.
-    The max-margin technique produces the optimal value, much greater than ones produced by~subgame re-solving or endgame solving (which has even negative \acrshort{sm}s).
-    The $95\%$ confidence intervals after $10000$ iterations:
-    max-margin $101.49 \pm 7.09$, subgame re-solving $8.79 \pm 2.45$, endgame solving $-518.5 \pm 49.19$
   }
   \label{fig:sm-experiments}
 \end{figure}
+
+The $95\%$ confidence intervals after $10000$ iterations are
+\begin{itemize}
+  \item max-margin: $101.49 \pm 7.09$
+  \item subgame re-solving: $8.79 \pm 2.45$
+  \item endgame solving: $-518.5 \pm 49.19$
+\end{itemize}
