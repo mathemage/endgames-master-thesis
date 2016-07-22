@@ -370,6 +370,12 @@ While we used card abstraction to compute the original trunk strategy (\cite{Sch
 This is an~improvement over the original implementation of~(\cite{Ganzfried2015endgame}), where both the trunk strategy and the refined subgame used card abstraction.
 This is a~result of~the improved efficiency of~the \acrshort{cfr}+ algorithm (and the domain-specific speedups it enables), whereas the endgame solving of~(\cite{Ganzfried2015endgame}) used linear programming to~compute the strategy.
 
+The original strategy uses action abstraction with up to $16$ actions in~an~information set.
+While this number is relatively large compared to other participating agents, it is still well below the best-known upper bound on~the optimal strategy's  support size (\cite{Schmid2014bounding}).
+The action abstraction used for the original Nyx strategy has the imperfect recall, whereas the refined subgame uses the perfect recall.
+We use the same actions in~the refined subgame as in~the original strategy.
+
+
 \begin{figure}[H]
   \centering
   \includegraphics[width=\textwidth]{../img/sm-experiments}
