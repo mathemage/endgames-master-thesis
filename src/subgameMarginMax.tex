@@ -395,9 +395,17 @@ The max-margin technique produces the optimal value, much greater than ones prod
   \label{fig:sm-experiments}
 \end{figure}
 
-The $95\%$ confidence intervals after $10000$ iterations are
-\begin{itemize}
-  \item max-margin: $101.49 \pm 7.09$
-  \item subgame re-solving: $8.79 \pm 2.45$
-  \item endgame solving: $-518.5 \pm 49.19$
-\end{itemize}
+Here follows the list of~$95\%$-confidence intervals after $10000$ iterations:
+\begin{description}
+  \item[endgame solving] ($-518.5 \pm 49.19$)
+    The considerably negative margin values for the endgame solving suggest that the produced strategy may indeed be much more exploitable.
+
+  \item[subgame re-solving] ($8.79 \pm 2.45$)
+    The positive margin for re-solving demonstrates that in~spite of~no explicit construction forcing the margin to be positive, it does increase in practice. 
+    Notice however that the margin is far below the optimal level.
+
+  \item[max-margin] ($101.49 \pm 7.09$)
+    This technique produces a~significantly larger subgame margin than the previous methods.
+    The size of~the margin suggests the original strategy is potentially rather exploitable.
+    Nevertheless, our technique can substantially decrease the exploitability (see Corollary~\ref{cor:sm-and-utility} and Theorem~\ref{thm:improvement-propto-sm}).
+\end{description}
