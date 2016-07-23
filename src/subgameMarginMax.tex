@@ -96,19 +96,17 @@ This improvement is at~least proportional to the subgame margin:
     \item $\sigma_2^* = CBR_2(\sigma_1')$, since we may arbitrarily change strategy in any information set~$I$ that is unreachable under $\sigma_2^*$ (i.e. where $\pi_2^{\sigma_2^*}(I) = 0$),
     \item $\pi_2^{\sigma_2^*}(I_2) = 1$, since we can choose any action from a~best-response support with probability $1$ (obvious by building a~best-response recursively bottom-up).
   \end{enumerate}
-  %First, we show that if p(I) = 2 and I lays on a path
-  %σ
-  %from ∅ (root of the whole game) to I2 , then CBV2 1 (I) ≤
-  %σ1 σ
-  %1
-  %CBV2 (I) − π−2
-  %(I → I2)SM1 (σ1 , σ1, S).
-  %We will use induction on length (measured in count of p2
-  %information sets) of the path (I → I2 ).
-  %We can see (directly from the definition of the subgame
-  %margin) that the claim holds for I2 .
-  %Lets take I = I2 form the path and denote I next p2
-  %information set on the path. Then, for an action a leading to
+  First, we show that if $p(I) = 2$ and $I$ lies on a~path from $\emptyset$ (the root of~the whole game) to $I_2$, then
+  \begin{equation}
+    \label{eq:cbv-and-sm}
+    CBV_2^{\sigma_1'}(I) \le CBV_2^{\sigma_1}(I) -
+    \pi_{-2}^{\sigma_1'}(I \to I_2) \cdot SM_1(\sigma_1 , \sigma_1', S).
+  \end{equation}
+  We prove (\ref{eq:cbv-and-sm}) by~induction on~the length of~the $I \to I_2$ path (measured in~the count of~$2$'s information sets).
+
+  For the base case, the claim holds for $I_2$ by~the definition of~the subgame margin.
+  For the inductive step, let $I \ne I_2$ be from $\emptyset \to I_2$ path and let $I'$ be $2$'s next information set after~$I$ on~this path.
+  %Then, for an action a leading to
   %∗∗
   %(σ ,σ )
   %the I2 we have πσ (I, a) = 1, π2 1
