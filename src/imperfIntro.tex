@@ -267,7 +267,7 @@ So zero-sum \acrshort{efg}s can be solved by (dual) linear programming for the \
 \epigraphLong{
   Perfecting oneself is as~much unlearning as~it is learning.
 }{Edsger Dijkstra}
-
+In~contrast to solving games by linear programming, we can approximate \acrlong{ne} using various \emph{learning algorithms}:
 \begin{description}
   \item [\acrfull{cfr}] (\cite{Zinkevich2007regret})
 
@@ -275,7 +275,10 @@ So zero-sum \acrshort{efg}s can be solved by (dual) linear programming for the \
 
   \item [\cfrplus] (\cite{Tammelin2015solving})
 \end{description}
-For overview of~the methods, consult also (\cite{Bosansky2013solving}).
+These iterative methods run faster than methods with sequence-form \acrshort{lp}s, and use significantly less memory.
+Moreover, they guarantee a~convergence to \acrlong{ne} in~limit.
+Therefore, they currently prevail as dominant solutions, and are standardly used for solving large imperfect-information games.
+For an~overview, consult also (\cite{Bosansky2013solving}).
 
 \section{Subgames Revisited}
 \label{sec:subgames-revisited}
