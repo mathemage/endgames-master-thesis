@@ -91,7 +91,77 @@ This improvement is at~least proportional to the subgame margin:
   \]
 \end{thm}
 \begin{proof}
-  \todo
+  Without loss of~generality, we may assume
+  \begin{enumerate}[(a)]
+    \item $\sigma_2^* = CBR_2(\sigma_1')$, since we may arbitrarily change strategy in any information set~$I$ that is unreachable under $\sigma_2^*$ (i.e. where $\pi_2^{\sigma_2^*}(I) = 0$),
+    \item $\pi_2^{\sigma_2^*}(I_2) = 1$, since we can choose any action from a~best-response support with probability $1$ (obvious by building a~best-response recursively bottom-up).
+  \end{enumerate}
+  %First, we show that if p(I) = 2 and I lays on a path
+  %σ
+  %from ∅ (root of the whole game) to I2 , then CBV2 1 (I) ≤
+  %σ1 σ
+  %1
+  %CBV2 (I) − π−2
+  %(I → I2)SM1 (σ1 , σ1, S).
+  %We will use induction on length (measured in count of p2
+  %information sets) of the path (I → I2 ).
+  %We can see (directly from the definition of the subgame
+  %margin) that the claim holds for I2 .
+  %Lets take I = I2 form the path and denote I next p2
+  %information set on the path. Then, for an action a leading to
+  %∗∗
+  %(σ ,σ )
+  %the I2 we have πσ (I, a) = 1, π2 1
+  %(I → I ) = 1 and
+  %we can express counterfactual best response value in I as:
+  %∗σ
+  %(σ ,σ )
+  %CBV2 1 (I) = v2 1
+  %(I, a) ≤
+  %(σ1 ,CBR2(σ1 ))
+  %σ ,σ∗
+  %σ1
+  %v2
+  %(I, a) − π 1 (I → I )π−2
+  %(I
+  %→
+  %I2 )SM1 (σ1 , σ1 , S) =
+  %(σ1
+  %,CBR2(σ1 ))
+  %σ1
+  %σ1
+  %v2 (I, a) − π−2
+  %(I
+  %→
+  %I )π−2
+  %(I
+  %→
+  %I2 )SM1 (σ1 , σ1 , S) =
+  %(σ1
+  %,CBR2(σ1 ))
+  %σ1
+  %v2 (I, a) − π−2
+  %(I → I2 )SM1 (σ1 , σ1 , S) ≤
+  %(σ1
+  %,CBR2
+  %(σ1
+  %))
+  %σ
+  %1
+  %maxa v2 (I, a )
+  %−
+  %π−2
+  %(I
+  %→
+  %I2 )SM1 (σ1 , σ1 , S) =
+  %σ1
+  %CBV2(σ1)(I) − π−2
+  %(I → I2)SM1 (σ1 , σ1, S)
+  %If P (∅) = 2 then u1 (σ1 , CBR(σ1 ) = −CBV2 (σ1 )(∅),
+  %u1(σ1, CBR(σ1) = −CBV2 (σ1 )(∅) and the theorem
+  %holds. If this is not the case then we can simply add a
+  %new player’s 2 information set at the beginning of the game
+  %where the player 2 has only one action leading to ∅.
 \end{proof}
 Though this lower bound might seem artificial at~first, it has promising properties for the subgame refinement.
 Since we refine the strategy once we reach the subgame, either we face $2$'s \acrlong{br} that reaches $S$, or he has made a~mistake earlier in the game.
