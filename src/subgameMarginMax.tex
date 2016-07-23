@@ -108,27 +108,52 @@ This improvement is at~least proportional to the subgame margin:
     SM_1(\sigma_1 , \sigma_1', S) = \min_{I'\in\I_2^{R(S)}} \left( CBV_2^{\sigma_1}(I') - CBV_2^{\sigma_1'}(I') \right) \le CBV_2^{\sigma_1}(I_2) - CBV_2^{\sigma_1'}(I_2) \\
   \end{align*}
 
-  For the inductive step, let $I \ne I_2$ be from $\emptyset \to I_2$ path, let $I'$ be $2$'s next information set after~$I$ on~this path, thus making $\pi_2^{<\sigma_1', \sigma_2^*>} (I \to I') = 1$, and let the action~$a\in A(I)$ lead to $I_2$, implying $\pi^{\sigma_2^*}_2(I, a) = 1$.
-  We express the \acrlong{cbv} in~$I$ as
+  For the inductive step, let $I \ne I_2$ be an~information set from $\emptyset \to I_2$ path, let $I'$ be $2$'s next information set after~$I$ on~this path, implying $\pi_2^{<\sigma_1', \sigma_2^*>} (I \to I') = 1$, and let the action~$a\in A(I)$ lead to $I_2$, implying $\pi^{\sigma_2^*}_2(I, a) = 1$.
+  We can thus re-expresses the \acrshort{cbv} in~$I$ as
   \begin{align*}
-    CBV_2^{\sigma_1'}(I) &= v_2^{<\sigma_1', \sigma_2^*>} (I, a) \\
-    &\le v_2^{<\sigma_1, CBR(\sigma_1)>} (I, a) - \pi^{<\sigma_1',\sigma_2^*>}(I \to I') \; \pi_{-2}^{\sigma_1'}(I' \to I_2) \; SM_1(\sigma_1 , \sigma_1', S) \\
+    CBV_2^{\sigma_1'}(I)
+    = v_2^{<\sigma_1', \sigma_2^*>} (I, a)
+    \ldots
+  \end{align*}
+  by the definition of~the counterfactual value and $\pi_2^{<\sigma_1', \sigma_2^*>} (I \to I') = 1$ we get
+  \begin{align*}
+    \ldots
+    = \pi^{<\sigma_1', \sigma_2^*>}(I\to I') \cdot v_2^{<\sigma_1', \sigma_2^*>}(I')
+    = \pi^{<\sigma_1', \sigma_2^*>}(I\to I') \cdot CBV_2^{\sigma_1'}(I')
+    \ldots
+  \end{align*}
+  by inductive hypothesis we bound
+  \begin{align*}
+    \ldots
+    &\le \pi^{<\sigma_1', \sigma_2^*>}(I \to I') \cdot \left( CBV_2^{\sigma_1'}(I') - \pi_{-2}^{\sigma_1'}(I' \to I_2) \cdot SM_1(\sigma_1 , \sigma_1', S) \right) \\
+    &= \pi^{<\sigma_1', \sigma_2^*>}(I \to I') \cdot CBV_2^{\sigma_1'}(I') \\
+    &- \pi^{<\sigma_1', \sigma_2^*>}(I \to I') \cdot \pi_{-2}^{\sigma_1'}(I' \to I_2) \cdot SM_1(\sigma_1 , \sigma_1', S)
+    \ldots
+  \end{align*}
+  again by the definition of~the counterfactual value we re-write back
+  \begin{align*}
+    \ldots
+    = v_2^{<\sigma_1, CBR(\sigma_1)>} (I, a) - \pi^{<\sigma_1', \sigma_2^*>}(I \to I') \cdot \pi_{-2}^{\sigma_1'}(I' \to I_2) \cdot SM_1(\sigma_1 , \sigma_1', S)
+    \ldots
+  \end{align*}
+  and by $\pi_2^{<\sigma_1', \sigma_2^*>} (I \to I') = 1$ we conclude
+  \begin{align*}
+    \ldots
     &= v_2^{<\sigma_1, CBR(\sigma_1)>} (I, a) - \pi^{\sigma_1'}_{-2}(I \to I') \; \pi_{-2}^{\sigma_1'}(I' \to I_2) \; SM_1(\sigma_1 , \sigma_1', S) \\
     &= v_2^{<\sigma_1, CBR(\sigma_1)>} (I, a) - \pi^{\sigma_1'}_{-2}(I \to I_2) \; SM_1(\sigma_1 , \sigma_1', S) \\
     &\le \left( \max_{a'\in A(I)} v_2^{<\sigma_1, CBR(\sigma_1)>} (I, a') \right) - \pi^{\sigma_1'}_{-2}(I \to I_2) \; SM_1(\sigma_1 , \sigma_1', S) \\
-    &= CBV_2^{\sigma_1}(I) - \pi^{\sigma_1'}_{-2}(I \to I_2) \; SM_1(\sigma_1 , \sigma_1', S)
+    &= CBV_2^{\sigma_1}(I) - \pi^{\sigma_1'}_{-2}(I \to I_2) \; SM_1(\sigma_1 , \sigma_1', S).
   \end{align*}
-  If $p(\emptyset) = 2$, then in a~zero-sum game $u_1(\sigma_1', CBR(\sigma_1')) = -CBV_2^{\sigma_1'}(\emptyset)$ and
+  If $p(\emptyset) = 2$, then in a~zero-sum game we have $u_1(\sigma_1', CBR(\sigma_1')) = -CBV_2^{\sigma_1'}(\emptyset)$ and
   $u_1(\sigma_1, CBR(\sigma_1)) = -CBV_2^{\sigma_1}(\emptyset)$.
-  Hence,
+  Hence, applying (\ref{eq:cbv-and-sm}) to the root
   \begin{align*}
-    \pi^{\sigma_1'}_{-2}(I_2) \; SM_1(\sigma_1 , \sigma_1', S)
+    \pi^{\sigma_1'}_{-2}(I_2) \cdot SM_1(\sigma_1 , \sigma_1', S)
     &\le CBV_2^{\sigma_1}(\emptyset) - CBV_2^{\sigma_1'}(\emptyset) \\
     &= u_1(\sigma_1', CBR(\sigma_1')) - u_1(\sigma_1, CBR(\sigma_1))
   \end{align*}
-  thus proving (\ref{eq:cbv-and-sm}).
-  If $p(\emptyset) \ne 2$, then we can simply add a~new state for player~$2$ at~the beginning of~the game.
-  From there, $2$ has one single action leading to~$\emptyset$.
+  proves the theorem.
+  If $p(\emptyset) \ne 2$, then we can simply add a~new state for player~$2$ at~the beginning of~the game, where $2$ has one single action leading to~$\emptyset$.
 \end{proof}
 Though this lower bound might seem artificial at~first, it has promising properties for the subgame refinement.
 Since we refine the strategy once we reach the subgame, either we face $2$'s \acrlong{br} that reaches $S$, or he has made a~mistake earlier in the game.
