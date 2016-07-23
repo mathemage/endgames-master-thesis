@@ -267,21 +267,29 @@ So zero-sum \acrshort{efg}s can be solved by (dual) linear programming for the \
 \epigraphLong{
   Perfecting oneself is as~much unlearning as~it is learning.
 }{Edsger Dijkstra}
-In~contrast to solving games by linear programming, we can approximate \acrlong{ne} using various \emph{learning algorithms}:
+In~contrast to solving games by linear programming, we can approximate \acrlong{ne} of~\acrshort{efg}s using various \emph{learning algorithms}:
 \begin{description}
-  \item [\acrfull{cfr}] is a~\emph{self-playing} algorithm.
+  \item [(Vanilla) \acrfull{cfr}] is a~\emph{self-playing} algorithm based on~\emph{regret matching}.
     In the learning phase, it improves itself by summing the total amount of~\emph{counterfactual regret} (a~regret related to counterfactual values), for every action at~each decision point.
-    The average strategy over all iterations converges towards a~\acrshort{ne} for the game, and is thus used as the final strategy for the play.
+    The average strategy over all iterations converges towards a~\acrshort{ne} for the game, and it is thus used as the final strategy during the play.
     (\cite{Zinkevich2007regret})
 
-  \item [\acrfull{mccfr}] (\cite{Johanson2012efficient})
+  \item [\acrfull{mccfr}] is a~\emph{Monte Carlo} version of~\acrshort{cfr}.
+    Rather than traversing the full game tree, it probabilistically samples actions to speed up computation per learning iteration.
+    The partial tree exploration is nevertheless compensated by weighting regrets with appropriate probabilities.
+    (\cite{Johanson2012efficient})
 
-  \item [\cfrplus] (\cite{Tammelin2015solving})
+  \item [\cfrplus] is a~new \acrshort{cfr}-type algorithm based on~\emph{regret-matching}\textsuperscript{+}.
+    A~\emph{cumulative counterfactual regret}\textsuperscript{+} ($\max(\cdot, 0)$) is used instead.
+    It typically outperforms the previously known algorithms by an~order of~magnitude or more in terms of~computation time, while also potentially requiring less memory.
+    Another advantage is that many of the cumulative regret values are zero, whereas in~\acrshort{cfr}, negative regret continues to accumulate indefinitely.
+    This reduces the entropy of~the data needed during the computation. 
+    (\cite{Tammelin2015solving})
 \end{description}
 These iterative methods run faster than methods with sequence-form \acrshort{lp}s, and use significantly less memory.
 Moreover, they guarantee a~convergence to \acrlong{ne} in~limit.
 Therefore, they currently prevail as dominant solutions, and are standardly used for solving large imperfect-information games.
-For an~overview, consult also (\cite{Bosansky2013solving}).
+For a~detailed overview, consult also (\cite{Bosansky2013solving}).
 
 \section{Subgames Revisited}
 \label{sec:subgames-revisited}
