@@ -269,7 +269,10 @@ So zero-sum \acrshort{efg}s can be solved by (dual) linear programming for the \
 }{Edsger Dijkstra}
 In~contrast to solving games by linear programming, we can approximate \acrlong{ne} using various \emph{learning algorithms}:
 \begin{description}
-  \item [\acrfull{cfr}] (\cite{Zinkevich2007regret})
+  \item [\acrfull{cfr}] is a~\emph{self-playing} algorithm.
+    In the learning phase, it improves itself by summing the total amount of~\emph{counterfactual regret} (a~regret related to counterfactual values), for every action at~each decision point.
+    The average strategy over all iterations converges towards a~\acrshort{ne} for the game, and is thus used as the final strategy for the play.
+    (\cite{Zinkevich2007regret})
 
   \item [\acrfull{mccfr}] (\cite{Johanson2012efficient})
 
