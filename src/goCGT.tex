@@ -22,7 +22,7 @@ In~the words of~Google DeepMind (\cite{Silver2016mastering}), Go serves as~``the
 }
 \vskip 1.5em
 Martin~\Mueller{} in~(\cite{Muller1995computer}) reports that (at that time) Go programs ``comprehend only the most basic concepts of~Go'' and that
-``to make progress, [he~feels] it is necessary both to encode more Go-specific knowledge and to push forward the application of~theories such as combinatorial game theory to Go''.
+``to make progress, [he~feels] it is necessary both to encode more Go-specific knowledge and to push forward the application of~theories such as \acrlong{cgt} to Go''.
 Here follows the summary and the results of~his endeavors.
 
 \section{Why Focus on Go Endgames?}
@@ -58,7 +58,7 @@ The connected components of~remaining stones define local subgames independent f
 In the opening and midgame, only approximate partitioning can be available.
 In the endgame, conversely, the partition gets more precise:
 the status of~all big groups has been settled, and the outlines of~territories are clear.
-If each local game is simple enough to~analyze completely (such as in Figure~\ref{fig:immortal-wall}), combinatorial game theory can compute an~optimal move for the full board position.
+If each local game is simple enough to~analyze completely (such as in Figure~\ref{fig:immortal-wall}), \acrshort{cgt} can compute an~optimal move for the full board position.
 (\cite{Muller1995computer})
 
 This is the general procedure of~(\cite{Muller1995computer}) for playing Go as a~sum of~local games:
@@ -67,7 +67,7 @@ This is the general procedure of~(\cite{Muller1995computer}) for playing Go as a
   \item Generate local game trees in each area.
   \item Evaluate local terminal positions.
   \item Transform local game trees into mathematical games (and simplify games).
-  \item Find an optimal move in the (combinatorial game theory) sum-game and play it.
+  \item Find an optimal move in the (\acrshort{cgt}) sum-game and play it.
 \end{enumerate}
 \Mueller{} proposes heuristic algorithms for playing the entire game, and exact algorithms for late endgame positions.
 
@@ -120,13 +120,13 @@ The strict endgame analysis of~(\cite{Muller1995computer}) is additionally impos
   \item \textbf{summation:}
     No~move with dominating incentive exists, and both summing and partial search would take too long.
   \item \textbf{Ko:}
-    Combinatorial game theory relies on the independence of~local subgames.
+    \acrshort{cgt} relies on the independence of~local subgames.
     In the case of~Ko, the independence is broken:
     a~locally bad move may be globally best if it serves as a~Ko threat (recall Section~\ref{sec:Go}).
-    \Mueller{} mentions in~1995 there was ongoing research to generalize the theory for handling Kos.
+    \Mueller{} mentioned in~1995 there was ongoing research to generalize the theory for handling Kos.
   \item \textbf{Unneccessary complexity in ``straightforward'' situations:}
-    In cases where the focus of~play is straightforward (i.e. only one local situation is relevant), combinatorial game theory introduces additional complexity.
-    Namely, CGT investigates moves for~both players in~this and every other position.
+    In cases where the focus of~play is straightforward (i.e. only one local situation is relevant), \acrshort{cgt} introduces additional complexity.
+    Namely, \acrshort{cgt} investigates moves for~both players in~this and every other position.
 \end{itemize}
 
 \section{Board Partition and Subgame Dependencies}
@@ -326,13 +326,13 @@ Conclusively, (\cite{Muller1995computer}) suggests \emph{pattern matching} as a~
 and following contributions to computer Go:
 \begin{itemize}
   \item ``We have implemented a~\emph{late endgame player}, a~niche where program play surpasses human play in both speed and exactness.
-    We did this by applying concepts from combinatorial game theory to Go.
+    We did this by applying concepts from \acrshort{cgt} to Go.
     The program plays a~wide variety of`late endgame positions perfectly.''
 
   \item ``We have developed algorithms for board partition and dependency analysis.''
 \end{itemize}
-Hence, the work employs a~technique of~applying an~elaborate mathematical theory (of~combinatorial game theory) to deal with the endgame phase.
-In particular, CGT is used to ``connect'' individual relevant subgames, which may be solved independently.
+Hence, the work employs a~technique of~applying an~elaborate mathematical theory (of~\acrshort{cgt}) to deal with the endgame phase.
+In particular, \acrshort{cgt} is used to ``connect'' individual relevant subgames, which may be solved independently.
 
 As we will see later, the situation in the case of~Poker is slightly more delicate:
 the imperfect-information property prevents us from using an~immediate divide-and-conquer approach.
