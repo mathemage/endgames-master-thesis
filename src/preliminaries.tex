@@ -29,19 +29,30 @@ Forms:
 
 \section{Examples of~Games}
 
-\todo %Describe the games and how the game-theoretic definitions from above look like in these examples
+\newcommand{\figurewidthratio}{0.3}
+\begin{description}
+  \item [Rock-paper-scissors]
+  \item [Chess]
+  \item [Go]
+  \item [Poker]
 
-\begin{itemize}
-  \item{Rock-paper-scissors}
-  \item{Chess}
-  \item{Poker}
-\end{itemize}
+  \item [Matching Pennies] is a~$2$-choice version of~Rock-paper-scissors.
+    Two players, \emph{Matcher} and \emph{Mismatcher}, toss two penny coins.
+    If the coins match, Matcher wins (receives the utility of~$1$) and Mismatcher loses (receives the utility of~$-1$) .
+    If the coins mismatch, Mismatcher wins and Matcher loses.
+    \begin{figure}[H]
+      \centering
+      \includegraphics[width=.3\textwidth]{../img/matching-pennies.png}
+      \caption[Matching Pennies]{Matching Pennies: player~$1$ as the Matcher, player~$2$ as the Mismatcher}
+      \label{fig:matching-pennies}
+    \end{figure}
+
+\end{description}
 
 \note{
   The following examples and figures are taken from the classic textbook \emph{Algorithmic Game Theory} (\cite{AGT07}).
 }
 
-\newcommand{\figurewidthratio}{0.3}
 \begin{itemize}
   \item \emph{Prisoner's dilemma} \todo
     \begin{figure}[H]
@@ -77,15 +88,6 @@ Forms:
       \includegraphics[width=0.65\paperwidth]{../img/routing-congestion-game.png}
       \caption{Routing congestion game}
       \label{fig:routing-congestion}
-    \end{figure}
-
-  \item \emph{Matching pennies} can be considered as a $2$-choice reduction of Rock-paper-scissors.
-
-    \begin{figure}[H]
-      \centering
-      \includegraphics[width=\figurewidthratio\paperwidth]{../img/matching-pennies.png}
-      \caption{Matching pennies}
-      \label{fig:matching-pennies}
     \end{figure}
 
   \item \emph{Pricing game} is an~example of a~game without a~(mixed) \acrshort{ne}.
