@@ -20,14 +20,15 @@ A~\emph{(simultaneous move) game} consists of: \todo
 \subsection{Representation of Games}
 
 \todo
+Forms:
 \begin{itemize}
-  \item standard (matrix) form
-  \item compactly represented game
+  \item \acrfull{nfg}
+  \item \acrfull{efg}
 \end{itemize}
 
 There will be other kinds of representation for extensive form games (see Section~\ref{sec:extensive-form-perf-info} and Section~\ref{sec:extensive-form-imperf-info}).
 
-\subsection{Standard Examples}
+\section{Examples of~Games}
 
 \todo %Describe the games and how the game-theoretic definitions from above look like in these examples
 
@@ -37,78 +38,8 @@ There will be other kinds of representation for extensive form games (see Sectio
   \item{Poker}
 \end{itemize}
 
-\section{Combinatorial Game Theory}
-\label{sec:CGT}
-
-\todo
-
-\section{The Game of Go}
-\label{sec:Go}
-
-\subsection{Rules}
-
-\emph{Black} and \emph{White} place pieces (\emph{stones}) on the unoccupied intersections (\emph{points}) of a~\emph{board} with a~$19\times19$ grid of~lines.
-Players take turns, Black moves first.
-There are only 2 basic rules of Go:
-\begin{description}
-  \item [The rule of liberty]
-    Every stone remaining on the board must have at least one open point (an~intersection, called a~\emph{liberty}) directly next to it (up, down, left, or right), or must be part of a~connected group that has at least one such liberty next to it.
-    \begin{figure}[H]
-      \centering
-      \includegraphics[width=.5\textwidth]{../img/Go_rule_of_liberty.png}
-      \caption{The rule of liberty}
-      \label{fig:Go-rule-liberty}
-    \end{figure}
-
-    Stones or groups of stones which lose their last liberty are removed from the board.
-
-  \item [The ``ko'' rule]
-    The stones on the board must never repeat a~previous position of~stones.
-    This is to prevent unending cycles.
-    \begin{figure}[H]
-      \centering
-      \includegraphics[width=.5\textwidth]{../img/Go_ko_rule.png}
-      \caption{The ``ko'' rule}
-      \label{fig:Go-Ko-rule}
-    \end{figure}
-
-\end{description}
-
-\subsection{Scoring, Ranks and Handicaps}
-
-There are several \textbf{scoring rules} to determine the winner of a~game.
-In the match of~AlphaGo against Lee Sedol,%
-\footnote{See Chapter~\ref{ch:AlphaGo}.}
-the \emph{area scoring} was used.
-Under area scoring system, player's score is:
-\begin{itemize}
-  \item the number of stones that the player has on the board
-  \item plus the number of~empty intersections surrounded by that player's stones
-  \item plus \emph{komi(dashi)} points%
-    \footnote{a~compensation for the first move advantage of~the Black player}
-    for the White player
-\end{itemize}
-
-\emph{Elo rating} can be used to denote players' \textbf{ranks}.
-Alternatively, \emph{kyu/dan} (in~Japanese) or \emph{gup/dan} (in~Korean) system is also vastly popular:
-\begin{figure}[H]
-  \centering
-  \includegraphics[width=.8\textwidth]{../img/Go_kyu_dan.png}
-  \caption{Kyu/Gup and Dan ranks}
-  \label{fig:Go-ranks}
-\end{figure}
-
-\textbf{Handicap} system is used to even up differences in ranks:
-Black can place 1 or more stones in advance as a~compensation for White's greater strength.
-
-\section{Algorithmic Game Theory}
-
-\subsection{What Is Algorithmic Game Theory?}
 One of the classic textbook is the extensive \emph{Algorithmic Game Theory} (\cite{AGT07}).
 \todo
-
-\subsection{Examples from Algorithmic Game Theory}
-
 The following games capture various game-theoretic properties and the ``real-life'' counterparts of these games in the fields such as networking, economy etc.
 The examples and figures are taken from \emph{Algorithmic Game Theory} (\cite{AGT07}).
 
@@ -179,3 +110,66 @@ The examples and figures are taken from \emph{Algorithmic Game Theory} (\cite{AG
 
   \item \emph{Ultimatum game}
 \end{itemize}
+\section{The Game of Go}
+\label{sec:Go}
+
+\subsection{Rules}
+
+\emph{Black} and \emph{White} place pieces (\emph{stones}) on the unoccupied intersections (\emph{points}) of a~\emph{board} with a~$19\times19$ grid of~lines.
+Players take turns, Black moves first.
+There are only 2 basic rules of Go:
+\begin{description}
+  \item [The rule of liberty]
+    Every stone remaining on the board must have at least one open point (an~intersection, called a~\emph{liberty}) directly next to it (up, down, left, or right), or must be part of a~connected group that has at least one such liberty next to it.
+    \begin{figure}[H]
+      \centering
+      \includegraphics[width=.5\textwidth]{../img/Go_rule_of_liberty.png}
+      \caption{The rule of liberty}
+      \label{fig:Go-rule-liberty}
+    \end{figure}
+
+    Stones or groups of stones which lose their last liberty are removed from the board.
+
+  \item [The ``ko'' rule]
+    The stones on the board must never repeat a~previous position of~stones.
+    This is to prevent unending cycles.
+    \begin{figure}[H]
+      \centering
+      \includegraphics[width=.5\textwidth]{../img/Go_ko_rule.png}
+      \caption{The ``ko'' rule}
+      \label{fig:Go-Ko-rule}
+    \end{figure}
+
+\end{description}
+
+\subsection{Scoring, Ranks and Handicaps}
+
+There are several \textbf{scoring rules} to determine the winner of a~game.
+In the match of~AlphaGo against Lee Sedol,%
+\footnote{See Chapter~\ref{ch:AlphaGo}.}
+the \emph{area scoring} was used.
+Under area scoring system, player's score is:
+\begin{itemize}
+  \item the number of stones that the player has on the board
+  \item plus the number of~empty intersections surrounded by that player's stones
+  \item plus \emph{komi(dashi)} points%
+    \footnote{a~compensation for the first move advantage of~the Black player}
+    for the White player
+\end{itemize}
+
+\emph{Elo rating} can be used to denote players' \textbf{ranks}.
+Alternatively, \emph{kyu/dan} (in~Japanese) or \emph{gup/dan} (in~Korean) system is also vastly popular:
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=.8\textwidth]{../img/Go_kyu_dan.png}
+  \caption{Kyu/Gup and Dan ranks}
+  \label{fig:Go-ranks}
+\end{figure}
+
+\textbf{Handicap} system is used to even up differences in ranks:
+Black can place 1 or more stones in advance as a~compensation for White's greater strength.
+
+\section{Combinatorial Game Theory}
+\label{sec:CGT}
+\todo
+
