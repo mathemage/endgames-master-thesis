@@ -26,19 +26,18 @@ For more illustration, study the example in Section~\ref{sec:intricate-ex} (take
   Spock vaporizes rock.
   And as it always has, rock crushes scissors.
 }{Sheldon Cooper (\emph{The Big Bang Theory}), Season~2, Episode~8}
-To see the difficulties of~combining a~re-solved subgame strategy with an~original trunk strategy, we will consider \emph{rock-paper-scissors}\footnotemark{} as our running example:
-\footnotetext{a~3-choice extension of~\emph{matching pennies} (Figure~\ref{fig:matching-pennies})}
+To see the difficulties of~combining a~re-solved subgame strategy with an~original trunk strategy, we will consider \emph{\acrshort{rps}} as our running example:
 \begin{figure}[H]
   \centering
   \scriptsize
   \def\svgwidth{.45\textwidth}
   \input{../img/rock-paper-scissors-ext-form.pdf_tex}
-  \def\captionTitle{Extensive form of~rock-paper-scissors}
+  \def\captionTitle{Extensive form of~\acrshort{rps}}
   \caption[\captionTitle]{\captionTitle: Scissors cuts paper. Paper covers rock. Rock crushes scissors. (\cite{Ganzfried2015endgame, BurchJohansonBowling2014})}
   \label{fig:game-tree-rock-paper-scissors}
 \end{figure}
 
-Figure~\ref{fig:game-tree-rock-paper-scissors} displays the extensive form of~rock-paper-scissors:
+Figure~\ref{fig:game-tree-rock-paper-scissors} displays the extensive form of~\acrshort{rps}:
 rather than showing the choices simultaneously, the two players take turns in~picking their action.
 However, their decisions are mutually hidden, and revealed only at~the end.
 
@@ -51,13 +50,13 @@ This imperfect information represents the fact that he is unaware of~1's precedi
   Every mathematical discipline goes through three periods of development:
   the na{\"i}ve, the formal, and the critical.
 }{David Hilbert}
-One apparent subgame (recall Definition~\ref{defn:subgame}) of~rock-paper-scissors is the endgame when player~2 picks his choice:
+One apparent subgame (recall Definition~\ref{defn:subgame}) of~\acrshort{rps} is the endgame when player~2 picks his choice:
 \begin{figure}[H]
   \centering
   \scriptsize
   \def\svgwidth{.25\textwidth}
   \input{../img/rock-paper-scissors-subgame.pdf_tex}
-  \def\captionTitle{An~(imperfect-information) subgame~$S$ of~rock-paper-scissors}
+  \def\captionTitle{An~(imperfect-information) subgame~$S$ of~\acrshort{rps}}
   \captionWithCite{\captionTitle}{BurchJohansonBowling2014}
   \label{fig:subgame-rock-paper-scissors}
 \end{figure}
@@ -73,7 +72,7 @@ It is not enough to~na{\"i}vely re-solve subgame~$S$ with the~assumption of~a~fi
 \end{claim}
 \begin{proof}
   Suppose the initial strategy $\sigma = (\sigma_1, \sigma_2)$ is uniformly random\footnotemark{}.
-  Evidently, $\sigma$ is an~equilibrium for the full game of~rock-paper-scissors.
+  Evidently, $\sigma$ is an~equilibrium for the full game of~\acrshort{rps}.
   \footnotetext{Every move is selected with the same probability $\frac{1}{3}$.}
 
   Now, if we discard the trunk and assume the fixed trunk strategy~$\sigma_1$, player~2 is to be in~any of~the states $\I_2 = \{2_R, 2_P, 2_S\}$ with the equal probability.
@@ -95,7 +94,7 @@ It is not enough to~na{\"i}vely re-solve subgame~$S$ with the~assumption of~a~fi
 \epigraphLong{
   Help me, Obi-Wan Kenobi; you're my only hope.
 }{Princess Leia (\emph{Star Wars: Episode IV -- A New Hope})}
-The dismal example of~rock-paper-scissors shows the obstacles of~na{\"i}vely using the same approach as~with the perfect-information case.
+The dismal example of~\acrshort{rps} shows the obstacles of~na{\"i}vely using the same approach as~with the perfect-information case.
 Solving subgames separately thus appear as an~impossible mission. 
 
 However, in the following chapters we will look into two recent techniques, which deal with imperfect-information subgames in a~promising way:
