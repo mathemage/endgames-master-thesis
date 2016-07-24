@@ -18,5 +18,6 @@ clean:
 	rm -f thesis.pdf
 
 purge:
-	rm -f *.log *.dvi *.aux *.toc *.lof *.lot *.out *.bbl *.blg *._aux *._log *.nav *.synctex.gz *.project.vim .tmp/* *-blx.bib *.run.xml *.snm *.bcf
+	rm .tmp/ -rf
+	rm -f *.log *.dvi *.aux *.toc *.lof *.lot *.out *.bbl *.blg *._aux *._log *.nav *.synctex.gz *.project.vim .tmp/* *-blx.bib *.run.xml *.snm *.bcf *.acn *.alg *.glg *.gls *.ist *.acr *.glo
 	rm -f thesis.pdf
