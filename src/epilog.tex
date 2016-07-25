@@ -7,7 +7,7 @@
   Unfortunately, it might also be the last.
 }{Stephen Hawking}
 Endgames have special role in~games:
-the situation towards the end becomes simpler and many game aspects are already clear, e.g. division of~territories in~Go or surviving pieces in~Chess.
+the situation towards the end becomes simpler and many game aspects are already clear, e.g. division of~territories in~Go or remaining pieces in~Chess.
 Endgames therefore offer the opportunity to analyze the game exhaustively, more than would be possible during an~opening or a~mid-game.
 Such an~approach is fruitful in~games with perfect information and has been used extensively:
 the perfect play of~Chess endgames has been pre-computed for up to 7 pieces, while Go endgames may undergo dynamical in-play analysis, either using \acrlong{cgt} or Monte Carlo simulations.
@@ -26,5 +26,16 @@ a~gap between the original and the new \acrlong{cbv}s.
 We related the \acrshort{sm} to the exploitability against a~\acrlong{br}, and we proved the overall improvement rising from endgame improvement is proportional to the \acrshort{sm}.
 
 Maximizing \acrshort{sm} is thus highly advisable.
-That can be achieved either by solving a~variant of a~sequence-form \acrlong{lp}, or by applying an~iterative learning algorithm to a~\emph{gadget game}, an~ad-hoc equivalent \acrlong{efg}.
-The latter approach offers great benefits in~terms of~exploiting domain-specific knowledge or employing powerful learning algorithms such as \acrshort{cfr}, \acrshort{mccfr} or the~modern \cfrplus{} that we chose.
+That can be achieved either by solving a~variant of a~sequence-form \acrlong{lp}, or by applying an~iterative learning algorithm to a~\emph{gadget game}, an~equivalent ad-hoc \acrlong{efg}.
+The latter approach offers greater benefits in~terms of~exploiting domain-specific knowledge and employing powerful learning algorithms such as \acrshort{cfr}, \acrshort{mccfr} or the~modern \cfrplus{} that we chose to solve our \emph{max-margin gadget}.
+
+Finally, we experimentally compared the following approaches:
+\begin{enumerate}[(i)]
+  \item endgame solving (\cite{Ganzfried2015endgame})
+  \item \acrshort{cfr-d} and decomposition (\cite{BurchJohansonBowling2014})
+  \item our subgame-margin maximization (\cite{Moravcik2016refining})
+\end{enumerate}
+The (i) even produced a~worse \acrshort{sm}, leading to more exploitable subgame strategies;
+and although the \acrshort{sm} of~(ii) increased over time, the improvement was not significant, as the method guarantees only the same quality, not the best one.
+Hence our (iii), specially designed to maximize \acrshort{sm}s, proved to re-create the most robust (i.e. the least exploitable) subgame strategy.
+We thus offer a~superior solution to treating subgames.
