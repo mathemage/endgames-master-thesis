@@ -6,16 +6,11 @@
   Success in~creating AI would be the biggest event in~human history.
   Unfortunately, it might also be the last.
 }{Stephen Hawking}
-Endgames have special role in~games:
-the situation towards the end becomes simpler and many game aspects are already clear, e.g., division of~territories in~Go or remaining pieces in~Chess.
-Endgames therefore offer the opportunity to analyze the game exhaustively, more than would be possible during an~opening or a~mid-game.
-Such an~approach is fruitful in~games with perfect information and has been used extensively:
-the perfect play of~Chess endgames has been pre-computed for up to 7 pieces, while Go endgames may undergo dynamical in-play analysis, either using \acrlong{cgt} or Monte Carlo simulations.
-
+Perfect-information endgames can be solved by backward induction, where solutions to subgames are propagated up the game tree.
 For the imperfect information, on~the other hand, endgames need to be adjusted in~order to account for information sets.
 This gives rise to a~new definition of~an~(imperfect-information) \emph{subgame}.
-As such, the definition does not directly allow to apply the same procedure from perfect-information endgames:
-even under the simplest conditions of~the \acrlong{rps} game, a~na{\"i}ve endgame re-solution fails to form a~\acrlong{ne}.
+As such, the definition does not directly allow to apply the same procedure as in~perfect-information endgames:
+under even the simplest conditions of~the \acrlong{rps} game, a~na{\"i}ve endgame re-solution fails to form a~\acrlong{ne}.
 
 This occurs because the opponent can change his behavior prior to the endgame.
 Such an~exploitation power can be captured by~a~\emph{counterfactual value}:
@@ -29,13 +24,13 @@ Maximizing \acrshort{sm} is thus highly advisable.
 That can be achieved either by solving a~variant of a~sequence-form \acrlong{lp}, or by applying an~iterative learning algorithm to a~\emph{gadget game}, an~equivalent ad-hoc \acrlong{efg}.
 The latter approach offers greater benefits in~terms of~exploiting domain-specific knowledge and employing powerful learning algorithms such as \acrshort{cfr}, \acrshort{mccfr} or the~modern \cfrplus{} that we chose to solve our \emph{max-margin gadget}.
 
-Finally, we experimentally compared the following approaches:
+Finally, we experimentally compared the three contemporary approaches to solving endgames:
 \begin{enumerate}[(i)]
   \item endgame solving (\cite{Ganzfried2015endgame})
   \item \acrshort{cfr-d} and decomposition (\cite{BurchJohansonBowling2014})
   \item our subgame-margin maximization (\cite{Moravcik2016refining})
 \end{enumerate}
-The (i) even produced a~worse \acrshort{sm}, leading to more exploitable subgame strategies;
-and although the \acrshort{sm} of~(ii) increased over time, the improvement was not significant, as the method guarantees only the same quality, not the best one.
-Hence our (iii), specially designed to maximize \acrshort{sm}s, proved to re-create the most robust (i.e., the least exploitable) subgame strategy.
+The results of~the experiments showed that (i) even produced a~worse \acrshort{sm}, leading to more exploitable subgame strategies;
+and although the \acrshort{sm} of~(ii) increased over time, the improvement was not significant, as the method guarantees only the same (or comparable) quality, not the best one.
+Since our (iii) was specially designed to maximize \acrshort{sm}s, it re-created the most robust (i.e., the least exploitable) subgame strategy.
 We thus offer a~superior solution to treating subgames.
