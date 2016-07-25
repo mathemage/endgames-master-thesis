@@ -74,14 +74,34 @@ Forms:
 
 \begin{description}
   \item [Matching Pennies] is a~$2$-choice version of~\acrshort{rps}.
-    Two players, \emph{Matcher} and \emph{Mismatcher}, toss two penny coins.
-    If the coins match, Matcher wins (receives the utility of~$1$) and Mismatcher loses (receives the utility of~$-1$) .
+    Two players, \emph{Matcher} and \emph{Mismatcher}, toss two coins (pennies).
+    If the coins match, Matcher wins (receives the utility of~$1$) and Mismatcher loses (receives the utility of~$-1$).
     If the coins mismatch, Mismatcher wins and Matcher loses.
     \begin{figure}[H]
       \centering
       \includegraphics[width=.3\textwidth]{../img/matching-pennies.png}
       \caption[Matching Pennies]{Matching Pennies: player~$1$ as the Matcher, player~$2$ as the Mismatcher}
       \label{fig:matching-pennies}
+    \end{figure}
+
+  \item [Prisoner's Dilemma] is a~notorious example from game theory.
+    Two players, prisoners, are on~trial for a~crime, each with choice to confess or to remain silent.
+
+    If they both keep silence, charges against them cannot be proved, and both will serve a~short prison term of~2~years (for minor offenses).
+    If just one of~them confesses, his term will be reduced to 1~year and he will be used as a~witness against the other, who in~turn will get a~sentence of~5~years.
+    Finally, if they both confess, they both will get a~small relief for cooperation, and each will be sentenced to 4~years instead of~5.~(\cite[Section~1.1.1]{AGT07})
+    \begin{figure}[H]
+      \centering
+      \includegraphics[width=.25\paperwidth]{../img/prisoner.png}
+      \caption{Prisoner's Dilemma}
+      \label{fig:prisoner}
+    \end{figure}
+
+    \begin{figure}[H]
+      \centering
+      \includegraphics[width=.25\paperwidth]{../img/isp.png}
+      \caption{ISP routing game}
+      \label{fig:isp-routing}
     \end{figure}
 
   \item [Traffic Light]
@@ -113,22 +133,6 @@ Forms:
 \end{description}
 
 \begin{itemize}
-  \item \emph{Prisoner's dilemma} \todo
-    \begin{figure}[H]
-      \centering
-      \includegraphics[width=\figurewidthratio\paperwidth]{../img/prisoner.png}
-      \caption{Prisoner's dilemma}
-      \label{fig:prisoner}
-    \end{figure}
-
-    \begin{figure}[H]
-      \centering
-      \includegraphics[width=\figurewidthratio\paperwidth]{../img/isp.png}
-      \caption{ISP routing game}
-      \label{fig:isp-routing}
-    \end{figure}
-
-
   \item \emph{Pollution game} is a multi-player version of Prisoner's dilemma \todo
 
   \item Another coordination game is the \emph{Routing congestion game}, taken from the world of networking
