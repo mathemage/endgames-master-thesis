@@ -75,11 +75,11 @@ Inspired by biological neural networks, an~artificial neural network (ANN, see F
 ANNs can be defined as~statistical learning models that are used to approximate functions which depend on a~large number of~inputs.
 Neural networks are typically used when the volume of~inputs is far too large for~standard machine learning approaches.
 
-\textbf{Convolutional neural network} (CNN) is a~neural network suitable for high-dimensional inputs (e.g., a~large number of~pixels in an~image).
-CNNs are frequently used in~computer vision (for identifying objects in an~image, for face detection in~photos etc.).
+\textbf{\acrfull{cnn}} is a~neural network suitable for high-dimensional inputs (e.g., a~large number of~pixels in an~image).
+\acrshort{cnn}s are frequently used in~computer vision (for identifying objects in an~image, for face detection in~photos etc.).
 They are invariant to expectable transformations of~input, such as translations of~objects in~a~picture or changes in~illumination.
 
-\textbf{Deep neural network} (DNN) is a~neural network with many hidden layers.
+\textbf{Deep neural network (DNN)} is a~neural network with many hidden layers.
 It can model complex non-linear relationships, e.g., in~speech, in~images, in~videos or in~board positions of~Go.
 
 \section{Pipeline of Neural Networks}
@@ -89,7 +89,7 @@ It can model complex non-linear relationships, e.g., in~speech, in~images, in~vi
 
   If AI appeared to hit a~brick wall after a~few quick victories, it did so owing to~its inability to~emulate these processes.
 }{Daniel Crevier}
-AlphaGo employs two kinds of deep convolutional neural networks---a~\emph{policy network} (for move selection) and a~\emph{value network} (for board evaluation).
+AlphaGo employs two kinds of deep \acrshort{cnn}s---a~\emph{policy network} (for move selection) and a~\emph{value network} (for board evaluation).
 \begin{figure}[H]
   \centering
   \includegraphics[width=.5\textwidth]{../img/policy_and_value_network.png}
@@ -105,11 +105,11 @@ In the following Figure~\ref{fig:neural_nets_pipeline}, we can view the whole tr
   \label{fig:neural_nets_pipeline}
 \end{figure}
 
-\textbf{Rollout policy} $p_\pi$ is a~CNN rapidly sampling actions during a~\emph{rollout} (a~fast-forward simulation from a~position to the end of~the game).
+\textbf{Rollout policy} $p_\pi$ is a~\acrshort{cnn} rapidly sampling actions during a~\emph{rollout} (a~fast-forward simulation from a~position to the end of~the game).
 It predicts expert human moves much faster but less accurately than $p_\sigma$ (see below).
 The output is a~probability distribution over all moves.
 
-\textbf{Policy network} is a~CNN selecting moves.
+\textbf{Policy network} is a~\acrshort{cnn} selecting moves.
 It addresses the problem of the game-tree breadth.
 There are two flavors of~these networks:
 \begin{itemize}
@@ -117,7 +117,7 @@ There are two flavors of~these networks:
   \item \textbf{RL policy network} $p_\rho$ is trained by \underline{r}einforcement \underline{l}earning to win in the~games of~self-play.
 \end{itemize}
 
-\textbf{Value network} $v_\theta$ is a~CNN evaluating board positions, so as to address the problem of the game-tree depth.
+\textbf{Value network} $v_\theta$ is a~\acrshort{cnn} evaluating board positions, so as to address the problem of the game-tree depth.
 It is trained by regression to predict the outcome in~positions of~the self-played games.
 
 \section{Main Algorithm of~AlphaGo}
