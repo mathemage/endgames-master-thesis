@@ -30,16 +30,16 @@ Formally, an~\emph{\acrfull{efg}} for a~perfect-information game (\cite[p.~200]{
 \begin{itemize}
   \item a~finite set of~\emph{players}~$P$,
 
-  \item a~finite set $H$ of~all possible \emph{histories} (i.e. paths from the root to vertices of~the game tree), where
+  \item a~finite set $H$ of~all possible \emph{histories} (i.e., paths from the root to vertices of~the game tree), where
     \begin{itemize}
-      \item each history consists of~individual \emph{actions} (i.e. tree edges),
+      \item each history consists of~individual \emph{actions} (i.e., tree edges),
       \item $\emptyset \in H$ (the root of~the game tree),
       \item relation~$h \sqsubseteq h'$ denotes that history~$h$ is a~prefix of $h'$,
       \item if $h' \in H$ and $h \sqsubseteq h'$, then $h \in H$,
-      \item set $Z \subseteq H$ is the set of \emph{terminal histories}, i.e. histories that are not prefixes of~any other histories.
+      \item set $Z \subseteq H$ is the set of \emph{terminal histories}, i.e., histories that are not prefixes of~any other histories.
     \end{itemize}
 
-  \item the set of available actions $A(h) = \braces{a: (h, a) \in H}$ for every (non-terminal) node $h \in H \setminus Z$ (i.e. edges to~children in the game tree),
+  \item the set of available actions $A(h) = \braces{a: (h, a) \in H}$ for every (non-terminal) node $h \in H \setminus Z$ (i.e., edges to~children in the game tree),
 
   \item a~function $p\colon P \to H \setminus Z$, which assigns an~\emph{acting player} $p(h)$ to each non-terminal history~$h$.
 
@@ -47,7 +47,7 @@ Formally, an~\emph{\acrfull{efg}} for a~perfect-information game (\cite[p.~200]{
 \end{itemize}
 We will also need the notion of~a~strategy, the expected utility and a~best response.
 \begin{itemize}
-  \item A~(behavior) \emph{strategy}~$\sigma_i$ of player~$i$ defines a~probability distribution over actions $A(h)$ wherever he acts (i.e. at~every node~$h \in H$ with $p(h) = i$).
+  \item A~(behavior) \emph{strategy}~$\sigma_i$ of player~$i$ defines a~probability distribution over actions $A(h)$ wherever he acts (i.e., at~every node~$h \in H$ with $p(h) = i$).
     The set~$\Sigma_i$ contains all possible strategies for player~$i$.
 
   Additionally, a~strategy can be \emph{pure} (just one action is strictly chosen everywhere) or \emph{mixed} (a~probability distribution over pure strategies).
@@ -129,7 +129,7 @@ If we fix opponents' strategies, it is only beneficial to re-solve subgames:%
     \label{eq:opt-val-of-subgame}
     u_i^r(\sigma^*) \ge u_i^r(\sigma_S)
   \end{equation}
-  The new re-combined strategy $\sigma'$ (i.e. $\sigma^*$ within~$S$, and the original $\sigma$ elsewhere) cannot decrease $i$'s utility:
+  The new re-combined strategy $\sigma'$ (i.e., $\sigma^*$ within~$S$, and the original $\sigma$ elsewhere) cannot decrease $i$'s utility:
   \begin{align*}
     u_i(\sigma')
     %
@@ -171,20 +171,20 @@ no opponent can exploit the newly computed sub-strategy by adjusting his play (e
   \footnotetext{This method recursively selects the action with the maximum utility, or any of~them in~the case of~multiplicity.}
 
   Let $T_h$ be the subtree rooted at~$h$.
-  If $T_h$ does not contain $S$ (i.e. $h \not\sqsubseteq r$), then the best responses $\sigma_{-i}$ and $\sigma^*_{-i}$ are identical within $T_h$, which trivially implies $u_i^h (\sigma) = u_i^h (\sigma^*)$.
+  If $T_h$ does not contain $S$ (i.e., $h \not\sqsubseteq r$), then the best responses $\sigma_{-i}$ and $\sigma^*_{-i}$ are identical within $T_h$, which trivially implies $u_i^h (\sigma) = u_i^h (\sigma^*)$.
   On~the other hand, if $T_h$ does contain $S$, we will prove the inequality by~mathematical induction on the height of~$T_h$.
 
   For the base case, the minimum-height tree containing $S$ is the subgame tree $S \equiv T_r$ itself, where the inequality holds by assumptions.
   For the inductive step, let node~$h$ has $k$ children $h_1, \dots h_k$, and without loss of~generality, $T_{h_1}$ contains $S$.
   By~the induction hypothesis, $u_i^{h_1} (\sigma) \le u_i^{h_1} (\sigma^*)$.
-  Because the subtrees of~the remaining children don't contain $S$ (i.e. $h_j \not\sqsubseteq r$ for $j = 2, \dots, k$), $\sigma$ and $\sigma^*$ are equal there.
+  Because the subtrees of~the remaining children don't contain $S$ (i.e., $h_j \not\sqsubseteq r$ for $j = 2, \dots, k$), $\sigma$ and $\sigma^*$ are equal there.
   Hence, $u_i^{h_j} (\sigma) = u_i^{h_j} (\sigma^*)$ for $j = 2, \dots, k$.
   Therefore, we have
   \begin{equation}
     \label{eq:children-inc-util}
     u_i^{h_j}(\sigma) \le u_i^{h_j}(\sigma^*)
   \end{equation}
-  If $i$ is the acting player of~$h$ (i.e. $p(h) = i$), then by~expressing utilities as weighted sums of~children's utilities we get
+  If $i$ is the acting player of~$h$ (i.e., $p(h) = i$), then by~expressing utilities as weighted sums of~children's utilities we get
   \begin{align*}
     u_i^h(\sigma)
     %
@@ -197,7 +197,7 @@ no opponent can exploit the newly computed sub-strategy by adjusting his play (e
     %
     = u_i^h(\sigma^*)
   \end{align*}
-  On the other hand, if the opponent is the one who is acting (i.e. $p(h) \ne i$), he aims to choose the action with $i$'s minimum utility (due to the zero-sum property):
+  On the other hand, if the opponent is the one who is acting (i.e., $p(h) \ne i$), he aims to choose the action with $i$'s minimum utility (due to the zero-sum property):
   \begin{align*}
     u_i^h(\sigma)
     %

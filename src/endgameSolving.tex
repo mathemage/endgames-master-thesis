@@ -44,8 +44,8 @@ The idea is to pre-compute coarser strategy for the initial phase of game.
 After reaching certain end-phase situation during a~real play, one can obtain better strategy for the current play using finer abstraction in the endgame that has arisen and players' current probability distributions.
 
 We start by~constructing a~fine-grained subgame abstraction.
-The original strategies for the subgame are discarded and only the strategies prior to the subgame (i.e. the trunk) are needed.
-The strategies in the trunk are used to compute the joint distribution (i.e. belief) over the states at~the beginning of the subgame.
+The original strategies for the subgame are discarded and only the strategies prior to the subgame (i.e., the trunk) are needed.
+The strategies in the trunk are used to compute the joint distribution (i.e., belief) over the states at~the beginning of the subgame.
 
 Finally, we add a~chance node~$c$ just before the fine-grained subgame~$S$.
 The node leads to the states at~the root of~the subgame.
