@@ -6,3 +6,25 @@
   Success in~creating AI would be the biggest event in~human history.
   Unfortunately, it might also be the last.
 }{Stephen Hawking}
+Endgames have special role in~games:
+the situation towards the end becomes simpler and many game aspects are already clear, e.g. division of~territories in~Go or surviving pieces in~Chess.
+Endgames therefore offer the opportunity to analyze the game exhaustively, more than would be possible during an~opening or a~mid-game.
+Such an~approach is fruitful in~games with perfect information and has been used extensively:
+the perfect play of~Chess endgames has been pre-computed for up to 7 pieces, while Go endgames may undergo dynamical in-play analysis, either using \acrlong{cgt} or Monte Carlo simulations.
+
+For the imperfect information, on~the other hand, endgames need to be adjusted in~order to account for information sets.
+This gives rise to a~new definition of~an~(imperfect-information) \emph{subgame}.
+As such, the definition does not directly allow to apply the same procedure from perfect-information endgames:
+even under the simplest conditions of~the \acrlong{rps} game, a~na{\"i}ve endgame re-solution fails to form a~\acrlong{ne}.
+
+This occurs because the opponent can change his behavior prior to the endgame.
+Such an~exploitation power can be captured by~a~\emph{counterfactual value}:
+a~hypothetical ``what-if'' value summarizing opponent's improvement, if he had changed his prior trunk strategy.
+
+We used counterfactual values to define our own notion of~\emph{\acrlong{sm}}:
+a~gap between the original and the new \acrlong{cbv}s.
+We related the \acrshort{sm} to the exploitability against a~\acrlong{br}, and we proved the overall improvement rising from endgame improvement is proportional to the \acrshort{sm}.
+
+Maximizing \acrshort{sm} is thus highly advisable.
+That can be achieved either by solving a~variant of a~sequence-form \acrlong{lp}, or by applying an~iterative learning algorithm to a~\emph{gadget game}, an~ad-hoc equivalent \acrlong{efg}.
+The latter approach offers great benefits in~terms of~exploiting domain-specific knowledge or employing powerful learning algorithms such as \acrshort{cfr}, \acrshort{mccfr} or the~modern \cfrplus{} that we chose.
