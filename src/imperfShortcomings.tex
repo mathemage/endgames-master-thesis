@@ -41,7 +41,7 @@ Figure~\ref{fig:game-tree-rock-paper-scissors} displays the extensive form of~\a
 rather than showing the choices simultaneously, the two players take turns in~picking their action.
 However, their decisions are mutually hidden, and revealed only at~the end.
 
-The blue ``bubble'' encircling the 3 acting nodes of player~2 marks his (only) information set $\I_2 = \{2_R, 2_P, 2_S\}$, where states correspond to the action chosen by~the first player.
+The blue ``bubble'' encircling the 3 acting nodes of player~$2$ marks his (only) information set $\I_2 = \{2_R, 2_P, 2_S\}$, where states correspond to the action chosen by~the first player.
 This imperfect information represents the fact that he is unaware of~1's preceding choice.
 
 \section{Na{\"i}ve Re-solving of~Rock-Paper-Scissors}
@@ -50,7 +50,7 @@ This imperfect information represents the fact that he is unaware of~1's precedi
   Every mathematical discipline goes through three periods of development:
   the na{\"i}ve, the formal, and the critical.
 }{David Hilbert}
-One apparent subgame (recall Definition~\ref{defn:subgame}) of~\acrshort{rps} is the endgame when player~2 picks his choice:
+One apparent subgame (recall Definition~\ref{defn:subgame}) of~\acrshort{rps} is the endgame when player~$2$ picks his choice:
 \begin{figure}[H]
   \centering
   \scriptsize
@@ -61,28 +61,28 @@ One apparent subgame (recall Definition~\ref{defn:subgame}) of~\acrshort{rps} is
   \label{fig:subgame-rock-paper-scissors}
 \end{figure}
 \noindent
-At the beginning of~subgame~$S$, player~2 resides in~one of~the three states $\I_2 = \{2_R, 2_P, 2_S\}$ depending on~opponent's strategy in the (removed) trunk.
+At the beginning of~subgame~$S$, player~$2$ resides in~one of~the three states $\I_2 = \{2_R, 2_P, 2_S\}$ depending on~opponent's strategy in the (removed) trunk.
 Specifically, the probability of~being in state~$2_R$ equals to 1's probability to~choose rock, and likewise for states $2_P$ and $2_S$.
 The three augmented information sets of~player~$1$ (Definition~\ref{defn:augm-info-set}) are $ \I_1^R = \{2_R\}$, $\I_1^P = \{2_P\}$ and $\I_1^S = \{2_S\}$.
 
 It is not enough to~na{\"i}vely re-solve subgame~$S$ with the~assumption of~a~fixed strategy in the trunk:
 \begin{claim}[\cite{Ganzfried2015endgame}, Proposition~1; \cite{BurchJohansonBowling2014}]
   \label{claim:rps-subgame}
-  If subgame $S$ is re-solved with a~fixed trunk strategy, there is an~equilibristic solution (i.e., a~best response against the fixed trunk strategy) that player~1 can exploit, once he is allowed to adjust his strategy in the trunk.
+  If subgame $S$ is re-solved with a~fixed trunk strategy, there is an~equilibristic solution (i.e., a~best response against the fixed trunk strategy) that player~$1$ can exploit, once he is allowed to adjust his strategy in the trunk.
 \end{claim}
 \begin{proof}
   Suppose the initial strategy $\sigma = (\sigma_1, \sigma_2)$ is uniformly random\footnotemark{}.
   Evidently, $\sigma$ is an~equilibrium for the full game of~\acrshort{rps}.
   \footnotetext{Every move is selected with the same probability $\frac{1}{3}$.}
 
-  Now, if we discard the trunk and assume the fixed trunk strategy~$\sigma_1$, player~2 is to be in~any of~the states $\I_2 = \{2_R, 2_P, 2_S\}$ with the equal probability.
+  Now, if we discard the trunk and assume the fixed trunk strategy~$\sigma_1$, player~$2$ is to be in~any of~the states $\I_2 = \{2_R, 2_P, 2_S\}$ with the equal probability.
   Because of~this, each action results in the same expected utility of~$0$ (e.g., playing rock gives utility $\frac{1}{3} \cdot 0 + \frac{1}{3} \cdot (-1) + \frac{1}{3} \cdot 1 = 0$).
-  Hence, it is irrelevant for which strategy player~2 decides, as all strategies produce equally good utilities, and thus, all are best responses to $1$'s strategy\footnotemark.
-  \footnotetext{Player~1 has only one possibility, the empty strategy, since he takes no action in subgame~$S$.}
+  Hence, it is irrelevant for which strategy player~$2$ decides, as all strategies produce equally good utilities, and thus, all are best responses to $1$'s strategy\footnotemark.
+  \footnotetext{Player~$1$ has only one possibility, the empty strategy, since he takes no action in subgame~$S$.}
 
-  Player~2 can opt for a~strategy~$\sigma^R_2$ of~\emph{always playing rock}, as it is a~valid best response.
+  Player~$2$ can opt for a~strategy~$\sigma^R_2$ of~\emph{always playing rock}, as it is a~valid best response.
   This would become the equilibristic solution from the statement.
-  If player~1 can change his strategy in~the trunk, though, he may naturally exploit the equilibristic solution of~player~2.
+  If player~$1$ can change his strategy in~the trunk, though, he may naturally exploit the equilibristic solution of~player~$2$.
   Namely, a~strategy~$\sigma^P_1$ of~\emph{always playing paper} certainly defeats $\sigma^R_2$.
 \end{proof}
 
