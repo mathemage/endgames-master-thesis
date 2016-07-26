@@ -2,13 +2,23 @@
 \epigraphLong{
   The worst thing that can happen in a~democracy---as well as in an~individual's life---is to become cynical about the future and lose hope.
 }{Hillary Clinton}
-\todo
+One may try to study other aspects of~endgames.
+Some recommendations as inspiration for future work may include
+\begin{itemize}
+  \item other endgame-specific concepts like \acrlong{sm}
+  \item dynamical adjustment of~computation upon entering the ending phase
+  \item solving several endgames in~parallel, without interdependence
+  \item a~Poker version of~Chess endgame tablebases, which poker agents may use in~simpler ending situations to play perfectly
+\end{itemize}
 
 \section{Margins via Multi-Objective Optimization}
 \epigraphLong{
   Raise your quality standards as~high as you can live with, avoid wasting your time on~routine problems, and always try to~work as~closely as~possible at~the boundary of~your abilities.
   Do this, because it is the only way of~discovering how that boundary should be moved forward.
 }{Edsger Dijkstra}
+One especially noteworthy research topic is the study of~margins (i.e. declines of~\acrshort{cbv}s).
+The \acrlong{sm} is their $\min$-aggregation.
+Tempting idea is to look into alternative aggregation.
 Consider a~multi-criteria analogy to~subgame margin maximization (\ref{lp:max-margin}):
 \begin{equation}
   \label{vlp:max-margins}
@@ -29,13 +39,13 @@ Notice that (\ref{lp:max-margin}) is just a~special case of~the vector objective
 \]
 The choice of~minimum function stems from the nature of~the opponent, who makes his best to exploit us and hence aims for minimal decrease in~\acrshort{cbv}s.
 
-Nevertheless, one can also study other methods to deal with multi-objective functions, and understand their meaning in~the language of~\acrshort{efg}s:
+Undoubtedly, one can also try other methods to deal with multi-objective functions:
 \begin{itemize}
   \item other scalarizations, e.g., weighted sum of~margins
   \item (Pareto) efficient solutions
   \item \acrfull{dea}:
     \href{http://www.deazone.com/}{http://www.deazone.com/}
   \item \acrfull{emo}, which uses evolutionary algorithms:
-    \href{https://www.cs.cinvestav.mx/~EVOCINV/}{https://www.cs.cinvestav.mx/$\sim$EVOCINV/} % TODO fix tilde
-  \item and other techniques\ldots
+    \href{https://www.cs.cinvestav.mx/~EVOCINV/}{https://www.cs.cinvestav.mx/$\sim$EVOCINV/}
 \end{itemize}
+It might be compelling as well as intriguing to understand their meaning in~the language of~\acrlong{efg}s, and perhaps even find their corresponding gadget games.
