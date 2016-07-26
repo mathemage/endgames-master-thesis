@@ -41,16 +41,18 @@ We can put a~lower bound on~this improvement by measuring the state with the sma
 Our goal is to maximize this lower bound.
 We refer to this values as the \acrfull{sm}.
 
-\begin{defn}[\acrlong{sm}]
-  Let $\sigma_1$, $\sigma_1'$ be a~pair of~player~$1$'s strategies for subgame~$S$.
-  Then a~\acrlong{sm}
-  \[
-    SM_1 (\sigma_1, \sigma_1' , S) =
-    \min_{I_2 \in \I_2^{R(S)}}
-    \left( CBV_2^{\sigma_1} (I_2) - CBV_2^{\sigma_1'} (I_2) \right)
-  \]
-  measures the ``gap in~decrease'' between the old and the new \acrlong{cbv}s, across all root information sets $I_2 \in \I_2^{R(S)}$.
-\end{defn}
+\begin{framed}
+  \begin{defn}[\acrlong{sm}]
+    Let $\sigma_1$, $\sigma_1'$ be a~pair of~player~$1$'s strategies for subgame~$S$.
+    Then a~\acrlong{sm}
+    \[
+      SM_1 (\sigma_1, \sigma_1' , S) =
+      \min_{I_2 \in \I_2^{R(S)}}
+      \left( CBV_2^{\sigma_1} (I_2) - CBV_2^{\sigma_1'} (I_2) \right)
+    \]
+    measures the ``gap in~decrease'' between the old and the new \acrlong{cbv}s, across all root information sets $I_2 \in \I_2^{R(S)}$.
+  \end{defn}
+\end{framed}
 
 Subgame margin has several useful properties.
 The exploitability is strongly related to the value of~the margin:
