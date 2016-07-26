@@ -9,18 +9,24 @@
   Raise your quality standards as~high as you can live with, avoid wasting your time on~routine problems, and always try to~work as~closely as~possible at~the boundary of~your abilities.
   Do this, because it is the only way of~discovering how that boundary should be moved forward.
 }{Edsger Dijkstra}
-Consider the following \acrfull{vlp}
+Consider a~multi-criteria analogy to~subgame margin maximization (\ref{lp:max-margin}):
 \begin{equation}
   \label{vlp:max-margins}
   \begin{split}
     \max_{v, x}\ &\textcolor{red}{\vect{m}} \\
-    v_I - m_{\textcolor{red}{I}} &\ge CBV_2^{\sigma_1}(I), \quad I \in \I_2^{R(S)}\\ 
+    v_I - \vect{m}_{\textcolor{red}{I}} &\ge CBV_2^{\sigma_1}(I), \quad I \in \I_2^{R(S)}\\ 
     Ex &= e \\
     F^\top v - A_2^\top x &\le \vect{0} \\
-    x &\ge \vect{0},
+    x &\ge \vect{0}.
   \end{split}
 \end{equation}
-where $m_I$ corresponds to one single margin $m_I = CBV_2^{\sigma_1} (I) - CBV_2^{\sigma_1'} (I)$, and $\vect{m} = (m_I) _{I\in\I_2^{R(S)}}$ is a~vector of~all such margins.
-Evidently, this is a~problem of~\emph{multi-objective optimization}.
+Now $\vect{m}_I$ corresponds to only one margin $\vect{m}_I := CBV_2^{\sigma_1} (I) - CBV_2^{\sigma_1'} (I)$, and $\vect{m} := (m_I) _{I\in\I_2^{R(S)}}$ is a~vector of~all such margins.
+Evidently, this \acrfull{vlp} is a~task of~\emph{multi-objective optimization}.
+
+Notice that (\ref{lp:max-margin}) is just a~special case of~the vector objective function, by~the scalarization
+\[
+  \max_{v, x}\ \min_{I \in \I_2^{R(S)}}\ {\vect{m}_I}.
+\]
+The choice of~minimum function stems from the nature of~the opponent, who makes his best to exploit us and hence aims for minimal decrease in~\acrshort{cbv}s.
 
 \todo
