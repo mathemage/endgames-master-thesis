@@ -21,7 +21,7 @@ Consider a~multi-criteria analogy to~subgame margin maximization (\ref{lp:max-ma
   \end{split}
 \end{equation}
 Now $\vect{m}_I$ corresponds to only one margin $\vect{m}_I := CBV_2^{\sigma_1} (I) - CBV_2^{\sigma_1'} (I)$, and $\vect{m} := (m_I) _{I\in\I_2^{R(S)}}$ is a~vector of~all such margins.
-Evidently, this \acrfull{vlp} is a~task of~\emph{multi-objective optimization}.
+Evidently, this \acrfull{vlp} is a~task of~\emph{multi-objective optimization} (\cite{Ehrgott2006multicriteria, Grygarova1996zaklady}).
 
 Notice that (\ref{lp:max-margin}) is just a~special case of~the vector objective function, by~the scalarization
 \[
@@ -31,8 +31,11 @@ The choice of~minimum function stems from the nature of~the opponent, who makes 
 
 Nevertheless, one can also study other methods to deal with multi-objective functions, and understand their meaning in~the context of~\acrshort{efg}s:
 \begin{itemize}
-  \item efficient solutions
-  \item evolutionary multi-objective optimization (using evolutionary algorithms):
-    \href{https://www.cs.cinvestav.mx/~EVOCINV/}{https://www.cs.cinvestav.mx/\tilde EVOCINV/} % TODO fix tilde
+  \item other scalarizations, e.g., weighted sum of~margins
+  \item (Pareto) efficient solutions
+  \item \acrfull{dea}:
+    \href{http://www.deazone.com/}{http://www.deazone.com/}
+  \item \acrfull{emo}, using evolutionary algorithms:
+    \href{https://www.cs.cinvestav.mx/~EVOCINV/}{https://www.cs.cinvestav.mx/$\sim$EVOCINV/} % TODO fix tilde
+  \item \ldots
 \end{itemize}
-\todo
