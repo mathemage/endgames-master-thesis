@@ -4,14 +4,22 @@
   Intelligence is a~game of~imperfect information.
   We can guess our opponent's moves, but we can't be sure until the game is over.
 }{Khalid Muhammad}
-\todo Uvod
+So far we were dealing with \emph{perfect-information} games:
+neither chance nor hidden information were involved in Chess or Go.
+Any player can theoretically (with unlimited computational resources and/or infinite amount of~time) look ahead, investigate all possible continuations, pick the best one and play perfectly.
+Of~course in~case of~Chess and Go, an~exhaustive search may easily take longer than the age of~the Universe.
+Nevertheless, there are no mathematical limitations preventing such analysis.
+
+\emph{Imperfect-information} games, on the other hand, need to also include private information, e.g., opponent's cards in~Poker.
+We cannot (and should not) play differently in~equivalent states, whose indistinguishability is caused by private information of~our opponent.
+Such missing knowledge is captured in~the concept of~an~\emph{information set}.
 
 \section{Extensive Form for Imperfect-Information}
 \label{sec:extensive-form-imperf-info}
 \epigraph{
   Education is only a~ladder to~gather fruit from the tree of~knowledge, not the fruit itself.
 }{Albert Einstein}
-Recall extensive forms (for perfect-information games) from Section~\ref{sec:extensive-form-perf-info}.
+Recall extensive forms for perfect-information games from Section~\ref{sec:extensive-form-perf-info}.
 An~\emph{extensive form} (for an~imperfect-information game) is the usual extensive form with additional:
 \begin{itemize}
   \item \textbf{c}hance player $c$ (e.~g. a~dice, the card dealer, the nature etc.).
