@@ -154,26 +154,25 @@ Games can be represented in~two forms:
 
 \section{The Game of Go}
 \label{sec:Go}
-\epigraphLong{
+\epigraph{
   You don't have to be really good anymore to get good results.
   What's happening with Chess is that it's gradually losing its place as the par excellence of~intellectual activity.
   Smart people in~search of~a~challenging board game might try a~game called~Go.
 }{Hans Berliner}
-
 \emph{Black} and \emph{White} place pieces (\emph{stones}) on the unoccupied intersections (\emph{points}) of a~\emph{board} with a~$19\times19$ grid of~lines.
 Players take turns, Black moves first.
 There are only 2 basic rules of Go:
 \begin{description}
   \item [The rule of liberty]
     Every stone remaining on the board must have at least one open point (an~intersection, called a~\emph{liberty}) directly next to it (up, down, left, or right), or must be part of a~connected group that has at least one such liberty next to it.
+
+    Stones or groups of stones which lose their last liberty are removed from the board.
     \begin{figure}[H]
       \centering
       \includegraphics[width=.5\textwidth]{../img/Go_rule_of_liberty.png}
       \caption{The rule of liberty}
       \label{fig:Go-rule-liberty}
     \end{figure}
-
-    Stones or groups of stones which lose their last liberty are removed from the board.
 
   \item [The ``ko'' rule]
     The stones on the board must never repeat a~previous position of~stones.
