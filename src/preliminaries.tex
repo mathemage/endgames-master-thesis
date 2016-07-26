@@ -101,17 +101,25 @@ Games can be represented in~two forms:
       \label{fig:prisoner}
     \end{figure}
     The situation modeled by the Prisoner's Dilemma arises naturally in a~lot of~different situations.
-    One such example is the \acrshort{isp} Routing Game.
+    One such example is \acrshort{isp} Routing Game.
 
   \item [\acrshort{isp} Routing Game] models an~\acrfull{isp}, who needs to send Internet packets from source~$s_1$ (in his own network \acrshort{isp}1) to target~$t_1$ (in the network \acrshort{isp}2 of~another provider).
-    The two networks are connected via two transit points $C$ (for confess) and $S$ (for silent).
-    See Figure~\ref{fig:isp-routing}.
+    The two networks are connected via two transit points, $C$ (for confess) and $S$ (for silent):
     \begin{figure}[H]
       \centering
       \includegraphics[width=.25\paperwidth]{../img/isp.png}
       \caption[\acrshort{isp} Routing Game]{\acrshort{isp} Routing Game (\cite{AGT07})}
       \label{fig:isp-routing}
     \end{figure}
+    There is a~unit cost per edge:
+    if the provider sends a~packet through $C$, it costs him $1$ unit and the opponent pays $4$ units for routing from $C$ to~$t_1$.
+    \textbf{\acrshort{isp}1 possesses a~selfish behavior.}
+    Otherwise, if he sends a~packet through $S$, it costs $2$ units.
+    The opponent however pays only $1$ unit, because $t_1$ is closer to $S$ than to $C$.
+    \textbf{\acrshort{isp}1 possesses an~altruistic behavior.}
+
+    Now \acrshort{isp}2 will send traffic, too, choosing again between $C$ or $S$.
+    If we accumulate all costs from both traffics, and write it down for each combination of~selfish/altruistic players, we get the identical \acrshort{nfg} as in Figure~\ref{fig:prisoner}.
 
   \item [Traffic Light]
     Two players, drivers of~cars, arrive at~a~crossroad perpendicularly to one another.
