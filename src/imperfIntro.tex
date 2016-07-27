@@ -53,7 +53,8 @@ There are further notions related to \acrshort{efg}s:
   \item $\sigma | _{I \goto a}$ denotes the strategy identical to $\sigma$ with the only one exception:
     the action~$a$ is always played at the information set~$I$.
 
-  \item The \emph{counterfactual value} $v _i ^\sigma (I)$ is the expected utility provided that the information set $I$ is reached and all players play according to strategy $\sigma$ with exception of player~$i$, who plays to reach $I$:
+  \item The \emph{counterfactual value} $v _i ^\sigma (I)$ is a~hypothetical ``what-if'' value, if one had taken the actions to arrive at~$I$.
+    Formally, it is the expected utility provided that the information set $I$ is reached and all players play according to strategy $\sigma$ with exception of player~$i$, who plays to reach $I$:
     \[ v _i ^\sigma (I) = \sum\limits _{h \in I, \; h' \in Z}
       \frac
       {\pi _{-i} ^\sigma(h) \pi ^\sigma(h,h') u_i(h')}
