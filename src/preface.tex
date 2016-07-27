@@ -5,26 +5,27 @@
   her pattern-recognition facilities have just learned what problems are worth solving.
 }{Ray Kurzweil}
 Endgames have a~special role for game playing:
-the situation towards the ending becomes simpler and many game aspects are already clear, e.g., remaining late-game pieces in~Chess or the division of~territories in~Go.
-Endgames therefore offer the opportunity for a~deeper analysis, more than it would be possible during an~opening or a~mid-game.
-Additionally, they make the exhaustive search possible.
+the situation towards the end becomes simpler and many game aspects are clearly defined, e.g., remaining late-game pieces in~Chess, or the division of~territories in~Go.
+As~opposed to~openings and mid-games, endgames therefore offer the opportunity for a~thorough scrutiny such as an~exhaustive search.
 
-Such an~approach is fruitful in~games with perfect information (Part I), where it has been used extensively:
-the perfect play has been pre-computed for Chess endgames with up to 7 pieces (Chapter~\ref{ch:Chess}), while Go endgames may undergo dynamical in-play analysis, either using \acrlong{cgt} (Chapter~\ref{ch:goCGT}) or Monte Carlo simulations aided by deep \acrlong{cnn}s (Chapter~\ref{ch:AlphaGo}).
+This approach is fruitful in~games with perfect information (Part I), where there has been an extensive use of~it:
+a~perfect play has been pre-computed for Chess endgames with up to 7 pieces (Chapter~\ref{ch:Chess}), while Go endgames can undergo dynamical in-play analysis, either using \acrlong{cgt} (Chapter~\ref{ch:goCGT}) or Monte Carlo simulations aided by \acrlong{cnn}s (Chapter~\ref{ch:AlphaGo}).
 
 An~appealing idea is to extend this approach to imperfect-information games:
-to play the early parts of~the game, and once the subgame becomes tractable, to calculate a~solution using a~finer-grained abstraction in~real time, creating a~combined final strategy.
-Although this approach is straightforward for perfect-information games, it is a~much more complex problem for imperfect-information games (Part II).
+play the early parts of~the game, and once the subgame becomes feasible, calculate a~solution using a~finer-grained abstraction in~real time, creating a~combined final strategy.
+Although this approach is straightforward for perfect-information games (Chapter~\ref{ch:perf-intro}), it is a~much more complex problem for imperfect-information games (Part~II).
 
-Firstly, we have to take information sets into consideration, and generalize the notion of~a~\emph{subgame} for the imperfect information (Chapter~\ref{ch:imperf-intro}).
-Unfortunately, directly re-solving a~subgame does not in general preserve any guarantee of~optimality, leading to far more exploitable combination of~resulting strategies.
-We will see this on an~elementary example of~\acrlong{rps} and its only subgame (Chapter~\ref{ch:imperf-shortcomings}).
+Firstly, we have to take into consideration \emph{information sets}, and generalize the concept of~a~\emph{subgame} for imperfect information (Chapter~\ref{ch:imperf-intro}).
+Unfortunately, directly re-solving a~subgame does not in general preserve any guarantee of~optimality, resulting in~far more exploitable strategies.
+We will observe this phenomenon on~the elementary example of~\acrlong{rps} game with a~single subgame (Chapter~\ref{ch:imperf-shortcomings}).
 
-The posed challenge may be tackled in three ways:
+The posed challenge may be tackled in three different ways:
 \begin{enumerate}[(a)]
-  \item Ganzfried and Sandholm (Carnegie Mellon University) disregard the problem entirely, by advocating empirical improvement over theoretical one (Chapter~\ref{ch:endgame-solving}).
+  \item Ganzfried and Sandholm (Carnegie Mellon University) disregard the problem entirely, by advocating empirical improvement over theoretical guarantees (Chapter~\ref{ch:endgame-solving}).
   \item Burch, Johanson, and Bowling (University of~Alberta) propose a~decomposition technique, which retains at~least the same quality of~subgame strategies.
-    Nonetheless, the method receives no incentive to strive for maximal improvement (Chapter~\ref{ch:cfr-d}).
+    Nonetheless, the method receives no incentive to strive for maximal gains (Chapter~\ref{ch:cfr-d}).
   \item We---Moravčík, Schmid, Ha, Hladík (Charles University) and Gaukrodger  (Koypetition)---formalize the improvement of~subgame strategies into the notion of~a~\emph{\acrlong{sm}}.
-    On top of~that, we devise a~construction of~an~equivalent \acrlong{efg}, which manages to maximize \acrlong{sm}s (Chapter~\ref{ch:max-margin}).
+    On top of~that, we devise a~construction of~an~equivalent \acrlong{efg}, which maximizes \acrlong{sm}s (Chapter~\ref{ch:max-margin}).
 \end{enumerate}
+
+Finally, Chapter~\ref{ch:future-work} provides some suggestions to further develop these ideas, and enhance them for future work.
