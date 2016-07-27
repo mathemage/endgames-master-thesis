@@ -54,7 +54,7 @@ Games can be represented in~two forms:
     The rules (Section~\ref{sec:Go}) are even simpler than in Chess; yet the game is far more complex, with the number of~positions greater than the count of~atoms in the Universe (Section~\ref{sec:game-tree-search}).
 
     As a~game of intellect, Go is especially popular with mathematicians.
-    A~dedicated mathematical discipline of~\acrfull{cgt} was developed by respected John Conway, in order to decompose and study endgame positions (Chapter~\ref{ch:goCGT}).
+    A~dedicated mathematical discipline of~\acrlong{cgt} was developed by respected John Conway, in order to decompose and study endgame positions (Chapter~\ref{ch:goCGT}).
 
     Finally, the Go world experienced a~duel similar to the one of~Deep Blue vs. Kasparov.
     The Humanity, represented by legendary Korean player Lee Sedol, was defeated by the~\acrshort{ai} of~Google DeepMind's program \emph{AlphaGo} (Chapter~\ref{ch:AlphaGo}).
@@ -231,9 +231,49 @@ Black can place 1 or more stones in advance as a~compensation for White's greate
   I courteously offer you the first move, and call upon you to make it.
   You lose, of~course, because $0$ is defined as the game in~which it is never legal to make a~move.
 }{John Conway, \emph{On Numbers and Games}}
-``On Numbers and Games'' (\cite{Conway1976number}) and ``Winning Ways for Your Mathematical Plays: Games in Particular'' (\cite{Berlekamp1983winning}).
+\vskip -2em
+\note{
+  This section is based on the founding work \emph{On Numbers and Games} (\cite{Conway1976number}).
+  For more on~\acrlong{cgt}, read also the illustrative (\cite{Berlekamp1983winning}).
+}
 
-\todo
+The \acrfull{cgt} studies games without chance such as Nim or Go.
+Combinatorial games can be viewed as mathematical models of~Go positions.
+Formally:
+
+\begin{framed}
+  \begin{defn}
+    A~(combinatorial) game is an~ordered pair of~sets of~games:
+    \[
+      G = \{ \g^L | \g^R \}
+    \]
+    where $\g^L = \{ G^{L_1}, G^{L_2}, \ldots \}$ and $\g^R = \{ G^{R_1}, G^{R_2}, \ldots \}$ are sets of~new positions,
+    to which the two players of~the game, Left and Right, can move.
+  \end{defn}
+\end{framed}
+
+To avoid complications with the inductive definition, note that $\g^L$ and $\g^R$ can (potentially) be empty or infinite.
+Hence, to start the basis of~induction, the empty set is used to define the so-called \emph{Endgame}\footnotemark{}:
+\[
+  0 = \{ \emptyset | \emptyset \} = \{ | \},
+\]
+in which no player can make a~move, and thus the first player to~move always loses.
+\footnotetext{This is just a~coincidence in~names and an~example of~John Conway's humor.}
+
+One may view independent local subgames on the Go board as~combinatorial games.
+To combine the (analyzed) subgames, we need the notion of~a~(combinatorial) \emph{game sum}:
+\begin{framed}
+  \begin{defn}
+    The sum $G + H$ of~games $G = \{ A, B, C, \ldots Z | a, b, c, \ldots z \}$ and $H = \{ A', B', \ldots Z' | a', b', \ldots z' \}$ is the game
+    \begin{align*}
+      \{ A+H, \ldots Z+H,
+         G+A', \ldots G+Z' |
+         a+H, \ldots z+H,
+         G+a', \ldots G+z' \}
+    \end{align*}
+  \end{defn}
+\end{framed}
+This was an~approach of~Martin \Mueller{} to solve endgames in~Go (Chapter~\ref{ch:goCGT}).
 
 %\section{The Game of~Poker}
 %\label{sec:Poker}
