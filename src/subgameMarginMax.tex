@@ -180,7 +180,7 @@ where $m$ is a~scalar corresponding to the subgame margin that we aim to~maximiz
 It serves as ``a gap'' between all values $v_I$ and the given constants $CBV_2^\sigma(I)$, and we wish to make this gap as~large as~possible.
 
 The similarities between (\ref{lp:max-margin}) and (\ref{lp:cfr-d}) make it easier to see our improvement:
-whereas the \acrshort{lp} (\ref{lp:cfr-d}) only guarantees a~non-negative margin, we maximize it.
+the \acrshort{lp} (\ref{lp:cfr-d}) only guarantees a~non-negative margin, whereas we maximize it.
 Although the optimization formulation is almost identical to~the re-solving, our gadget construction is different.
 
 \section{Equivalent Gadget Game}
@@ -213,7 +213,7 @@ The following is a~description of~the steps (see also Figure~\ref{fig:max-margin
 \begin{enumerate}
   \item We establish a~common baseline.
     For~comparing changes in~the performance of~$2$'s root information sets, they need a~common starting point:
-    the original strategy $\sigma$.
+    the original strategy $\sigma = (\sigma_1, \sigma_2)$ with its subgame portion $\sigma_1^S$.
 
     For every $I \in \I_2^{R(S)}$ we subtract the opponent's original \acrlong{cbv}, setting the utility at~each terminal node~$z \in Z(I)$ to $\ut_2(\zt) := k_{\It} \cdot u_2(z) - CBV_2^{\sigma}(I)$ (see Section~\ref{sec:cfval-shifts} for detailed explanation).
     We must not forget to~update $\ut_1(\zt) = -\ut_2(\zt)$ either, as we need the game to remain zero-sum.
