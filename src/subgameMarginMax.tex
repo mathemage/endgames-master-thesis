@@ -255,9 +255,13 @@ where normalization factor $k_{\It} = \sum_{ \tilde{h} \in \It} \pi_{-2}^\sigma(
 
 The remaining structure of~the subgame is directly replicated, copying every state~$h$ with a~duplicate~$\tilde{h}$.
 The only exceptions are the terminal utilities, which need to be adjusted.
-First, they are shifted by the counterfactual values.
-Then they are multiplied by the related normalization factor to cancel the effects of~the normalization.
-This leads to $\tilde{u}_2(z) := k_{\It} \cdot \left(u_2(z) - CBV_2^\sigma(I)\right)$.
+First, they are multiplied by the related normalization factor to cancel the effects of~the normalization.
+Then they are shifted by the counterfactual values.
+This leads to
+\begin{equation}
+  \label{eq:max-margin-utilities}
+  \tilde{u}_2(\zt) := k_{\It} \cdot u_2(z) - CBV_2^\sigma(I)
+\end{equation}
 
 The following lemma states that the construction shifts counterfactual values by the given original counterfactual values:
 \begin{lem}
@@ -270,31 +274,65 @@ The following lemma states that the construction shifts counterfactual values by
 \end{lem}
 
 \begin{proof}
-  A~strategy profile~$\sigma'$ defines probability distributions at each game state.
-  Provably by induction, we get $\sum_{z\in Z(I)} \pi_{-2}^{\sigma'}(z) \cdot \pi_{2}^{\sigma'}(z[I], z) = 1$.
+  A~strategy profile~$\sigma'$ defines probability distributions at each game state, and thus we get
+  \begin{equation}
+    \label{eq:norm-factor-expansion}
+    \sum_{z\in Z(I)} \pi_{-2}^{\sigma'}(z) \cdot \pi_{2}^{\sigma'}(z[I], z)
+    = \sum_{ h \in I} \pi_{-2}^{\sigma'}(h)
+    = \sum_{ h \in I} \pi_{-2}^\sigma(h)
+    = k_{\It}
+  \end{equation}
+  where the first equality is a~recursive summation of~probabilities to $1$, by induction on height.
+
   Therefore, we can re-write the counterfactual value in the gadget game as
   \begin{equation*}
     \begin{split}
-      \tilde{v}_2^\tilsig (I)
+      \tilde{v}_2^\tilsig (\It)
       &= \sum_{z\in Z(I)}
-      \pi_{-2}^\tilsig(\dt, z) 
-      \cdot \pi_{2}^\tilsig(z[I], z)
-      \cdot \tilde{u}_2(z) \\
+      \pi_{-2}^\tilsig(\dt, \zt) 
+      \cdot \pi_{2}^\tilsig(\zt[\It], \zt)
+      \cdot \tilde{u}_2(\zt)
+      \\
+      &= \sum_{z\in Z(I)}
+      \pi_{-2}^\tilsig(\dt, \zt[\It]) \cdot \pi_{-2}^\tilsig(\zt[\It], \zt) 
+      \cdot \pi_{2}^\tilsig(\zt[\It], \zt)
+      \cdot \tilde{u}_2(\zt)
+      \\
+      &= \sum_{z\in Z(I)}
+      \frac{\pi_{-2}^{\sigma}(z[I])}{k_{\It}}
+      \cdot \pi_{-2}^{\tilde{\sigma}}(z[I], z)
+      \cdot \pi_{2}^{\tilde{\sigma}}(z[I], z)
+      \cdot \tilde{u}_2(\zt)
+      \\
       &= \sum_{z\in Z(I)}
       \frac{\pi_{-2}^{\sigma}(z[I])}{k_{\It}}
       \cdot \pi^{\tilde{\sigma}}(z[I], z)
-      \cdot \tilde{u}_2(z) \\
-      &= \sum_{z\in Z(I)}
-      \pi_{-2}^{\sigma'}(z[I])
+      \cdot \tilde{u}_2(\zt)
+      \\
+      &\stackrel{\mathclap{\mathrm{(\ref{eq:max-margin-utilities})}}} =
+      \sum_{z\in Z(I)}
+      \frac{\pi_{-2}^{\sigma}(z[I])}{k_{\It}}
       \cdot \pi^{\sigma'}(z[I], z)
-      \cdot (u_2(z) - CBV_2^\sigma(I)) \\
+      \cdot (k_{\It} \cdot u_2(z) - CBV_2^\sigma(I))
+      \\
+      &= v_2 ^{\sigma'}(I) - \sum_{z\in Z(I)}
+      \frac{\pi_{-2}^{\sigma}(z[I])}{k_{\It}}
+      \cdot \pi^{\sigma'}(z[I], z)
+      \cdot CBV_2^\sigma(I)
+      \\
       &= v_2^{\sigma'}(I) - \sum_{z\in Z(I)}
-      \pi_{-2}^{\sigma'}(z) 
-      \cdot \pi_{2}^{\sigma'}(z[I], z)
-      \cdot CBV_2^\sigma(I) \\
-      &= v_2 ^{\sigma'}(I) - CBV_2^\sigma(I).
+      \frac {\pi_{-2}^{\sigma'}(z) \cdot \pi_{2}^{\sigma'}(z[I], z)} {k_{\It}}
+      \cdot CBV_2^\sigma(I)
+      \\
+      &= v_2^{\sigma'}(I)
+      - CBV_2^\sigma(I) \cdot 
+      \frac {\sum_{z\in Z(I)} \pi_{-2}^{\sigma'}(z) \cdot \pi_{2}^{\sigma'}(z[I], z)} {k_{\It}}
+      \\
+      &\stackrel{\mathclap{\mathrm{(\ref{eq:norm-factor-expansion})}}} =
+      v_2 ^{\sigma'}(I) - CBV_2^\sigma(I).
     \end{split}
   \end{equation*}
+  Hence, the gadget-game counterfactual values are shifted by right offsets.
 \end{proof}
 
 \color{purple}
