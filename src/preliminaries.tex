@@ -21,9 +21,9 @@ Informally, a~\emph{game} has typically
 
 Games can be represented in~two forms:
 \begin{itemize}
-  \item \acrfull{nfg} is a~representation using (pay-off) \emph{matrices}.
+  \item a~\acrfull{nfg} is a~representation using (pay-off) \emph{matrices}.
     Examples of~\acrshort{nfg}s can be found in Section~\ref{sec:examples-of-games}.
-  \item \acrfull{efg} represents a~\emph{game with turns} using a~\emph{game tree}.
+  \item an~\acrfull{efg} models a~\emph{game with turns} using a~\emph{game tree}.
     They are discussed in greater details in~Section~\ref{sec:extensive-form-perf-info} and Section~\ref{sec:extensive-form-imperf-info}.
 \end{itemize}
 
@@ -42,21 +42,21 @@ Games can be represented in~two forms:
   \item [Chess] is arguably world's most famous game, frequently employed to sharpen one's intellectual facilities.
     For decades, this mind sport has functioned as a~``playground'' for \acrfull{ai} research.
 
-    The most notable milestone of~computer Chess took place in New York City in 1997:
-    the~\acrshort{ai} community (as well as the rest of~the world) was astonished by the victory of~IBM's computer system \emph{Deep Blue} against the world champion, the grandmaster \emph{Garry Kasparov}.
+    The most notable milestone of~computer Chess took place in New York City, in 1997:
+    the~\acrshort{ai} community (with the rest of~the world) was astonished by the victory of~IBM's computer system \emph{Deep Blue} against the world Chess champion, the grandmaster \emph{Garry Kasparov}.
     \epigraphLong{
       It was an~impressive achievement, of~course, and a~human achievement by~the members of~the IBM team, but Deep Blue was only intelligent the way your programmable alarm clock is intelligent.
       Not that losing to a~\$10 million alarm clock made me feel any better.
     }{Garry Kasparov}
-    The rules of~Chess are widely known; for completeness, however, I recommend tutorial (\cite{Karpov1997disney}) for introduction to Chess.
+    The rules of~Chess are widely known; for completeness, however, Chess tutorials such as (\cite{Karpov1997disney}) are recommendable.
 
   \item [Go] is another ancient game with countless number of~both amateur and professional players.
-    The rules (Section~\ref{sec:Go}) are even simpler than in Chess; yet the game is far more complex, with the number of~positions greater than the count of~atoms in the Universe (Section~\ref{sec:game-tree-search}).
+    The rules (Section~\ref{sec:Go}) are even simpler than in Chess; yet the game is far more complex, with more positions than atoms in the observable Universe (Section~\ref{sec:game-tree-search}).
 
     As a~game of intellect, Go is especially popular with mathematicians.
-    A~dedicated mathematical discipline of~\acrlong{cgt} was developed by respected John Conway, in order to decompose and study endgame positions (Chapter~\ref{ch:goCGT}).
+    A~dedicated mathematical discipline of~\acrlong{cgt} (Section~\ref{sec:CGT}) has been developed by excellent John Conway, in order to decompose and study endgame positions (Chapter~\ref{ch:goCGT}).
 
-    Finally, the Go world experienced a~duel similar to the one of~Deep Blue vs. Kasparov.
+    A~few months ago, the Go world experienced a~duel similar to the one of~Deep Blue vs. Kasparov.
     The Humanity, represented by legendary Korean player Lee Sedol, was defeated by the~\acrshort{ai} of~Google DeepMind's program \emph{AlphaGo} (Chapter~\ref{ch:AlphaGo}).
 
   \item [Nim] is a~mathematical game in which two players take turns in~removing objects from distinct heaps.
@@ -65,14 +65,15 @@ Games can be represented in~two forms:
 
   \item [Poker] is a~popular card game
     %\footnotetext{For the rules of~Poker, read Section~\ref{sec:Poker}.}
-    and an~example of~an~imperfect-information game: as opposed to~all previous games, players' \emph{private} cards and the \emph{chance} play vital roles here.
+    and an~example of~an~imperfect-information game:
+    as opposed to~all previous games, there is a~vital role in players' \emph{private} cards and the \emph{chance}.
     We will see that notion of~a~subgame needs to be adapted for imperfect-information games, which will cause several complications and will call for novel solutions (Part II).
 
-    Following the examples of~Deep Blue and AlphaGo, the world had a~chance to meet a~superhuman \acrshort{ai} champion also in Poker.
-    \emph{Cepheus} is the first Poker-bot that has \emph{weakly solved} \acrlong{lhe} variant of~Poker (\cite{Bowling2015heads}).
+    Following the examples of~Deep Blue and AlphaGo, also the Poker world had a~chance to meet a~superhuman \acrshort{ai} champion:
+    \emph{Cepheus}---the first Poker-bot which has \emph{weakly solved} \acrlong{lhe} variant of~Poker (\cite{Bowling2015heads}).
 
-    Currently, the game of~most active computer Poker research is the two-player version of~\acrlong{nlhe} (Heads-Up \acrshort{nlhe}).
-    For the rules of~it, read (\cite[Appendix A]{Ganzfried2015endgame}).
+    Currently, the game of~the most active computer Poker research is the two-player version of~\acrlong{nlhe} (Heads-Up \acrshort{nlhe}).
+    For the rules of~it, read for instance Appendix~A of~(\cite{Ganzfried2015endgame}).
 \end{description}
 
 \note{
@@ -85,9 +86,9 @@ Games can be represented in~two forms:
 
 \begin{description}
   \item [Matching Pennies] is a~$2$-choice version of~\acrshort{rps}.
-    Two players, \emph{Matcher} and \emph{Mismatcher}, toss two coins (pennies).
-    If the coins match, Matcher wins (receives the utility of~$1$) and Mismatcher loses (receives the utility of~$-1$).
-    If the coins mismatch, Mismatcher wins and Matcher loses.
+    Two players, \emph{Matcher} and \emph{Mismatcher}, pick either H(eads) or T(ails) of a~(penny) coin.
+    If chosen sides match, Matcher wins (receives the utility of~$1$) and Mismatcher loses (receives the utility of~$-1$).
+    If the sides mismatch, Mismatcher wins and Matcher loses.
     \begin{figure}[H]
       \centering
       \includegraphics[width=.3\textwidth]{../img/matching-pennies.png}
@@ -119,19 +120,19 @@ Games can be represented in~two forms:
       \label{fig:isp-routing}
     \end{figure}
     There is a~unit cost per edge:
-    if the provider sends a~packet through $C$, it costs him $1$ unit and the opponent pays $4$ units for routing from $C$ to~$t_1$.
-    \textbf{\acrshort{isp}1 possesses a~selfish behavior.}
-    Otherwise, if he sends a~packet through $S$, it costs $2$ units.
-    The opponent however pays only $1$ unit, because $t_1$ is closer to $S$ than to $C$.
-    \textbf{\acrshort{isp}1 possesses an~altruistic behavior.}
+    if the provider sends a~packet through closer $C$, it costs him $1$ unit and the opponent pays $4$ units for routing from $C$ to~$t_1$.
+    \emph{\acrshort{isp}1 behaves selfishly!}
+    On the contrary, if he sends a~packet through farther $S$, it costs $2$ units.
+    The opponent however pays only $1$ unit, because $t_1$ is nearer to $S$ than to $C$.
+    \emph{\acrshort{isp}1 behaves altruistically!}
 
     Now \acrshort{isp}2 will send traffic, too, choosing again between $C$ or $S$.
     If we accumulate all costs from both traffics, and write it down for each combination of~selfish/altruistic players, we get the identical \acrshort{nfg} as in Figure~\ref{fig:prisoner}.
 
   \item [Traffic Light]
     Two players, drivers of~cars, arrive at~a~crossroad perpendicularly to one another.
-    If at most 1~driver crosses, the situation will be safe and their payoffs will be non-negative, with a~slightly better payoff for the passing player.
-    If however both drivers decide to pass the crossroad, the result will be extremely sub-optimal, as both drivers obtain drastically negative payoffs and~die.
+    If at most 1~driver crosses, the situation will be safe and their payoffs will be non-negative, with a~slightly better payoff for the passing driver.
+    If however both drivers decide to pass the crossroad, the result will be sub-optimal, as both drivers obtain drastically negative payoffs and~die.
 
     \begin{figure}[H]
       \centering
@@ -158,14 +159,18 @@ Games can be represented in~two forms:
 
 \section{The Game of Go}
 \label{sec:Go}
-\epigraph{
+\epigraphLong{
   You don't have to be really good anymore to get good results.
   What's happening with Chess is that it's gradually losing its place as the par excellence of~intellectual activity.
   Smart people in~search of~a~challenging board game might try a~game called~Go.
 }{Hans Berliner}
-\emph{Black} and \emph{White} place pieces (\emph{stones}) on the unoccupied intersections (\emph{points}) of a~\emph{board} with a~$19\times19$ grid of~lines.
+\vskip 1em
+\noindent \emph{Black} and \emph{White} place pieces (\emph{stones}) on the unoccupied intersections (\emph{points}) of a~\emph{board} with a~$19\times19$ grid of~lines.
 Players take turns, Black moves first.
-There are only 2 basic rules of Go:
+Surprisingly, there are only 2 basic rules of Go:
+
+\vskip 1em
+
 \begin{description}
   \item [The rule of liberty]
     Every stone remaining on the board must have at least one open point (an~intersection, called a~\emph{liberty}) directly next to it (up, down, left, or right), or must be part of a~connected group that has at least one such liberty next to it.
@@ -179,8 +184,7 @@ There are only 2 basic rules of Go:
     \end{figure}
 
   \item [The \emph{Ko} rule]
-    The stones on the board must never repeat a~previous position of~stones.
-    This is to prevent unending cycles.
+    The stones on the board must never repeat the previous position of~stones, so as to prevent unending cycles in~game play.
     \begin{figure}[H]
       \centering
       \includegraphics[width=.4\textwidth]{../img/Go_ko_rule.png}
@@ -205,7 +209,7 @@ Under area scoring system, player's score is:
 \end{itemize}
 
 \emph{Elo rating} can be used to denote players' \textbf{ranks}.
-Alternatively, \emph{kyu/dan} (in~Japanese) or \emph{gup/dan} (in~Korean) system is also vastly popular:
+Alternatively, \emph{kyu/dan} (in~Japanese) or \emph{gup/dan} (in~Korean) system is also widely popular:
 \begin{table}[!htbp]
   \centering
   \begin{tabular}{ |l|r|l| }
@@ -244,7 +248,6 @@ Black can place 1 or more stones in advance as a~compensation for White's greate
 
 The \acrfull{cgt} studies games without chance such as Nim or Go.
 Combinatorial games can be viewed as mathematical models of~Go positions.
-Formally:
 
 \begin{framed}
   \begin{defn}
@@ -258,15 +261,15 @@ Formally:
 \end{framed}
 
 To avoid complications with the inductive definition, note that $\g^L$ and $\g^R$ can (potentially) be empty or infinite.
-Hence, to start the basis of~induction, the empty set is used to define the so-called \emph{Endgame}\footnotemark{}:
+In~order to start the basis of~induction, the empty set is used, to define the so-called \emph{Endgame}\footnotemark{}:
 \[
   0 = \{ \emptyset | \emptyset \} = \{ | \},
 \]
-in which no player can make a~move, and thus the first player to~move always loses.
+No player may move in the Endgame; the first player to~move thus always loses.
 \footnotetext{This is just a~coincidence in~names and an~example of~John Conway's humor.}
 
 One may view independent local subgames on the Go board as~combinatorial games.
-To combine the (analyzed) subgames, we need the notion of~a~(combinatorial) \emph{game sum}:
+To combine the subgames (with finished analyses), we need the notion of~a~(combinatorial) \emph{game sum}:
 \begin{framed}
   \begin{defn}
     The sum $G + H$ of~games $G = \{ A, B, C, \ldots Z | a, b, c, \ldots z \}$ and $H = \{ A', B', \ldots Z' | a', b', \ldots z' \}$ is the game
