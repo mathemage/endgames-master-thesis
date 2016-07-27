@@ -324,10 +324,13 @@ The following lemma states that the construction shifts counterfactual values by
   Hence, the gadget-game counterfactual values are shifted by right offsets.
 \end{proof}
 
-Following from the construction, we get straightforwardly
-\begin{claim}
-  A~strategy for the max-margin gadget is a~\acrlong{ne} if and only if it is a~solution to the \acrshort{lp}~(\ref{lp:max-margin}).
-\end{claim}
+Lemma~\ref{lem:cfv-shift} therefore gives into context the gadget game and \acrshort{sm} maximization:
+gadget-game counterfactual values at~$\I_2^{R(S)}$ correspond to margins, and thus solving the gadget translates to maximizing the minimum of~margins, i.e., maximizing the \acrlong{sm}.
+\begin{framed}
+  \begin{cor}
+    A~strategy for the max-margin gadget is a~\acrlong{ne} if and only if it is a~solution to the \acrshort{lp}~(\ref{lp:max-margin}).
+  \end{cor}
+\end{framed}
 
 \section{Experimental Results}
 \label{sec:max-margin-experiments}
