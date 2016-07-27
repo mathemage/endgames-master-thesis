@@ -63,12 +63,16 @@ Games can be represented in~two forms:
     On each turn, a~player must remove at~least one object, and may remove any number of~objects provided they all come from the same heap.
     The goal is to be the player to remove the last object.
 
-  \item [Poker] is a~popular card game\footnotemark{} and an~example of~an~imperfect-information game: as opposed to~all previous games, players' \emph{private} cards and the \emph{chance} play vital roles here.
-    \footnotetext{For the rules of~Poker, read Section~\ref{sec:Poker}.}
+  \item [Poker] is a~popular card game
+    %\footnotetext{For the rules of~Poker, read Section~\ref{sec:Poker}.}
+    and an~example of~an~imperfect-information game: as opposed to~all previous games, players' \emph{private} cards and the \emph{chance} play vital roles here.
     We will see that notion of~a~subgame needs to be adapted for imperfect-information games, which will cause several complications and will call for novel solutions (Part II).
 
-    Following the examples of~Deep Blue and AlphaGo, the world had a~chance to meet a~superhuman \acrshort{ai} champion as well in Poker.
+    Following the examples of~Deep Blue and AlphaGo, the world had a~chance to meet a~superhuman \acrshort{ai} champion also in Poker.
     \emph{Cepheus} is the first Poker-bot that has \emph{weakly solved} \acrlong{lhe} variant of~Poker (\cite{Bowling2015heads}).
+
+    Currently, the game of~most active computer Poker research is the two-player version of~\acrlong{nlhe} (Heads-Up \acrshort{nlhe}).
+    For the rules of~it, read (\cite[Appendix A]{Ganzfried2015endgame}).
 \end{description}
 
 \note{
@@ -224,27 +228,28 @@ Black can place 1 or more stones in advance as a~compensation for White's greate
 \label{sec:CGT}
 \todo
 
-\section{The Game of~Poker}
-\label{sec:Poker}
-\epigraphLong{
-  Each player must accept the cards life deals him or her:
-  but once they are in~hand, he or she alone must decide how to play the cards in~order to win the game.
-}{Voltaire}
-Poker is a~card game played with a~\emph{pack} of~52 standard cards\footnotemark{} and tokens of~payment called \emph{chips}.
-\footnotetext{$A\spadesuit$, $K\heartsuit$, $Q\clubsuit$, $J\diamondsuit$, \ldots}
-
-There are many variants of~Poker, the two perhaps most popular ones are \acrfull{lhe} and \acrfull{nlhe}.
-Two-player version of~\acrshort{nlhe} (Heads-Up \acrshort{nlhe}) is currently the game of~most active research in the computer Poker community (\cite{Ganzfried2015endgame}).
-
-\begin{description}
-  \item [Players:] \todo
-    \begin{itemize}
-      \item Small Blind
-      \item Big Blind
-    \end{itemize}
-
-  \item [Actions:] \todo
-
-  \item [Payoffs:] \todo 
-\end{description}
-\todo
+%\section{The Game of~Poker}
+%\label{sec:Poker}
+%\epigraphLong{
+%  Each player must accept the cards life deals him or her:
+%  but once they are in~hand, he or she alone must decide how to play the cards in~order to win the game.
+%}{Voltaire}
+%Poker is a~card game played with a~\emph{pack} of~52 standard cards\footnotemark{} and tokens of~payment called \emph{chips}.
+%\footnotetext{$A\spadesuit$, $K\heartsuit$, $Q\clubsuit$, $J\diamondsuit$, \ldots}
+%
+%There are many variants of~Poker, the two perhaps most popular ones are \acrfull{lhe} and \acrfull{nlhe}.
+%Two-player version of~\acrshort{nlhe} (Heads-Up \acrshort{nlhe}) is currently the game of~most active research in the computer Poker community (\cite{Ganzfried2015endgame}).
+%
+%\begin{description}
+%  \item [Players]
+%    In Heads-Up, there are two players:
+%    \begin{itemize}
+%      \item Small Blind
+%      \item Big Blind
+%    \end{itemize}
+%
+%  \item [Actions] \todo
+%
+%  \item [Payoffs] \todo 
+%\end{description}
+%\todo
