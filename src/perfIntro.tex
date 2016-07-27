@@ -85,6 +85,13 @@ We will also need the notion of~a~strategy, the expected utility and a~best resp
     Formally, profile $\sigma$ is an~\acrshort{ne} if
     \[ \forall i \in P\colon u_i (\sigma) = \max _{\sigma'_i \in \Sigma_i} u_i ((\sigma'_i, \sigma_{-i})) \]
     (i.e., no player has any incentive to deviate from his strategy).
+
+  \item For a~given profile~$\sigma$, its exploitability
+    \[
+      \epsilon_\sigma = \frac{u_1(CBR(\sigma_2), \sigma_2) + u_2(\sigma_1, CBR(\sigma_1))} {2}
+    \]
+    expresses how much $\sigma$ loses to a~worst-case opponent, averaged over both players.
+    An~\acrshort{ne} has an~exploitability of~$0$, because it is unexploitable.
 \end{itemize}
 
 Finally, two common properties of~games are:
