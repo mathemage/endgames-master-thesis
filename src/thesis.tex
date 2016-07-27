@@ -61,6 +61,19 @@
 \include{glossaries}
 \usepackage{mathtools}
 
+\hyphenation{
+  e-qui-li-brium
+  im-per-fect
+  in-for-ma-tion
+  end-game
+  end-games
+  da-ta-ba-se
+  back-pro-pa-ga-te
+  back-pro-pa-ga-ted
+  ex-ten-si-ve
+  da-ta-bas-es
+}
+
 %%% Basic information on the thesis
 
 % Thesis title in English (exactly as in the formal assignment)
@@ -108,7 +121,27 @@
 
 % Abstract (recommended length around 80-200 words; this is not a copy of your thesis assignment!)
 \def\Abstract{%
-  \todo
+  Endgames have a~distinctive role for players.
+  At the late stage of~games, many aspects are finally clearly defined, deeming exhaustive analysis tractable.
+  Specialised endgame handling is rewarding for games with perfect information (e.g., Chess databases pre-computed for entire classes of~endings, or dividing Go board into seperate independent subgames).
+
+  An~appealing idea would be to extend this approach to imperfect-information games such as the famous Poker:
+  play the early parts of~the game, and once the subgame becomes feasible, calculate an~ending solution.
+  However, the problem is much more complex for imperfect information.
+
+  \emph{Subgames} need to be generalized to account for \emph{information sets}.
+  Unfortunately, such a~generalization cannot be solved straigthaway, as it does not generally preserve optimality.
+  As a~consequence, we may end up with a~far more exploitable strategy.
+
+  There are currently three techniques to deal with this challenge:
+  \begin{enumerate}[(a)]
+    \item disregard the problem entirely;
+    \item use a~decomposition technique, which sadly retains only the same quality;
+    \item or formalize improvements of~strategies into a~so-called \emph{subgame margin}, for which we construct a~``gadget'' game, making it the best possible.
+  \end{enumerate}
+
+  The last approach is our own result presented at~the Thirtieth AAAI Conference on~Artificial Intelligence in~2016.
+  We experimentally compare the three solutions using a~top participant of~the AAAI-14 Computer Poker Competition, the leading playground for agents in~imperfect-information setting.
 }
 
 % 3 to 5 keywords (recommended), each enclosed in curly braces
@@ -129,18 +162,6 @@
 
 % Definitions of macros (see description inside)
 \include{macros}
-
-\hyphenation{
-  e-qui-li-brium
-  im-per-fect
-  in-for-ma-tion
-  end-game
-  end-games
-  da-ta-ba-se
-  back-pro-pa-ga-te
-  back-pro-pa-ga-ted
-  ex-ten-si-ve
-}
 
 % Title page and various mandatory informational pages
 \begin{document}
