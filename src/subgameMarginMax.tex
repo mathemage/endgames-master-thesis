@@ -236,8 +236,6 @@ Following from the construction, we get straightforwardly
   A~strategy for the max-margin gadget is a~\acrlong{ne} if and only if it is a~solution to the \acrshort{lp}~(\ref{lp:max-margin}).
 \end{claim}
 
-{
-\color{purple}
 \section{Gadget Game Revisited}
 First of~all, we show that re-solving does not increase \acrshort{cbv}s at~the root of the subgame, when compared to old \acrshort{cbv}s in the original game.
 
@@ -246,30 +244,35 @@ On top of that, for every information set~$I~\in~\mathcal{I}_2^{R(S)}$ we are gi
 
 We construct a~new two-player zero-sum perfect-recall ``gadget'' game $\tilde{S}$.
 First, we add a~new root node $\dt$, where the opponent chooses an~information set $I \in \mathcal{I}_2^{R(S)}$ to enter.
-\hrule
-\todo
-Formally, this can be achieved by creating chance nodes $\tilde{r}_I$ per each set $I \in \mathcal{I}_2^{R(S)}$.
-As soon as the opponent chooses which $\tilde{r}_I$ to enter, the chance player deals our cards.
-Namely, for each $\tilde{h}\in I$, the chance to be in state $h$ is determined as
-$\pi_c (\tilde{r}_I, \tilde{r}_I \cdot \tilde{h}) = \pi_{-2} ^{\sigma}(\tilde{h}) / k_I$.
-Here, the normalization factor $k_I = \sum_{ \tilde{h} \in I} \pi_{-2}^\sigma(\tilde{h})$ is used in order to make probabilities
-$\pi_c (\tilde{r}_I, \tilde{r}_I \cdot \tilde{h})$ sum to $1$ within any information set $I \in I_2 ^{R(S)}$.
+Formally, this can be achieved by creating chance nodes $c_{\It}$ per each set $\It \in \mathcal{I}_2^{R(S)}$.
 
-The remaining structure of the subgame is directly copied, replicating every state $h$ with a~state $\tilde{h}$.
-On top of that, the utility of every terminal node is shifted by the counterfactual value of the containing root information set.
-That is, for all $I \in \mathcal{I}_2^{R(S)}$ and all terminal $z \in Z(I)$, the utility is set to
-$\tilde{u}_2(z) := k_I \cdot \left(u_2(z) - v_2(I)\right)$ if we also take into account the normalization factor.
-Thus, we get
+As soon as the opponent pick which $c_{\It}$ to enter (i.e., with which cards to enter the subgame), the chance player deals cards to us.
+The probability of~being in~state $\tilde{h}\in \It$ is
+\[
+  \pi_c (c_{\It}, c_{\It} \cdot \tilde{h}) = \frac {\pi_{-2} ^{\sigma}(\tilde{h})} {k_{\It}}
+\]
+where normalization factor $k_{\It} = \sum_{ \tilde{h} \in \It} \pi_{-2}^\sigma(\tilde{h})$ ensures that probabilities sum to $1$ (i.e., $\sum_{\tilde{h} \in \It} \pi_c (c_{\It}, c_{\It} \cdot \tilde{h}) = 1$).
+
+The remaining structure of~the subgame is directly replicated, copying every state~$h$ with a~duplicate~$\tilde{h}$.
+The only exceptions are the terminal utilities, which need to be adjusted.
+First, they are shifted by the counterfactual values.
+Then they are multiplied by the related normalization factor to cancel the effects of~the normalization.
+This leads to $\tilde{u}_2(z) := k_{\It} \cdot \left(u_2(z) - CBV_2^\sigma(I)\right)$.
+
+The following lemma states that the construction shifts counterfactual values by the given original counterfactual values:
 \begin{lem}
-  \label{lem:cfshift}
-  For each $I\in\mathcal{I}_2^{R(S)}$, the corresponding counterfactual value is
-  $\tilde{v}_2 ^\tilsig(I) = v_2 ^{\sigma'}(I) - v_2(I)$
-  under any subgame strategy profile $\tilsig$ and its extension
-  $\sigma' = \sigma_{[S \leftarrow \tilsig]}$ to the original game.
+  \label{lem:cfv-shift}
+  Let $\tilsig$ be a~subgame strategy profile and $\sigma' = \sigma_{[S \leftarrow \tilsig]}$ its extension to the original game.
+  Then the gadget-game counterfactual value of~$I\in\mathcal{I}_2^{R(S)}$ is
+  \[
+    \tilde{v}_2 ^\tilsig(\It) = v_2 ^{\sigma'}(I) - CBV_2^\sigma(I).
+  \]
 \end{lem}
 
 \begin{proof}
-  The counterfactual value in the gadget game is
+  A~strategy profile~$\sigma'$ defines probability distributions at each game state.
+  Provably by induction, we get $\sum_{z\in Z(I)} \pi_{-2}^{\sigma'}(z) \cdot \pi_{2}^{\sigma'}(z[I], z) = 1$.
+  Therefore, we can re-write the counterfactual value in the gadget game as
   \begin{equation*}
     \begin{split}
       \tilde{v}_2^\tilsig (I)
@@ -278,30 +281,31 @@ Thus, we get
       \cdot \pi_{2}^\tilsig(z[I], z)
       \cdot \tilde{u}_2(z) \\
       &= \sum_{z\in Z(I)}
-      \frac{\pi_{-2}^{\sigma}(z[I])}{k_I}
+      \frac{\pi_{-2}^{\sigma}(z[I])}{k_{\It}}
       \cdot \pi^{\tilde{\sigma}}(z[I], z)
       \cdot \tilde{u}_2(z) \\
       &= \sum_{z\in Z(I)}
       \pi_{-2}^{\sigma'}(z[I])
       \cdot \pi^{\sigma'}(z[I], z)
-      \cdot (u_2(z) - v_2(I)) \\
+      \cdot (u_2(z) - CBV_2^\sigma(I)) \\
       &= v_2^{\sigma'}(I) - \sum_{z\in Z(I)}
       \pi_{-2}^{\sigma'}(z) 
       \cdot \pi_{2}^{\sigma'}(z[I], z)
-      \cdot v_2(I) \\
-      &= v_2 ^{\sigma'}(I) - v_2(I).
+      \cdot CBV_2^\sigma(I) \\
+      &= v_2 ^{\sigma'}(I) - CBV_2^\sigma(I).
     \end{split}
   \end{equation*}
-  The last equality holds because behavior strategies $\sigma'$ define some probability distribution in each tree node.
-  Therefore by induction, we get $\sum_{z\in Z(I)} \pi_{-2}^{\sigma'}(z) \cdot \pi_{2}^{\sigma'}(z[I], z) = 1$.
 \end{proof}
+
+\color{purple}
+\hrule
 
 Now we prove that our gadget game does not increase the counterfactual values in the root information sets:
 \begin{thm}
   \label{thm:cf-val-max-margin-gadget}
   Let us have the original strategy $\sigma_1$ of player~$1$, a~subgame~$S$, and a~re-solved subgame strategy $\sigma_1^S$ for the above-constructed gadget game.
   Let also $\sigma_1' = \sigma_{1, [S \leftarrow \sigma_1^S]}$ be the combination of $\sigma_1$ in the trunk and $\sigma_1^S$ in the subgame~$S$.
-  Then $v_2^{\langle\sigma_1', \textrm{CBR}(\sigma_1')\rangle}(I) \leq  v_2^{\langle\sigma_1, \textrm{CBR}(\sigma_1)\rangle}(I) \equiv v_2(I)$ holds for every information set $I\in\mathcal{I}_2^{R(S)}$ at the root of subgame $S$.
+  Then $v_2^{\langle\sigma_1', \textrm{CBR}(\sigma_1')\rangle}(I) \leq  v_2^{\langle\sigma_1, \textrm{CBR}(\sigma_1)\rangle}(I) \equiv CBV_2^\sigma(I)$ holds for every information set $I\in\mathcal{I}_2^{R(S)}$ at the root of subgame $S$.
 \end{thm}
 
 \begin{proof}
@@ -309,11 +313,11 @@ Now we prove that our gadget game does not increase the counterfactual values in
   Together with the opponent's best response $\textrm{CBR}_2(\sigma'_1) = \textrm{CBR}_2(\sigma_1)$, we obtain the strategy profile 
   $\sigma' := \langle \sigma_1, \textrm{CBR}_2(\sigma_1) \rangle$.
   It yields the identical counterfactual values
-  $v_2 ^{\sigma'} (I) = v_2(I)$ for all $I\in\mathcal{I}_2^{R(S)}$.
-  By Lemma \ref{lem:cfshift}, with $\tilsig'$ as the subgame portion of~the whole $\sigma'$, the counterfactual values evaluates to
+  $v_2 ^{\sigma'} (I) = CBV_2^\sigma(I)$ for all $I\in\mathcal{I}_2^{R(S)}$.
+  By Lemma \ref{lem:cfv-shift}, with $\tilsig'$ as the subgame portion of~the whole $\sigma'$, the counterfactual values evaluates to
   $\tilde{v}_2 ^{\tilsig'}(I)
-  = v_2 ^{\sigma'} (I)~-~v_2(I)
-  = v_2(I)~-~v_2(I)
+  = v_2 ^{\sigma'} (I)~-~CBV_2^\sigma(I)
+  = CBV_2^\sigma(I)~-~CBV_2^\sigma(I)
   =~0$.
 
   Since any counterfactual value of a~root is the same thing as the regular expected value, we infer that
@@ -321,7 +325,7 @@ Now we prove that our gadget game does not increase the counterfactual values in
     \begin{split}
       \tilde{u}_2 ^{\tilsig'} (\dt)
       &= \tilde{v}_2 ^{\tilsig'} (\dt)
-      = \max _{I\in \mathcal{I}_2^{R(S)}} \tilde{v}_2 ^\tilsig (\tilde{r}_I) \\
+      = \max _{I\in \mathcal{I}_2^{R(S)}} \tilde{v}_2 ^\tilsig (c_{\It}) \\
       &= \max _{I\in \mathcal{I}_2^{R(S)}} \tilde{v}_2 ^\tilsig (I)
       = \max _{I\in \mathcal{I}_2^{R(S)}} 0 
       = 0,
@@ -348,13 +352,13 @@ Now we prove that our gadget game does not increase the counterfactual values in
       &\ge - \tilde{u}_1 ^{\sigma^S} (\dt)
       = \tilde{u}_2 ^{\sigma^S} (\dt)
       = \tilde{v}_2 ^{\sigma^S} (\dt) \\
-      &= v_2 ^{\langle\sigma_1', \textrm{CBR}(\sigma_1')\rangle} (I)~-~v_2(I)
+      &= v_2 ^{\langle\sigma_1', \textrm{CBR}(\sigma_1')\rangle} (I)~-~CBV_2^\sigma(I)
     \end{split}
   \end{equation*}
-  using again Lemma \ref{lem:cfshift} for the last equality.
+  using again Lemma \ref{lem:cfv-shift} for the last equality.
   Finally, the inequality translates to the desired
   $
-  v_2 ^{\langle\sigma_1', \textrm{CBR}(\sigma_1')\rangle} (I) \le v_2(I).
+  v_2 ^{\langle\sigma_1', \textrm{CBR}(\sigma_1')\rangle} (I) \le CBV_2^\sigma(I).
   $
 \end{proof}
 
@@ -372,7 +376,7 @@ On top of that, not only the construction preserves the upper bounds of~counterf
   In the same setting as in Theorem \ref{thm:nyx-cfval}, the margin
   \[
     m := \min _{I \in \mathcal{I}_2^{R(S)}} 
-    \left( v_2(I) - v_2^{\langle\sigma_1', \textrm{CBR}_2 (\sigma_1')\rangle}(I) \right)
+    \left( CBV_2^\sigma(I) - v_2^{\langle\sigma_1', \textrm{CBR}_2 (\sigma_1')\rangle}(I) \right)
   \]
   is maximum among all possible $\sigma'_1$.
 \end{thm}
@@ -380,7 +384,7 @@ On top of that, not only the construction preserves the upper bounds of~counterf
   For a~contradiction, let there be a~strategy profile~$\ovsigma = \langle \ovsigma_1, \textrm{CBR}_2 (\ovsigma_1)\rangle$, which is the strategy $\sigma$ with substituted subgame part and which generates a~better margin
   \[
     m' := \min _{I \in \mathcal{I}_2^{R(S)}} 
-    \left( v_2(I) - v_2^{\ovsigma}(I) \right)
+    \left( CBV_2^\sigma(I) - v_2^{\ovsigma}(I) \right)
     > m.
   \]
   To get a~\acrlong{cbr} $\textrm{CBR}_2 (\ovsigma_1)$, player~$2$ may only mix the actions with the largest counterfactual values.
@@ -391,11 +395,11 @@ On top of that, not only the construction preserves the upper bounds of~counterf
       &= \tilde{v}_2 ^\ovsigma(\dt)
       = \max _{I \in \mathcal{I}_2^{R(S)}} \tilde{v}_2 ^\ovsigma(I)
       = - \min _{I \in \mathcal{I}_2^{R(S)}} \left( -\tilde{v}_2 ^\ovsigma(I) \right) \\
-      &= - \min _{I \in \mathcal{I}_2^{R(S)}} \left( v_2(I) - v_2^{\ovsigma}(I) \right)
+      &= - \min _{I \in \mathcal{I}_2^{R(S)}} \left( CBV_2^\sigma(I) - v_2^{\ovsigma}(I) \right)
       = - m'
     \end{split}
   \end{equation*}
-  where the penultimate equality is justified by Lemma~\ref{lem:cfshift}.
+  where the penultimate equality is justified by Lemma~\ref{lem:cfv-shift}.
 
   In a~zero-sum game, we get
   $
@@ -420,7 +424,7 @@ On top of that, not only the construction preserves the upper bounds of~counterf
 The previous theorem suggests that our construction has a~counterpart in~the form of~a sequence-form linear program.
 Indeed, it is intuitively equivalent to the LP~(\ref{lp-nyx}), as the solution to the gadget game maximizes the margin in counterfactual values.
 This is an~improvement over the approach demonstrated by~(\cite{BurchJohansonBowling2014}).
-}
+\color{black}
 
 \section{Experimental Results}
 \label{sec:max-margin-experiments}
