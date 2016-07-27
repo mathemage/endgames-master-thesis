@@ -48,8 +48,8 @@ Formally, an~\emph{\acrfull{efg}} for a~perfect-information game (\cite[p.~200]{
 \end{itemize}
 We will also need the notion of~a~strategy, the expected utility and a~best response.
 \begin{itemize}
-  \item A~(behavior) \emph{strategy}~$\sigma_i$ of player~$i$ defines a~probability distribution over actions $A(h)$ wherever he acts (i.e., at~every node~$h \in H$ with $p(h) = i$).
-    The set~$\Sigma_i$ contains all possible strategies for player~$i$.
+  \item A~(behavior) \emph{strategy}~$\sigma_i$ of player~$i$ defines a~probability distribution over actions $A(h)$ at~every node~$h \in H$ with $p(h) = i$ (i.e., everywhere where player~$i$ acts).
+    The set~$\Sigma_i$ contains all possible strategies of player~$i$, and $\sigma_{[S \leftarrow \sigma^*]}$ means the combined strategy of~$\sigma^*$ (within~$S$) and $\sigma$ (elsewhere).
 
   Additionally, a~strategy can be \emph{pure} (just one action is strictly chosen everywhere) or \emph{mixed} (a~probability distribution over pure strategies).
 
@@ -142,7 +142,7 @@ If we fix opponents' strategies, it is only beneficial to re-solve subgames:%
     \label{eq:opt-val-of-subgame}
     u_i^r(\sigma^*) \ge u_i^r(\sigma_S)
   \end{equation}
-  The new re-combined strategy $\sigma'$ (i.e., $\sigma^*$ within~$S$, and the original $\sigma$ elsewhere) cannot decrease $i$'s utility:
+  The new re-combined strategy $\sigma' = \sigma_{[S \leftarrow \sigma^*]}$ cannot decrease $i$'s utility:
   \begin{align*}
     u_i(\sigma')
     %
