@@ -46,7 +46,7 @@ Formally, an~\emph{\acrfull{efg}} for a~perfect-information game (\cite[p.~200]{
 
   \item a~\emph{utility function} $u_i\colon Z \goto \R$.
 \end{itemize}
-We will also need the notion of~a~strategy, the expected utility and a~best response.
+We'll also need to know a~strategy, the expected utility and a~\acrfull{br}.
 \begin{itemize}
   \item A~(behavior) \emph{strategy}~$\sigma_i$ of player~$i$ defines a~probability distribution over actions $A(h)$ at~every node~$h \in H$ with $p(h) = i$ (i.e., everywhere where player~$i$ acts).
     The set~$\Sigma_i$ contains all possible strategies of player~$i$, and $\sigma_{[S \leftarrow \sigma^*]}$ means the combined strategy of~$\sigma^*$ (within~$S$) and $\sigma$ (elsewhere).
@@ -72,16 +72,16 @@ We will also need the notion of~a~strategy, the expected utility and a~best resp
     is the sum of~utilities in~the leaves (weighted by the probabilities of~reaching them):
     \[ u_i (\sigma) = \sum _{z \in Z} \pi^\sigma\!(z) \,u_i(z)\]
 
-  \item Player~$i$'s \emph{best response}~$BR _i (\sigma _{-i})$ (briefly $BR _i (\sigma)$) is a~strategy $\sigma _i \in \Sigma _i$ maximizing his expected utility against other players:
+  \item Player~$i$'s \emph{\acrlong{br}}~$BR _i (\sigma _{-i})$ (briefly $BR _i (\sigma)$) is a~strategy $\sigma _i \in \Sigma _i$ maximizing his expected utility against other players:
     \[ u_i (\sigma) = \max _{\sigma'_i \in \Sigma_i} u_i ((\sigma'_i, \sigma_{-i})) \]
-    Provided a~fixed $\sigma_{-i}$, one technique to find some best response is to recursively traverse the game tree and pick each node's most valuable action (with the maximum utility).
+    Provided a~fixed $\sigma_{-i}$, one technique to find some \acrshort{br} is to recursively traverse the game tree and pick each node's most valuable action (with the maximum utility).
 \note{
-  There may be several best responses due to a~multiplicity of~actions with maximum value.
+  There may be several \acrlong{br}s due to a~multiplicity of~actions with maximum value.
   Let us assume $BR _i (\sigma _{-i})$ denotes any of~them:
-  this simplification is not overly harmful, since all best responses lead to the same (maximum) value of~the total utility.
+  this simplification is not overly harmful, since all \acrshort{br}s lead to the same (maximum) value of~the total utility.
 }
 
-  \item A~\emph{\acrfull{ne}} is a~strategy profile where players are playing best responses against each other.
+  \item A~\emph{\acrfull{ne}} is a~strategy profile where players are playing \acrlong{br}s against each other.
     Formally, profile $\sigma$ is an~\acrshort{ne} if
     \[ \forall i \in P\colon u_i (\sigma) = \max _{\sigma'_i \in \Sigma_i} u_i ((\sigma'_i, \sigma_{-i})) \]
     (i.e., no player has any incentive to deviate from his strategy).
@@ -174,17 +174,17 @@ no opponent can exploit the newly computed sub-strategy by adjusting his play (e
 \begin{thm}[unexploitable subgame re-solving]
   \label{thm:perf-info-subgames-unexploitability}
   Assume we are given a~two-person zero-sum game, its subgame~$S$ rooted at node~$r$ and a~fixed player~$i$.
-  Let $\sigma_i$ be the~original strategy, $\sigma_i^*$ the re-computed strategy that only differs within $S$, let $\sigma_{-i} = BR(\sigma _{i})$ and $\sigma_{-i}^* = BR(\sigma^*_{i})$ be opponent's corresponding best responses, and let $\sigma = (\sigma_i, \sigma_{-i})$ and $\sigma^* = (\sigma_i^*, \sigma_{-i}^*)$ be the resulting profiles.
+  Let $\sigma_i$ be the~original strategy, $\sigma_i^*$ the re-computed strategy that only differs within $S$, let $\sigma_{-i} = BR(\sigma _{i})$ and $\sigma_{-i}^* = BR(\sigma^*_{i})$ be opponent's corresponding \acrlong{br}s, and let $\sigma = (\sigma_i, \sigma_{-i})$ and $\sigma^* = (\sigma_i^*, \sigma_{-i}^*)$ be the resulting profiles.
 
   If $u_i^r (\sigma) \le u_i^r (\sigma^*)$ (player~$i$'s worst-case utility does not decrease in~the subgame), then at~every node $h \in H \setminus S$ we also have $u_i^h (\sigma) \le u_i^h (\sigma^*)$ (player~$i$'s worst-case utilities outside the subgame do not decrease).
 \end{thm}
 \begin{proof}
-  By definition, all best responses produce equal expected utilities, because they all maximize opponent's value.
-  We can therefore do calculations of~utilities with respect to any~arbitrary best response, e.g., the standard best response retrieved by~the \emph{backward induction}\footnotemark.
+  By definition, all \acrlong{br}s produce equal expected utilities, because they all maximize opponent's value.
+  We can therefore do calculations of~utilities with respect to any~arbitrary \acrlong{br}, e.g., the standard \acrshort{br} retrieved by~the \emph{backward induction}\footnotemark.
   \footnotetext{This method recursively selects the action with the maximum utility, or any of~them in~the case of~multiplicity.}
 
   Let $T_h$ be the subtree rooted at~$h$.
-  If $T_h$ does not contain $S$ (i.e., $h \not\sqsubseteq r$), then the best responses $\sigma_{-i}$ and $\sigma^*_{-i}$ are identical within $T_h$, which trivially implies $u_i^h (\sigma) = u_i^h (\sigma^*)$.
+  If $T_h$ does not contain $S$ (i.e., $h \not\sqsubseteq r$), then the \acrshort{br}s $\sigma_{-i}$ and $\sigma^*_{-i}$ are identical within $T_h$, which trivially implies $u_i^h (\sigma) = u_i^h (\sigma^*)$.
   On~the other hand, if $T_h$ does contain $S$, we will prove the inequality by~mathematical induction on the height of~$T_h$.
 
   For the base case, the minimum-height tree containing $S$ is the subgame tree $S \equiv T_r$ itself, where the inequality holds by assumptions.
