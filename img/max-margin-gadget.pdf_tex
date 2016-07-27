@@ -55,9 +55,9 @@
     \put(0.13111042,0.57952077){\makebox(0,0)[lb]{\large$c_{\It_1}$}}%
     \put(0.47111042,0.57952077){\makebox(0,0)[lb]{\large$c_{\It_2}$}}%
     \put(0.77111042,0.57952077){\makebox(0,0)[lb]{\large$c_{\It_3}$}}%
-    \put(0.141,0.02352077){\makebox(0,0)[lb]{\small$
+    \put(0.08,0.02352077){\makebox(0,0)[lb]{\small$
       \tilde{u}_2(\tilde{z})
-      = u_2(z) - CBV_2(\tilde{I})
+      = k_{\It} \cdot u_2(z) - CBV_2^\sigma(I)
     $ }}%
   \end{picture}%
 \endgroup%
