@@ -4,11 +4,11 @@
   In order to improve your game, you must study the endgame before everything else.
   For whereas the endings can be studied and mastered by~themselves, the middle game and opening must be studied in relation to the end game.
 }{José Raúl Capablanca}
-For many games, solving their late stages (so-called \emph{endgames}) can be done in~a~dynamic online way.
-In other words, we are often able to postpone the computation of~the endgame strategy until the endgame itself is reached in~the play.
+For many games, solving their late stages (\emph{endgames}) can be done in~a~dynamic way, by the in-play analysis.
+In other words, we are often able to postpone the computation of~the endgame strategy until the endgame itself is actually reached in~the real play.
 
 On the other hand, endgames can be also pre-computed (often up to a~perfect play) and cached for later.
-Such a~``memoization'' approach is notably fruitful in~popular games such as Chess.
+Such a~``memoization'' approach is advantageous in~popular games such as Chess.
 
 \section{Extensive Form for Perfect-Information}
 \label{sec:extensive-form-perf-info}
@@ -25,22 +25,22 @@ Games with perfect information can be naturally represented with a~\emph{game tr
   \label{fig:game-tree-nim-5}
 \end{figure}
 \noindent
-The representation with a~(directed) tree (rather than with a~pay-off matrix) is called an extensive form.
+The representation with a~(directed) tree (instead of a~pay-off matrix) is called an extensive form.
 
 Formally, an~\emph{\acrfull{efg}} for a~perfect-information game (\cite[p.~200]{Osborne1994course}) consists of:
 \begin{itemize}
   \item a~finite set of~\emph{players}~$P$,
 
-  \item a~finite set $H$ of~all possible \emph{histories} (i.e., paths from the root to vertices of~the game tree), where
+  \item a~finite set $H$ of~all possible \emph{histories} (i.e., paths from the root to vertices of~the game tree) such that
     \begin{itemize}
       \item each history consists of~individual \emph{actions} (i.e., tree edges),
-      \item $\emptyset \in H$ (the root of~the game tree),
-      \item relation~$h \sqsubseteq h'$ denotes that history~$h$ is a~prefix of $h'$,
+      \item $\emptyset \in H$ (i.e., the tree root),
+      \item relation~$h \sqsubseteq h'$ means that \emph{history~$h$ is a~prefix (ancestor) of~$h'$},
       \item if $h' \in H$ and $h \sqsubseteq h'$, then $h \in H$,
       \item set $Z \subseteq H$ is the set of \emph{terminal histories}, i.e., histories that are not prefixes of~any other histories.
     \end{itemize}
 
-  \item the set of available actions $A(h) = \braces{a: (h, a) \in H}$ for every (non-terminal) node $h \in H \setminus Z$ (i.e., edges to~children in the game tree),
+  \item the set of available actions $A(h) = \braces{a: (h, a) \in H}$ for every (non-terminal) node $h \in H \setminus Z$ (i.e., edges to~children),
 
   \item a~function $p\colon P \to H \setminus Z$, which assigns an~\emph{acting player} $p(h)$ to each non-terminal history~$h$.
 
@@ -49,14 +49,13 @@ Formally, an~\emph{\acrfull{efg}} for a~perfect-information game (\cite[p.~200]{
 We'll also need to know a~strategy, the expected utility and a~\acrfull{br}.
 \begin{itemize}
   \item A~(behavior) \emph{strategy}~$\sigma_i$ of player~$i$ defines a~probability distribution over actions $A(h)$ at~every node~$h \in H$ with $p(h) = i$ (i.e., everywhere where player~$i$ acts).
-    The set~$\Sigma_i$ contains all possible strategies of player~$i$, and $\sigma_{[S \leftarrow \sigma^*]}$ means the combined strategy of~$\sigma^*$ (within~$S$) and $\sigma$ (elsewhere).
+    The set~$\Sigma_i$ contains all possible strategies of player~$i$, and by $\sigma_{[S \leftarrow \sigma^*]}$ we denote the combined strategy of~$\sigma^*$ (within part~$S$) and $\sigma$ (elsewhere).
 
-  Additionally, a~strategy can be \emph{pure} (just one action is strictly chosen everywhere) or \emph{mixed} (a~probability distribution over pure strategies).
+  Additionally, a~strategy can be \emph{pure} (strictly one action is always chosen) or \emph{mixed} (a~probability distribution over pure strategies).
 
-  \item A~\emph{strategy profile} $\sigma$ is a~vector of~players' strategies:
+  \item A~\emph{strategy profile} $\sigma$ is a~tuple of~players' strategies:
     $\sigma = (\sigma_1, \sigma_2, \ldots, \sigma_ {\abs{P}})$.
-    The set of~all such possible strategy profiles is denoted by~$\Sigma$.
-    Hence, it is the Cartesian product $\Sigma = \prod_{i \in P} \Sigma_i$.
+    The set of~all possible strategy profiles is denoted as~$\Sigma$ and it is the Cartesian product $\Sigma = \prod_{i \in P} \Sigma_i$.
 
     By~$\sigma_{-i}$ we denote the strategy profile of~$i$'s opponents:
     \[ \sigma_{-i} = (\sigma_1, \sigma_2, \ldots \sigma_{i-1}, \sigma_{i+1}, \ldots \sigma_ {\abs{P}}) \]
@@ -69,21 +68,23 @@ We'll also need to know a~strategy, the expected utility and a~\acrfull{br}.
     \[ \pi _{-i} ^\sigma(h) = \prod _{j \ne i} \pi _j ^\sigma (h) \]
     
   \item Given a~strategy profile $\sigma$, the \emph{expected utility}~$u_i (\sigma)$ for player~$i$
-    is the sum of~utilities in~the leaves (weighted by the probabilities of~reaching them):
-    \[ u_i (\sigma) = \sum _{z \in Z} \pi^\sigma\!(z) \,u_i(z)\]
+    is the sum of~utilities in~the leaves, weighted by the probabilities of~reaching them:
+    \[ u_i (\sigma) = \sum _{z \in Z} \pi^\sigma\!(z) \cdot u_i(z)\]
 
   \item Player~$i$'s \emph{\acrlong{br}}~$BR _i (\sigma _{-i})$ (briefly $BR _i (\sigma)$) is a~strategy $\sigma _i \in \Sigma _i$ maximizing his expected utility against other players:
-    \[ u_i (\sigma) = \max _{\sigma'_i \in \Sigma_i} u_i ((\sigma'_i, \sigma_{-i})) \]
-    Provided a~fixed $\sigma_{-i}$, one technique to find some \acrshort{br} is to recursively traverse the game tree and pick each node's most valuable action (with the maximum utility).
+    \[ u_i (\sigma) = \max _{\sigma'_i \in \Sigma_i} u_i (\sigma'_i, \sigma_{-i}) \]
+    Given a~fixed $\sigma_{-i}$, one technique to find some \acrshort{br} is to recursively traverse the game tree and pick the most valuable action at~each node (i.e. the child with the maximal expected utility).
 \note{
-  There may be several \acrlong{br}s due to a~multiplicity of~actions with maximum value.
+  There may be several \acrlong{br}s due to a~multiplicity of~actions with the maximum value.
   Let us assume $BR _i (\sigma _{-i})$ denotes any of~them:
-  this simplification is not overly harmful, since all \acrshort{br}s lead to the same (maximum) value of~the total utility.
+  this simplification is not harmful at~all, since each \acrshort{br} leads to the same (maximal) value of~the total utility.
 }
 
   \item A~\emph{\acrfull{ne}} is a~strategy profile where players are playing \acrlong{br}s against each other.
-    Formally, profile $\sigma$ is an~\acrshort{ne} if
-    \[ \forall i \in P\colon u_i (\sigma) = \max _{\sigma'_i \in \Sigma_i} u_i ((\sigma'_i, \sigma_{-i})) \]
+    Formally, $\sigma$ is an~\acrshort{ne} if every $i \in P$ has
+    \[
+      u_i (\sigma) = \max _{\sigma'_i \in \Sigma_i} u_i(\sigma'_i, \sigma_{-i})
+    \]
     (i.e., no player has any incentive to deviate from his strategy).
 
   \item For a~given profile~$\sigma$, its exploitability
@@ -96,15 +97,16 @@ We'll also need to know a~strategy, the expected utility and a~\acrfull{br}.
 
 Finally, two common properties of~games are:
 \begin{itemize}
-  \item \emph{two-player} property
+  \item \emph{two-player} property: $P = \{1, 2\}$
   \item \emph{zero-sum} property:
     For any profile $\sigma \in \Sigma$, players' utilities cancel out
-    \[ \sum _{i \in P} u _i (\sigma) = 0 \]
-    Examples of~zero-sum games include games such as Matching Pennies, \acrshort{rps}, Chess, Go and Poker.
+    \[
+      \sum _{i \in P} u _i (\sigma) = 0.
+    \]
 \end{itemize}
 In particular, two-player zero-sum games capture the~antagonistic behavior:
 what one player gains, the other one loses.
-Typical examples are \acrshort{rps}, matching pennies, Chess, Go, heads-up poker etc.
+Typical examples are games such as \acrshort{rps}, Chess, Go, Heads-Up Poker, etc.
 
 \section{Subgames}
 \epigraphLong{
