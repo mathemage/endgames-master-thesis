@@ -213,9 +213,9 @@ The following is a~description of~the steps (see also Figure~\ref{fig:max-margin
 \begin{enumerate}
   \item We establish a~common baseline.
     For~comparing changes in~the performance of~$2$'s root information sets, they need a~common starting point:
-    the original strategy $\sigma_1^S$.
+    the original strategy $\sigma$.
 
-    For every $I \in \I_2^{R(S)}$ we subtract the opponent's original \acrlong{cbv}, setting the utility at~each terminal node~$z \in Z(I)$ to $\ut_2(\zt) = u_2(z) - CBV_2^{\sigma^S_1}(I)$.
+    For every $I \in \I_2^{R(S)}$ we subtract the opponent's original \acrlong{cbv}, setting the utility at~each terminal node~$z \in Z(I)$ to $\ut_2(\zt) := k_{\It} \cdot u_2(z) - CBV_2^{\sigma}(I)$ (see Section~\ref{sec:cfval-shifts} for detailed explanation).
     We must not forget to~update $\ut_1(\zt) = -\ut_2(\zt)$ either, as we need the game to remain zero-sum.
     Conditioned on~the original strategy $\sigma_1^S$, the shifting gives an~expected value of~$0$ to~opponent's starting states.
 
@@ -226,9 +226,7 @@ The following is a~description of~the steps (see also Figure~\ref{fig:max-margin
     We create an~additional decision node $\dt$ for player~$2$.
     Every action corresponds to choosing an~initial information set $I\in \I_2^{R(S)}$.
     However, since an~action can lead only to a~single tree node rather than a~whole information set, we may not connect this action to state~$\dt$ directly.
-    Instead, each action leads to a new chance node $c_{\It}$, where the chance distributes histories~$\htil \in \It$ based on~the probability~$\pi_{-2}^\sigma (h)$.
-
-    \todo
+    Instead, each action leads to a new chance node $c_{\It}$, where the chance distributes histories~$\htil \in \It$ based on~the probability~$\pi_{-2}^\sigma (h)$ and the normalization factor $k_{\It} = \sum_{ h \in I} \pi_{-2}^\sigma(h)$ (again, see Section~\ref{sec:cfval-shifts}).
 \end{enumerate}
 
 Following from the construction, we get straightforwardly
@@ -236,7 +234,8 @@ Following from the construction, we get straightforwardly
   A~strategy for the max-margin gadget is a~\acrlong{ne} if and only if it is a~solution to the \acrshort{lp}~(\ref{lp:max-margin}).
 \end{claim}
 
-\section{Gadget Game Revisited}
+\section{Shifts in Gadget-Game Counterfactual Values}
+\label{sec:cfval-shifts}
 First of~all, we show that re-solving does not increase \acrshort{cbv}s at~the root of the subgame, when compared to old \acrshort{cbv}s in the original game.
 
 Let $\mathcal{I}_2^{R(S)}$ be the set of~information sets at~the root of a~subgame~$S$ and let $\sigma$ be the strategy from the original game.
@@ -249,9 +248,9 @@ Formally, this can be achieved by creating chance nodes $c_{\It}$ per each set $
 As soon as the opponent pick which $c_{\It}$ to enter (i.e., with which cards to enter the subgame), the chance player deals cards to us.
 The probability of~being in~state $\tilde{h}\in \It$ is
 \[
-  \pi_c (c_{\It}, c_{\It} \cdot \tilde{h}) = \frac {\pi_{-2} ^{\sigma}(\tilde{h})} {k_{\It}}
+  \pi_c (c_{\It}, c_{\It} \cdot \tilde{h}) = \frac {\pi_{-2} ^{\sigma}(h)} {k_{\It}}
 \]
-where normalization factor $k_{\It} = \sum_{ \tilde{h} \in \It} \pi_{-2}^\sigma(\tilde{h})$ ensures that probabilities sum to $1$ (i.e., $\sum_{\tilde{h} \in \It} \pi_c (c_{\It}, c_{\It} \cdot \tilde{h}) = 1$).
+where normalization factor $k_{\It} = \sum_{ h \in I} \pi_{-2}^\sigma(h)$ ensures that probabilities sum to $1$ (i.e., $\sum_{\tilde{h} \in \It} \pi_c (c_{\It}, c_{\It} \cdot \tilde{h}) = 1$).
 
 The remaining structure of~the subgame is directly replicated, copying every state~$h$ with a~duplicate~$\tilde{h}$.
 The only exceptions are the terminal utilities, which need to be adjusted.
