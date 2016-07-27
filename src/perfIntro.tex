@@ -75,12 +75,17 @@ We will also need the notion of~a~strategy, the expected utility and a~best resp
   \item Player~$i$'s \emph{best response}~$BR _i (\sigma _{-i})$ (briefly $BR _i (\sigma)$) is a~strategy $\sigma _i \in \Sigma _i$ maximizing his expected utility against other players:
     \[ u_i (\sigma) = \max _{\sigma'_i \in \Sigma_i} u_i ((\sigma'_i, \sigma_{-i})) \]
     Provided a~fixed $\sigma_{-i}$, one technique to find some best response is to recursively traverse the game tree and pick each node's most valuable action (with the maximum utility).
-\end{itemize}
 \note{
   There may be several best responses due to a~multiplicity of~actions with maximum value.
   Let us assume $BR _i (\sigma _{-i})$ denotes any of~them:
   this simplification is not overly harmful, since all best responses lead to the same (maximum) value of~the total utility.
 }
+
+  \item A~\emph{\acrfull{ne}} is a~strategy profile where players are playing best responses against each other.
+    Formally, profile $\sigma$ is an~\acrshort{ne} if
+    \[ \forall i \in P\colon u_i (\sigma) = \max _{\sigma'_i \in \Sigma_i} u_i ((\sigma'_i, \sigma_{-i})) \]
+    (i.e., no player has any incentive to deviate from his strategy).
+\end{itemize}
 
 Finally, two common properties of~games are:
 \begin{itemize}
