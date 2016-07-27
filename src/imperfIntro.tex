@@ -54,12 +54,23 @@ There are further notions related to \acrshort{efg}s:
   \item $\sigma | _{I \goto a}$ denotes the strategy identical to $\sigma$ with the only one exception:
     the action~$a$ is always played at the information set~$I$.
 
-  \item The \emph{counterfactual value} $v _i ^\sigma (I)$ is a~hypothetical ``what-if'' value, if one had taken the actions to arrive at~$I$.
+  \item The \emph{counterfactual value} $v _i ^\sigma (I)$ is a~``what-if'' value in a~hypothetical scenario, where one had taken the actions to arrive at~$I$.
+
     Formally, it is the expected utility provided that the information set $I$ is reached and all players play according to strategy $\sigma$ with exception of player~$i$, who plays to reach $I$:
-    \[ v _i ^\sigma (I) = \sum\limits _{h \in I, \; h' \in Z}
+    \[
+      v _i ^\sigma (I) = \sum\limits _{h \in I, \; h' \in Z}
       \frac
       {\pi _{-i} ^\sigma(h) \pi ^\sigma(h,h') u_i(h')}
-      {\pi _{-i} ^\sigma (I)} \]
+      {\pi _{-i} ^\sigma (I)}
+    \]
+
+    Likewise, for $a \in A(I)$
+    \[
+      v _i ^\sigma (I, a) = \sum\limits _{h \in I, \; h' \in Z}
+      \frac
+      {\pi _{-i} ^\sigma(h) \pi ^\sigma(h \cdot a, h') u_i(h')}
+      {\pi _{-i} ^\sigma (I)}
+    \]
 
   \item A~\emph{\acrlong{cbr}} $CBR _i (\sigma _{-i})$ (briefly $CBR _i (\sigma)$ or $CBR(\sigma_{-i})$) of player~$i$ is a~strategy maximizing the counterfactual value at each information set $I \in \I _i$:
     \[ \pi ^\sigma (I, a) \geq 0
