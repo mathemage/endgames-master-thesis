@@ -173,20 +173,25 @@ There are only 2 basic rules of Go:
     Stones or groups of stones which lose their last liberty are removed from the board.
     \begin{figure}[H]
       \centering
-      \includegraphics[width=.5\textwidth]{../img/Go_rule_of_liberty.png}
+      \includegraphics[width=.4\textwidth]{../img/Go_rule_of_liberty.png}
       \caption{The rule of liberty}
       \label{fig:Go-rule-liberty}
     \end{figure}
 
-  \item [The ``ko'' rule]
+  \item [The \emph{Ko} rule]
     The stones on the board must never repeat a~previous position of~stones.
     This is to prevent unending cycles.
     \begin{figure}[H]
       \centering
-      \includegraphics[width=.5\textwidth]{../img/Go_ko_rule.png}
-      \caption{The ``ko'' rule}
+      \includegraphics[width=.4\textwidth]{../img/Go_ko_rule.png}
+      \caption{The \emph{Ko} rule}
       \label{fig:Go-Ko-rule}
     \end{figure}
+    \vskip -1em
+    Since Ko rule applies only to a~previous move, this gives rise to \emph{Ko fights}:
+    the player, who is ``banned'' from repeating a~move, makes a~play elsewhere, which may have no particular good qualities, but which demands an~instant reply.
+    Then the ban comes to an~end, and recapture is again possible for Ko.
+    This kind of~distracting play is called a~\emph{Ko threat}.
 \end{description}
 
 There are several \textbf{scoring rules} to determine the winner of a~game.
