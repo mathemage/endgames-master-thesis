@@ -7,27 +7,29 @@
 }{Martin~\cite{Muller1995computer}}
 The ancient game of~Go offers astounding complexity:
 the board size, the quantity of~possible moves and the average game length produce an~astronomical number of~valid positions.
+
 More than in~any other classic game, human intuition plays a~vital role for a~successful play:
-Go offers abundance and richness of~geometrical, combinatorial and logical structure, ready to be exploited by human players.
-In~the words of~Google DeepMind (\cite{Silver2016mastering}), Go serves as~``the most challenging of~classic games for artificial intelligence owing to its enormous search space and the difficulty of~evaluating board positions and moves''.
-\footnotetext{
-  In fact, this prognosis is misaligned:
-  AlphaGo, the most successful Go program designed so far, uses no Go-specific knowledge.
-  To compare \Mueller's prediction with current trends, consult the Note on page~\pageref{note:CGTvsAlphaGo} or Chapter~\ref{ch:AlphaGo}.
+Go offers great richness of~geometrical, combinatorial and logical structure, ready to be exploited by human players.
+
+Quoting Google DeepMind, the game of~Go is agreed to be ``the most challenging of~classic games for \acrlong{ai} owing to its enormous search space and the difficulty of~evaluating board positions and moves'' (\cite{Silver2016mastering}).
+\footnotetext{%
+  This prognosis is in fact misaligned:
+  AlphaGo, the most successful Go program designed so far, uses almost no Go-specific knowledge.
+  To compare \Mueller's prediction with current trends, consult the Note on page~\pageref{note:CGTvsAlphaGo} and Chapter~\ref{ch:AlphaGo}.
 }
 \vskip 1em
 \note{
   This chapter is based on the work of Martin~\Mueller{} (\cite{Muller1995computer}) submitted as a~doctoral thesis at ETH \Zurich.
-  Since the focus of~our survey are imperfect-information games rather than Go, the chapter heavily derives from the mentioned work.
+  Since the focus of~our survey are imperfect-information games rather than Go, this chapter mostly summarizes his work.
 }
 \vskip 1.5em
-Martin~\Mueller{} in~(\cite{Muller1995computer}) reports that (at that time) Go programs ``comprehend only the most basic concepts of~Go'' and that
-``to make progress, [he~feels] it is necessary both to encode more Go-specific knowledge and to push forward the application of~theories such as \acrlong{cgt} to Go''.
-Here follows the summary and the results of~his endeavors.
+Martin~\Mueller{} reported in 1995 that (at that time) Go programs ``comprehend only the most basic concepts of~Go'' and that
+``to make progress, [he~feels] it is necessary both to encode more Go-specific knowledge and to push forward the application of~theories such as \acrlong{cgt} to Go'' (\cite{Muller1995computer}).
+Here follows the overview and the results of~his endeavors.
 
 \section{Why Focus on Go Endgames?}
 
-In his dissertation, Martin~\Mueller{} mentions the following advantages of~Go endgames for research:
+(\cite{Muller1995computer}) mentions the following advantages of~Go endgames for research:
 \begin{itemize}
   \item The situation towards the end of~game becomes clearer.
     This simplification helps to study Go in~an easier and more controlled way.
@@ -45,88 +47,91 @@ In his dissertation, Martin~\Mueller{} mentions the following advantages of~Go e
 }{Philip II of~Macedon}
 A~typical Go position contains several \emph{subgames} (local scenes) suitable for independent analysis.
 Initially, the subgames have no influences on~one another due to their mutual distance.
-As the game progresses, nevertheless, they gain the crucial role due to a~clearer board partition with walls of~safe stones:
+Nevertheless, as the game progresses, they gain the crucial role thanks to a~more distinct board partitioning via walls of~safe stones:
 \begin{figure}[H]
   \centering
   \includegraphics[width=.4\textwidth]{../img/late_endgame_Go_position_suited_for_exact_analysis.png}
   \captionWithCite{An~immortal wall enabling an exact analysis during late endgame}{Muller1995computer}
   \label{fig:immortal-wall}
 \end{figure}
-No move can have any influence across these ``immortal'' walls and significant parts of~the board definitely belong to one of the players.
+No move can have any influence across these ``immortal'' walls and significant parts of~the board belong with certainty to one of the players.
 The connected components of~remaining stones define local subgames independent from each other.
 
-In the opening and midgame, only approximate partitioning can be available.
-In the endgame, conversely, the partition gets more precise:
-the status of~all big groups has been settled, and the outlines of~territories are clear.
-If each local game is simple enough to~analyze completely (such as in Figure~\ref{fig:immortal-wall}), \acrshort{cgt} can compute an~optimal move for the full board position.
-(\cite{Muller1995computer})
+In the opening and midgame, partitioning can be only approximate.
+On the other hand, the partitioning in the endgame becomes more precise:
+the statuses of~all big groups have been settled, and the outlines of~territories are clear.
+If each local game is simple enough for complete analysis (such as in Figure~\ref{fig:immortal-wall}), \acrshort{cgt} can compute an~optimal move for the full board position.
 
-This is the general procedure of~(\cite{Muller1995computer}) for playing Go as a~sum of~local games:
+Now follows the general procedure of~(\cite{Muller1995computer}) for playing Go as a~sum of~local games:
 \begin{enumerate}
   \item Board partition: find safe blocks, safe territories, and local areas.
   \item Generate local game trees in each area.
   \item Evaluate local terminal positions.
-  \item Transform local game trees into mathematical games (and simplify games).
-  \item Find an optimal move in the (\acrshort{cgt}) sum-game and play it.
+  \item Transform local game trees into combinatorial games and simplify them.
+  \item Find an optimal move in the \acrshort{cgt} sum-game and play it.
 \end{enumerate}
 \Mueller{} proposes heuristic algorithms for playing the entire game, and exact algorithms for late endgame positions.
 
-Undoubtedly, the task of~solving endgames in 1995 (at the age of Computer Go's infancy) already played a~vital role.
+Undoubtedly, the task of~solving endgames in 1995 (when computer Go was at~its infancy) already played an~important role.
 
 \section{Combinatorial Game Theory for the Game of~Go}
 \epigraphLong{
-  [$\dots$]
   You get surreal numbers by~playing games.
 
   I used to feel guilty in Cambridge that I spent all day playing games, while I was supposed to be doing mathematics.
-  Then, when I discovered surreal numbers, I realized that playing games IS math.
+  Then, when I discovered surreal numbers, I realized that playing games is math.
 }{John Conway}
-\Mueller{} suggests to replace the ``standard model'' of~computer Go by a~sum-game model.
-
-Here follows some of~the general benefits and problems of~the sum-game model for computer Go as listed in~(\cite{Muller1995computer}):
+(\cite{Muller1995computer}) suggests to replace the ``standard model'' of~computer Go by a~sum-game model.
+Here follows some general benefits and problems of~the sum-game model for computer Go, as listed the work:
 
 \medskip
 
 \underline{Benefits}
 \begin{itemize}[+]
-  \item suitability to the knowledge and style of~Go programs at that time:
-    local fighting, surrounding territories$\dots$
-  \item the reuse of~local game analysis for higher quality game-play
-  \item simplification of~move generation and position evaluation
-  \item translation of~Go terms into the theory, without any need for~separate programming
-  \item evaluation of~the opponent's endgame moves
-  \item assessment of~sufficiently good moves even with a~\emph{reduced} local game database
-  \item position's game-theoretic value computed long before the end
+  \item suitability to the knowledge and style of~Go programs (at that time):
+    local fighting, surrounding territories, etc.
+  \item reusing of~local game analysis for a~high-quality game play
+  \item simplifying move generation and evaluation of~positions
+  \item translating Go terms into the theory, without need for~separate programming
+  \item evaluating opponent's endgame moves
+  \item assessing sufficiently good moves even with a~\emph{reduced} local game database
+  \item computing the game-theoretic value of a~position long before the end
   \item opportunities for parallelism:
-    independent local searches, evaluation and operations on mathematical games$\dots$
+    independent local searches, evaluations and operations on mathematical games, etc.
   \item perfect computer play in~late endgame
 \end{itemize}
 
+\newpage
+
 \underline{Obstacles}
 \begin{itemize}[-]
-  \item required accurate board partition and recognition of~dependencies
-  \item the common issues of~selective search:
+  \item required accurate board partition and dependency recognition
+  \item common issues of~selective search:
     misleading evaluation due to missing crucial moves in~complicated games
   \item the lack of~long-range full-board planning:
-    ``This is probably not a~big issue until programs reach amateur Dan or even professional level.''%
-    \footnote{For an~update on the situation today, see Chapter~\ref{ch:AlphaGo}.}
+    ``This is probably not a~big issue until programs reach amateur Dan or even professional level.''
+    (\cite{Muller1995computer})
 \end{itemize}
 
-The strict endgame analysis of~(\cite{Muller1995computer}) is additionally impossible, when one of~the following \underline{limitations} is met:
+Additionally, a~strict endgame analysis is impossible, when any of~these limits is reached:
 \begin{itemize}[-]
   \item \textbf{partition:}
     There is insufficient amount of~blocks that can be proven safe.
     Some of~the areas are hence too large for~the complete search.
+
   \item \textbf{summation:}
-    No~move with dominating incentive exists, and both summing and partial search would take too long.
+    No~move with dominating incentive\footnotemark{} exists, and both summing and partial search would take too long.
+    \footnotetext{the improvement made by moving in a~game -- \cite[Chapter 3, p.~38]{Muller1995computer}}
+
   \item \textbf{Ko:}
     \acrshort{cgt} relies on the independence of~local subgames.
     In the case of~Ko, the independence is broken:
     a~locally bad move may be globally best if it serves as a~Ko threat (recall Section~\ref{sec:Go}).
     \Mueller{} mentioned in~1995 there was ongoing research to generalize the theory for handling Kos.
-  \item \textbf{Unneccessary complexity in ``straightforward'' situations:}
+
+  \item \textbf{unneccessary complexity in ``straightforward'' situations:}
     In cases where the focus of~play is straightforward (i.e., only one local situation is relevant), \acrshort{cgt} introduces additional complexity.
-    Namely, \acrshort{cgt} investigates moves for~both players in~this and every other position.
+    It investigates moves for~both players in~this and every other position.
 \end{itemize}
 
 \section{Board Partition and Subgame Dependencies}
@@ -135,15 +140,16 @@ The strict endgame analysis of~(\cite{Muller1995computer}) is additionally impos
   That's middle class blasphemy.
   We are all dependent on~one another, every soul of~us on Earth. 
 }{George Bernard Shaw}
-In addition, (\cite{Muller1995computer}) mentions several further obstacles of~the sum-game model, caused by~the heuristic board partition:
+In addition, (\cite{Muller1995computer}) mentions several further obstacles of~the sum-game model, caused by~the \emph{heuristic} board partition:
 
 \begin{itemize}[-]
-  \item the impossibility of a~perfect, precise split:
-    During the opening or~midgame, there are almost no surrounded spaces, and moreover, the surrounding stones would not be invulnerable yet.
+  \item \textbf{the impossibility of a~perfect precise split:}
+    During the opening and mid-game, there are almost no surrounded spaces.
+    Moreover, the surrounding stones would not be invulnerable yet.
     Heuristics is needed for board partition to split the imperfectly surrounded areas.
 
-  \item the infeasibility of~exhaustive search in still large subgames:
-    The program is obliged to give a~move in a~few seconds or minutes.
+  \item \textbf{the infeasibility of~exhaustive search in still large subgames:}
+    The program is obliged to give a~move in~few seconds or minutes.
     However, there still remain areas intractable for an~exhaustive search.
 
     In such subgames, \Mueller{} employs \emph{selective search} method.
@@ -151,23 +157,23 @@ In addition, (\cite{Muller1995computer}) mentions several further obstacles of~t
     For each local game, nodes to expand need to be decided and \emph{expert modules for search and evaluation} need to be selected.
     A~post-processing stage handles detected dependencies between games.
 
-  \item the dependencies between the resulting subgames, which arise with the previously mentioned heuristics:
-    The effect of~such dependencies differs widely:
-    often it is so small that independence is a~useful approximation.
-    In cases when a~move works as a~\emph{double threat} however, dependency analysis is crucial.
+  \item \textbf{the dependencies between the resulting subgames, which arise with the previously mentioned heuristics:}
+    The effect of~such dependencies differs widely.
+    Often it is so small that independence is a~useful approximation.
+    However, in cases when a~move works as a~\emph{double threat}, dependency analysis is crucial.
 
     Trivial strategies to overcome dependencies involve:
     \begin{itemize}
-      \item ignoring the dependency, as if the games were independent,
-      \item proving that the dependency does not affect the value of~the sum, or play of~the sum game,
-      \item merging mutually dependent local games, then re-search the combined game, possibly using previously generated information on single games,
-      \item analyzing the interaction between local games, then use a~specialized theory to compute the joint game value.
+      \item ignoring the dependency, as if the games were independent;
+      \item proving that the dependency does not affect the value of~the sum, or the play of~the sum game;
+      \item merging mutually dependent local games, then re-search the combined game, possibly using previously generated information on single games;
+      \item analyzing the interaction between local games, then use a~specialized theory to compute the joint game value;
     \end{itemize}
 \end{itemize}
 
-Hence, the sum game model makes the best sense during the endgame part.
+Hence, the sum-game model makes sense mostly during the endgame phase.
 This general principle is as well applicable in poker:
-we wait until the late stage of~the game, when it has greater impact to refine and re-solve the reached endgames.
+we wait until the late stage of~the game, when there is more impact in~re-solving the reached endgames.
 
 \section{Local Search and Evaluation in the Endgame}
 \epigraphLong{
