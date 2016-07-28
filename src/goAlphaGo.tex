@@ -3,7 +3,7 @@
 \epigraphLong{
   Creativity involves breaking out of established patterns in order to look at things in a different way.
 }{Edward de Bono}
-As of~today, over 20 years have passed since \Mueller's work.
+As of~today, over 20 years have passed since \Mueller's work on~computer Go (Chapter~\ref{ch:goCGT}).
 \emph{DeepMind}, a~London-based AI start-up recently acquired by Google, has developed the strongest computer Go program so far:
 \emph{AlphaGo}.
 
@@ -35,7 +35,7 @@ As of~today, over 20 years have passed since \Mueller's work.
 Optimal value~$v^*(s)$ determines the~outcome of~the game from every board position $s$ under perfect play by~all players.
 This value can be computed by~recursively traversing the~search tree containing approximately $b^d$ possible sequences of moves, where $b$ is the breadth of~game (number of legal moves per position) and $d$ is its depth (game length).
 
-In~the case of~Chess, that is $b \approx 35$ and $d \approx 80$, whereas Go has $b \approx 250$ and $d \approx 150$.
+In~the case of~Chess, these are $b \approx 35$ and $d \approx 80$, whereas Go has $b \approx 250$ and $d \approx 150$.
 This amounts to a~terrifying overnumerousness: there are more Go positions than atoms in the observable Universe.
 Therefore, exhaustive search is deemed intractable.
 
@@ -46,17 +46,17 @@ How to handle the size~of the game tree?
   \item For the tree traverse, we use \emph{Monte Carlo tree search} method.
 \end{itemize}
 
-\textbf{Monte Carlo tree search} (MCTS) is a~Monte Carlo heuristic of~the classical tree search.
-However, instead of traversing the entire game tree, the MCTS selects the~most promising moves, expanding the search tree based on~random sampling.
+\textbf{\acrfull{mcts}} is a~Monte Carlo heuristic version of~the classical tree search.
+However, instead of traversing the entire game tree, the \acrshort{mcts} selects the~most promising moves, expanding the search tree based on~random sampling.
 
-In~each iteration, the game is played-out to~the very end by~choosing moves at~random.
-The final outcome of~each playout is then used to~weight the nodes in~the game tree accordingly.
+In~each iteration, the game is played-out to~the very end, by~choosing moves at~random.
+The final outcome of~each playout is then used to~accordingly weigh the nodes in~the game tree.
 Thus, better nodes are more likely to be chosen in future playouts.
 
 \begin{figure}[H]
   \centering
   \includegraphics[width=.6\textwidth]{../img/MCTS.png}
-  \caption{The scheme of~MCTS}
+  \caption{The scheme of~\acrshort{mcts}}
   \label{fig:MCTS}
 \end{figure}
 
@@ -65,39 +65,44 @@ Thus, better nodes are more likely to be chosen in future playouts.
   Your brain does not manufacture thoughts.
   Your thoughts shape neural networks.
 }{Deepak Chopra}
-Inspired by biological neural networks, an~artificial neural network (ANN, see Figure~\ref{fig:shallow-neural-network}) is a~network of~interconnected nodes that make up a~model.
+Inspired by biological neural networks, an~\acrfull{ann} is a~network of~interconnected nodes that make up a~model (see Figure~\ref{fig:shallow-neural-network}).
 \begin{figure}[H]
   \centering
   \includegraphics[height=.2\textheight]{../img/colored_neural_network.png}
   \caption{A~shallow neural network with 3 layers}
   \label{fig:shallow-neural-network}
 \end{figure}
-ANNs can be defined as~statistical learning models that are used to approximate functions which depend on a~large number of~inputs.
-Neural networks are typically used when the volume of~inputs is far too large for~standard machine learning approaches.
 
-\textbf{\acrfull{cnn}} is a~neural network suitable for high-dimensional inputs (e.g., a~large number of~pixels in an~image).
-\acrshort{cnn}s are frequently used in~computer vision (for identifying objects in an~image, for face detection in~photos, etc.).
-They are invariant to expectable transformations of~input, such as translations of~objects in~a~picture or changes in~illumination.
+We can think of~\acrshort{ann}s as~statistical learning models that are used to approximate functions with a~large number of~inputs.
+Neural networks are typically used when the amount of~inputs is far too large for~standard machine learning approaches.
 
-\textbf{Deep neural network (DNN)} is a~neural network with many hidden layers.
-It can model complex non-linear relationships, e.g., in~speech, in~images, in~videos or in~board positions of~Go.
+A~\textbf{\acrfull{dnn}} is a~term for any neural network with many hidden layers (but most commonly we use it for \acrlong{cnn}s).
+It can model complex non-linear relationships in~domains such as speech, images, videos, board positions in~Go, etc.
 
-\section{Pipeline of Neural Networks}
+A~\textbf{\acrfull{cnn}} is a~neural network suitable for high-dimensional inputs (e.g., many pixels in an~image).
+\acrshort{cnn}s are frequently used in~computer vision, e.g., for identifying objects in an~image, face detection in~photos, etc.
+They are resistant to expectable transformations of~input, such as changes in~illumination or translations of~objects in~a~picture.
+
+\section{Training Pipeline of~Neural Networks}
 \epigraphLong{
   Pattern recognition and association make up the core of~our thought.
   These activities involve millions of~operations carried out in~parallel, outside the field of~our consciousness.
-
   If AI appeared to hit a~brick wall after a~few quick victories, it did so owing to~its inability to~emulate these processes.
 }{Daniel Crevier}
-AlphaGo employs two kinds of deep \acrshort{cnn}s---a~\emph{policy network} (for move selection) and a~\emph{value network} (for board evaluation).
+AlphaGo employs two kinds of deep \acrshort{cnn}s---a~\emph{policy network} (for move selection) and a~\emph{value network} (for board evaluation):
+
+\vskip 2em
+
 \begin{figure}[H]
   \centering
-  \includegraphics[width=.5\textwidth]{../img/policy_and_value_network.png}
+  \includegraphics[width=.55\textwidth]{../img/policy_and_value_network.png}
   \captionWithCite{Comparison between policy and value network}{Silver2016mastering}
   \label{fig:policy_vs_value_nets}
 \end{figure}
+\clearpage
 
-In the following Figure~\ref{fig:neural_nets_pipeline}, we can view the whole training process of~AlphaGo's neural networks.
+\noindent The following figure outlines the entire training process of~AlphaGo's networks.
+
 \begin{figure}[H]
   \centering
   \includegraphics[width=.7\textwidth]{../img/neural_nets_pipeline.png}
@@ -105,11 +110,11 @@ In the following Figure~\ref{fig:neural_nets_pipeline}, we can view the whole tr
   \label{fig:neural_nets_pipeline}
 \end{figure}
 
-\textbf{Rollout policy} $p_\pi$ is a~\acrshort{cnn} rapidly sampling actions during a~\emph{rollout} (a~fast-forward simulation from a~position to the end of~the game).
-It predicts expert human moves much faster but less accurately than $p_\sigma$ (see below).
+\textbf{Rollout policy} $p_\pi$ is a~\acrshort{cnn} rapidly sampling actions during a~\emph{rollout} (a~fast-forward simulation from a~position to the end of a~game).
+It predicts expert human moves less accurately but much faster than $p_\sigma$ (below).
 The output is a~probability distribution over all moves.
 
-\textbf{Policy network} is a~\acrshort{cnn} selecting moves.
+\textbf{Policy network} is a~move-selecting \acrshort{cnn}.
 It addresses the problem of the game-tree breadth.
 There are two flavors of~these networks:
 \begin{itemize}
@@ -124,7 +129,7 @@ It is trained by regression to predict the outcome in~positions of~the self-play
 \epigraph{
   Computers are good at~following instructions, but not at~reading your mind.
 }{Donald Knuth}
-Finally, the neural networks are combined with MCTS into the main algorithm.
+Finally, the neural networks are combined with \acrshort{mcts} into the main algorithm.
 
 During the play, AlphaGo simulates up to 100 possible continuations per each move by selecting the most promising actions and following them.
 This way, it descends the game-tree down to a~depth given by a~parameter.
