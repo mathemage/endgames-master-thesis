@@ -179,26 +179,24 @@ we wait until the late stage of~the game, when there is more impact in~re-solvin
 \epigraphLong{
   True genius resides in~the capacity for~evaluation of~uncertain, hazardous, and conflicting information. 
 }{Winston Churchill}
-Once the board is partitioned, the algorithm of~(\cite{Muller1995computer}) for converting a~Go endgame into a~combinatorial game follows these steps:
+Once the board is partitioned, the algorithm of~(\cite{Muller1995computer}) performs following steps to convert a~Go endgame into a~combinatorial game:
 \begin{enumerate}
   \item Generate local game trees:
-    all legal moves are generated from point of~both players, with exceptions~of:
+    all legal moves are generated from both players' point of~view, with exceptions~of:
     \begin{enumerate}[(a)]
-      \item \emph{pruning rules}%
-        \footnote{Compare with \emph{policy networks} of~AlphaGo in Chapter~\ref{ch:AlphaGo}.},
-        e.g., pruning dominated subgame trees:
+      \item \emph{pruning rules}\footnotemark{}, e.g., pruning dominated subgame trees:
         the evaluation of~nodes allows for pruning moves dominated by other moves.
-        Moves with a~dominating alternative are labelled as~\emph{locally bad moves}.
+        \footnotetext{analogous to \emph{policy networks} of~AlphaGo in Chapter~\ref{ch:AlphaGo}.}
 
-      \item \emph{termination rules} for static evaluation of a~position, without further tree expansion%
-        \footnote{Compare with \emph{value network} of~AlphaGo in Chapter~\ref{ch:AlphaGo}.}
+        Moves with a~dominating alternative are labelled as~locally bad moves.
+
+      \item \emph{termination rules}\footnotemark{} for static evaluation of a~position, without further tree expansion%
+        \footnotetext{analogous to \emph{value network} of~AlphaGo in Chapter~\ref{ch:AlphaGo}.}
     \end{enumerate}
 
   \item Score local terminal positions:
     \begin{enumerate}[(a)]
-      \item \emph{scoring}%
-        \footnote{See Section~\ref{sec:Go}.}
-        comes in two widely-accepted flavors, namely
+      \item \emph{scoring} (Section~\ref{sec:Go}) comes in two widely accepted variants:
         \begin{enumerate}[$\diamondsuit$]
           \item Chinese variant, which counts stones and empty points belonging to either color,
           \item Japanese variant, which counts territory and prisoners.
@@ -211,28 +209,27 @@ Once the board is partitioned, the algorithm of~(\cite{Muller1995computer}) for 
           \item no more good moves,
           \item the value of~position already known from the transposition table, pattern, or local position database.
         \end{enumerate}
-        A~position is additionally considered terminal, once we can ascertain its value from another source.
+        A~position is additionally considered terminal, once we can assess its value from another source.
         Such a~value can be any value in~the sense of~mathematical games.
-
-        Non-terminal positions may have a~constant value as well, if the outcome is the same no matter who plays first, but this has to be proven using search.
     \end{enumerate}
 
   \item Evaluate local games as mathematical games.
     Explicitly, evaluate terminal positions, and back up the values in~the tree, resulting in a~mathematical-game evaluation of~each node.
 
     Even though the program reaches a~solved position, (\cite{Muller1995computer}) notes that a~``suicidal'' opponent may later cause great troubles, by endangering his immortal stones.
-    Such an~act would violate the assumptions on~board partitioning and give rise to~new unexpected positions with rather complicated optimal play.
-
-  \item Select an~option in the resulting (abstract) sum-game.
-  \item Translate the chosen option in~the abstract game into a~corresponding move in~Go.
-    This move is taken as~the first move with sufficient \emph{incentive} (recall Section~\ref{sec:CGT}).
-\end{enumerate}
+    Such an~act would violate the assumptions on~board partitioning and give rise to~new unexpected positions with a~rather complicated optimal play.
 
 \begin{figure}[H]
   \centering
-  \includegraphics[width=.5\textwidth]{../img/Go_search_tree.png}
+  \includegraphics[width=.7\textwidth]{../img/Go_search_tree.png}
   \captionWithCite{Local game tree with evaluation of terminal nodes}{Muller1995computer}
 \end{figure}
+
+  \item Select an~option in the resulting (abstract) sum game.
+
+  \item Translate the chosen option from the abstract game into a~corresponding move in~Go.
+    This move is taken as~the first move with sufficient incentive.
+\end{enumerate}
 
 \section{Storing Search Results into Database}
 \epigraph{
@@ -241,23 +238,23 @@ Once the board is partitioned, the algorithm of~(\cite{Muller1995computer}) for 
 Search and analysis produce the complete description of possible endgame plays, facilitating the perfect strategy.
 The results are stored in a~\emph{database of~local positions}.
 Local subgames during a~live play are then matched one-to-one to a~set of~database positions.
-The value of a~full board position is the sum of~local position values and an~algorithm for sum-game evaluation selects the best available response.
+The value of a~full board position is the sum of~local position values and the algorithm for sum-game evaluation selects the best available response.
 
-A~version with lower memory requirements is implemented as well.
-This is achieved by~saving only a~selection of~positions, and in~case the subgame is missing in the database, re-doing the search.
+A~version with lower memory requirements is implemented, too.
+This is achieved by~saving only a~selection of~positions, and re-doing the search, in~case the subgame is missing in the database.
 
 An~important question is what to store.
-Table~\ref{tab:db-loc-games} lists some possible answers:
+Table~\ref{tab:db-loc-games} gives some possible answers:
 \begin{table}[!htbp]
   \centering
   \begin{tabular}{ |p{.45\textwidth}|p{.48\textwidth}| } 
     \hline
     \textbf{Type of database} & \textbf{Content} \\
     \hline
-    Full                            & $\dots$every position discovered during exhaustive search \\
-    Color-complete (Black or White) & $\dots$every position reachable by~non-dominated moves of~the color and arbitrary opponent's moves (pruned bad moves of~the color) \\
-    Optimal                         & $\dots$at~least one position corresponding to~every non-dominated option of~every reachable position (guaranteed optimal play from every position in~database) \\
-    Sufficiently good               & $\dots$guaranteed optimal score from a~starting position (might fail to exploit some opponent mistakes) \\
+    Full                            & $\to$ every position discovered during exhaustive search \\
+    Color-complete (Black or White) & $\to$ every position reachable by~non-dominated moves of~the color and arbitrary opponent's moves (pruned bad moves of~the color) \\
+    Optimal                         & $\to$ at~least one position corresponding to~every non-dominated option of~every reachable position (guaranteed optimal play from every position in~database) \\
+    Sufficiently good               & $\to$ guaranteed optimal score from a~starting position (might fail to exploit some opponent mistakes) \\
     \hline
   \end{tabular}
   \captionWithCite{Possible database variants of~local games}{Muller1995computer}
@@ -266,17 +263,18 @@ Table~\ref{tab:db-loc-games} lists some possible answers:
 
 One needs to make a~trade-off between re-computation time and storage space.
 A~sensible solution is to~store only complicated moves in~the database, and re-calculate the rest when necessary.
-It is a~good idea to save only the information whether a~move is locally good or bad, but discard \emph{refutations}\footnotemark.
-\footnotetext{the trees proving that bad moves are inferior}
+It is a~good idea to save only the information whether a~move is locally good or bad, but discard all \emph{refutations}\footnotemark.
+\footnotetext{trees proving that bad moves are inferior}
 Such a~type of~database is robust against a~good opponent;
 however, it suffers from a~play of a~locally bad opponent.
 This~rare situation would call for the re-computation of~a~subtree in order to find a~refutation.
 
-The number of~possible moves in an $n$-point area is approximately $2n$ ($n$ for each player), and such a~play generates a $n-1$ point area.
-Whence, the size of~the game tree is approximately $2n\cdot2(n-1)\cdot \ldots \cdot2 = 2^n n!$ nodes.
+The number of~possible moves in an $n$-point area is approximately $2n$ ($n$ for each player), and such a~play generates an $n-1$ point area.
+Thus, the size of~the game tree is approximately $2n\cdot2(n-1)\cdot \ldots \cdot2 = 2^n n!$ nodes.
 Such a~combinatorial explosion makes even fairly small endgames prohibitively expensive.
+
 \Mueller{} overcomes this hardness with a~transposition table.
-A~\emph{transposition table} detects identical board positions, reducing the size of~the search space from $\approx 2^n n!$ to $3^n$ states (see the comparison in Table~\ref{tab:reduction-transp-tab})
+A~\emph{transposition table} detects identical board positions, reducing the size of~the search space from $\approx 2^n n!$ to $3^n$ states (see the comparison in Table~\ref{tab:reduction-transp-tab}).
 \begin{table}[!htbp]
   \centering
   \begin{tabular}{ |rrr| }
@@ -302,18 +300,19 @@ A~\emph{transposition table} detects identical board positions, reducing the siz
 \section{Pattern Learning}
 \epigraph{To understand is to~perceive patterns.}
 {Isaiah Berlin}
-Pattern recognition is one of~the key components of~AlphaGo (see Chapter~\ref{ch:AlphaGo}).
-Arguably, the program's success might be partially attributed to learning Go patterns from human expert plays.
+Pattern recognition is a~key component of~the AlphaGo program (Chapter~\ref{ch:AlphaGo}).
+Arguably, the program's success may also be attributed to learning Go patterns from human expert plays.
 
-For comparison, (\cite{Muller1995computer}) hails computer Go as \emph{a~vehicle for research in~visual perception, machine learning and neural networks} (based on~\cite{Wilcox79, Enderton1991golem, Stoutamire1991machine, Schraudolph1994temporal}).
+For comparison, (\cite{Muller1995computer}) hails computer Go as \emph{a~vehicle for research in~visual perception, machine learning and neural networks} (advocating to \cite{Wilcox79, Enderton1991golem, Stoutamire1991machine, Schraudolph1994temporal}).
 
 Being introduced just and only to~Go rules, learning programs can typically pick up basic Go principles, such as saving a~stone from capture, and familiarize themselves with~low-level game concepts.
 However, these concepts and principles have already been integrated into~other far superior \emph{expert-based programs}.
 
-Neural networks are therefore more adapt at~playing locally good shapes, but possess no~idea when to play it (this assertion in particular has changed with the arrival of~AlphaGo).
+Neural networks are therefore more adapt at~playing locally good shapes, but possess no~idea when to play it (this part has changed thanks to AlphaGo).
 These systems are vulnerable to other Go agents with better knowledge of~tactics.
 
-Conclusively, (\cite{Muller1995computer}) suggests \emph{pattern matching} as a~promising means for the significant advancement of~computer Go.
+Conclusively, (\cite{Muller1995computer}) suggests \emph{pattern matching} as a~promising means for advancements in~computer Go.
+
 \epigraph{When patterns are broken, new worlds emerge.}
 {Tuli Kupferberg}
 
@@ -321,7 +320,7 @@ Conclusively, (\cite{Muller1995computer}) suggests \emph{pattern matching} as a~
 \epigraphLong{
   You can retire from a~job, but don't ever retire from making extremely meaningful contributions in~life.
 }{Stephen Covey}
-\Mueller's doctoral thesis acclaims following contributions to computer science:
+\Mueller's doctoral thesis acclaims these contributions to computer science:
 \begin{itemize}
   \item ``Scientists are fascinated by problems which can be stated simply, yet are hard to solve.
     Computer Go is a~prime example.
@@ -329,7 +328,9 @@ Conclusively, (\cite{Muller1995computer}) suggests \emph{pattern matching} as a~
 
   \item ``The application of a~sophisticated mathematical theory to computer Go provides an~example of~algorithms for a~nontrivial decomposition of a~complex problem.''
 \end{itemize}
-and following contributions to computer Go:
+
+\noindent
+These are contributions specific to computer Go:
 \begin{itemize}
   \item ``We have implemented a~\emph{late endgame player}, a~niche where program play surpasses human play in both speed and exactness.
     We did this by applying concepts from \acrshort{cgt} to Go.
@@ -337,19 +338,21 @@ and following contributions to computer Go:
 
   \item ``We have developed algorithms for board partition and dependency analysis.''
 \end{itemize}
-Hence, the work employs a~technique of~applying an~elaborate mathematical theory (of~\acrshort{cgt}) to deal with the endgame phase.
+In conclusion, the work employs a~technique of~applying an~elaborate mathematical theory (\acrshort{cgt}) to deal with endgames.
 In particular, \acrshort{cgt} is used to ``connect'' individual relevant subgames, which may be solved independently.
 
 As we will see later, the situation in the case of~Poker is slightly more delicate:
 the imperfect-information property prevents us from using an~immediate divide-and-conquer approach.
-Instead, we will \emph{augment} the information by saturating it with additional game states (read Section~\ref{sec:subgames-revisited}).
+Instead, we will \emph{augment} the information, by saturation with appropriate game states (Definition~\ref{defn:augm-info-set} in Section~\ref{sec:subgames-revisited}).
 
 \note{
   \label{note:CGTvsAlphaGo}
-  It is also interesting to compare the method of~(\cite{Muller1995computer}) with the modern approach of~\emph{AlphaGo}:
-  the ad-hoc Go-specific knowledge is replaced with general-learning neural networks and the probabilistic \emph{Monte Carlo Tree Search} algorithm.
+  It is also interesting to compare the method of~(\cite{Muller1995computer}) with the modern approach of~\emph{AlphaGo}.
+
+  The ad-hoc Go-specific knowledge is replaced with general-learning neural networks and the probabilistic \emph{Monte Carlo Tree Search} algorithm.
   Such a~combination has the capability to surpass professional human players at the highest ranks.
+
   What's more, this solution can be adapted to other games without substantial modifications.
-  With data, the system can be trained without any need to imbue it with game-specific knowledge.
+  With enough data, the system can be trained without any need to imbue it with game-specific knowledge.
   Follow Chapter~\ref{ch:AlphaGo} for more details.
 }
