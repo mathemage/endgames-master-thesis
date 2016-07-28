@@ -6,46 +6,38 @@
   Studying openings is just memorizing moves and looking for traps.
   Studying the endgame is Chess.
 }{Josh Waitzkin}
-The notion of~``endgame'' has no strict definition and greatly differs by various authors.
-The common sense says it begins with only few pieces left.
-Here are some examples of~various approaches to defining endgames:
+The notion of~\emph{Chess endgame} has no strict definition and differs by various authors.
+The common sense says it begins when only few pieces are left.
+Here are another examples of~endgame definitions:
 \begin{itemize}
-  \item
-    positions in which each player has less than thirteen points in material (not counting the king)
+  \item positions in which each player has less than thirteen points in material (not counting the king)
     (\cite[pp.~7--8]{Speelman1981endgame})
     
-  \item
-    positions in which the king can be used actively (but there are some famous exceptions to that)
+  \item positions in which the king can be used actively (but there are some famous exceptions to that)
     (\cite[pp.~7--8]{Speelman1981endgame})
     
-  \item
-    positions having four or fewer pieces other than kings and pawns
+  \item positions having four or fewer pieces other than kings and pawns
     (\cite[p.~5]{Minev2004practical})
     
-  \item
-    positions without queens
+  \item positions without queens
     (\cite{Fine1952middle}),
     
-  \item
-    positions when each player has less than a queen plus rook in material
+  \item positions when each player has less than a queen plus rook in material
     
-  \item
-    positions when the player who is about to move can force a~win or a~draw against any variation of~moves
+  \item positions when the player who is about to move can force a~win or a~draw against any variation of~moves
     (\cite{Portisch1981six})
 
-  \item 
-    positions with these three characteristics~(\cite{Alburt1999just}):
+  \item positions with these three characteristics~(\cite{Alburt1999just}):
 
     \begin{enumerate}[(a)]
-      \item Endgames favor an~\emph{aggressive} king.
-      \item \emph{Passed pawns}\footnotemark{} increase greatly in importance.
+      \item endgames favor an~\emph{aggressive} king;
+      \item \emph{passed pawns}\footnotemark{} increase greatly in importance;
         \footnotetext{a~pawn with no opposing pawns to prevent it from advancing to the 8\textsuperscript{th} rank (i.e., there are no opposing pawns in~front of~it either on~the same file or on an~adjacent file)}
-      \item \emph{Zugzwang}\footnotemark{} is often a factor in endgames and rarely in other stages of the game.
-        \footnotetext{a~situation in~Chess wherein one player is put at a~disadvantage because he must make a~move even though he would prefer to pass and not move}
+      \item \emph{Zugzwang}\footnotemark{} is a~factor in endgames (rarely in other stages of the game).
+        \footnotetext{a~disadvantageous situation in~Chess wherein one player has to make a~move, even though he would prefer to pass and not move}
     \end{enumerate}
 
-  \item
-    ``Not Quite an Endgame'' (NQE) are positions where each player has at most one piece (other than kings and pawns), and positions with more material where each player has at most two pieces
+  \item \emph{\acrfull{nqe}} are positions where each player has at most one piece (other than kings and pawns), and positions with more material where each player has at most two pieces
     (\cite[pp.~7--8]{Flear2007practical})
 \end{itemize}
 
@@ -62,7 +54,7 @@ Upon reaching an~arbitrary tablebase position, the~database thus provides an~opt
 Tablebases are designed for a~given set of~pieces, e.g., \king King and \queen Queen versus \kingB King (KQ-K).
 There are 3 basic steps in their process of~creation:
 \begin{enumerate}[1]
-    \setlength\itemsep{-.5ex}
+    %\setlength\itemsep{-.5ex}
   \item \textbf{Generation}:
     Computer generates all legal positions for the given pieces.
     For each position, the tablebase evaluates the situation separately for White-to-move and Black-to-move.
@@ -87,23 +79,22 @@ There are 3 basic steps in their process of~creation:
     Pawns would break the front-back and diagonal symmetries, because they care about direction in their moves~(\cite{Muller2006EGTB}).
 
   \item \textbf{Evaluation}:
-    The generated positions are evaluated using the tool of~\emph{backward induction}%
-    \footnote{\emph{backward reasoning} applied in~general game theory, in order to solve easier subgames}
-    , in Chess also called \emph{retrograde (endgame) analysis}.
+    The generated positions are evaluated using the \emph{backward induction}\footnotemark{}, which in Chess is also called the \emph{retrograde analysis}.
+    \footnotetext{\emph{backward reasoning} applied in~general game theory, in order to solve easier subgames}
     Each position is evaluated as a~win or a~loss in a~certain number of~moves.
     At~the end of~the retrograde analysis, positions which are not designated as wins or losses are necessarily draws.
 
-    Invented by Richard Bellman in 1965~(\cite{Bellman1965application}), the retrograde analysis faithfully follows the approach of~\emph{dynamic programming}:
+    Invented by Richard Bellman in 1965, the retrograde analysis faithfully follows the approach of~\emph{dynamic programming} (\cite{Bellman1965application}):
     \begin{enumerate}[(a)]
       \item checkmated positions are determined in~the beginning
       \item a~position is winning in $n+1$ moves if the player can reach a~position winning in $n$ moves (more precisely, where the opponent loses in at most $n$ moves)
     \end{enumerate}
-    Positions are generated in the order of~increasing \acrfull{dtm}, the number of~moves necessary to force a~checkmate.
+    Positions are generated in the order of~increasing \acrfull{dtm}, i.e., the number of~moves necessary to force a~checkmate.
 
-    Alternatively, Tim Krabbé (\cite{Krabbe2014StillersMonster}) describes retrograde analysis (from perspective of~White to mate) by generating:
+    Alternatively, Tim Krabbé (\cite{Krabbe2014StillersMonster}) describes retrograde analysis by generating (from the perspective of~White to mate):
     \begin{enumerate}[(1)]
-        \setlength\itemsep{-.5ex}
-      \item a~database of~all possible positions given the material (see the previous step of~generation),
+        %\setlength\itemsep{-.5ex}
+      \item a~database of~all possible positions given the material (see the previous step of~Generation),
       \item a~sub-database made of~all positions where Black is mated,
       \item positions where White can reach mate (\acrshort{dtm} = 1),
       \item positions where Black cannot prevent White giving mate next move,
@@ -130,7 +121,11 @@ There are 3 basic steps in their process of~creation:
 \end{enumerate}
 
 \hrule
+\vskip 1em
 
+Additionally, the computation of~tablebases can be simplified if \emph{a priori information} is provided.
+For instance, a~position KRP(a2)-KBP(a3) with pawns blocking each other (diagram in Figure~\ref{fig:KRP(a2)-KBP(a3)}) reduces number of~possibilities for the pawns:
+instead of~$48 \times 47 = 2,256$ permutations for the pawns' locations, only single one needs to be considered~(\cite{Herik1987sixmenendgame}).
 \begin{figure}[H]
   \centering
   \newgame
@@ -139,11 +134,8 @@ There are 3 basic steps in their process of~creation:
   \captionWithCite{KRP(a2)-KBP(a3)}{Herik1987sixmenendgame}
   \label{fig:KRP(a2)-KBP(a3)}
 \end{figure}
-Additionally, the computation of~tablebases can be simplified if \textbf{a priori information} is provided.
-For instance, a~position KRP(a2)-KBP(a3) with pawns blocking each other (diagram in Figure~\ref{fig:KRP(a2)-KBP(a3)}) reduces number of~possibilities for the pawns:
-instead of~$48 \times 47 = 2,256$ permutations for the pawns' locations, only single one needs to be considered~(\cite{Herik1987sixmenendgame}).
 
-\section{Some Applications of~Tablebases}
+\section{Applications of~Tablebases}
 \epigraph{
   \textsc{Fratbot \#1}: Mate in 143 moves. \\
   \textsc{Fratbot \#2}: Oh, p**h. You win again! \\
@@ -161,7 +153,7 @@ instead of~$48 \times 47 = 2,256$ permutations for the pawns' locations, only si
     The result, however, gives no lower bound on~the amount of~work required to solve regular $8\times 8$ Chess.
 
     Conversely, there has been progress from the other side:
-    as of~2012, all 7 and fewer piece (2 kings and up to 5 other pieces) endgames have been solved (\emph{Lomonosov Tablebases} at~\href{http://tb7.chessok.com/}{http://tb7.Chessok.com/}).
+    as of~2012, all 7 and fewer piece endgames (2 kings and up to 5 other pieces) have been solved (\emph{Lomonosov Tablebases} at~\href{http://tb7.chessok.com/}{http://tb7.Chessok.com/}).
     Evidently, focusing on endgame significantly decreases the complexity; tablebases thus provide ``powerful arsenal'' to play perfect Chess endings.
 
   \item \textbf{Effects on Chess theory}
@@ -179,7 +171,7 @@ instead of~$48 \times 47 = 2,256$ permutations for the pawns' locations, only si
       \item
         Many positions are winnable although at~first sight they appear to be non-winnable.
         For example, the position in Figure~\ref{fig:80-moves-to-liquidate-the-pawn} is a~win for Black in 154 moves (during which the white pawn is liquidated after around eighty moves).
-        \begin{figure}
+        \begin{figure}[H]
           \centering
           \newgame
           \fenboard{7k/4B3/2B5/2P5/8/8/3K4/5q2 b - - 0 0}
@@ -189,7 +181,7 @@ instead of~$48 \times 47 = 2,256$ permutations for the pawns' locations, only si
         \end{figure}
 
       \item In the position of~Figure~\ref{fig:119-moves-to-pawn}, the White pawn's first move is at move 119 against optimal defense by Black:
-        \begin{figure}
+        \begin{figure}[H]
           \centering
           \newgame
           \fenboard{8/2q5/8/6R1/8/7k/2P3R1/K7 b - - 0 0}
@@ -204,6 +196,10 @@ instead of~$48 \times 47 = 2,256$ permutations for the pawns' locations, only si
     The researchers behind the Lomonosov tablebases discovered following endgames, proved to be the longest 7-man checkmates~(\cite{Lomonosov2014eightlongest}).
 
     A~\textbf{pawnless} endgame \rookB Rook, \bishopB Bishop and \knightB Knight against \queen Queen and \knight Knight (Figure~\ref{fig:longest-pawnless-Chess}) can be mated after stunning number of~545 moves!
+
+    It is the longest pawnless endgame possible with 7 pieces, others are far behind.
+    The closest endgame to this one by~length (\rookB Rook, \bishopB Bishop and \knightB Knight against \queen Queen and \bishop Bishop) is much less complex and won by the side with more pieces, not the queen.
+
     \begin{figure}[H]
       \centering
       \newgame
@@ -213,25 +209,23 @@ instead of~$48 \times 47 = 2,256$ permutations for the pawns' locations, only si
       \label{fig:longest-pawnless-Chess}
     \end{figure}
     \vskip -1em
-    It is the longest pawnless endgame possible with 7 pieces, others are far behind.
-    The closest endgame to this one by~length (\rookB Rook, \bishopB Bishop and \knightB Knight against \queen Queen and \bishop Bishop) is much less complex and won by the side with more pieces, not the queen.
-
     No human expert and not even the best Chess programs are able to find the winning solution.
-    Top Chess players admit that they fail to understand the logic behind the initial 400 moves:
-    there are not even any captures until move~523. 
+    Top Chess players admit that they fail to understand the logic behind the initial 400 moves.
+    There are even no captures until move~523. 
     The authors attribute this immense complexity to the balance of~piece values:
     11 against 12, which is the minimal advantage.
 
     One simple idea to create an~even more complex endgame \textbf{with pawns} is to build on the previous position and make use of~pawns' promotion.
+    The~ending position of~\rookB Rook, \bishopB Bishop and \knightB Knight versus \queen Queen and \pawn Pawn in Figure~\ref{fig:longest-7-man-checkmate} implements this idea:
     \begin{figure}[H]
       \centering
       \newgame
       \fenboard{1n1k4/6Q1/5KP1/8/7b/1r6/8/8 w - - 0 0}
       \showboard
-      \captionWithCite{The longest 7-man checkmate: White mates in 549 moves.}{Lomonosov2014eightlongest}
+      \def\captionTitle{The longest 7-man checkmate}
+      \caption[\captionTitle]{\captionTitle: White forces a~mate after 549 moves. (\cite{Lomonosov2014eightlongest})}
       \label{fig:longest-7-man-checkmate}
     \end{figure}
-    The~ending position of~\rookB Rook, \bishopB Bishop and \knightB Knight versus \queen Queen and \pawn Pawn in Figure~\ref{fig:longest-7-man-checkmate} implements this idea:
     White promotes his \pawn Pawn on the 6\textsuperscript{th} move.
     Strangely, the promotion is to \knight Knight instead of~\queen Queen, so as to check the \kingB King and avoid losing the \queen Queen (Figure~\ref{fig:longest-7-man-checkmate-pawn-promotion}).
     Afterwards, the familiar KRBN-KQN ending emerges and checkmate is forced by~White in 544 moves.
@@ -244,17 +238,17 @@ instead of~$48 \times 47 = 2,256$ permutations for the pawns' locations, only si
       \label{fig:longest-7-man-checkmate-pawn-promotion}
     \end{figure}
 
-    The KRBN-KQP(g6) position is the absolute winner of~``the contest for the longest 7-man checkmate''.
-    It took 3 additional years to prove it, because pawn endings also require \emph{minor endings} (positions after capturing pieces or promoting pawns), posing great challenges in~terms of~computational power, storage and data organization.
+    The KRBN-KQP(g6) position is the absolute winner of~``the competition for the longest 7-man checkmate''.
+    It took 3 additional years to prove it, because pawn endings also require \emph{minor endings} (positions after capturing pieces or promoting pawns), posing great challenges to~computational power, storage and data organization.
 
     (\cite{Lomonosov2014eightlongest}) show another 6 monstrously huge endgames, each with over 500 forced moves to checkmate.
-    The authors remark on the surprising gap in~number of~moves between the ``hateful eight'' KRBN-KQN (and derived) positions and the next (9\textsuperscript{th} and 10\textsuperscript{th}) longest 7-piece endgames:
-    KBNP-KBP and KNNP-KRB only give $346$ until mates.
+    The authors remark on the surprising gap in~number of~moves between the ``hateful eight'' KRBN-KQN and derived positions, and the next (9\textsuperscript{th} and 10\textsuperscript{th}) longest 7-piece endgames:
+    KBNP-KBP and KNNP-KRB require only $346$ moves to mate.
 
-    And what is the view on~the longest 8-man endgames?
+    And what about the view on~the longest 8-man endgames?
     The longest 6-man mate takes 262 moves (KRN-KNN).
     One more piece (7-man endings) doubles the maximum depth.
-    Therefore, the longest 8-man ending may easily reveal a~mate in~over 1000 moves!
+    Promisingly, the longest 8-man ending may reveal a~mate in~over 1000 moves.
     However, there are much more positions with relatively balanced strengths on~both sides, making 8-man endgames much richer but also more complicated.
     On top of~that, the complexity of~computation is simply ludicrous:
     one would need about 10 PB of~disk space and 50 TB of~RAM.
@@ -263,7 +257,7 @@ instead of~$48 \times 47 = 2,256$ permutations for the pawns' locations, only si
 \end{itemize}
 \vskip -1em
 \note{
-  These examples of~lengthy checkmates call into the question the \emph{50-move rule}:
+  These examples of~enormously lengthy checkmates call into the question the \emph{50-move rule}:
   a~draw claimable by~any player, if no pawn has been moved and no capture has occurred in the last 50 moves.
-  In~situations with a~checkmate forced after an~enormous (yet proven) number of~moves, a~draw would be announced in~spite of~a~guaranteed victory.
+  In~situations with a~checkmate forced after a~huge yet proven number of~moves, a~draw would be incorrectly announced, in~spite of~a~guaranteed victory.
 }
