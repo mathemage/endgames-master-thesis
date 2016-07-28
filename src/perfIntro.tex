@@ -117,7 +117,7 @@ Specifically, any node in~the tree induces its own subgame:
 \begin{figure}[H]
   \centering
   \scriptsize
-  \def\svgwidth{.7\textwidth}
+  \def\svgwidth{.8\textwidth}
   \input{../img/extended-form_subgame.pdf_tex}
   \def\captionTitle{Subgame induced by node~$2_2$}
   \caption[\captionTitle]{\captionTitle{}}
@@ -127,19 +127,19 @@ Specifically, any node in~the tree induces its own subgame:
 \note{
   For the upcoming proofs, we define the notation for \emph{the~restriction of the expected utility} on a~subgame rooted in node~$h\in H$:
   \[ u_i^h(\sigma) = \sum _{z \in Z,\; h \sqsubseteq z} \pi^\sigma\!(h,z) \,u_i(z) \]
-  where $\pi^\sigma(h,z)$ is the probability of~reaching $z$ from node~$h$ under $\sigma$.
+  where $\pi^\sigma(h,z)$ is the probability of~reaching $z$ from $h$ under $\sigma$.
 }
 
-If we fix opponents' strategies, it is only beneficial to re-solve subgames:%
-\footnote{This property also holds for imperfect-information subgames.}
+\vskip 2em 
+
+If we fix the strategies of~opponents, re-solving subgames can only improve our strategy:
 \begin{thm}[subgame re-solving and utility]
   \label{thm:perf-info-subgames-utility}
   The re-computed sub-strategies can be ``placed back'' into the full-game strategy, without decreasing the total expected utility.
 \end{thm}
 \begin{proof}
   Let $\sigma$ be any~full-game strategy and $\sigma_S$ be its restriction to a~subgame~$S$ rooted at node~$r$.
-  Assume we found a~better (or even optimal) strategy $\sigma^*$ for the subgame~$S$.
-  In other words, the arising expected utility of~any player~$i$ is better within $S$:
+  Assume we found a~better (or even optimal) strategy $\sigma^*$ for the subgame~$S$, i.e., the new expected utility of~any player~$i$ is better within $S$:
   \begin{equation}
     \label{eq:opt-val-of-subgame}
     u_i^r(\sigma^*) \ge u_i^r(\sigma_S)
@@ -151,18 +151,18 @@ If we fix opponents' strategies, it is only beneficial to re-solve subgames:%
     &= \sum _{z \in Z} \pi^{\sigma'}\!(z) \,u_i(z)
     %
     = \sum _{z \in Z \cap S} \pi^{\sigma'}\!(z) \,u_i(z)
-    + \sum _{z \in Z \setminus S} \pi^{\sigma'}\!(z) \,u_i(z) \\
-    %
+    + \sum _{z \in Z \setminus S} \pi^{\sigma'}\!(z) \,u_i(z)
+    \\
     &= \left[ \pi^{\sigma'}\!(r)\sum _{z \in Z \cap S} \pi^{\sigma^*}\!(r, z) \,u_i(z) \right]
-    + \sum _{z \in Z \setminus S} \pi^{\sigma'}\!(z) \,u_i(z) \\
-    %
+    + \sum _{z \in Z \setminus S} \pi^{\sigma'}\!(z) \,u_i(z)
+    \\
     &= \pi^{\sigma}\!(r) \,u_i^r(\sigma^*)
     + \sum _{z \in Z \setminus S} \pi^{\sigma}\!(z) \,u_i(z)
-    %
-    \stackrel{\mathclap{\mathrm{(\ref{eq:opt-val-of-subgame})}}} {\ge}
+    \\
+    &\stackrel{\mathclap{\mathrm{(\ref{eq:opt-val-of-subgame})}}} {\ge}
     \pi^{\sigma}\!(r) \,u_i^r(\sigma_S)
-    + \sum _{z \in Z \setminus S} \pi^{\sigma}\!(z) \,u_i(z) \\
-    %
+    + \sum _{z \in Z \setminus S} \pi^{\sigma}\!(z) \,u_i(z)
+    \\
     &= \sum _{z \in Z \cap S} \pi^{\sigma}\!(z) \,u_i(z)
     + \sum _{z \in Z \setminus S} \pi^{\sigma}\!(z) \,u_i(z)
     %
@@ -171,8 +171,10 @@ If we fix opponents' strategies, it is only beneficial to re-solve subgames:%
   Therefore, combining the new $\sigma^*$ with the full-game $\sigma$ does not decrease the total expected utility.
 \end{proof}
 
-The perfect-information setting offers one additional advantage over the imperfect information:
-no opponent can exploit the newly computed sub-strategy by adjusting his play (either in~the trunk or in~the subgame).
+Note that Theorem~\ref{thm:perf-info-subgames-utility} also extends to imperfect-information subgames (Definition~\ref{defn:subgame}, Section~\ref{sec:subgames-revisited}).
+Nevertheless, the perfect-information setting offers one additional advantage:
+no opponent can exploit the newly computed sub-strategy by adjusting his play, either in~the trunk or in~the subgame.
+
 \begin{thm}[unexploitable subgame re-solving]
   \label{thm:perf-info-subgames-unexploitability}
   Assume we are given a~two-person zero-sum game, its subgame~$S$ rooted at node~$r$ and a~fixed player~$i$.
@@ -180,39 +182,40 @@ no opponent can exploit the newly computed sub-strategy by adjusting his play (e
 
   If $u_i^r (\sigma) \le u_i^r (\sigma^*)$ (player~$i$'s worst-case utility does not decrease in~the subgame), then at~every node $h \in H \setminus S$ we also have $u_i^h (\sigma) \le u_i^h (\sigma^*)$ (player~$i$'s worst-case utilities outside the subgame do not decrease).
 \end{thm}
+
 \begin{proof}
   By definition, all \acrlong{br}s produce equal expected utilities, because they all maximize opponent's value.
-  We can therefore do calculations of~utilities with respect to any~arbitrary \acrlong{br}, e.g., the standard \acrshort{br} retrieved by~the \emph{backward induction}\footnotemark.
-  \footnotetext{This method recursively selects the action with the maximum utility, or any of~them in~the case of~multiplicity.}
+  We can therefore do all calculations of~utilities with respect to an~arbitrary \acrlong{br}, e.g., the standard \acrshort{br} retrieved by~the \emph{backward induction}\footnotemark.
+  \footnotetext{Recursively select the action with the maximum utility, or any of~them in~case there is more than one maximal.}
 
   Let $T_h$ be the subtree rooted at~$h$.
-  If $T_h$ does not contain $S$ (i.e., $h \not\sqsubseteq r$), then the \acrshort{br}s $\sigma_{-i}$ and $\sigma^*_{-i}$ are identical within $T_h$, which trivially implies $u_i^h (\sigma) = u_i^h (\sigma^*)$.
+  If $T_h$ does not contain $S$ (i.e., $h \not\sqsubseteq r$), then the \acrlong{br}s $\sigma_{-i}$ and $\sigma^*_{-i}$ are identical within $T_h$, trivially implying $u_i^h (\sigma) = u_i^h (\sigma^*)$.
   On~the other hand, if $T_h$ does contain $S$, we will prove the inequality by~mathematical induction on the height of~$T_h$.
 
-  For the base case, the minimum-height tree containing $S$ is the subgame tree $S \equiv T_r$ itself, where the inequality holds by assumptions.
-  For the inductive step, let node~$h$ has $k$ children $h_1, \dots h_k$, and without loss of~generality, $T_{h_1}$ contains $S$.
+  For the base case, the minimum-height tree containing $S$ is the subgame tree~$T_r$ itself, where the inequality holds by assumptions.
+  For the inductive step, let node~$h$ has $k$ children $h_1, \dots h_k$, and without loss of~generality $T_{h_1}$ contains~$S$.
   By~the induction hypothesis, $u_i^{h_1} (\sigma) \le u_i^{h_1} (\sigma^*)$.
-  Because the subtrees of~the remaining children don't contain $S$ (i.e., $h_j \not\sqsubseteq r$ for $j = 2, \dots, k$), $\sigma$ and $\sigma^*$ are equal there.
-  Hence, $u_i^{h_j} (\sigma) = u_i^{h_j} (\sigma^*)$ for $j = 2, \dots, k$.
-  Therefore, we have
+  Because the subtrees of~the remaining children do not contain $S$ (i.e., $h_j \not\sqsubseteq r$ for $j = 2, \dots, k$), $\sigma$ and $\sigma^*$ are again identical there.
+  Hence, $u_i^{h_j} (\sigma) = u_i^{h_j} (\sigma^*)$ for $j = 2, \dots, k$, and we get
   \begin{equation}
     \label{eq:children-inc-util}
-    u_i^{h_j}(\sigma) \le u_i^{h_j}(\sigma^*)
+    u_i^{h_j}(\sigma) \le u_i^{h_j}(\sigma^*), \quad j = 1, \dots, k
   \end{equation}
-  If $i$ is the acting player of~$h$ (i.e., $p(h) = i$), then by~expressing utilities as weighted sums of~children's utilities we get
+
+  If $i$ is the acting player of~$h$ (i.e., $p(h) = i$), then by~expressing utilities as weighted sums of~children's utilities, we have
   \begin{align*}
     u_i^h(\sigma)
-    %
     &= \sum _{j = 1, \dots, k} \pi^\sigma\!(h,h_j) \,u_i^{h_j}(\sigma)
-    %
-    = \sum _{j = 1, \dots, k} \pi^{\sigma^*}\!(h,h_j) \,u_i^{h_j}(\sigma) \\
-    %
+    \\
+    &= \sum _{j = 1, \dots, k} \pi^{\sigma^*}\!(h,h_j) \,u_i^{h_j}(\sigma)
+    \\
     &\stackrel{\mathclap{\mathrm{(\ref{eq:children-inc-util})}}} {\le}
     \sum _{j = 1, \dots, k} \pi^{\sigma^*}\!(h,h_j) \,u_i^{h_j}(\sigma^*)
     %
     = u_i^h(\sigma^*)
   \end{align*}
-  On the other hand, if the opponent is the one who is acting (i.e., $p(h) \ne i$), he aims to choose the action with $i$'s minimum utility (due to the zero-sum property):
+  where the second equality holds because $\sigma$ and $\sigma^*$ are identical outside the $S$.
+  If otherwise the opponent is acting (i.e., $p(h) \ne i$), he aims to choose an~action with minimal $i$'s utility (due to the zero-sum property):
   \begin{align*}
     u_i^h(\sigma)
     %
@@ -223,15 +226,18 @@ no opponent can exploit the newly computed sub-strategy by adjusting his play (e
     %
     = u_i^h(\sigma^*)
   \end{align*}
-  In either cases $u_i^h(\sigma) \le u_i^h(\sigma^*)$.
+  So in both cases $u_i^h(\sigma) \le u_i^h(\sigma^*)$.
 \end{proof}
 
 \begin{cor}
   If a~player employs a~re-computed subgame strategy, the opponent has no way to~adjust his strategy, in order to increase his own overall utility.
 \end{cor}
+\begin{proof}
+  Apply Theorem~\ref{thm:perf-info-subgames-unexploitability} to the root of the game (i.e., $h := \emptyset$).
+\end{proof}
 
 This means that we can deal with subgames of~perfect-information games separately, either by~pre-computation or by~dynamic re-solving.
-E.g., this approach has met successful in Checkers with (otherwise) intractable $5 \times 10^{20}$ states:
+This approach has met success, e.g., in Checkers with $5 \times 10^{20}$ states, which would be otherwise intractable:
 Checkers has been solved both in~terms of the game's value and an~optimal \acrshort{ne} strategy (\cite{Schaeffer2007checkers}).
 
 Moreover, we may freely combine the newly found strategies with the original ones:
@@ -239,18 +245,18 @@ Theorem~\ref{thm:perf-info-subgames-utility} guarantees they won't be inferior, 
 
 \note{
   The situation in imperfect-information setting is different:
-  in~fact, Claim~\ref{claim:rps-subgame} proves that a~re-solved subgame strategy can be actually exploited.
+  in~fact, Claim~\ref{claim:rps-subgame} (p.~\pageref{claim:rps-subgame}) proves that a~re-solved subgame strategy can indeed be exploited.
 }
 
 \section{Working Examples}
 \epigraph{
   Few things are harder to~put up with than the~annoyance of a~good example.
 }{Mark Twain}
-Subgame solutions are particularly used in~perfect-information games with an~extensive form such as Chess or Go, where the endgame technique has been used for~long time as one way to~defeat the colossal size of~the game tree.
+Subgame solutions are used particularly in~perfect-information games with an~extensive form such as Chess or Go.
+There, the endgame technique has been used for~long time as one way to~defeat the colossal size of~the game tree.
 In these specific domains, endgame solving has~additional significance, as it improves the playing quality of~agents as well.
 
-In Chapter~\ref{ch:Chess}, we will see the power of~subgame pre-computation with the example of~Chess:
-solutions to~endings are stored in so-called \emph{endgame tablebase}.
+In Chapter~\ref{ch:Chess}, we will see the power of~subgame pre-computation with the example of~Chess solutions to~endings, stored in so-called \emph{endgame tablebases}.
 They are used in~real world to~aid professional Chess players, either in~proving their guaranteed victory or in~analysing past games.
 Moreover, since tablebases are mathematically proven to be~optimal, they provide a~glimpse into the world of~``perfect Chess'' played by ``all-knowing super-players''.
 
@@ -258,7 +264,7 @@ In contrast, Chapter~\ref{ch:goCGT} demonstrates how the in-play approach to~end
 Once reaching the late stage, the board is partitioned into distinct parts.
 The corresponding (and provably independent) subgames are re-solved ``on the fly'', just to be afterwards combined using the \emph{\acrlong{cgt}}.
 
-Finally, Chapter~\ref{ch:AlphaGo} reviews the modern approach to~computer Go employed by~Google DeepMind:
-the Go program \emph{AlphaGo} combines \emph{Monte Carlo tree search} with \emph{neural networks} to~simulate every play position, as if it were an~endgame.
-This in particular means that several moves into the future are simulated and the corresponding part of~the game tree is unrolled and expanded.
+Chapter~\ref{ch:AlphaGo} reviews the modern approach to~computer Go used by~Google DeepMind:
+their Go program \emph{AlphaGo} combines \emph{Monte Carlo tree search} with \emph{neural networks} to~treat each position as if it were an~endgame.
+This in particular means that several moves into the future are simulated and the corresponding part of~the game tree is unrolled and possibly expanded.
 The rest of~the tree is discarded, effectively leaving only the relevant subgame for the oncoming play.
