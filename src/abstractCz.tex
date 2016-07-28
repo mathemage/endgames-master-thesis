@@ -1,4 +1,5 @@
 %%% for abstract in Czech
+%\selectlanguage{czech}
 \thispagestyle{empty}
 \openright
 
@@ -7,22 +8,47 @@
 \setlength\parskip{5mm}
 
 Název práce:
-{\let\\=\relax \ThesisTitle}
+Řešení koncovek ve velkých hrách s neúplnou informací jako je např. Poker
 
-Author:
+Autor:
 \ThesisAuthor
 
-\DeptType:
-\Department
+Katedra:
+Katedra aplikované matematiky
 
-Supervisor:
-\Supervisor, \SupervisorsDepartment
+Vedoucí diplomové práce:
+\Supervisor, Katedra aplikované matematiky
 
-Abstract:
-\Abstract
+Abstrakt:
+Koncovky hrají výraznou roli pro hráče.
+V pozdních fázích hry je mnoho aspektů již jasně definováno, což mnohdy umožňuje rozebrat všechny možnosti.
+Speciální zacházení s~koncovkami je obzvláště účinné pro hry s~úplnou informací, např. databáze šachových koncovek předvyřešené pro celé třídy typů zakončení, anebo v~Go rozdělení desky do samostatných nezávislých podher.
 
-Keywords:
-\Keywords
+Je lákavé rozšířit tento přístup i na~hry s~neúplnou informací, jakým je např. známý Poker.
+Zahrát počáteční fáze hry, a jakmile podhry začnou být zvlád\-nu\-tel\-né, vypočítat pro ně koncové řešení zvlášť.
+Ovšem situace je mnohem komplikovanější pro hry s~neúplnou informací.
+
+\emph{Podhry} je potřeba zobecnit pro neúplnou informaci kvůli \emph{informačním množinám}.
+Bohužel takové zobecnění nelze hned řešit přímo, neboť by nebyla zachována optimalita.
+V důsledku toho můžeme skončit se strategií mnohem ovlivnitelnější (co se týče zneužitelnosti).
+
+V současnosti jsou tři přístupy, jak se s~touto výzvou vypořádat:
+\begin{enumerate}[(a)]
+  \item tento problém zcela zanedbat,
+  \item použít techniku podrozdělení, která však většinou zachovává jenom stejně dobrá řešení,
+  \item nebo zformalizovat pojem \emph{rozmezí podhry} jakožtu míra zlepšení strategie.
+    Pro ní zkonstruujeme pomocnou hru, jež co nejvíce zvětšuje rozmezí podhry.
+\end{enumerate}
+
+Poslední přístup je náš vlastní výsledek, který jsme v~roce~2016 prezentovali na~třicáté konferenci AAAI pro umělou inteligenci.
+Též jsme porovnali skrze pokusy tři zmíněná řešení, s~použitím špičkového účastníka soutěže pokerových programů na AAAI-14.
+Tato soutěž je předním vývojovým prostředím pro agenty s~neúplnou informací.
+
+Klíčová slova:
+{%
+  {algoritmická teorie her}, {hry s~neúplnou informací}, {Nashovo equilibrium},
+  {podhra}, {koncovka}, {counterfactual regret minimization}, {Poker}
+}
 
 \vss}
 
