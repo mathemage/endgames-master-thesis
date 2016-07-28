@@ -95,6 +95,7 @@ There are further notions related to \acrshort{efg}s:
 \end{itemize}
 
 \section{Sequence Form}
+\vskip -1em
 \epigraph{
   Error is ever the sequence of~haste.
 }{Duke of Wellington}
@@ -104,17 +105,17 @@ There are further notions related to \acrshort{efg}s:
 }
 One possible way (\cite[pp.~73--74]{AGT07}) to~solve \acrshort{efg}s is by solving a~corresponding \acrfull{lp} called the \emph{strategic form}.
 However, the number of~pure strategies (over which players are mixing) is generally exponential, as we need to combine all action choices across all information sets (see Figure~\ref{fig:strategic-form}).
-The size of~the \emph{strategic-form} \acrshort{lp} increases rapidly, deeming the problem intractable to~solve.
+The size of~the \emph{strategic-form} \acrshort{lp} increases rapidly, deeming the problem intractable.
 \begin{figure}[H]
   \centering
   \tiny
   \def\svgwidth{.5\textwidth}
   \input{../img/strategic-form-tree.pdf_tex}
   \includegraphics[width=.4\textwidth]{../img/strategic-form.png}
-  \caption[The strategic-form pay-off matrices]{Left: An~\acrshort{efg}. Right: The corresponding strategic-form pay-off matrices. (\cite[p.~67]{AGT07})}
+  \caption[The strategic-form pay-off matrices]{An~\acrshort{efg} and its corresponding strategic-form pay-off matrices. (\cite[p.~67]{AGT07})}
   \label{fig:strategic-form}
 \end{figure}
-
+\vskip -1em
 A~possible solution is to~use the \emph{sequence form} (\cite[pp.~70--73]{AGT07}).
 This form of~\acrshort{lp} has variables just for \emph{sequences of~actions}.
 Only sequences from~the same root-to-leaf paths are then combined:
@@ -124,8 +125,7 @@ Only sequences from~the same root-to-leaf paths are then combined:
   \def\svgwidth{.5\textwidth}
   \input{../img/strategic-form-tree.pdf_tex}
   \includegraphics[width=.4\textwidth]{../img/sequence-form.png}
-  \caption[The sequence-form pay-off matrices]{Left: A~game with sequences~$S_1 = \{\emptyset, L, R, LS, LT\}$ and $S_2 = \{\emptyset, l, r \}$.
-    Right: The corresponding sequence-form pay-off matrices. (\cite[p.~67]{AGT07})}
+  \caption[The sequence-form pay-off matrices]{A~game with sequences~$S_1 = \{\emptyset, L, R, LS, LT\}$ and $S_2 = \{\emptyset, l, r \}$ and its corresponding sequence-form pay-off matrices. (\cite[p.~67]{AGT07})}
   \label{fig:sequence-form}
 \end{figure}
 \noindent
@@ -317,7 +317,7 @@ For a~detailed overview, study also (\cite[Chapter~4]{AGT07}) or (\cite{Bosansky
   When you think you can't, revisit a previous triumph.
 }{Jack Canfield}
 So far, the information sets have grouped only those states where the player was the acting player.
-For the purposes of the subgame, it is also necessary to include the states that are indistinguishable from the point of view of other players.
+For subgames, it is also necessary to include the states that are indistinguishable from the point of view of other players.
 Therefore, we define the \emph{augmented information sets} (\cite{BurchJohansonBowling2014}):
 \begin{framed}
   \begin{defn}[augmented information set]

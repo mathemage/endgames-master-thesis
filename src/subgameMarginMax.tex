@@ -238,11 +238,11 @@ The following is a~description of~the steps (see also Figure~\ref{fig:max-margin
 %First, we add a~new root node $\dt$, where the opponent chooses an~information set $I \in \mathcal{I}_2^{R(S)}$ to enter.
 %Formally, this can be achieved by creating chance nodes $c_{\It}$ per each set $\It \in \mathcal{I}_2^{R(S)}$.
 
-As soon as the opponent pick which $c_{\It}$ to enter (i.e., with which cards to enter the subgame), the chance player deals cards to us.
+As soon as the opponent picks which $c_{\It}$ to enter (i.e., with which cards to enter the subgame), the chance player deals cards to us.
 The corresponding probability (of~being in~state $\tilde{h}\in \It$) is
-\[
+$
   \pi_c (c_{\It}, c_{\It} \cdot \tilde{h}) = \frac {\pi_{-2} ^{\sigma}(h)} {k_{\It}}
-\]
+$
 where normalization factor $k_{\It} = \sum_{ h \in I} \pi_{-2}^\sigma(h)$ ensures that probabilities sum to $1$ (i.e., $\sum_{\tilde{h} \in \It} \pi_c (c_{\It}, c_{\It} \cdot \tilde{h}) = 1$).
 The terminal utilities need to be adjusted for it.
 First, they are multiplied by the related normalization factor to cancel the effects of~the normalization.
@@ -319,13 +319,14 @@ The following lemma states that the construction shifts counterfactual values by
       \\
       &\stackrel{\mathclap{\mathrm{(\ref{eq:norm-factor-expansion})}}} =
       v_2 ^{\sigma'}(I) - CBV_2^\sigma(I).
+      \qedhere
     \end{split}
   \end{equation*}
-  Hence, the gadget-game counterfactual values are shifted by right offsets.
 \end{proof}
 
-Lemma~\ref{lem:cfv-shift} therefore gives into context the gadget game and \acrshort{sm} maximization:
-gadget-game counterfactual values at~$\I_2^{R(S)}$ correspond to margins, and thus solving the gadget translates to maximizing the minimum of~margins, i.e., maximizing the \acrlong{sm}.
+Hence, the gadget-game counterfactual values are shifted by right offsets and Lemma~\ref{lem:cfv-shift} therefore gives into context the gadget game and \acrshort{sm} maximization:
+gadget-game counterfactual values at~$\I_2^{R(S)}$ correspond to margins.
+Thus, solving the gadget translates to maximizing the minimum of~margins, i.e., maximizing the \acrlong{sm}.
 \begin{framed}
   \begin{cor}
     A~strategy for the max-margin gadget is a~\acrlong{ne} if and only if it is a~solution to the \acrshort{lp}~(\ref{lp:max-margin}).

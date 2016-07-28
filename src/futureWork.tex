@@ -19,7 +19,7 @@ Some recommendations as inspiration for future work may include
 }{Edsger Dijkstra}
 One especially noteworthy research topic is the study of~margins (i.e., declines of~\acrshort{cbv}s).
 The \acrlong{sm} is their $\min$-aggregation.
-Tempting idea is to look into alternative aggregation.
+Tempting idea is to look into alternative aggregations.
 Consider a~multi-criteria analogy to~subgame margin maximization (\ref{lp:max-margin}):
 \begin{equation}
   \label{vlp:max-margins}
@@ -31,7 +31,7 @@ Consider a~multi-criteria analogy to~subgame margin maximization (\ref{lp:max-ma
     x &\ge \vect{0}.
   \end{split}
 \end{equation}
-Now $\vect{m}_I$ corresponds to only one margin $\vect{m}_I := CBV_2^{\sigma_1} (I) - CBV_2^{\sigma_1'} (I)$, and $\vect{m} := (m_I) _{I\in\I_2^{R(S)}}$ is a~vector of~all such margins.
+Now $\vect{m}_I$ corresponds to one specific margin $\vect{m}_I := CBV_2^{\sigma_1} (I) - CBV_2^{\sigma_1'} (I)$, and $\vect{m} := (m_I) _{I\in\I_2^{R(S)}}$ is a~vector of~all such margins.
 Evidently, this \acrfull{vlp} is a~task of~\emph{multi-objective optimization} (\cite{Ehrgott2006multicriteria, Grygarova1996zaklady}).
 
 Notice that (\ref{lp:max-margin}) is just a~special case of~the vector objective function, by~the scalarization
