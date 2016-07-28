@@ -140,9 +140,9 @@ At that point, leaf nodes are evaluated in two ways:
 \end{enumerate}
 The two are mixed into the final value of~the leaf node.
 
-Once every simulation of a~single round is finished, all new values are backpropagated to the root, thus updating necessary variables on the way up.
+Once all simulations for a~single round are finished, all new values are back-propagated to the root, thus updating necessary variables on the way up.
 
-For more details, consult (\cite{Silver2016mastering}) or the before-mentioned presentations.
+For more details, consult (\cite{Silver2016mastering}) or my mentioned presentations.
 
 \note{
   Main algorithm demonstrates the connection to \emph{our theme of~endgames}:
@@ -152,14 +152,14 @@ For more details, consult (\cite{Silver2016mastering}) or the before-mentioned p
 
   On the other hand, AlphaGo performs the same simulation algorithm during the whole game:
   from an~empty board until the final move.
-  Therefore, it would be imprecise to talk about ``endgame'' here.
+  Therefore, it would be imprecise to talk about ``endgame''.
 }
 
 \section{Playing Strength}
 \epigraphLong{
   I know AlphaGo is a~computer, but if no one told me, maybe I would think the player was a~little strange, but a~very strong player, a~real person.
 }{Fan Hui}
-In order to assess the playing strength of~AlphaGo, DeepMind has organized an~internal tournament between different other Go programs.%
+In order to assess the playing strength of~AlphaGo, DeepMind has organized an~internal tournament against other Go programs.%
 \footnote{\emph{CrazyStone} and \emph{Zen} are the strongest commercial programs, whereas \emph{Pachi} and \emph{Fuego} are strongest among the open-source ones.}
 Figure~\ref{fig:Go-tournament} displays the outcome of the tournament:
 \begin{figure}[H]
@@ -169,14 +169,14 @@ Figure~\ref{fig:Go-tournament} displays the outcome of the tournament:
   \label{fig:Go-tournament}
 \end{figure}
 The 95\%-confidence intervals were used.
-Programs were allowed approximately 5~seconds of~computational time per move, and some of~them (with faded tops of~bars) also later played with four \emph{handicap stones} (free extra moves at~the beginning of~each game) against all others.
+Programs were allowed approximately 5~seconds of~computational time per move, and some of~them (with faded tops of~bars) also later played with four \emph{handicap stones} (i.e., free extra moves at~the beginning of~each game) against all others.
 
-The Elo scale was used for assessing the playing strength:
-a~230-point gap equals to a~79\%-probability of~winning, as well corresponding to about one \emph{amateur dan} rank difference on~\emph{KGS Go Server}\footnotemark.
-The ranks achieved by~programs on~KGS are also shown: on~the right side.
+The Elo scale was used to measure the playing strength:
+a~230-point gap equals to a~79\%-probability of~winning, as well corresponding to about one \emph{amateur dan} rank difference on~KGS Go Server\footnotemark.
+The ranks achieved by~programs on~KGS are shown on~the right side.
 \footnotetext{\href{https://www.gokgs.com/}{https://www.gokgs.com/}}
 
-Finally, AlphaGo played spectacular duels against two professional human players:
+Finally, AlphaGo played two spectacular duels against professional human players:
 \begin{description}
   \item [Fan Hui]~
     \begin{itemize}
@@ -201,7 +201,7 @@ Finally, AlphaGo played spectacular duels against two professional human players
     The winner of~the match was awarded the prize of~\$1,000,000.
     Google DeepMind donated this money to~charities, including~UNICEF, and various Go organisations.
 
-    Lee Sedol received \$170,000, \$150,000 for participation in all games and extra \$20,000 for every victory.
+    Lee Sedol received \$170,000 (i.e., \$150,000 for participation in all games and extra \$20,000 for every victory).
 \end{description}
 
 \epigraph{
