@@ -1,0 +1,45 @@
+\documentclass{beamer}
+\usetheme{metropolis}           % Use metropolis theme
+\usepackage{appendixnumberbeamer}
+\usepackage{epigraph}
+\usepackage{color}
+\usepackage{amsopn}
+\usepackage{tabto}
+
+%%% Bibliography
+\usepackage[backend=bibtex, style=authoryear]{biblatex}
+\AtBeginBibliography{\tiny}
+\bibliography{../src/bibliography.bib}
+
+%\setbeamercolor{background canvas}{bg=white}
+%\setbeamercolor{title}{fg=white}
+%\setbeamercolor{subtitle}{fg=black}
+%\setbeamercolor{author}{fg=black}
+%\setbeamercolor{institute}{fg=white}
+
+\newcommand{\todo}{\alert{TODO}}
+\newcommand{\itemBullet}{\scriptsize$\blacksquare$}
+\setbeamertemplate{itemize item}{\itemBullet}
+\setbeamertemplate{itemize subitem}{\itemBullet}
+\setbeamertemplate{itemize subsubitem}{\itemBullet}
+\newcommand{\E}{\mathop{\mathbb{E}}}
+\DeclareMathOperator*{\argmax}{arg\,max}
+\newcommand{\epiParSpace}{\vskip 1.5ex}
+
+\title{Solving Endgames}
+\subtitle{in Large Imperfect-Information Games such as Poker}
+\date{\today}
+\author{Bc.~Karel Ha}
+\institute{Department of~Applied Mathematics \\Charles University}
+
+\begin{document}
+  \maketitle
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+  \begin{frame}[allowframebreaks]{References}
+    \tiny
+    \printbibliography[heading=none]
+  \end{frame}
+
+\end{document}
