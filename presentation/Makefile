@@ -8,5 +8,5 @@ presentation.pdf: presentation.tex $(wildcard *.tex) ../src/bibliography.bib
 	xelatex $<
 
 clean:
-	rm -rf *.log *.dvi *.aux *.toc *.lof *.lot *.out *.bbl *.blg *._aux *._log *.nav *.synctex.gz *.project.vim .tmp/* *-blx.bib *.run.xml *.snm
+	rm -rf *.log *.dvi *.aux *.toc *.lof *.lot *.out *.bbl *.blg *._aux *._log *.nav *.synctex.gz *.project.vim .tmp/* *-blx.bib *.run.xml *.snm *_aux
 	rm -f presentation.pdf
