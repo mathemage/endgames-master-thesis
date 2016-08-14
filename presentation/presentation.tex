@@ -88,7 +88,28 @@
       \end{itemize}
     \end{frame}
   }
-  % todo LP
+
+  \begin{frame}{CFR-D Decomposition: Linear Program}
+    \begin{equation*}
+      \label{lp:cfr-d}
+      \begin{split}
+        \max_{v, x}\ &0 \\
+        \color{red}
+        v_I - m &
+        \color{red}
+        \ge CBV_2^{\sigma_1}(I), \quad I \in \I_2^{R(S)}\\ 
+        Ex &= e \\
+        F^\top v - A_{\color{red}2}^\top x &\le \vect{0} \\
+        x &\ge \vect{0}
+      \end{split}
+    \end{equation*}
+    \pause
+
+    \begin{itemize}[<+- | alert@+>]
+      \item $\I_2^{R(S)}$ denotes the root information sets 
+      \item $CBV_2^\sigma(I)$ is $2$'s original counterfactual best-response value
+    \end{itemize}
+  \end{frame}
 
   \section{Subgame-Margin Maximization}
   % todo df: margin
