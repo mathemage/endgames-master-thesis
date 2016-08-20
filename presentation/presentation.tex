@@ -11,7 +11,7 @@
 \AtBeginBibliography{\tiny}
 \bibliography{../src/bibliography.bib}
 
-%\setbeamercolor{background canvas}{bg=white}
+\setbeamercolor{background canvas}{bg=white}
 %\setbeamercolor{title}{fg=white}
 %\setbeamercolor{subtitle}{fg=black}
 %\setbeamercolor{author}{fg=black}
@@ -50,15 +50,12 @@
   % todo solving games: learning algos
 
   \section{Endgame Solving}
-  {
-    \setbeamercolor{background canvas}{bg=white}
-    \begin{frame}{Endgame Solving: Gadget Game}
-      \begin{figure}
-        \centering
-        \includegraphics[width=.5\textwidth]{../img/endgame-solving-gadget.png}
-      \end{figure}
-    \end{frame}
-  }
+  \begin{frame}{Endgame Solving: Gadget Game}
+    \begin{figure}
+      \centering
+      \includegraphics[width=.5\textwidth]{../img/endgame-solving-gadget.png}
+    \end{figure}
+  \end{frame}
 
   \begin{frame}{Endgame Solving: Linear Program}
     \begin{equation*}
@@ -73,21 +70,18 @@
   \end{frame}
 
   \section{CFR-D Decomposition}
-  {
-    \setbeamercolor{background canvas}{bg=white}
-    \begin{frame}{CFR-D Decomposition: Gadget Game}
-      \begin{figure}[H]
-        \centering
-        \includegraphics[width=.4\textwidth]{../img/re-solving-game-gadget.png}
-      \end{figure}
-      \pause
+  \begin{frame}{CFR-D Decomposition: Gadget Game}
+    \begin{figure}[H]
+      \centering
+      \includegraphics[width=.4\textwidth]{../img/re-solving-game-gadget.png}
+    \end{figure}
+    \pause
 
-      \begin{itemize}[<+- | alert@+>]
-        \item choice of~either to (F)ollow the action into the endgame, or to (T)erminate
-        \item utility after the (T)erminal action set to the \emph{counterfactual best-response value}
-      \end{itemize}
-    \end{frame}
-  }
+    \begin{itemize}[<+- | alert@+>]
+      \item choice of~either to (F)ollow the action into the endgame, or to (T)erminate
+      \item utility after the (T)erminal action set to the \emph{counterfactual best-response value}
+    \end{itemize}
+  \end{frame}
 
   \begin{frame}{CFR-D Decomposition: Linear Program}
     \begin{equation*}
@@ -145,8 +139,6 @@
       Thank you!
     \end{center}
   \end{frame}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
   \begin{frame}[allowframebreaks]{References}
     \tiny
