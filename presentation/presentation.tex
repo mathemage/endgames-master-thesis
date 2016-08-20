@@ -111,7 +111,27 @@
   \section{Subgame-Margin Maximization}
   % todo df: margin
   % todo thm: improvement-propto-margin
-  % todo LP
+  \begin{frame}{Subgame-Margin Maximization: Linear Program}
+    \begin{equation}
+      \label{lp:max-margin}
+      \begin{split}
+        \max_{v, x}\ &\textcolor{red}{m} \\
+        v_I - m &\ge CBV_2^{\sigma_1}(I), \quad I \in \I_2^{R(S)}\\ 
+        Ex &= e \\
+        F^\top v - A_2^\top x &\le \vect{0} \\
+        x &\ge \vect{0}
+      \end{split}
+    \end{equation}
+    \pause
+
+    \begin{itemize}[<+- | alert@+>]
+      \item $m$ is a~scalar corresponding to the subgame margin
+      \item $\approx$ ``gap'' between values $v_I$ and the given constants $CBV_2^\sigma(I)$
+      \item \emph{CFR-D Decomposition} only guarantees a~non-negative margin
+      \item \emph{Subgame-Margin Maximization} maximizes it
+    \end{itemize}
+  \end{frame}
+
   \begin{frame}{Subgame-Margin Maximization: Gadget Game}
     \begin{figure}
       \centering
