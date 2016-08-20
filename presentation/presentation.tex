@@ -5,6 +5,7 @@
 \usepackage{color}
 \usepackage{amsopn}
 \usepackage{tabto}
+\graphicspath{{../img/}}
 
 %%% Bibliography
 \usepackage[backend=bibtex, style=authoryear]{biblatex}
@@ -27,6 +28,8 @@
 \newcommand{\epiParSpace}{\vskip 1.5ex}
 \newcommand{\vect}[1]{\boldsymbol{#1}}
 \newcommand{\I}{\mathcal{I}}
+\newcommand{\dt}{\tilde{d}}
+\newcommand{\It}{\tilde{I}}
 
 \title{Solving Endgames \\in~Large Imperfect-Information Games \\such as~Poker}
 \date{September 13, 2016}
@@ -109,7 +112,16 @@
   % todo df: margin
   % todo thm: improvement-propto-margin
   % todo LP
-  % todo gadget
+  \begin{frame}{Subgame-Margin Maximization: Gadget Game}
+    \begin{figure}
+      \centering
+      \includegraphics[width=.5\textwidth]{../img/max-margin-gadget.png}
+    \end{figure}
+    \pause
+
+    Against the original strategy, opponent has a~zero utility at~best.
+  \end{frame}
+
 
   \section{Ideas for Future Work}
 
