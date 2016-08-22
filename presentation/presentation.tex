@@ -48,7 +48,7 @@
   % todo Go AlphaGo
 
   \section{Imperfect-Information Subgames}
-  % todo df: (imperf-info) subgame
+  % todo df: probabilities, information sets, (imperf-info) subgame
   % todo solving games: sequences, sequence-form LP
   % todo solving games: learning algos
 
@@ -119,14 +119,17 @@
         u_1(\sigma_1', CBR(\sigma_1')) - u_1(\sigma_1, CBR(\sigma_1)) \ge \pi_{-2}^{\sigma_1'} (I_2) \cdot SM_1(\sigma_1, \sigma_1', S).
       \]
     \end{theorem}
+    \pause
 
-    % todo itemize this
-    Though this lower bound might seem artificial at~first, it has promising properties for the subgame refinement.
-    Since we refine the strategy once we reach the subgame, either we face $2$'s BR that reaches $S$, or he has made a~mistake earlier in the game.
-
-    Furthermore, the probability of~player~$1$ reaching a~subgame is proportional to $\pi_{-2}^{\sigma_1'}(I_2)$.
-    As this term (and by extension, the bound) grows, the probability of~reaching that subgame increases.
-    In conclusion, we are more likely to reach a~subgame with a~larger bound.
+    \begin{itemize}[<+- | alert@+>]
+       \item ``the probability of~reaching a~subgame'' $\propto \pi_{-2}^{\sigma_1'}(I_2)$
+       \item $\uparrow \pi_{-2}^{\sigma_1'}(I_2)$
+         \begin{enumerate}[$\Rightarrow$]
+           \item $\uparrow$ the bound
+           \item $\uparrow$ the probability of~reaching that subgame
+         \end{enumerate}
+       \item Thus, subgames with larger bounds are likelier to be reached.
+    \end{itemize}
   \end{frame}
 
   \begin{frame}{Subgame-Margin Maximization: Linear Program}
