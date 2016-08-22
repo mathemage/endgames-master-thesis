@@ -4,8 +4,12 @@
 \usepackage{epigraph}
 \usepackage{color}
 \usepackage{amsopn}
+\usepackage{framed}             % for {framed}
 \usepackage{tabto}
 \graphicspath{{../img/}}
+
+\theoremstyle{definition}
+\newtheorem{defn}{Definition}
 
 %%% Bibliography
 \usepackage[backend=bibtex, style=authoryear]{biblatex}
@@ -51,6 +55,7 @@
   % todo df: probabilities, information sets, (imperf-info) subgame
   % todo solving games: sequences, sequence-form LP
   % todo solving games: learning algos
+  % todo assumptions: 2-player, we = 1, opponent = 2
 
   \section{Endgame Solving}
   \begin{frame}{Endgame Solving: Gadget Game}
@@ -109,7 +114,23 @@
   \end{frame}
 
   \section{Subgame-Margin Maximization}
-  % todo df: margin
+
+  \begin{frame}{Subgame-Margin Maximization: Subgame Margin}
+    \pause
+    \begin{framed}
+      Let $\sigma_1$, $\sigma_1'$ be a~pair of~player~$1$'s strategies for subgame~$S$.
+      Then a~\alert{subgame margin} is
+      \[
+        SM_1 (\sigma_1, \sigma_1' , S) =
+        \min_{I_2 \in \I_2^{R(S)}}
+        \left( CBV_2^{\sigma_1} (I_2) - CBV_2^{\sigma_1'} (I_2) \right)
+      \]
+    \end{framed}
+    \pause
+
+    It measures the ``gap in~decrease'' between the old and the new CBVs, across all root information sets $I_2 \in \I_2^{R(S)}$.
+  \end{frame}
+
   % todo thm: improvement-propto-margin
   \begin{frame}{Subgame-Margin Maximization: Gain Is Proportional to SM}
     \pause
