@@ -119,7 +119,7 @@
     \pause
     \begin{framed}
       Let $\sigma_1$, $\sigma_1'$ be a~pair of~player~$1$'s strategies for subgame~$S$.
-      Then a~\textbf{subgame margin} is
+      Then a~\textbf{subgame margin} (SM) is
       \[
         SM_1 (\sigma_1, \sigma_1' , S) =
         \min_{I_2 \in \I_2^{R(S)}}
@@ -132,6 +132,24 @@
       \item ``gap'' between old and new counterfactual best-response values
       \item across all root information sets $I_2 \in \I_2^{R(S)}$
     \end{itemize}
+  \end{frame}
+
+  \begin{frame}{Subgame-Margin Maximization: Non-negative SM}
+    \begin{framed}
+      \begin{Theorem}[\cite{BurchJohansonBowling2014}]
+        Given a~strategy~$\sigma_1$, a~subgame~$S$, and a~re-solved subgame strategy~$\sigma_1^S$, let $\sigma_1' = \sigma_{1, [S \leftarrow \sigma_1^S]}$ be the combination of~$\sigma_1$ and~$\sigma_1^S$.
+        If $SM_1 (\sigma_1, \sigma_1' , S) \geq 0$, then
+        \[
+          u_2(\sigma_1', \textrm{CBR}(\sigma_1')) \leq  u_2(\sigma_1, \textrm{CBR}(\sigma_1)).
+        \]
+      \end{Theorem}
+    \end{framed}
+    \pause
+
+    Hence, non-negative SM does not allow the opponent to improve.
+    \pause
+
+    Moreover, SM is even proportional to the overall improvement$\ldots$
   \end{frame}
 
   \begin{frame}{Subgame-Margin Maximization: Gain Is Proportional to SM}
