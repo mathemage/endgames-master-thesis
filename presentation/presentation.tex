@@ -119,7 +119,7 @@
     \pause
     \begin{framed}
       Let $\sigma_1$, $\sigma_1'$ be a~pair of~player~$1$'s strategies for subgame~$S$.
-      Then a~\alert{subgame margin} is
+      Then a~\textbf{subgame margin} is
       \[
         SM_1 (\sigma_1, \sigma_1' , S) =
         \min_{I_2 \in \I_2^{R(S)}}
@@ -128,12 +128,16 @@
     \end{framed}
     \pause
 
-    It measures the ``gap in~decrease'' between the old and the new CBVs, across all root information sets $I_2 \in \I_2^{R(S)}$.
+    \begin{itemize}[<+- | alert@+>]
+      \item ``gap'' between old and new counterfactual best-response values
+      \item across all root information sets $I_2 \in \I_2^{R(S)}$
+    \end{itemize}
   \end{frame}
 
   % todo thm: improvement-propto-margin
   \begin{frame}{Subgame-Margin Maximization: Gain Is Proportional to SM}
     \pause
+    % todo put into framed
     \begin{theorem}
       Additionally, if there is $\sigma_2^* = BR(\sigma_1')$ such that $\pi^{<\sigma_1',\sigma_2^*>} (I_2) > 0$ for some $I_2 \in\I_2^{R(S)}$, then the gain in~utilities is proportional to SM:
       \[
