@@ -19,7 +19,7 @@
 
 \setbeamercolor{background canvas}{bg=white}
 \setbeamercolor{title}{fg=white}
-\setbeamercolor{author}{fg=gray}
+\setbeamercolor{author}{fg=white}
 \setbeamercolor{date}{fg=gray}
 \setbeamercolor{institute}{fg=gray}
 
@@ -35,6 +35,7 @@
 \newcommand{\I}{\mathcal{I}}
 \newcommand{\dt}{\tilde{d}}
 \newcommand{\It}{\tilde{I}}
+\newcommand{\cfrplus}{CFR\textsuperscript{+}~}
 
 \title{Solving Endgames \\in~Large Imperfect-Information Games \\such as~Poker}
 \date{September 13, 2016}
@@ -48,9 +49,6 @@
     }
     \maketitle
   }
-
-  % todo df: subgame / endgame
-  % todo application in game playing
 
   \section{Perfect-Information Subgames}
 
@@ -334,6 +332,19 @@
     Against the original strategy, opponent has a~zero utility at~best.
   \end{frame}
 
+  \begin{frame}{Subgame-Margin Maximization: Experimental Results}
+    \begin{figure}[H]
+      \centering
+      \includegraphics[width=\textwidth]{../img/sm-experiments}
+    \end{figure}
+    \pause
+
+    \begin{itemize}[<+- | alert@+>]
+      \item refinement of~$\approx 2000$ subgames by each method
+      \item average margins displayed
+      \item max-margin $\to$ the best value, better than subgame re-solving or endgame solving (negative SM!)
+    \end{itemize}
+  \end{frame}
 
   \section{Ideas for Future Work}
 
