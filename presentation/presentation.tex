@@ -187,24 +187,27 @@
   % todo assumptions: 2-player, we = 1, opponent = 2
 
   \section{Endgame Solving}
-  \begin{frame}{Endgame Solving: Gadget Game}
-    \begin{figure}
-      \centering
-      \includegraphics[width=.5\textwidth]{../img/endgame-solving-gadget.png}
-    \end{figure}
-  \end{frame}
+  {
+    \setbeamertemplate{frame footer}{\cite{Ganzfried2015endgame}}
+    \begin{frame}{Endgame Solving: Gadget Game}
+      \begin{figure}
+        \centering
+        \includegraphics[width=.5\textwidth]{../img/endgame-solving-gadget.png}
+      \end{figure}
+    \end{frame}
 
-  \begin{frame}{Endgame Solving: Linear Program}
-    \begin{equation*}
-      \label{lp:endgame-solving}
-      \begin{split}
-        \max_{v, x}\  f^\top v & \\
-        Ex &= e \\
-        F^\top v - A^\top x &\le \vect{0} \\
-        x &\ge \vect{0}
-      \end{split}
-    \end{equation*}
-  \end{frame}
+    \begin{frame}{Endgame Solving: Linear Program}
+      \begin{equation*}
+        \label{lp:endgame-solving}
+        \begin{split}
+          \max_{v, x}\  f^\top v & \\
+          Ex &= e \\
+          F^\top v - A^\top x &\le \vect{0} \\
+          x &\ge \vect{0}
+        \end{split}
+      \end{equation*}
+    \end{frame}
+  }
 
   \section{CFR-D Decomposition}
   \begin{frame}{CFR-D Decomposition: Gadget Game}
