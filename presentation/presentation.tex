@@ -16,6 +16,7 @@
 \usepackage[backend=bibtex, style=authoryear]{biblatex}
 \AtBeginBibliography{\tiny}
 \bibliography{../src/bibliography.bib}
+\usepackage[utf8]{inputenc}
 
 \setbeamercolor{background canvas}{bg=white}
 \setbeamercolor{title}{fg=white}
@@ -209,9 +210,9 @@
     \end{frame}
   }
 
+  \section{CFR-D Decomposition}
   {
     \setbeamertemplate{frame footer}{\cite{BurchJohansonBowling2014}}
-    \section{CFR-D Decomposition}
     \begin{frame}{CFR-D Decomposition: Gadget Game}
       \begin{figure}[H]
         \centering
@@ -249,111 +250,113 @@
   }
 
   \section{Subgame-Margin Maximization}
-
-  \begin{frame}{Subgame-Margin Maximization: Subgame Margin}
-    \pause
-    \begin{framed}
-      Let $\sigma_1$, $\sigma_1'$ be a~pair of~player~$1$'s strategies for subgame~$S$.
-      Then a~\textbf{subgame margin} (SM) is
-      \[
-        SM_1 (\sigma_1, \sigma_1' , S) =
-        \min_{I_2 \in \I_2^{R(S)}}
-        \left( CBV_2^{\sigma_1} (I_2) - CBV_2^{\sigma_1'} (I_2) \right)
-      \]
-    \end{framed}
-    \pause
-
-    \begin{itemize}[<+- | alert@+>]
-      \item ``gap'' between old and new counterfactual best-response values
-      \item across all root information sets $I_2 \in \I_2^{R(S)}$
-    \end{itemize}
-  \end{frame}
-
-  \begin{frame}{Subgame-Margin Maximization: Non-negative SM}
-    \begin{framed}
-      \begin{Theorem}[\cite{BurchJohansonBowling2014}]
-        Given a~strategy~$\sigma_1$, a~subgame~$S$, and a~re-solved subgame strategy~$\sigma_1^S$, let $\sigma_1' = \sigma_{1, [S \leftarrow \sigma_1^S]}$ be the combination of~$\sigma_1$ and~$\sigma_1^S$.
-        If $SM_1 (\sigma_1, \sigma_1' , S) \geq 0$, then
+  {
+    \setbeamertemplate{frame footer}{\cite{Moravcik2016refining}}
+    \begin{frame}{Subgame-Margin Maximization: Subgame Margin}
+      \pause
+      \begin{framed}
+        Let $\sigma_1$, $\sigma_1'$ be a~pair of~player~$1$'s strategies for subgame~$S$.
+        Then a~\textbf{subgame margin} (SM) is
         \[
-          u_2(\sigma_1', \textrm{CBR}(\sigma_1')) \leq  u_2(\sigma_1, \textrm{CBR}(\sigma_1)).
+          SM_1 (\sigma_1, \sigma_1' , S) =
+          \min_{I_2 \in \I_2^{R(S)}}
+          \left( CBV_2^{\sigma_1} (I_2) - CBV_2^{\sigma_1'} (I_2) \right)
         \]
-      \end{Theorem}
-    \end{framed}
-    \pause
+      \end{framed}
+      \pause
 
-    Hence, non-negative SM does not allow the opponent to improve.
-    \pause
+      \begin{itemize}[<+- | alert@+>]
+        \item ``gap'' between old and new counterfactual best-response values
+        \item across all root information sets $I_2 \in \I_2^{R(S)}$
+      \end{itemize}
+    \end{frame}
 
-    Moreover, SM is even proportional to the overall improvement$\ldots$
-  \end{frame}
+    \begin{frame}{Subgame-Margin Maximization: Non-negative SM}
+      \begin{framed}
+        \begin{Theorem}[\cite{BurchJohansonBowling2014}]
+          Given a~strategy~$\sigma_1$, a~subgame~$S$, and a~re-solved subgame strategy~$\sigma_1^S$, let $\sigma_1' = \sigma_{1, [S \leftarrow \sigma_1^S]}$ be the combination of~$\sigma_1$ and~$\sigma_1^S$.
+          If $SM_1 (\sigma_1, \sigma_1' , S) \geq 0$, then
+          \[
+            u_2(\sigma_1', \textrm{CBR}(\sigma_1')) \leq  u_2(\sigma_1, \textrm{CBR}(\sigma_1)).
+          \]
+        \end{Theorem}
+      \end{framed}
+      \pause
 
-  \begin{frame}{Subgame-Margin Maximization: Gain Is Proportional to SM}
-    \pause
-    \begin{framed}
-      \begin{theorem}
-        If there is $\sigma_2^* = BR(\sigma_1')$ with $\pi^{<\sigma_1',\sigma_2^*>} (I_2) > 0$ for some $I_2 \in\I_2^{R(S)}$, then the gain in~utilities is proportional to SM:
-        \[
-          u_1(\sigma_1', CBR(\sigma_1')) - u_1(\sigma_1, CBR(\sigma_1)) \ge \pi_{-2}^{\sigma_1'} (I_2) \cdot SM_1(\sigma_1, \sigma_1', S).
-        \]
-      \end{theorem}
-    \end{framed}
-    \pause
+      Hence, non-negative SM does not allow the opponent to improve.
+      \pause
 
-    \begin{itemize}[<+- | alert@+>]
-       \item ``the probability of~reaching a~subgame'' $\propto \pi_{-2}^{\sigma_1'}(I_2)$
-       \item $\uparrow \pi_{-2}^{\sigma_1'}(I_2)$
-         \begin{enumerate}[$\Rightarrow$]
-           \item $\uparrow$ the bound
-           \item $\uparrow$ the probability of~reaching that subgame
-         \end{enumerate}
-       \item Thus, subgames with larger bounds are likelier to be reached.
-    \end{itemize}
-  \end{frame}
+      Moreover, SM is even proportional to the overall improvement$\ldots$
+    \end{frame}
 
-  \begin{frame}{Subgame-Margin Maximization: Linear Program}
-    \begin{equation*}
-      \label{lp:max-margin}
-      \begin{split}
-        \max_{v, x}\ &\textcolor{red}{m} \\
-        v_I - m &\ge CBV_2^{\sigma_1}(I), \quad I \in \I_2^{R(S)}\\ 
-        Ex &= e \\
-        F^\top v - A_2^\top x &\le \vect{0} \\
-        x &\ge \vect{0}
-      \end{split}
-    \end{equation*}
-    \pause
+    \begin{frame}{Subgame-Margin Maximization: Gain Is Proportional to SM}
+      \pause
+      \begin{framed}
+        \begin{theorem}
+          If there is $\sigma_2^* = BR(\sigma_1')$ with $\pi^{<\sigma_1',\sigma_2^*>} (I_2) > 0$ for some $I_2 \in\I_2^{R(S)}$, then the gain in~utilities is proportional to SM:
+          \[
+            u_1(\sigma_1', CBR(\sigma_1')) - u_1(\sigma_1, CBR(\sigma_1)) \ge \pi_{-2}^{\sigma_1'} (I_2) \cdot SM_1(\sigma_1, \sigma_1', S).
+          \]
+        \end{theorem}
+      \end{framed}
+      \pause
 
-    \begin{itemize}[<+- | alert@+>]
-      \item $m$ is a~scalar corresponding to the subgame margin
-      \item $\approx$ ``gap'' between values $v_I$ and the given constants $CBV_2^\sigma(I)$
-      \item \emph{CFR-D Decomposition} only guarantees a~non-negative margin
-      \item \emph{Subgame-Margin Maximization} maximizes it
-    \end{itemize}
-  \end{frame}
+      \begin{itemize}[<+- | alert@+>]
+         \item ``the probability of~reaching a~subgame'' $\propto \pi_{-2}^{\sigma_1'}(I_2)$
+         \item $\uparrow \pi_{-2}^{\sigma_1'}(I_2)$
+           \begin{enumerate}[$\Rightarrow$]
+             \item $\uparrow$ the bound
+             \item $\uparrow$ the probability of~reaching that subgame
+           \end{enumerate}
+         \item Thus, subgames with larger bounds are likelier to be reached.
+      \end{itemize}
+    \end{frame}
 
-  \begin{frame}{Subgame-Margin Maximization: Gadget Game}
-    \begin{figure}
-      \centering
-      \includegraphics[width=.5\textwidth]{../img/max-margin-gadget.png}
-    \end{figure}
-    \pause
+    \begin{frame}{Subgame-Margin Maximization: Linear Program}
+      \begin{equation*}
+        \label{lp:max-margin}
+        \begin{split}
+          \max_{v, x}\ &\textcolor{red}{m} \\
+          v_I - m &\ge CBV_2^{\sigma_1}(I), \quad I \in \I_2^{R(S)}\\ 
+          Ex &= e \\
+          F^\top v - A_2^\top x &\le \vect{0} \\
+          x &\ge \vect{0}
+        \end{split}
+      \end{equation*}
+      \pause
 
-    Against the original strategy, opponent has a~zero utility at~best.
-  \end{frame}
+      \begin{itemize}[<+- | alert@+>]
+        \item $m$ is a~scalar corresponding to the subgame margin
+        \item $\approx$ ``gap'' between values $v_I$ and the given constants $CBV_2^\sigma(I)$
+        \item \emph{CFR-D Decomposition} only guarantees a~non-negative margin
+        \item \emph{Subgame-Margin Maximization} maximizes it
+      \end{itemize}
+    \end{frame}
 
-  \begin{frame}{Subgame-Margin Maximization: Experimental Results}
-    \begin{figure}[H]
-      \centering
-      \includegraphics[width=\textwidth]{../img/sm-experiments}
-    \end{figure}
-    \pause
+    \begin{frame}{Subgame-Margin Maximization: Gadget Game}
+      \begin{figure}
+        \centering
+        \includegraphics[width=.5\textwidth]{../img/max-margin-gadget.png}
+      \end{figure}
+      \pause
 
-    \begin{itemize}[<+- | alert@+>]
-      \item refinement of~$\approx 2000$ subgames by each method
-      \item average margins displayed
-      \item max-margin $\to$ the best value, better than subgame re-solving or endgame solving (negative SM!)
-    \end{itemize}
-  \end{frame}
+      Against the original strategy, opponent has a~zero utility at~best.
+    \end{frame}
+
+    \begin{frame}{Subgame-Margin Maximization: Experimental Results}
+      \begin{figure}[H]
+        \centering
+        \includegraphics[width=\textwidth]{../img/sm-experiments}
+      \end{figure}
+      \pause
+
+      \begin{itemize}[<+- | alert@+>]
+        \item refinement of~$\approx 2000$ subgames by each method
+        \item average margins displayed
+        \item max-margin $\to$ the best value, better than subgame re-solving or endgame solving (negative SM!)
+      \end{itemize}
+    \end{frame}
+  }
 
   \section{Ideas for Future Work}
 
