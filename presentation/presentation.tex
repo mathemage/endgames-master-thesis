@@ -18,10 +18,10 @@
 \bibliography{../src/bibliography.bib}
 
 \setbeamercolor{background canvas}{bg=white}
-%\setbeamercolor{title}{fg=white}
-%\setbeamercolor{subtitle}{fg=black}
-%\setbeamercolor{author}{fg=black}
-%\setbeamercolor{institute}{fg=white}
+\setbeamercolor{title}{fg=white}
+\setbeamercolor{author}{fg=gray}
+\setbeamercolor{date}{fg=gray}
+\setbeamercolor{institute}{fg=gray}
 
 \newcommand{\todo}{\alert{TODO}}
 \newcommand{\itemBullet}{\scriptsize$\blacksquare$}
@@ -42,7 +42,12 @@
 \institute{Department of~Applied Mathematics \\Charles University}
 
 \begin{document}
-  \maketitle
+  {
+    \usebackgroundtemplate{
+      \includegraphics[height=\paperheight]{../img/poker_bg.jpg}
+    }
+    \maketitle
+  }
 
   % todo df: subgame / endgame
   % todo application in game playing
