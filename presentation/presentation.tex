@@ -8,6 +8,7 @@
 \usepackage{tabto}
 \graphicspath{{../img/}}
 \usepackage{skak}           % for typesetting Chess
+\usepackage{wrapfig}
 
 \theoremstyle{definition}
 \newtheorem{defn}{Definition}
@@ -194,6 +195,23 @@
       \def\svgwidth{.65\textwidth}
       \input{../img/rock-paper-scissors-ext-form.pdf_tex}
     \end{figure}
+  \end{frame}
+
+  \begin{frame}{Imperfect-Information Subgames: Imperfect-Information Subgame}
+    \vskip -10em
+    \begin{wrapfigure}{r}{.4\textwidth}
+      \centering
+      \scriptsize
+      \def\svgwidth{.35\textwidth}
+      \input{../img/rock-paper-scissors-subgame.pdf_tex}
+    \end{wrapfigure}
+    \pause
+    = a~forest of~subtrees closed under: 
+    \pause
+    \begin{itemize}[<+- | alert@+>]
+      \item descendant relation
+      \item membership to the same \emph{augmented} information set
+    \end{itemize}
   \end{frame}
 
   \begin{frame}{Methods of Solving Games}
