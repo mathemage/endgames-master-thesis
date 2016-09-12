@@ -52,139 +52,6 @@
     \maketitle
   }
 
-  \section{Perfect-Information Subgames}
-
-  \begin{frame}{Perfect-Information Subgames: Subgame / Endgame}
-    Any node in~the tree induces its own subgame:
-    \pause
-    \begin{figure}[H]
-      \raggedleft
-      \scriptsize
-      \def\svgwidth{.8\textwidth}
-      \input{../img/extended-form_subgame.pdf_tex}
-    \end{figure}
-    \pause
-
-    In~games with perfect-information games, subgames (endgames) can be solved independently.
-  \end{frame}
-
-  \begin{frame}{Endgames in Classic Games}
-    \pause
-    \begin{itemize}[<+- | alert@+>]
-      \item Go
-        \begin{itemize}
-          \item combinatorial game theory
-          \item simulations: Monte Carlo tree search + neural networks
-        \end{itemize}
-      \item Chess
-        \begin{itemize}
-          \item retrograde analysis (backward induction)
-          \item $\to$ \emph{chess tablebase}
-        \end{itemize}
-    \end{itemize}
-  \end{frame}
-
-  {
-    \setbeamertemplate{frame footer}{\cite{Lomonosov2014eightlongest}}
-    \def\chessTitle{Chess Endgames: Longest 7-man Checkmate }
-    \begin{frame}{\chessTitle (549 Moves)}
-      \begin{figure}[H]
-        \centering
-        \newgame
-        \fenboard{1n1k4/6Q1/5KP1/8/7b/1r6/8/8 w - - 0 0}
-        \showboard
-      \end{figure}
-    \end{frame}
-
-    \begin{frame}{\chessTitle (549 Moves)}
-      \begin{figure}[H]
-        \centering
-        \fenboard{1n1k4/6Q1/6P1/5K2/7b/1r6/8/8 b - - 0 0}
-        \showboard
-      \end{figure}
-    \end{frame}
-
-    \begin{frame}{\chessTitle (548 Moves)}
-      \begin{figure}[H]
-        \centering
-        \fenboard{1n1k4/6Q1/6P1/1r3K2/7b/8/8/8 w - - 0 0}
-        \showboard
-      \end{figure}
-    \end{frame}
-
-    \begin{frame}{\chessTitle (548 Moves)}
-      \begin{figure}[H]
-        \centering
-        \fenboard{1n1k4/6Q1/6P1/1r6/6Kb/8/8/8 b - - 0 0}
-        \showboard
-      \end{figure}
-    \end{frame}
-
-    \begin{frame}{\chessTitle (547 Moves)}
-      \begin{figure}[H]
-        \centering
-        \fenboard{1n1k4/6Q1/6P1/8/1r4Kb/8/8/8 w - - 0 0}
-        \showboard
-      \end{figure}
-    \end{frame}
-
-    \begin{frame}{\chessTitle (547 Moves)}
-      \begin{figure}[H]
-        \centering
-        \fenboard{1n1k4/6Q1/6P1/8/1r5b/5K2/8/8 b - - 0 0}
-        \showboard
-      \end{figure}
-    \end{frame}
-
-    \begin{frame}{\chessTitle (546 Moves)}
-      \begin{figure}[H]
-        \centering
-        \fenboard{3k4/3n2Q1/6P1/8/1r5b/5K2/8/8 w - - 0 0}
-        \showboard
-      \end{figure}
-    \end{frame}
-
-    \begin{frame}{\chessTitle (546 Moves)}
-      \begin{figure}[H]
-        \centering
-        \fenboard{3k3Q/3n4/6P1/8/1r5b/5K2/8/8 b - - 0 0}
-        \showboard
-      \end{figure}
-    \end{frame}
-
-    \begin{frame}{\chessTitle (545 Moves)}
-      \begin{figure}[H]
-        \centering
-        \fenboard{7Q/3nk3/6P1/8/1r5b/5K2/8/8 w - - 0 0}
-        \showboard
-      \end{figure}
-    \end{frame}
-
-    \begin{frame}{\chessTitle (545 Moves)}
-      \begin{figure}[H]
-        \centering
-        \fenboard{7Q/3nk1P1/8/8/1r5b/5K2/8/8 b - - 0 0}
-        \showboard
-      \end{figure}
-    \end{frame}
-
-    \begin{frame}{\chessTitle (544 Moves)}
-      \begin{figure}[H]
-        \centering
-        \fenboard{7Q/3nk1P1/5b2/8/1r6/5K2/8/8 w - - 0 0}
-        \showboard
-      \end{figure}
-    \end{frame}
-
-    \begin{frame}{\chessTitle (544 Moves)}
-      \begin{figure}[H]
-        \centering
-        \fenboard{6NQ/3nk3/5b2/8/1r6/5K2/8/8 b - - 0 0}
-        \showboard
-      \end{figure}
-    \end{frame}
-  }
-
   \section{Imperfect-Information Subgames}
   \begin{frame}{Information Sets}
     \pause
@@ -459,6 +326,139 @@
   \begin{frame}[standout]
     Backup Slides
   \end{frame}
+
+  \section{Perfect-Information Subgames}
+
+  \begin{frame}{Perfect-Information Subgames: Subgame / Endgame}
+    Any node in~the tree induces its own subgame:
+    \pause
+    \begin{figure}[H]
+      \raggedleft
+      \scriptsize
+      \def\svgwidth{.8\textwidth}
+      \input{../img/extended-form_subgame.pdf_tex}
+    \end{figure}
+    \pause
+
+    In~games with perfect-information games, subgames (endgames) can be solved independently.
+  \end{frame}
+
+  \begin{frame}{Endgames in Classic Games}
+    \pause
+    \begin{itemize}[<+- | alert@+>]
+      \item Go
+        \begin{itemize}
+          \item combinatorial game theory
+          \item simulations: Monte Carlo tree search + neural networks
+        \end{itemize}
+      \item Chess
+        \begin{itemize}
+          \item retrograde analysis (backward induction)
+          \item $\to$ \emph{chess tablebase}
+        \end{itemize}
+    \end{itemize}
+  \end{frame}
+
+  {
+    \setbeamertemplate{frame footer}{\cite{Lomonosov2014eightlongest}}
+    \def\chessTitle{Chess Endgames: Longest 7-man Checkmate }
+    \begin{frame}{\chessTitle (549 Moves)}
+      \begin{figure}[H]
+        \centering
+        \newgame
+        \fenboard{1n1k4/6Q1/5KP1/8/7b/1r6/8/8 w - - 0 0}
+        \showboard
+      \end{figure}
+    \end{frame}
+
+    \begin{frame}{\chessTitle (549 Moves)}
+      \begin{figure}[H]
+        \centering
+        \fenboard{1n1k4/6Q1/6P1/5K2/7b/1r6/8/8 b - - 0 0}
+        \showboard
+      \end{figure}
+    \end{frame}
+
+    \begin{frame}{\chessTitle (548 Moves)}
+      \begin{figure}[H]
+        \centering
+        \fenboard{1n1k4/6Q1/6P1/1r3K2/7b/8/8/8 w - - 0 0}
+        \showboard
+      \end{figure}
+    \end{frame}
+
+    \begin{frame}{\chessTitle (548 Moves)}
+      \begin{figure}[H]
+        \centering
+        \fenboard{1n1k4/6Q1/6P1/1r6/6Kb/8/8/8 b - - 0 0}
+        \showboard
+      \end{figure}
+    \end{frame}
+
+    \begin{frame}{\chessTitle (547 Moves)}
+      \begin{figure}[H]
+        \centering
+        \fenboard{1n1k4/6Q1/6P1/8/1r4Kb/8/8/8 w - - 0 0}
+        \showboard
+      \end{figure}
+    \end{frame}
+
+    \begin{frame}{\chessTitle (547 Moves)}
+      \begin{figure}[H]
+        \centering
+        \fenboard{1n1k4/6Q1/6P1/8/1r5b/5K2/8/8 b - - 0 0}
+        \showboard
+      \end{figure}
+    \end{frame}
+
+    \begin{frame}{\chessTitle (546 Moves)}
+      \begin{figure}[H]
+        \centering
+        \fenboard{3k4/3n2Q1/6P1/8/1r5b/5K2/8/8 w - - 0 0}
+        \showboard
+      \end{figure}
+    \end{frame}
+
+    \begin{frame}{\chessTitle (546 Moves)}
+      \begin{figure}[H]
+        \centering
+        \fenboard{3k3Q/3n4/6P1/8/1r5b/5K2/8/8 b - - 0 0}
+        \showboard
+      \end{figure}
+    \end{frame}
+
+    \begin{frame}{\chessTitle (545 Moves)}
+      \begin{figure}[H]
+        \centering
+        \fenboard{7Q/3nk3/6P1/8/1r5b/5K2/8/8 w - - 0 0}
+        \showboard
+      \end{figure}
+    \end{frame}
+
+    \begin{frame}{\chessTitle (545 Moves)}
+      \begin{figure}[H]
+        \centering
+        \fenboard{7Q/3nk1P1/8/8/1r5b/5K2/8/8 b - - 0 0}
+        \showboard
+      \end{figure}
+    \end{frame}
+
+    \begin{frame}{\chessTitle (544 Moves)}
+      \begin{figure}[H]
+        \centering
+        \fenboard{7Q/3nk1P1/5b2/8/1r6/5K2/8/8 w - - 0 0}
+        \showboard
+      \end{figure}
+    \end{frame}
+
+    \begin{frame}{\chessTitle (544 Moves)}
+      \begin{figure}[H]
+        \centering
+        \fenboard{6NQ/3nk3/5b2/8/1r6/5K2/8/8 b - - 0 0}
+        \showboard
+      \end{figure}
+    \end{frame}
+  }
 
   \begin{frame}[allowframebreaks]{References}
     \tiny
