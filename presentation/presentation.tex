@@ -116,19 +116,26 @@
             \end{itemize}
         \end{itemize}
     \end{itemize}
+    \pause
   \end{frame}
 
-  \section{Endgame Solving}
+  \begin{frame}{Methods of Solving Subgames}
+    \begin{itemize}[<+- | alert@+>]
+      \item Endgame Solving
+      \item CFR-D Decomposition
+      \item Subgame-Margin Maximization (our paper at AAAI 2016)
+    \end{itemize}
+  \end{frame}
+
   {
     \setbeamertemplate{frame footer}{\cite{Ganzfried2015endgame}}
-    \begin{frame}{Endgame Solving: Gadget Game}
+    \begin{frame}{Endgame Solving: Gadget Game and Linear Program}
       \begin{figure}
         \centering
         \includegraphics[width=.5\textwidth]{../img/endgame-solving-gadget.png}
       \end{figure}
-    \end{frame}
+      \pause
 
-    \begin{frame}{Endgame Solving: Linear Program}
       \begin{equation*}
         \label{lp:endgame-solving}
         \begin{split}
@@ -141,7 +148,6 @@
     \end{frame}
   }
 
-  \section{CFR-D Decomposition}
   {
     \setbeamertemplate{frame footer}{\cite{BurchJohansonBowling2014}}
     \begin{frame}{CFR-D Decomposition: Gadget Game}
@@ -269,7 +275,7 @@
         \centering
         \includegraphics[width=.5\textwidth]{../img/max-margin-gadget.png}
       \end{figure}
-      \pause
+      %\pause
 
       %Against the original strategy, opponent has a~zero utility at~best.
     \end{frame}
