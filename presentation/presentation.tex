@@ -52,7 +52,14 @@
     \maketitle
   }
 
-  \section{Imperfect-Information Subgames}
+  \begin{frame}{Why Subgames (Endgames)?}
+    \begin{itemize}[<+- | alert@+>]
+      \item independent solving
+      \item improve (refine) strategies in a~given part of~the game
+      \item online re-calculations during play
+    \end{itemize}
+  \end{frame}
+
   \begin{frame}{Information Sets}
     \begin{figure}[H]
       \centering
@@ -107,7 +114,7 @@
       \item iterative learning algorithms 
         \begin{itemize}
           \item subgame extracted and transformed into a~\emph{gadget game}
-          \item applied directly to a~game-tree formulation
+          \item algorithm applied directly to a~gadget-game formulation
           \item examples: CFR, Monte Carlo CFR, \cfrplus\ldots
         \end{itemize}
     \end{itemize}
@@ -283,7 +290,7 @@
       \begin{itemize}[<+- | alert@+>]
         \item refinement of~$\approx 2000$ subgames by each method
         \item average margins displayed
-        \item max-margin $\to$ the best value, better than subgame re-solving or endgame solving (negative SM!)
+        \item max-margin $\to$ the best value, better than subgame re-solving (i.e. CFR-D Decomposition) or endgame solving (negative SM!)
       \end{itemize}
     \end{frame}
   }
