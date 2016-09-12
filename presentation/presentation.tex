@@ -82,9 +82,9 @@
   \begin{frame}{Some Notation and Concepts}
     \pause
     \begin{itemize}[<+- | alert@+>]
-      \item $\pi^{\sigma}(I)$ \ldots the probability of~reaching information set~$I$ under strategy profile~$\sigma$
-      \item $\pi_i^{\sigma}(I)$ \ldots player $i$'s contribution to $\pi^{\sigma}(I)$
-      \item $u_i(\sigma)$ \ldots player $i$'s expected utility under $\sigma$
+      %\item $\pi^{\sigma}(I)$ \ldots the probability of~reaching information set~$I$ under strategy profile~$\sigma$
+      %\item $\pi_i^{\sigma}(I)$ \ldots player $i$'s contribution to $\pi^{\sigma}(I)$
+      %\item $u_i(\sigma)$ \ldots player $i$'s expected utility under $\sigma$
       \item $v _i ^{\sigma} (I)$ \ldots the expected utility if player~$i$ had played to reach $I$ (so-called \emph{counterfactual value})
       \item $BR(\sigma_i)$ \ldots a~best-response strategy to opponent's strategy~$\sigma_i$
       \item $CBR(\sigma_i)$ \ldots a~variant of~$BR(\sigma_i)$ based on~counterfactual values
@@ -106,20 +106,15 @@
         \end{itemize}
       \item iterative learning algorithms 
         \begin{itemize}
-          \item applied directly to a~game-tree formulation
           \item subgame extracted and transformed into a~\emph{gadget game}
-          \item the most used algorithms:
-            \begin{itemize}
-              \item counterfactual regret minimization (CFR)
-              \item Monte Carlo CFR (MCCFR)
-              \item \cfrplus
-            \end{itemize}
+          \item applied directly to a~game-tree formulation
+          \item examples: CFR, Monte Carlo CFR, \cfrplus\ldots
         \end{itemize}
     \end{itemize}
-    \pause
   \end{frame}
 
   \begin{frame}{Methods of Solving Subgames}
+    \pause
     \begin{itemize}[<+- | alert@+>]
       \item Endgame Solving
       \item CFR-D Decomposition
@@ -177,7 +172,7 @@
           x &\ge \vect{0}
         \end{split}
       \end{equation*}
-      \pause
+      %\pause
 
       %\begin{itemize}[<+- | alert@+>]
       %  \item $\I_2^{R(S)}$ denotes the root information sets 
@@ -186,7 +181,7 @@
     \end{frame}
   }
 
-  \section{Subgame-Margin Maximization}
+  %\section{Subgame-Margin Maximization}
   {
     \setbeamertemplate{frame footer}{\cite{Moravcik2016refining}}
     \begin{frame}{Subgame-Margin Maximization: Subgame Margin}
@@ -221,12 +216,10 @@
       \pause
 
       Hence, non-negative SM does not allow the opponent to improve.
-      \pause
-
-      Moreover, SM is even proportional to the overall improvement$\ldots$
     \end{frame}
 
     \begin{frame}{Subgame-Margin Maximization: Gain Is Proportional to SM}
+      Moreover, SM is even proportional to the overall improvement$\ldots$
       \pause
       \begin{framed}
         \begin{theorem}
@@ -238,15 +231,15 @@
       \end{framed}
       \pause
 
-      \begin{itemize}[<+- | alert@+>]
-         \item ``the probability of~reaching a~subgame'' $\propto \pi_{-2}^{\sigma_1'}(I_2)$
-         \item $\uparrow \pi_{-2}^{\sigma_1'}(I_2)$
-           \begin{enumerate}[$\Rightarrow$]
-             \item $\uparrow$ the bound
-             \item $\uparrow$ the probability of~reaching that subgame
-           \end{enumerate}
-         \item Thus, we are likelier to reach a~subgame with a~larger bound.
-      \end{itemize}
+      %\begin{itemize}[<+- | alert@+>]
+      %   \item ``the probability of~reaching a~subgame'' $\propto \pi_{-2}^{\sigma_1'}(I_2)$
+      %   \item $\uparrow \pi_{-2}^{\sigma_1'}(I_2)$
+      %     \begin{enumerate}[$\Rightarrow$]
+      %       \item $\uparrow$ the bound
+      %       \item $\uparrow$ the probability of~reaching that subgame
+      %     \end{enumerate}
+      %   \item Thus, we are likelier to reach a~subgame with a~larger bound.
+      %\end{itemize}
     \end{frame}
 
     \begin{frame}{Subgame-Margin Maximization: Linear Program}
@@ -264,7 +257,7 @@
 
       \begin{itemize}[<+- | alert@+>]
         \item $m$ is a~scalar corresponding to the subgame margin
-        \item $\approx$ ``gap'' between values $v_I$ and the given constants $CBV_2^\sigma(I)$
+        %\item $\approx$ ``gap'' between values $v_I$ and the given constants $CBV_2^\sigma(I)$
         \item \emph{CFR-D Decomposition} only guarantees a~non-negative margin
         \item \emph{Subgame-Margin Maximization} maximizes it
       \end{itemize}
