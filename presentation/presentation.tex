@@ -290,29 +290,6 @@
     \end{frame}
   }
 
-  \section{Ideas for Future Work}
-
-  \begin{frame}{Margins as a~Vector Linear Program}
-    \begin{equation*}
-      \label{vlp:max-margins}
-      \begin{split}
-        \max_{v, x}\ &\textcolor{red}{\vect{m}} \\
-        v_I - \vect{m}_{\textcolor{red}{I}} &\ge CBV_2^{\sigma_1}(I), \quad I \in \I_2^{R(S)}\\ 
-        Ex &= e \\
-        F^\top v - A_2^\top x &\le \vect{0} \\
-        x &\ge \vect{0}
-      \end{split}
-    \end{equation*}
-
-    \pause
-    \begin{itemize}[<+- | alert@+>]
-      \item $\vect{m}_I := CBV_2^{\sigma_1} (I) - CBV_2^{\sigma_1'} (I)$ corresponds to one specific margin
-      \item $\vect{m} := (m_I) _{I\in\I_2^{R(S)}}$ is a~vector of~all such margins
-      \item multi-criteria optimization problem
-      \item corresponding gadget games?
-    \end{itemize}
-  \end{frame}
-
   \begin{frame}[standout]
     \begin{center}
       Thank you!
@@ -459,6 +436,29 @@
       \end{figure}
     \end{frame}
   }
+
+  \section{Ideas for Future Work}
+
+  \begin{frame}{Margins as a~Vector Linear Program}
+    \begin{equation*}
+      \label{vlp:max-margins}
+      \begin{split}
+        \max_{v, x}\ &\textcolor{red}{\vect{m}} \\
+        v_I - \vect{m}_{\textcolor{red}{I}} &\ge CBV_2^{\sigma_1}(I), \quad I \in \I_2^{R(S)}\\ 
+        Ex &= e \\
+        F^\top v - A_2^\top x &\le \vect{0} \\
+        x &\ge \vect{0}
+      \end{split}
+    \end{equation*}
+
+    \pause
+    \begin{itemize}[<+- | alert@+>]
+      \item $\vect{m}_I := CBV_2^{\sigma_1} (I) - CBV_2^{\sigma_1'} (I)$ corresponds to one specific margin
+      \item $\vect{m} := (m_I) _{I\in\I_2^{R(S)}}$ is a~vector of~all such margins
+      \item multi-criteria optimization problem
+      \item corresponding gadget games?
+    \end{itemize}
+  \end{frame}
 
   \begin{frame}[allowframebreaks]{References}
     \tiny
