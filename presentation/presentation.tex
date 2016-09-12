@@ -186,8 +186,7 @@
   }
 
   \section{Imperfect-Information Subgames}
-  % todo df: probabilities, (imperf-info) subgames
-  \begin{frame}{Imperfect-Information Subgames: Information Sets}
+  \begin{frame}{Information Sets}
     \pause
     \begin{figure}[H]
       \centering
@@ -197,7 +196,7 @@
     \end{figure}
   \end{frame}
 
-  \begin{frame}{Imperfect-Information Subgames: Imperfect-Information Subgame}
+  \begin{frame}{Imperfect-Information Subgame}
     \vskip -10em
     \begin{wrapfigure}{r}{.4\textwidth}
       \centering
@@ -214,7 +213,26 @@
     \end{itemize}
   \end{frame}
 
+  \begin{frame}{Some Notation and Concepts}
+    \pause
+    \begin{itemize}[<+- | alert@+>]
+      \item $\pi^{\sigma}(I)$ \ldots the probability of~reaching information set~$I$ under strategy profile~$\sigma$
+      \item $\pi_i^{\sigma}(I)$ \ldots player $i$'s contribution to $\pi^{\sigma}(I)$
+      \item $u_i(\sigma)$ \ldots player $i$'s expected utility under $\sigma$
+      \item $v _i ^{\sigma} (I)$ \ldots the expected utility if player~$i$ had played to reach $I$ (so-called \emph{counterfactual value})
+      \item $BR(\sigma_i)$ \ldots a~best-response strategy to opponent's strategy~$\sigma_i$
+      \item $CBR(\sigma_i)$ \ldots a~variant of~$BR(\sigma_i)$ based on~counterfactual values
+      \item $CBV _i ^\sigma (I) = v _i ^{(\sigma _{-i}, CBR _i (\sigma _{-i} ))} (I)$ \ldots the counterfactual value of~CBR (so-called \emph{counterfactual best-response value})
+    \end{itemize}
+    \pause
+
+    Assumptions: two-player zero-sum games, imperfect~information, player~$1$ = us, player~$2$ = the opponent
+  \end{frame}
+
   \begin{frame}{Methods of Solving Games}
+    = computing Nash equilibrium
+    \pause
+
     \begin{itemize}[<+- | alert@+>]
       \item linear programming (LP)
         \begin{itemize}
@@ -229,8 +247,6 @@
         \end{itemize}
     \end{itemize}
   \end{frame}
-
-  % todo assumptions: 2-player, we = 1, opponent = 2
 
   \section{Endgame Solving}
   {
